@@ -168,7 +168,10 @@
     "ask_ai_chip": "Ask AI for more detail",
     "offline_notice": "Offline — showing closest matching answers",
     "damm_locked_title": "Ritual Guidance Locked",
-    "damm_locked_body": "Your account requires a scholar consultation before receiving ritual guidance. Please resolve your Miqat situation first."
+    "damm_locked_body": "Your account requires a scholar consultation before receiving ritual guidance. Please resolve your Miqat situation first.",
+    "setup_required_title": "Setup Required",
+    "setup_required_body": "Complete your profile to get personalised guidance on Hajj and Umrah rulings.",
+    "setup_btn": "Complete Setup"
   },
   "miqat": {
     "assigned": "Your Miqat: {{name}}",

@@ -4,6 +4,7 @@ import {
   ScrollView, KeyboardAvoidingView, Platform, ActivityIndicator,
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
+import { useRouter } from 'expo-router';
 import { usePersonaStore } from '../../src/stores/personaStore';
 import { useLocationStore } from '../../src/stores/locationStore';
 import { useHealthStore } from '../../src/stores/healthStore';
@@ -29,6 +30,7 @@ const SUGGESTIONS = ['What is Raml?', "Does a woman need to shave?", 'What is Id
 
 export default function AskScreen() {
   const { t } = useTranslation();
+  const router = useRouter();
   const persona = usePersonaStore((s) => s.persona);
   const currentZone = useLocationStore((s) => s.currentZone);
   const miqatAssignment = useLocationStore((s) => s.miqatAssignment);
@@ -43,6 +45,20 @@ export default function AskScreen() {
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
 
+  if (!persona) {
+    return (
+      <SafeAreaView style={styles.safe}>
+        <View style={styles.locked}>
+          <Text style={styles.lockedTitle}>🕋 {t('ask.setup_required_title')}</Text>
+          <Text style={styles.lockedBody}>{t('ask.setup_required_body')}</Text>
+          <TouchableOpacity style={styles.setupBtn} onPress={() => router.push('/(onboarding)/welcome')}>
+            <Text style={styles.setupBtnText}>{t('ask.setup_btn')}</Text>
+          </TouchableOpacity>
+        </View>
+      </SafeAreaView>
+    );
+  }
+
   if (ihramState === 'crossed_without_ihram') {
     return (
       <SafeAreaView style={styles.safe}>
@@ -56,22 +72,7 @@ export default function AskScreen() {
 
   const handleSend = async (query?: string) => {
     const q = (query ?? input).trim();
-    if (!q || loading) return;
-
-    const effectivePersona = persona ?? {
-      name: '',
-      gender: 'male' as const,
-      ritualType: 'umrah' as const,
-      languageCode: 'en',
-      dialectKey: 'standard_arabic' as const,
-      nationalityCode: '',
-      originConfirmed: '',
-      mobilityLevel: 'standard' as const,
-      emergencyContactName: '',
-      emergencyContactPhone: '',
-      hotelName: '',
-      hotelAddress: '',
-    };
+    if (!q || loading || !persona) return;
 
     setMessages((prev) => [...prev, { id: Date.now().toString(), role: 'user', text: q }]);
     setInput('');
@@ -80,7 +81,7 @@ export default function AskScreen() {
     try {
       const result = await claudeService.processQuery({
         query: q,
-        persona: effectivePersona,
+        persona,
         currentZone,
         miqatName: miqatAssignment,
         miqatStatus,
@@ -230,6 +231,8 @@ const styles = StyleSheet.create({
   },
   sendBtnDisabled: { backgroundColor: Colors.brandGreen + '55' },
   sendBtnText: { color: Colors.white, fontWeight: '700', fontSize: 14 },
+  setupBtn: { marginTop: 20, backgroundColor: Colors.brandGreen, borderRadius: 14, paddingVertical: 14, paddingHorizontal: 32 },
+  setupBtnText: { color: Colors.white, fontWeight: '700', fontSize: 16 },
   locked: { flex: 1, padding: 24, justifyContent: 'center', alignItems: 'center' },
   lockedTitle: { fontSize: 20, fontWeight: '700', color: Colors.danger, textAlign: 'center', marginBottom: 12 },
   lockedBody: { fontSize: 15, color: Colors.textPrimary, opacity: 0.7, textAlign: 'center', lineHeight: 24 },
