@@ -53,20 +53,20 @@ export default function WalletScreen() {
 
         {tab === 'emergency' && (
           <View style={styles.card}>
-            {persona?.name && (
+            {!!persona?.name && (
               <View style={styles.pilgrimRow}>
                 <Text style={styles.fieldLabel}>{t('wallet_ui.pilgrim')}</Text>
                 <Text style={styles.pilgrimName}>{persona.name}</Text>
               </View>
             )}
 
-            {(persona?.emergencyContactName || persona?.emergencyContactPhone) && (
+            {!!(persona?.emergencyContactName || persona?.emergencyContactPhone) && (
               <View style={styles.section}>
                 <Text style={styles.sectionLabel}>{t('wallet.emergency_contacts')}</Text>
-                {persona.emergencyContactName && (
+                {!!persona.emergencyContactName && (
                   <Text style={styles.contactName}>{persona.emergencyContactName}</Text>
                 )}
-                {persona.emergencyContactPhone && (
+                {!!persona.emergencyContactPhone && (
                   <TouchableOpacity style={styles.callBtn} onPress={() => call(persona.emergencyContactPhone)}>
                     <Text style={styles.callBtnText}>📞 {t('wallet.call')}  {persona.emergencyContactPhone}</Text>
                   </TouchableOpacity>
@@ -93,10 +93,10 @@ export default function WalletScreen() {
 
         {tab === 'hotel' && (
           <View style={styles.card}>
-            {persona?.hotelName || persona?.hotelAddress ? (
+            {!!(persona?.hotelName || persona?.hotelAddress) ? (
               <>
-                {persona.hotelName && <Text style={styles.hotelName}>{persona.hotelName}</Text>}
-                {persona.hotelAddress && <Text style={styles.hotelAddress}>{persona.hotelAddress}</Text>}
+                {!!persona.hotelName && <Text style={styles.hotelName}>{persona.hotelName}</Text>}
+                {!!persona.hotelAddress && <Text style={styles.hotelAddress}>{persona.hotelAddress}</Text>}
               </>
             ) : (
               <Text style={styles.emptyNote}>{t('onboarding.identity_hotel_hint')}</Text>
@@ -106,13 +106,13 @@ export default function WalletScreen() {
 
         {tab === 'nusuk' && (
           <View style={styles.card}>
-            {nusukIdNumber && (
+            {!!nusukIdNumber && (
               <View style={styles.section}>
                 <Text style={styles.fieldLabel}>{t('onboarding.nusuk_id_section')}</Text>
                 <Text style={styles.nusukId}>{nusukIdNumber}</Text>
               </View>
             )}
-            {persona?.name && (
+            {!!persona?.name && (
               <View style={styles.pilgrimRow}>
                 <Text style={styles.fieldLabel}>{t('wallet.permit_holder')}</Text>
                 <Text style={styles.pilgrimName}>{persona.name}</Text>
