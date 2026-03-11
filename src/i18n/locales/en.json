@@ -180,5 +180,42 @@
     "ihram_worn_on_plane": "I wore Ihram on the plane",
     "retroactive_confirm": "Confirm Retroactive Ihram",
     "select_miqat": "Select the Miqat you intended:"
+  },
+  "guide": {
+    "umrah_title": "Umrah Guide",
+    "hajj_title": "Hajj Guide",
+    "start_umrah": "Start Umrah",
+    "start_hajj": "Start Hajj",
+    "steps_count": "{{count}} steps — detailed guidance with du'a & rulings",
+    "tap_hint": "Tap a step to mark it active",
+    "step_label": "Step {{n}}",
+    "open_tawaf_counter": "Open Counter — Tawaf",
+    "open_sai_counter": "Open Counter — Sa'i",
+    "all_steps": "All steps",
+    "complete": "Complete!",
+    "reset": "Reset",
+    "previous": "Previous",
+    "next_step": "Next",
+    "hajj_season_msg": "Hajj guide activates during Hajj months (Shawwal – Dhul Hijja)",
+    "males_only": "Males only",
+    "females_only": "Females only"
+  },
+  "tracker_ui": {
+    "pick_subtitle": "Choose a ritual to start counting",
+    "tawaf_hint": "7 rounds around the Kaaba",
+    "sai_hint": "7 trips between Safa & Marwa",
+    "reset_confirm": "Reset the counter?",
+    "completed_laps": "Completed laps",
+    "pause": "Pause"
+  },
+  "wallet_ui": {
+    "pilgrim": "Pilgrim",
+    "emergency_lines": "Emergency Lines",
+    "medical_emergency_title": "Medical Emergency",
+    "hajj_ministry_title": "Hajj Ministry",
+    "haram_security_title": "Haram Security"
+  },
+  "dashboard_ui": {
+    "start": "Start"
   }
 }

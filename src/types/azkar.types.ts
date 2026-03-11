@@ -1,9 +1,11 @@
 export type AzkarCategory =
+  | 'talbiyah'
+  | 'entering_haram'
   | 'tawaf_general'
   | 'tawaf_lap_specific'
+  | 'sai'
   | 'sai_general'
   | 'sai_lap_specific'
-  | 'entering_haram'
   | 'zamzam'
   | 'maqam_ibrahim'
   | 'morning'

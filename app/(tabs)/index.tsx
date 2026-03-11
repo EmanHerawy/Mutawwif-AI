@@ -7,23 +7,22 @@ import { useLocationStore } from '../../src/stores/locationStore';
 import { useHealthStore } from '../../src/stores/healthStore';
 import { Colors } from '../../src/theme/colors';
 
-const RITUAL_LABELS: Record<string, string> = {
-  umrah: 'Umrah · عمرة',
-  hajj_tamattu: "Hajj Tamattu' · حج التمتع",
-  hajj_qiran: 'Hajj Qiran · حج القران',
-  hajj_ifrad: 'Hajj Ifrad · حج الإفراد',
-};
+// Approximate Gregorian windows for Hajj months (Shawwal–Dhul Hijja)
+const HAJJ_SEASONS = [
+  { start: new Date('2025-03-30'), end: new Date('2025-08-28') },
+  { start: new Date('2026-03-20'), end: new Date('2026-08-17') },
+  { start: new Date('2027-03-09'), end: new Date('2027-08-07') },
+  { start: new Date('2028-02-27'), end: new Date('2028-07-26') },
+];
+function isHajjSeason() {
+  const now = new Date();
+  return HAJJ_SEASONS.some((s) => now >= s.start && now <= s.end);
+}
 
 const HEAT_COLORS: Record<string, string> = {
   caution: Colors.goldAccent,
   danger: Colors.warning,
   extreme: Colors.danger,
-};
-
-const HEAT_LABELS: Record<string, string> = {
-  caution: '☀️ Stay hydrated',
-  danger: '🌡️ Extreme heat — drink water now',
-  extreme: '🚨 Seek shade immediately',
 };
 
 export default function DashboardScreen() {
@@ -39,7 +38,8 @@ export default function DashboardScreen() {
   const currentTemp = useHealthStore((s) => s.currentTempCelsius);
 
   const name = persona?.name ?? '';
-  const ritualLabel = persona?.ritualType ? RITUAL_LABELS[persona.ritualType] : '';
+  const isHajjType = persona?.ritualType && persona.ritualType !== 'umrah';
+  const hajjAllowed = isHajjSeason();
 
   return (
     <SafeAreaView style={styles.safe}>
@@ -50,79 +50,103 @@ export default function DashboardScreen() {
           <Text style={styles.greeting}>
             {name ? `${t('recovery.title')}, ${name} 👋` : '🕋 Mutawwif'}
           </Text>
-          {!!ritualLabel && (
-            <View style={styles.ritualBadge}>
-              <Text style={styles.ritualBadgeText}>{ritualLabel}</Text>
-            </View>
-          )}
         </View>
 
-        {/* Heat alert */}
-        {heatStatus !== 'normal' && HEAT_LABELS[heatStatus] && (
+        {/* Status banners */}
+        {heatStatus !== 'normal' && HEAT_COLORS[heatStatus] && (
           <View style={[styles.banner, { borderColor: HEAT_COLORS[heatStatus] }]}>
             <Text style={[styles.bannerText, { color: HEAT_COLORS[heatStatus] }]}>
-              {HEAT_LABELS[heatStatus]}
+              {t(`heat.${heatStatus}_title`)}
               {currentTemp !== null ? `  ${currentTemp}°C` : ''}
             </Text>
           </View>
         )}
-
-        {/* Miqat approaching */}
         {(miqatStatus === 'approaching_50' || miqatStatus === 'approaching_10') && (
           <View style={[styles.banner, { borderColor: Colors.goldAccent }]}>
             <Text style={[styles.bannerText, { color: Colors.goldAccent }]}>
-              {miqatStatus === 'approaching_10'
-                ? `⚠️ ${t('miqat.approaching_10')}`
-                : `📍 ${t('miqat.approaching_50')}`}
+              {miqatStatus === 'approaching_10' ? `⚠️ ${t('miqat.approaching_10')}` : `📍 ${t('miqat.approaching_50')}`}
             </Text>
           </View>
         )}
-
-        {/* Ihram active */}
         {ihramState === 'worn' && (
           <View style={[styles.banner, { borderColor: Colors.brandGreen, backgroundColor: Colors.brandGreen + '10' }]}>
             <Text style={[styles.bannerText, { color: Colors.brandGreen }]}>✅ {t('miqat.ihram_active')}</Text>
           </View>
         )}
 
-        {/* Active ritual — resume card */}
+        {/* Active ritual resume */}
         {counter && isActive && (
           <TouchableOpacity style={styles.activeCard} onPress={() => router.push('/(tabs)/tracker')}>
             <View>
               <Text style={styles.activeCardLabel}>
                 {counter.ritual === 'tawaf' ? t('tracker.tawaf') : t('tracker.sai')} · {t('recovery.subtitle')}
               </Text>
-              <Text style={styles.activeCardProgress}>
-                {counter.completedLaps} / 7 {t('tracker.round')}
-              </Text>
+              <Text style={styles.activeCardProgress}>{counter.completedLaps} / 7 {t('tracker.round')}</Text>
             </View>
             <Text style={styles.activeCardArrow}>→</Text>
           </TouchableOpacity>
         )}
 
-        {/* Quick actions */}
-        <Text style={styles.sectionLabel}>
-          {(persona?.languageCode ?? 'en').startsWith('ar') ? 'ابدأ' : 'Start'}
-        </Text>
-        <View style={styles.actionGrid}>
+        {/* ── GROUP 1: Start a ritual ── */}
+        <Text style={styles.sectionLabel}>{t('dashboard_ui.start')}</Text>
+        <View style={styles.ritualGroup}>
+
+          {/* Start Umrah — always available */}
+          <TouchableOpacity
+            style={styles.ritualCard}
+            onPress={() => router.push('/(tabs)/guide')}
+          >
+            <Text style={styles.ritualEmoji}>🕋</Text>
+            <View style={styles.ritualCardContent}>
+              <Text style={styles.ritualCardTitle}>{t('guide.start_umrah')}</Text>
+              <Text style={styles.ritualCardSub}>{t('onboarding.persona_umrah')}</Text>
+            </View>
+            <Text style={styles.ritualCardArrow}>→</Text>
+          </TouchableOpacity>
+
+          {/* Start Hajj — only during Hajj months */}
+          <TouchableOpacity
+            style={[styles.ritualCard, !hajjAllowed && styles.ritualCardDisabled]}
+            onPress={() => hajjAllowed && router.push('/(tabs)/guide')}
+            activeOpacity={hajjAllowed ? 0.7 : 1}
+          >
+            <Text style={styles.ritualEmoji}>🕌</Text>
+            <View style={styles.ritualCardContent}>
+              <Text style={[styles.ritualCardTitle, !hajjAllowed && styles.textMuted]}>
+                {t('guide.start_hajj')}
+              </Text>
+              <Text style={[styles.ritualCardSub, !hajjAllowed && styles.textMuted]}>
+                {hajjAllowed ? t('onboarding.ritual_hajj_subtitle') : t('guide.hajj_season_msg')}
+              </Text>
+            </View>
+            {hajjAllowed
+              ? <Text style={styles.ritualCardArrow}>→</Text>
+              : <View style={styles.lockedBadge}><Text style={styles.lockedBadgeText}>🔒</Text></View>
+            }
+          </TouchableOpacity>
+
+        </View>
+
+        {/* ── GROUP 2: Tools ── */}
+        <Text style={styles.sectionLabel}>{t('tabs.azkar') + ' & ' + t('tabs.guide')}</Text>
+        <View style={styles.toolsGrid}>
           {[
-            { emoji: '🕋', label: t('tracker.tawaf'), route: '/(tabs)/tracker' },
-            { emoji: '🏃', label: t('tracker.sai'), route: '/(tabs)/tracker' },
+            { emoji: '📿', label: t('tabs.azkar'), route: '/(tabs)/azkar' },
             { emoji: '📖', label: t('tabs.guide'), route: '/(tabs)/guide' },
             { emoji: '💬', label: t('tabs.ask'), route: '/(tabs)/ask' },
+            { emoji: '🆔', label: t('wallet.title'), route: '/(tabs)/wallet' },
           ].map((item) => (
             <TouchableOpacity
               key={item.label}
-              style={styles.actionCard}
+              style={styles.toolCard}
               onPress={() => router.push(item.route as any)}
             >
-              <Text style={styles.actionEmoji}>{item.emoji}</Text>
-              <Text style={styles.actionLabel}>{item.label}</Text>
+              <Text style={styles.toolEmoji}>{item.emoji}</Text>
+              <Text style={styles.toolLabel}>{item.label}</Text>
             </TouchableOpacity>
           ))}
         </View>
 
-        {/* Miqat info */}
         {miqatAssignment && (
           <View style={styles.infoCard}>
             <Text style={styles.infoText}>{t('miqat.assigned', { name: miqatAssignment })}</Text>
@@ -138,16 +162,8 @@ const styles = StyleSheet.create({
   safe: { flex: 1, backgroundColor: Colors.parchmentBg },
   scroll: { padding: 20, paddingBottom: 40 },
   header: { marginBottom: 20 },
-  greeting: { fontSize: 22, fontWeight: '700', color: Colors.brandGreen, marginBottom: 8 },
-  ritualBadge: {
-    alignSelf: 'flex-start', backgroundColor: Colors.brandGreen + '18',
-    borderRadius: 8, paddingHorizontal: 10, paddingVertical: 4,
-  },
-  ritualBadgeText: { fontSize: 13, color: Colors.brandGreen, fontWeight: '600' },
-  banner: {
-    borderWidth: 1.5, borderRadius: 12, padding: 12,
-    marginBottom: 12, backgroundColor: Colors.white,
-  },
+  greeting: { fontSize: 22, fontWeight: '700', color: Colors.brandGreen },
+  banner: { borderWidth: 1.5, borderRadius: 12, padding: 12, marginBottom: 10, backgroundColor: Colors.white },
   bannerText: { fontSize: 14, fontWeight: '600' },
   activeCard: {
     flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between',
@@ -156,17 +172,31 @@ const styles = StyleSheet.create({
   activeCardLabel: { fontSize: 13, color: Colors.white, opacity: 0.8, marginBottom: 4 },
   activeCardProgress: { fontSize: 20, fontWeight: '700', color: Colors.white },
   activeCardArrow: { fontSize: 22, color: Colors.white },
-  sectionLabel: { fontSize: 12, fontWeight: '700', color: Colors.textPrimary, opacity: 0.45, marginBottom: 12, textTransform: 'uppercase', letterSpacing: 0.5 },
-  actionGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 12, marginBottom: 24 },
-  actionCard: {
+  sectionLabel: { fontSize: 11, fontWeight: '700', color: Colors.textPrimary, opacity: 0.4, marginBottom: 10, textTransform: 'uppercase', letterSpacing: 0.8 },
+  // Ritual group
+  ritualGroup: { gap: 10, marginBottom: 28 },
+  ritualCard: {
+    flexDirection: 'row', alignItems: 'center', gap: 14,
+    backgroundColor: Colors.white, borderRadius: 16, padding: 18,
+    borderWidth: 1.5, borderColor: Colors.brandGreen + '33',
+  },
+  ritualCardDisabled: { borderColor: Colors.textPrimary + '18', backgroundColor: Colors.parchmentBg },
+  ritualEmoji: { fontSize: 32 },
+  ritualCardContent: { flex: 1 },
+  ritualCardTitle: { fontSize: 17, fontWeight: '700', color: Colors.brandGreen, marginBottom: 3 },
+  ritualCardSub: { fontSize: 12, color: Colors.textPrimary, opacity: 0.55 },
+  ritualCardArrow: { fontSize: 20, color: Colors.brandGreen },
+  textMuted: { color: Colors.textPrimary, opacity: 0.4 },
+  lockedBadge: { paddingHorizontal: 8, paddingVertical: 4 },
+  lockedBadgeText: { fontSize: 18 },
+  // Tools grid
+  toolsGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 10, marginBottom: 20 },
+  toolCard: {
     width: '47%', backgroundColor: Colors.white, borderRadius: 14,
     padding: 16, alignItems: 'center', borderWidth: 1.5, borderColor: Colors.brandGreen + '22',
   },
-  actionEmoji: { fontSize: 28, marginBottom: 6 },
-  actionLabel: { fontSize: 13, fontWeight: '600', color: Colors.brandGreen, textAlign: 'center' },
-  infoCard: {
-    backgroundColor: Colors.white, borderRadius: 12, padding: 14,
-    borderWidth: 1, borderColor: Colors.brandGreen + '22',
-  },
-  infoText: { fontSize: 14, color: Colors.textPrimary, opacity: 0.65 },
+  toolEmoji: { fontSize: 26, marginBottom: 6 },
+  toolLabel: { fontSize: 12, fontWeight: '600', color: Colors.brandGreen, textAlign: 'center' },
+  infoCard: { backgroundColor: Colors.white, borderRadius: 12, padding: 14, borderWidth: 1, borderColor: Colors.brandGreen + '22' },
+  infoText: { fontSize: 13, color: Colors.textPrimary, opacity: 0.6 },
 });

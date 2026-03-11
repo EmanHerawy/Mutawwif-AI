@@ -180,5 +180,42 @@
     "ihram_worn_on_plane": "ارتديت الإحرام في الطائرة",
     "retroactive_confirm": "تأكيد الإحرام بأثر رجعي",
     "select_miqat": "اختر الميقات الذي نويت منه:"
+  },
+  "guide": {
+    "umrah_title": "دليل العمرة",
+    "hajj_title": "دليل الحج",
+    "start_umrah": "ابدأ العمرة",
+    "start_hajj": "ابدأ الحج",
+    "steps_count": "{{count}} خطوة — إرشاد مفصّل بالأدعية والأحكام",
+    "tap_hint": "اضغط على خطوة لتفعيلها",
+    "step_label": "الخطوة {{n}}",
+    "open_tawaf_counter": "افتح العداد — طواف",
+    "open_sai_counter": "افتح العداد — سعي",
+    "all_steps": "جميع الخطوات",
+    "complete": "أكملت النسك!",
+    "reset": "إعادة",
+    "previous": "السابق",
+    "next_step": "التالي",
+    "hajj_season_msg": "دليل الحج يُفعَّل خلال أشهر الحج (شوال – ذو الحجة)",
+    "males_only": "للذكور فقط",
+    "females_only": "للإناث فقط"
+  },
+  "tracker_ui": {
+    "pick_subtitle": "اختر النسك لبدء العد",
+    "tawaf_hint": "7 أشواط حول الكعبة",
+    "sai_hint": "7 أشواط بين الصفا والمروة",
+    "reset_confirm": "هل تريد إعادة تعيين العداد؟",
+    "completed_laps": "الأشواط المكتملة",
+    "pause": "إيقاف مؤقت"
+  },
+  "wallet_ui": {
+    "pilgrim": "الحاج",
+    "emergency_lines": "خطوط الطوارئ",
+    "medical_emergency_title": "الطوارئ الطبية",
+    "hajj_ministry_title": "وزارة الحج",
+    "haram_security_title": "أمن الحرم"
+  },
+  "dashboard_ui": {
+    "start": "ابدأ"
   }
 }
