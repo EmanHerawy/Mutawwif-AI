@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity, Alert } from 'react-native';
+import { View, Text, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity, Alert, Platform } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useRitualStore } from '../../src/stores/ritualStore';
 import { Colors } from '../../src/theme/colors';
@@ -25,10 +25,14 @@ export default function TrackerScreen() {
   };
 
   const handleReset = () => {
-    Alert.alert(t('common.confirm'), t('tracker_ui.reset_confirm'), [
-      { text: t('common.cancel'), style: 'cancel' },
-      { text: t('common.start_over'), style: 'destructive', onPress: resetCounter },
-    ]);
+    if (Platform.OS === 'web') {
+      if (window.confirm(t('tracker_ui.reset_confirm'))) resetCounter();
+    } else {
+      Alert.alert(t('common.confirm'), t('tracker_ui.reset_confirm'), [
+        { text: t('common.cancel'), style: 'cancel' },
+        { text: t('tracker_ui.reset'), style: 'destructive', onPress: resetCounter },
+      ]);
+    }
   };
 
   if (!counter) {
