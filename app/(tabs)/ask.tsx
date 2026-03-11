@@ -51,7 +51,7 @@ export default function AskScreen() {
         <View style={styles.locked}>
           <Text style={styles.lockedTitle}>🕋 {t('ask.setup_required_title')}</Text>
           <Text style={styles.lockedBody}>{t('ask.setup_required_body')}</Text>
-          <TouchableOpacity style={styles.setupBtn} onPress={() => router.push('/(onboarding)/welcome')}>
+          <TouchableOpacity style={styles.setupBtn} onPress={() => router.push('/(onboarding)/')}>
             <Text style={styles.setupBtnText}>{t('ask.setup_btn')}</Text>
           </TouchableOpacity>
         </View>
