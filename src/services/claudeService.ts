@@ -36,7 +36,9 @@ function scoreConfidence(query: string, faqItem: typeof FAQ_OFFLINE[0]): number 
   for (const keyword of allKeywords) {
     if (normalizedQuery.includes(keyword.toLowerCase())) matches++;
   }
-  return allKeywords.length > 0 ? matches / allKeywords.length : 0;
+  // Score: each matching keyword adds 0.5, capped at 1.0.
+  // This means 2+ keyword matches = verified_local (≥0.8) regardless of total keyword count.
+  return allKeywords.length > 0 ? Math.min(1.0, matches * 0.5) : 0;
 }
 
 function buildSystemPrompt(params: {

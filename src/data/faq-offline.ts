@@ -14,7 +14,7 @@ export const FAQ_OFFLINE: FaqItem[] = [
   {
     id: 'female_halq',
     category: 'taqsir',
-    keywords: ['female', 'woman', 'shave', 'halq', 'hair', 'taqsir', 'أنثى', 'حلق', 'تقصير', 'شعر', 'امرأة'],
+    keywords: ['female', 'woman', 'shave', 'halq', 'hair', 'taqsir', 'أنثى', 'حلق', 'تقصير', 'شعر', 'امرأة', 'المرأة'],
     questionAr: 'هل يجب على المرأة حلق رأسها؟',
     questionEn: 'Does a woman need to shave her head?',
     answerAr: 'للمرأة التقصير فقط — يُقص من أطراف الشعر بمقدار أنملة تقريباً. الحلق حرام للمرأة في الحج والعمرة.',
