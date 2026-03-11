@@ -56,7 +56,22 @@ export default function AskScreen() {
 
   const handleSend = async (query?: string) => {
     const q = (query ?? input).trim();
-    if (!q || loading || !persona) return;
+    if (!q || loading) return;
+
+    const effectivePersona = persona ?? {
+      name: '',
+      gender: 'male' as const,
+      ritualType: 'umrah' as const,
+      languageCode: 'en',
+      dialectKey: 'standard_arabic' as const,
+      nationalityCode: '',
+      originConfirmed: '',
+      mobilityLevel: 'standard' as const,
+      emergencyContactName: '',
+      emergencyContactPhone: '',
+      hotelName: '',
+      hotelAddress: '',
+    };
 
     setMessages((prev) => [...prev, { id: Date.now().toString(), role: 'user', text: q }]);
     setInput('');
@@ -65,7 +80,7 @@ export default function AskScreen() {
     try {
       const result = await claudeService.processQuery({
         query: q,
-        persona,
+        persona: effectivePersona,
         currentZone,
         miqatName: miqatAssignment,
         miqatStatus,
