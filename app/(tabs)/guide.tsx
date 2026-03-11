@@ -1,107 +1,250 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { usePersonaStore } from '../../src/stores/personaStore';
 import { useRitualStore } from '../../src/stores/ritualStore';
+import { useRouter } from 'expo-router';
 import { Colors } from '../../src/theme/colors';
 import { UMRAH_STEPS } from '../../src/data/manasik-umrah';
 import type { RitualStep, RitualStepStatus } from '../../src/types/ritual.types';
 
-const STATUS_COLOR: Record<RitualStepStatus, string> = {
-  pending: Colors.textPrimary + '33',
-  active: Colors.goldAccent,
-  completed: Colors.brandGreen,
-  skipped: Colors.textPrimary + '22',
-};
+// Approximate Gregorian windows for Hajj months (Shawwal–Dhul Hijja) 2025–2028
+const HAJJ_SEASONS: { start: Date; end: Date }[] = [
+  { start: new Date('2025-03-30'), end: new Date('2025-08-28') },
+  { start: new Date('2026-03-20'), end: new Date('2026-08-17') },
+  { start: new Date('2027-03-09'), end: new Date('2027-08-07') },
+  { start: new Date('2028-02-27'), end: new Date('2028-07-26') },
+];
+
+function isHajjSeason(): boolean {
+  const now = new Date();
+  return HAJJ_SEASONS.some((s) => now >= s.start && now <= s.end);
+}
 
 export default function GuideScreen() {
   const { t } = useTranslation();
+  const router = useRouter();
   const persona = usePersonaStore((s) => s.persona);
   const { steps, currentStepId, setSteps, setCurrentStep } = useRitualStore();
 
   const isAr = (persona?.languageCode ?? 'en').startsWith('ar');
+  const ritualType = persona?.ritualType ?? 'umrah';
+  const isHajj = ritualType !== 'umrah';
+  const hajjEnabled = !isHajj || isHajjSeason();
+
   const displaySteps: RitualStep[] = steps.length > 0 ? steps : UMRAH_STEPS;
+  const currentStep = displaySteps.find((s) => s.id === currentStepId) ?? null;
+  const currentIdx = currentStep ? displaySteps.indexOf(currentStep) : -1;
+  const hasStarted = currentStepId !== null;
 
   // Seed steps on first load
   useEffect(() => {
     if (steps.length === 0) setSteps(UMRAH_STEPS);
   }, []);
 
-  const markActive = (stepId: string) => {
-    const targetOrder = displaySteps.find((s) => s.id === stepId)?.order ?? 0;
-    const updated = displaySteps.map((s) => ({
+  const startRitual = () => {
+    const seeded = UMRAH_STEPS.map((s, i) => ({
       ...s,
-      status:
-        s.id === stepId
-          ? ('active' as RitualStepStatus)
-          : s.order < targetOrder
-          ? ('completed' as RitualStepStatus)
-          : s.status,
+      status: (i === 0 ? 'active' : 'pending') as RitualStepStatus,
+    }));
+    setSteps(seeded);
+    setCurrentStep(seeded[0].id);
+  };
+
+  const goNext = () => {
+    if (currentIdx < 0 || currentIdx >= displaySteps.length - 1) return;
+    const updated = displaySteps.map((s, i) => ({
+      ...s,
+      status: (
+        i < currentIdx + 1 ? 'completed' :
+        i === currentIdx + 1 ? 'active' : s.status
+      ) as RitualStepStatus,
     }));
     setSteps(updated);
-    setCurrentStep(stepId);
+    setCurrentStep(displaySteps[currentIdx + 1].id);
   };
+
+  const goPrev = () => {
+    if (currentIdx <= 0) return;
+    const updated = displaySteps.map((s, i) => ({
+      ...s,
+      status: (
+        i < currentIdx - 1 ? 'completed' :
+        i === currentIdx - 1 ? 'active' :
+        i >= currentIdx ? 'pending' : s.status
+      ) as RitualStepStatus,
+    }));
+    setSteps(updated);
+    setCurrentStep(displaySteps[currentIdx - 1].id);
+  };
+
+  const resetRitual = () => {
+    setSteps([]);
+    setCurrentStep('');
+  };
+
+  const ritualTitle = isHajj
+    ? (isAr ? 'دليل الحج' : 'Hajj Guide')
+    : (isAr ? 'دليل العمرة' : 'Umrah Guide');
+
+  const startLabel = isHajj
+    ? (isAr ? 'ابدأ الحج' : 'Start Hajj')
+    : (isAr ? 'ابدأ العمرة' : 'Start Umrah');
+
+  // ── NOT STARTED — intro screen ──
+  if (!hasStarted) {
+    return (
+      <SafeAreaView style={styles.safe}>
+        <ScrollView contentContainerStyle={styles.introScroll} showsVerticalScrollIndicator={false}>
+          <Text style={styles.introEmoji}>{isHajj ? '🕌' : '🕋'}</Text>
+          <Text style={styles.introTitle}>{ritualTitle}</Text>
+          <Text style={styles.introSubtitle}>
+            {isAr
+              ? `${displaySteps.length} خطوات — مرشد مفصّل بالأدعية والأحكام`
+              : `${displaySteps.length} steps — detailed guidance with du'a & rulings`}
+          </Text>
+
+          {/* Step preview list */}
+          <View style={styles.previewList}>
+            {displaySteps.map((step, idx) => (
+              <View key={step.id} style={styles.previewRow}>
+                <View style={styles.previewNum}>
+                  <Text style={styles.previewNumText}>{idx + 1}</Text>
+                </View>
+                <Text style={styles.previewTitle}>{isAr ? step.titleAr : step.titleEn}</Text>
+              </View>
+            ))}
+          </View>
+
+          {isHajj && !hajjEnabled ? (
+            <View style={styles.hajjDisabledBox}>
+              <Text style={styles.hajjDisabledText}>
+                {isAr
+                  ? '🕌 الحج يُفعَّل خلال أشهر الحج (شوال – ذو الحجة)'
+                  : '🕌 Hajj guide activates during Hajj months (Shawwal – Dhul Hijja)'}
+              </Text>
+            </View>
+          ) : (
+            <TouchableOpacity style={styles.startBtn} onPress={startRitual}>
+              <Text style={styles.startBtnText}>{startLabel} →</Text>
+            </TouchableOpacity>
+          )}
+        </ScrollView>
+      </SafeAreaView>
+    );
+  }
+
+  // ── ACTIVE STEP — step detail view ──
+  const step = currentStep ?? displaySteps[0];
+  const isLastStep = currentIdx === displaySteps.length - 1;
+  const isFirstStep = currentIdx === 0;
 
   return (
     <SafeAreaView style={styles.safe}>
-      <ScrollView contentContainerStyle={styles.scroll} showsVerticalScrollIndicator={false}>
+      <ScrollView contentContainerStyle={styles.stepScroll} showsVerticalScrollIndicator={false}>
 
-        <Text style={styles.title}>
-          {persona?.ritualType === 'umrah' ? '🕋 Umrah Guide' : '🕌 Hajj Guide'}
-        </Text>
-        <Text style={styles.subtitle}>
-          {isAr ? 'اضغط على خطوة لتفعيلها' : 'Tap a step to mark it active'}
-        </Text>
+        {/* Progress bar */}
+        <View style={styles.progressRow}>
+          <Text style={styles.progressText}>
+            {currentIdx + 1} / {displaySteps.length}
+          </Text>
+          <View style={styles.progressTrack}>
+            <View
+              style={[styles.progressFill, { width: `${((currentIdx + 1) / displaySteps.length) * 100}%` as any }]}
+            />
+          </View>
+          <TouchableOpacity onPress={resetRitual}>
+            <Text style={styles.resetLink}>{isAr ? 'إعادة' : 'Reset'}</Text>
+          </TouchableOpacity>
+        </View>
 
-        {displaySteps.map((step, idx) => {
-          const isCurrentStep = step.id === currentStepId;
-          const isDone = step.status === 'completed';
-          const isActiveStep = step.status === 'active' || isCurrentStep;
+        {/* Step card */}
+        <View style={styles.stepCard}>
+          <Text style={styles.stepNumber}>
+            {isAr ? `الخطوة ${currentIdx + 1}` : `Step ${currentIdx + 1}`}
+          </Text>
+          <Text style={styles.stepTitle}>{isAr ? step.titleAr : step.titleEn}</Text>
+          <View style={styles.divider} />
+          <Text style={styles.stepDesc}>{isAr ? step.descriptionAr : step.descriptionEn}</Text>
 
-          return (
+          {step.hasCounter && (
             <TouchableOpacity
-              key={step.id}
-              style={styles.stepRow}
-              onPress={() => markActive(step.id)}
-              activeOpacity={0.75}
+              style={styles.counterLinkBtn}
+              onPress={() => router.push('/(tabs)/tracker')}
             >
-              {/* Vertical connector */}
-              {idx < displaySteps.length - 1 && (
-                <View style={[styles.connector, isDone && styles.connectorDone]} />
-              )}
-
-              {/* Step circle */}
-              <View style={[styles.circle, { borderColor: STATUS_COLOR[step.status] }, isActiveStep && styles.circleActive, isDone && styles.circleDone]}>
-                <Text style={[styles.circleText, isDone && { color: Colors.white }, isActiveStep && { color: Colors.white }]}>
-                  {isDone ? '✓' : isActiveStep ? '▶' : step.order}
-                </Text>
-              </View>
-
-              {/* Content */}
-              <View style={styles.stepContent}>
-                <Text style={[styles.stepTitle, isDone && styles.stepTitleDone, isActiveStep && styles.stepTitleActive]}>
-                  {isAr ? step.titleAr : step.titleEn}
-                </Text>
-                {isActiveStep && (
-                  <Text style={styles.stepDesc}>
-                    {isAr ? step.descriptionAr : step.descriptionEn}
-                  </Text>
-                )}
-                <View style={styles.badges}>
-                  {step.hasCounter && (
-                    <View style={styles.badge}>
-                      <Text style={styles.badgeText}>
-                        {step.counterType === 'tawaf' ? '🕋 Tawaf counter' : "🏃 Sa'i counter"}
-                      </Text>
-                    </View>
-                  )}
-                  {step.maleOnly && <Text style={styles.genderNote}>♂ Males only</Text>}
-                  {step.femaleOnly && <Text style={styles.genderNote}>♀ Females only</Text>}
-                </View>
-              </View>
+              <Text style={styles.counterLinkText}>
+                {step.counterType === 'tawaf'
+                  ? (isAr ? '🕋 افتح العداد — طواف' : '🕋 Open Counter — Tawaf')
+                  : (isAr ? "🏃 افتح العداد — سعي" : "🏃 Open Counter — Sa'i")}
+              </Text>
             </TouchableOpacity>
-          );
-        })}
+          )}
+
+          {(step.maleOnly || step.femaleOnly) && (
+            <View style={styles.genderBadge}>
+              <Text style={styles.genderBadgeText}>
+                {step.maleOnly ? '♂ Males only' : '♀ Females only'}
+              </Text>
+            </View>
+          )}
+        </View>
+
+        {/* Navigation */}
+        <View style={styles.navRow}>
+          <TouchableOpacity
+            style={[styles.navBtn, styles.navBtnGhost, isFirstStep && styles.navBtnDisabled]}
+            onPress={goPrev}
+            disabled={isFirstStep}
+          >
+            <Text style={[styles.navBtnText, { color: Colors.textPrimary }]}>
+              ← {isAr ? 'السابق' : 'Previous'}
+            </Text>
+          </TouchableOpacity>
+
+          {isLastStep ? (
+            <TouchableOpacity style={[styles.navBtn, { backgroundColor: Colors.goldAccent }]} onPress={resetRitual}>
+              <Text style={[styles.navBtnText, { color: Colors.brandGreen }]}>
+                ✅ {isAr ? 'أكملت النسك' : 'Complete!'}
+              </Text>
+            </TouchableOpacity>
+          ) : (
+            <TouchableOpacity style={styles.navBtn} onPress={goNext}>
+              <Text style={styles.navBtnText}>
+                {isAr ? 'التالي' : 'Next'} →
+              </Text>
+            </TouchableOpacity>
+          )}
+        </View>
+
+        {/* All steps overview (collapsed) */}
+        <View style={styles.allStepsBox}>
+          <Text style={styles.allStepsTitle}>{isAr ? 'جميع الخطوات' : 'All steps'}</Text>
+          {displaySteps.map((s, idx) => (
+            <TouchableOpacity
+              key={s.id}
+              style={styles.allStepRow}
+              onPress={() => {
+                const updated = displaySteps.map((x, i) => ({
+                  ...x,
+                  status: (i < idx ? 'completed' : i === idx ? 'active' : 'pending') as RitualStepStatus,
+                }));
+                setSteps(updated);
+                setCurrentStep(s.id);
+              }}
+            >
+              <View style={[styles.allStepDot,
+                s.status === 'completed' && styles.allStepDotDone,
+                s.status === 'active' && styles.allStepDotActive,
+              ]} />
+              <Text style={[styles.allStepLabel,
+                s.status === 'active' && { color: Colors.goldAccent, fontWeight: '700' },
+                s.status === 'completed' && { color: Colors.brandGreen },
+              ]}>
+                {idx + 1}. {isAr ? s.titleAr : s.titleEn}
+              </Text>
+            </TouchableOpacity>
+          ))}
+        </View>
 
       </ScrollView>
     </SafeAreaView>
@@ -110,33 +253,72 @@ export default function GuideScreen() {
 
 const styles = StyleSheet.create({
   safe: { flex: 1, backgroundColor: Colors.parchmentBg },
-  scroll: { padding: 20, paddingBottom: 48 },
-  title: { fontSize: 22, fontWeight: '700', color: Colors.brandGreen, marginBottom: 4 },
-  subtitle: { fontSize: 13, color: Colors.textPrimary, opacity: 0.5, marginBottom: 24 },
-  stepRow: { flexDirection: 'row', alignItems: 'flex-start', paddingVertical: 10, position: 'relative' },
-  connector: {
-    position: 'absolute', left: 19, top: 44, width: 2, bottom: -10,
-    backgroundColor: Colors.brandGreen + '20',
-  },
-  connectorDone: { backgroundColor: Colors.brandGreen + '55' },
-  circle: {
-    width: 40, height: 40, borderRadius: 20, borderWidth: 2,
+  // Intro
+  introScroll: { padding: 24, paddingBottom: 48, alignItems: 'center' },
+  introEmoji: { fontSize: 56, marginBottom: 16 },
+  introTitle: { fontSize: 26, fontWeight: '800', color: Colors.brandGreen, marginBottom: 8, textAlign: 'center' },
+  introSubtitle: { fontSize: 14, color: Colors.textPrimary, opacity: 0.55, textAlign: 'center', marginBottom: 28 },
+  previewList: { width: '100%', marginBottom: 28 },
+  previewRow: { flexDirection: 'row', alignItems: 'center', gap: 12, paddingVertical: 10, borderBottomWidth: 1, borderBottomColor: Colors.brandGreen + '11' },
+  previewNum: {
+    width: 28, height: 28, borderRadius: 14, backgroundColor: Colors.brandGreen + '18',
     alignItems: 'center', justifyContent: 'center',
-    backgroundColor: Colors.white, marginRight: 14, flexShrink: 0,
   },
-  circleActive: { backgroundColor: Colors.goldAccent, borderColor: Colors.goldAccent },
-  circleDone: { backgroundColor: Colors.brandGreen, borderColor: Colors.brandGreen },
-  circleText: { fontSize: 13, fontWeight: '700', color: Colors.textPrimary + '66' },
-  stepContent: { flex: 1, paddingBottom: 4 },
-  stepTitle: { fontSize: 15, fontWeight: '600', color: Colors.textPrimary, marginBottom: 4 },
-  stepTitleActive: { color: Colors.goldAccent, fontWeight: '700' },
-  stepTitleDone: { color: Colors.brandGreen },
-  stepDesc: { fontSize: 13, color: Colors.textPrimary, opacity: 0.65, lineHeight: 20, marginBottom: 6 },
-  badges: { flexDirection: 'row', flexWrap: 'wrap', gap: 6, marginTop: 2 },
-  badge: {
-    backgroundColor: Colors.goldAccent + '20', borderRadius: 6,
-    paddingHorizontal: 8, paddingVertical: 2,
+  previewNumText: { fontSize: 12, fontWeight: '700', color: Colors.brandGreen },
+  previewTitle: { fontSize: 14, color: Colors.textPrimary, flex: 1 },
+  startBtn: { backgroundColor: Colors.brandGreen, borderRadius: 16, paddingVertical: 18, paddingHorizontal: 40, alignItems: 'center' },
+  startBtnText: { color: Colors.white, fontSize: 17, fontWeight: '800' },
+  hajjDisabledBox: {
+    backgroundColor: Colors.goldAccent + '15', borderRadius: 14, padding: 18,
+    borderWidth: 1.5, borderColor: Colors.goldAccent + '44', alignItems: 'center',
   },
-  badgeText: { fontSize: 11, color: Colors.goldAccent, fontWeight: '600' },
-  genderNote: { fontSize: 11, color: Colors.textPrimary, opacity: 0.4 },
+  hajjDisabledText: { fontSize: 14, color: Colors.goldAccent, fontWeight: '600', textAlign: 'center', lineHeight: 22 },
+  // Active step
+  stepScroll: { padding: 20, paddingBottom: 48 },
+  progressRow: { flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 20 },
+  progressText: { fontSize: 13, fontWeight: '700', color: Colors.brandGreen, width: 40 },
+  progressTrack: { flex: 1, height: 6, backgroundColor: Colors.brandGreen + '20', borderRadius: 3 },
+  progressFill: { height: 6, backgroundColor: Colors.brandGreen, borderRadius: 3 },
+  resetLink: { fontSize: 12, color: Colors.textPrimary, opacity: 0.4 },
+  stepCard: {
+    backgroundColor: Colors.white, borderRadius: 18, padding: 22,
+    borderWidth: 1.5, borderColor: Colors.brandGreen + '33', marginBottom: 20,
+  },
+  stepNumber: { fontSize: 12, fontWeight: '700', color: Colors.goldAccent, marginBottom: 6, textTransform: 'uppercase', letterSpacing: 0.5 },
+  stepTitle: { fontSize: 22, fontWeight: '800', color: Colors.brandGreen, marginBottom: 12 },
+  divider: { height: 1, backgroundColor: Colors.brandGreen + '15', marginBottom: 14 },
+  stepDesc: { fontSize: 15, color: Colors.textPrimary, lineHeight: 26, opacity: 0.8 },
+  counterLinkBtn: {
+    marginTop: 16, backgroundColor: Colors.goldAccent + '20',
+    borderRadius: 12, paddingVertical: 12, alignItems: 'center',
+    borderWidth: 1, borderColor: Colors.goldAccent + '44',
+  },
+  counterLinkText: { fontSize: 14, fontWeight: '700', color: Colors.goldAccent },
+  genderBadge: {
+    marginTop: 12, alignSelf: 'flex-start', backgroundColor: Colors.brandGreen + '12',
+    borderRadius: 6, paddingHorizontal: 10, paddingVertical: 4,
+  },
+  genderBadgeText: { fontSize: 12, color: Colors.brandGreen, fontWeight: '600' },
+  navRow: { flexDirection: 'row', gap: 12, marginBottom: 24 },
+  navBtn: {
+    flex: 1, backgroundColor: Colors.brandGreen, borderRadius: 14,
+    paddingVertical: 16, alignItems: 'center',
+  },
+  navBtnGhost: { backgroundColor: Colors.white, borderWidth: 1.5, borderColor: Colors.brandGreen + '33' },
+  navBtnDisabled: { opacity: 0.35 },
+  navBtnText: { fontSize: 15, fontWeight: '700', color: Colors.white },
+  // All steps list
+  allStepsBox: {
+    backgroundColor: Colors.white, borderRadius: 14, padding: 16,
+    borderWidth: 1, borderColor: Colors.brandGreen + '22',
+  },
+  allStepsTitle: { fontSize: 12, fontWeight: '700', color: Colors.brandGreen, opacity: 0.55, marginBottom: 12, textTransform: 'uppercase' },
+  allStepRow: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingVertical: 8, borderBottomWidth: 1, borderBottomColor: Colors.brandGreen + '0A' },
+  allStepDot: {
+    width: 10, height: 10, borderRadius: 5,
+    backgroundColor: Colors.textPrimary + '22', flexShrink: 0,
+  },
+  allStepDotDone: { backgroundColor: Colors.brandGreen },
+  allStepDotActive: { backgroundColor: Colors.goldAccent },
+  allStepLabel: { fontSize: 13, color: Colors.textPrimary, opacity: 0.65, flex: 1 },
 });

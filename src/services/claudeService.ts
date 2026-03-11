@@ -95,6 +95,7 @@ export class ClaudeService {
     // In production: calls go through PROXY_ENDPOINT, not direct SDK
     this.client = new Anthropic({
       apiKey: process.env.EXPO_PUBLIC_CLAUDE_DEV_KEY ?? 'placeholder',
+      dangerouslyAllowBrowser: true, // web bundling only — production routes via proxy
     });
   }
 
