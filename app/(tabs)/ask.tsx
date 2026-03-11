@@ -45,20 +45,6 @@ export default function AskScreen() {
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
 
-  if (!persona) {
-    return (
-      <SafeAreaView style={styles.safe}>
-        <View style={styles.locked}>
-          <Text style={styles.lockedTitle}>🕋 {t('ask.setup_required_title')}</Text>
-          <Text style={styles.lockedBody}>{t('ask.setup_required_body')}</Text>
-          <TouchableOpacity style={styles.setupBtn} onPress={() => router.push('/(onboarding)/')}>
-            <Text style={styles.setupBtnText}>{t('ask.setup_btn')}</Text>
-          </TouchableOpacity>
-        </View>
-      </SafeAreaView>
-    );
-  }
-
   if (ihramState === 'crossed_without_ihram') {
     return (
       <SafeAreaView style={styles.safe}>
@@ -70,9 +56,24 @@ export default function AskScreen() {
     );
   }
 
+  const effectivePersona = persona ?? {
+    name: '',
+    gender: 'male' as const,
+    ritualType: 'umrah' as const,
+    languageCode: 'en',
+    dialectKey: 'standard_arabic' as const,
+    nationalityCode: '',
+    originConfirmed: '',
+    mobilityLevel: 'standard' as const,
+    emergencyContactName: '',
+    emergencyContactPhone: '',
+    hotelName: '',
+    hotelAddress: '',
+  };
+
   const handleSend = async (query?: string) => {
     const q = (query ?? input).trim();
-    if (!q || loading || !persona) return;
+    if (!q || loading) return;
 
     setMessages((prev) => [...prev, { id: Date.now().toString(), role: 'user', text: q }]);
     setInput('');
@@ -81,7 +82,7 @@ export default function AskScreen() {
     try {
       const result = await claudeService.processQuery({
         query: q,
-        persona,
+        persona: effectivePersona,
         currentZone,
         miqatName: miqatAssignment,
         miqatStatus,
@@ -119,6 +120,12 @@ export default function AskScreen() {
           <Text style={styles.headerTitle}>💬 {t('tabs.ask')}</Text>
           <Text style={styles.disclaimer}>{t('ask.disclaimer')}</Text>
         </View>
+
+        {!persona && (
+          <TouchableOpacity style={styles.profileBanner} onPress={() => router.push('/(onboarding)/')}>
+            <Text style={styles.profileBannerText}>👤 {t('ask.profile_tip')}</Text>
+          </TouchableOpacity>
+        )}
 
         <ScrollView
           ref={scrollRef}
@@ -231,8 +238,11 @@ const styles = StyleSheet.create({
   },
   sendBtnDisabled: { backgroundColor: Colors.brandGreen + '55' },
   sendBtnText: { color: Colors.white, fontWeight: '700', fontSize: 14 },
-  setupBtn: { marginTop: 20, backgroundColor: Colors.brandGreen, borderRadius: 14, paddingVertical: 14, paddingHorizontal: 32 },
-  setupBtnText: { color: Colors.white, fontWeight: '700', fontSize: 16 },
+  profileBanner: {
+    backgroundColor: Colors.goldAccent + '18', borderBottomWidth: 1,
+    borderBottomColor: Colors.goldAccent + '33', paddingHorizontal: 16, paddingVertical: 10,
+  },
+  profileBannerText: { fontSize: 12, color: Colors.goldAccent, fontWeight: '600' },
   locked: { flex: 1, padding: 24, justifyContent: 'center', alignItems: 'center' },
   lockedTitle: { fontSize: 20, fontWeight: '700', color: Colors.danger, textAlign: 'center', marginBottom: 12 },
   lockedBody: { fontSize: 15, color: Colors.textPrimary, opacity: 0.7, textAlign: 'center', lineHeight: 24 },
