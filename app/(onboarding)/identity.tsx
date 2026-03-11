@@ -20,12 +20,14 @@ export default function IdentityScreen() {
   const [hotelAddress, setHotelAddress] = useState(persona?.hotelAddress ?? '');
   const [errors, setErrors] = useState<Record<string, string>>({});
 
+  // Format-only validation — nothing is required
   const validate = () => {
     const e: Record<string, string> = {};
-    if (!emergencyName.trim()) e.emergencyName = t('onboarding.identity_required');
-    if (!emergencyPhone.trim()) e.emergencyPhone = t('onboarding.identity_required');
-    if (emergencyPhone.trim() && !/^\+?[\d\s\-()]{7,20}$/.test(emergencyPhone.trim())) {
-      e.emergencyPhone = 'Enter a valid phone number';
+    if (nusukId.trim() && !/^[A-Za-z0-9\-]{3,30}$/.test(nusukId.trim())) {
+      e.nusukId = t('onboarding.validation_nusuk_invalid');
+    }
+    if (emergencyPhone.trim() && !/^\+?[\d\s\-()\u0660-\u0669]{7,20}$/.test(emergencyPhone.trim())) {
+      e.emergencyPhone = t('onboarding.validation_phone_invalid');
     }
     return e;
   };
@@ -56,41 +58,49 @@ export default function IdentityScreen() {
 
           {/* Nusuk ID */}
           <View style={styles.section}>
-            <Text style={styles.sectionTitle}>🆔 {t('onboarding.nusuk_id_section')}</Text>
+            <View style={styles.sectionHeader}>
+              <Text style={styles.sectionTitle}>🆔 {t('onboarding.nusuk_id_section')}</Text>
+              <View style={styles.optionalBadge}>
+                <Text style={styles.optionalBadgeText}>{t('onboarding.identity_optional')}</Text>
+              </View>
+            </View>
             <View style={styles.field}>
               <Text style={styles.label}>{t('onboarding.identity_nusuk_id')}</Text>
               <TextInput
-                style={styles.input}
+                style={[styles.input, errors.nusukId ? styles.inputError : null]}
                 value={nusukId}
-                onChangeText={setNusukId}
+                onChangeText={(v) => { setNusukId(v); clearError('nusukId'); }}
                 placeholder="e.g. NUS-123456789"
                 placeholderTextColor={Colors.textPrimary + '55'}
+                autoCapitalize="characters"
               />
+              {!!errors.nusukId && <Text style={styles.errorText}>{errors.nusukId}</Text>}
             </View>
             <Text style={styles.hint}>{t('onboarding.identity_nusuk_hint')}</Text>
           </View>
 
           {/* Emergency Contact */}
           <View style={styles.section}>
-            <Text style={styles.sectionTitle}>🚨 {t('onboarding.emergency_section')}</Text>
-            <View style={styles.requiredBadge}>
-              <Text style={styles.requiredBadgeText}>{t('onboarding.identity_required')}</Text>
+            <View style={styles.sectionHeader}>
+              <Text style={styles.sectionTitle}>🚨 {t('onboarding.emergency_section')}</Text>
+              <View style={styles.recommendedBadge}>
+                <Text style={styles.recommendedBadgeText}>{t('onboarding.identity_recommended')}</Text>
+              </View>
             </View>
 
             <View style={styles.field}>
-              <Text style={styles.label}>{t('onboarding.identity_emergency_name')} <Text style={styles.required}>*</Text></Text>
+              <Text style={styles.label}>{t('onboarding.identity_emergency_name')}</Text>
               <TextInput
-                style={[styles.input, errors.emergencyName ? styles.inputError : null]}
+                style={styles.input}
                 value={emergencyName}
-                onChangeText={(v) => { setEmergencyName(v); clearError('emergencyName'); }}
+                onChangeText={setEmergencyName}
                 placeholder={t('onboarding.persona_name_placeholder')}
                 placeholderTextColor={Colors.textPrimary + '55'}
               />
-              {!!errors.emergencyName && <Text style={styles.errorText}>{errors.emergencyName}</Text>}
             </View>
 
             <View style={styles.field}>
-              <Text style={styles.label}>{t('onboarding.identity_emergency_phone')} <Text style={styles.required}>*</Text></Text>
+              <Text style={styles.label}>{t('onboarding.identity_emergency_phone')}</Text>
               <TextInput
                 style={[styles.input, errors.emergencyPhone ? styles.inputError : null]}
                 value={emergencyPhone}
@@ -148,15 +158,20 @@ const styles = StyleSheet.create({
   title: { fontSize: 24, fontWeight: '700', color: Colors.brandGreen, marginBottom: 6 },
   subtitle: { fontSize: 14, color: Colors.textPrimary, opacity: 0.6 },
   section: { marginBottom: 28 },
-  sectionTitle: { fontSize: 15, fontWeight: '700', color: Colors.brandGreen, marginBottom: 12 },
-  requiredBadge: {
-    alignSelf: 'flex-start', backgroundColor: Colors.danger + '15',
-    borderRadius: 6, paddingHorizontal: 10, paddingVertical: 4, marginBottom: 12,
+  sectionHeader: { flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 12 },
+  sectionTitle: { fontSize: 15, fontWeight: '700', color: Colors.brandGreen },
+  optionalBadge: {
+    backgroundColor: Colors.brandGreen + '15', borderRadius: 6,
+    paddingHorizontal: 8, paddingVertical: 3,
   },
-  requiredBadgeText: { fontSize: 12, color: Colors.danger, fontWeight: '600' },
+  optionalBadgeText: { fontSize: 11, color: Colors.brandGreen, fontWeight: '600' },
+  recommendedBadge: {
+    backgroundColor: Colors.goldAccent + '25', borderRadius: 6,
+    paddingHorizontal: 8, paddingVertical: 3,
+  },
+  recommendedBadgeText: { fontSize: 11, color: Colors.goldAccent, fontWeight: '600' },
   field: { marginBottom: 14 },
   label: { fontSize: 14, fontWeight: '600', color: Colors.textPrimary, marginBottom: 6, opacity: 0.7 },
-  required: { color: Colors.danger },
   input: {
     backgroundColor: Colors.white, borderRadius: 12, paddingHorizontal: 16, paddingVertical: 14,
     fontSize: 16, color: Colors.textPrimary, borderWidth: 1.5, borderColor: Colors.brandGreen + '33',

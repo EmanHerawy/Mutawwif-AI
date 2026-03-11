@@ -65,7 +65,11 @@
     "miqat_start_journey": "ابدأ رحلتك 🕋",
     "nusuk_id_section": "هوية نسك",
     "emergency_section": "جهة الطوارئ",
-    "hotel_section": "الفندق"
+    "hotel_section": "الفندق",
+    "identity_optional": "اختياري",
+    "identity_recommended": "موصى به لسلامتك",
+    "validation_phone_invalid": "أدخل رقم هاتف صحيح (مثال: 0000-000-555-1+)",
+    "validation_nusuk_invalid": "تنسيق هوية نسك: أحرف وأرقام وشرطات فقط"
   },
   "tabs": {
     "dashboard": "الرئيسية",

@@ -65,7 +65,11 @@
     "miqat_start_journey": "Start Your Journey 🕋",
     "nusuk_id_section": "Nusuk ID",
     "emergency_section": "Emergency Contact",
-    "hotel_section": "Hotel"
+    "hotel_section": "Hotel",
+    "identity_optional": "Optional",
+    "identity_recommended": "Recommended for your safety",
+    "validation_phone_invalid": "Enter a valid phone number (e.g. +1-555-000-0000)",
+    "validation_nusuk_invalid": "Nusuk ID format: letters, numbers and dashes only"
   },
   "tabs": {
     "dashboard": "Home",
