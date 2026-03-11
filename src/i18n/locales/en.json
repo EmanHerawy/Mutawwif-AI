@@ -210,7 +210,8 @@
     "sai_hint": "7 trips between Safa & Marwa",
     "reset_confirm": "Reset the counter?",
     "completed_laps": "Completed laps",
-    "pause": "Pause"
+    "pause": "Pause",
+    "reset": "Reset"
   },
   "wallet_ui": {
     "pilgrim": "Pilgrim",

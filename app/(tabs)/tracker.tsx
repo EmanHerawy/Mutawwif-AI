@@ -107,14 +107,14 @@ export default function TrackerScreen() {
                   <Text style={[styles.controlBtnText, { color: Colors.textPrimary }]}>⏸ {t('tracker_ui.pause')}</Text>
                 </TouchableOpacity>
           )}
-          {isComplete && (
-            <TouchableOpacity style={styles.controlBtn} onPress={resetCounter}>
-              <Text style={styles.controlBtnText}>{t('common.start_over')}</Text>
-            </TouchableOpacity>
-          )}
-          <TouchableOpacity style={[styles.controlBtn, styles.controlBtnGhost, { borderColor: Colors.danger + '44' }]} onPress={handleReset}>
-            <Text style={[styles.controlBtnText, { color: Colors.danger }]}>✕ {t('common.start_over')}</Text>
-          </TouchableOpacity>
+          {isComplete
+            ? <TouchableOpacity style={styles.controlBtn} onPress={resetCounter}>
+                <Text style={styles.controlBtnText}>{t('common.start_over')}</Text>
+              </TouchableOpacity>
+            : <TouchableOpacity style={[styles.controlBtn, styles.controlBtnGhost, { borderColor: Colors.danger + '44' }]} onPress={handleReset}>
+                <Text style={[styles.controlBtnText, { color: Colors.danger }]}>✕ {t('tracker_ui.reset')}</Text>
+              </TouchableOpacity>
+          }
         </View>
 
         {counter.lapHistory.length > 0 && (
