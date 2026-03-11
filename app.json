@@ -1,30 +1,77 @@
 {
   "expo": {
-    "name": "mutawwif-init",
-    "slug": "mutawwif-init",
+    "name": "Mutawwif",
+    "slug": "mutawwif",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "automatic",
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#1B4332"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.mutawwif.app",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Mutawwif needs your location to guide you through Tawaf, Sa'i, and Miqat crossing.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "Mutawwif uses background location to track Miqat crossing and zone entry/exit.",
+        "NSLocationAlwaysUsageDescription": "Mutawwif uses background location to track your pilgrimage progress.",
+        "NSCameraUsageDescription": "Mutawwif uses the camera to scan your Nusuk permit QR code and photograph your hotel card.",
+        "NSMicrophoneUsageDescription": "Mutawwif may use the microphone for voice input.",
+        "NSPhotoLibraryUsageDescription": "Mutawwif accesses photos to display your hotel card."
+      }
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/android-icon-foreground.png",
-        "backgroundImage": "./assets/android-icon-background.png",
-        "monochromeImage": "./assets/android-icon-monochrome.png"
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#1B4332"
       },
-      "predictiveBackGestureEnabled": false
+      "package": "com.mutawwif.app",
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_BACKGROUND_LOCATION",
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "SEND_SMS",
+        "VIBRATE"
+      ]
     },
     "web": {
-      "favicon": "./assets/favicon.png"
-    }
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font",
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Mutawwif needs location to guide your pilgrimage.",
+          "locationAlwaysPermission": "Mutawwif uses background location for Miqat tracking.",
+          "locationWhenInUsePermission": "Mutawwif needs location for zone detection.",
+          "isIosBackgroundLocationEnabled": true,
+          "isAndroidBackgroundLocationEnabled": true
+        }
+      ],
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Mutawwif uses the camera to scan your Nusuk QR code."
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Mutawwif accesses photos to display your hotel card."
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "scheme": "mutawwif"
   }
 }
