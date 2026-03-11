@@ -51,7 +51,7 @@ export default function IdentityScreen() {
       <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
         <ScrollView contentContainerStyle={styles.scroll} showsVerticalScrollIndicator={false}>
           <View style={styles.header}>
-            <Text style={styles.step}>4 / 5</Text>
+            <Text style={styles.step}>3 / 4</Text>
             <Text style={styles.title}>{t('onboarding.identity_title')}</Text>
             <Text style={styles.subtitle}>{t('onboarding.identity_subtitle')}</Text>
           </View>

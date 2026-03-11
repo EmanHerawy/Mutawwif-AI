@@ -17,15 +17,23 @@ export default function PersonaScreen() {
   const [name, setName] = useState(persona?.name ?? '');
   const [gender, setGender] = useState<Gender>(persona?.gender ?? 'male');
   const [ritualType, setRitualType] = useState<RitualType>(persona?.ritualType ?? 'umrah');
+  const [hajjIntent, setHajjIntent] = useState<'umrah' | 'hajj'>(
+    (persona?.ritualType ?? 'umrah') === 'umrah' ? 'umrah' : 'hajj'
+  );
   const [mobility, setMobility] = useState<MobilityLevel>(persona?.mobilityLevel ?? 'standard');
   const [error, setError] = useState('');
 
-  const RITUAL_OPTIONS: { value: RitualType; label: string }[] = [
-    { value: 'umrah', label: t('onboarding.persona_umrah') },
-    { value: 'hajj_tamattu', label: t('onboarding.persona_hajj_tamattu') },
-    { value: 'hajj_qiran', label: t('onboarding.persona_hajj_qiran') },
-    { value: 'hajj_ifrad', label: t('onboarding.persona_hajj_ifrad') },
+  const HAJJ_SUBTYPES: { value: RitualType; label: string; hint: string; recommended?: boolean }[] = [
+    { value: 'hajj_tamattu', label: t('onboarding.persona_hajj_tamattu'), hint: t('onboarding.ritual_tamattu_hint'), recommended: true },
+    { value: 'hajj_qiran', label: t('onboarding.persona_hajj_qiran'), hint: t('onboarding.ritual_qiran_hint') },
+    { value: 'hajj_ifrad', label: t('onboarding.persona_hajj_ifrad'), hint: t('onboarding.ritual_ifrad_hint') },
   ];
+
+  const handleIntentSelect = (intent: 'umrah' | 'hajj') => {
+    setHajjIntent(intent);
+    if (intent === 'umrah') setRitualType('umrah');
+    else if (ritualType === 'umrah') setRitualType('hajj_tamattu'); // safe default
+  };
 
   const MOBILITY_OPTIONS: { value: MobilityLevel; label: string }[] = [
     { value: 'standard', label: t('onboarding.persona_mobility_standard') },
@@ -38,7 +46,7 @@ export default function PersonaScreen() {
     const langCode = persona?.languageCode ?? 'en';
     const dialectKey: DialectKey = 'standard_arabic';
     updatePersona({ name: name.trim(), gender, ritualType, mobilityLevel: mobility, languageCode: langCode, dialectKey, nationalityCode: '' });
-    router.push('/(onboarding)/origin');
+    router.push('/(onboarding)/identity');
   };
 
   return (
@@ -46,7 +54,7 @@ export default function PersonaScreen() {
       <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
         <ScrollView contentContainerStyle={styles.scroll} showsVerticalScrollIndicator={false}>
           <View style={styles.header}>
-            <Text style={styles.step}>2 / 5</Text>
+            <Text style={styles.step}>2 / 4</Text>
             <Text style={styles.title}>{t('onboarding.persona_title')}</Text>
           </View>
 
@@ -82,23 +90,59 @@ export default function PersonaScreen() {
             </View>
           </View>
 
-          {/* Ritual Type */}
+          {/* Ritual Type — Tier 1: intent */}
           <View style={styles.field}>
-            <Text style={styles.label}>{t('onboarding.persona_ritual')}</Text>
-            <View style={styles.optionList}>
-              {RITUAL_OPTIONS.map((opt) => (
+            <Text style={styles.label}>{t('onboarding.ritual_intent_label')}</Text>
+            <View style={styles.intentRow}>
+              {(['umrah', 'hajj'] as const).map((intent) => (
                 <TouchableOpacity
-                  key={opt.value}
-                  style={[styles.optionBtn, ritualType === opt.value && styles.optionActive]}
-                  onPress={() => setRitualType(opt.value)}
+                  key={intent}
+                  style={[styles.intentCard, hajjIntent === intent && styles.intentCardActive]}
+                  onPress={() => handleIntentSelect(intent)}
+                  activeOpacity={0.8}
                 >
-                  <View style={[styles.radio, ritualType === opt.value && styles.radioActive]} />
-                  <Text style={[styles.optionText, ritualType === opt.value && styles.optionTextActive]}>
-                    {opt.label}
+                  <Text style={styles.intentEmoji}>{intent === 'umrah' ? '🌙' : '🕋'}</Text>
+                  <Text style={[styles.intentLabel, hajjIntent === intent && styles.intentLabelActive]}>
+                    {intent === 'umrah' ? t('onboarding.persona_umrah') : 'Hajj / حج'}
+                  </Text>
+                  <Text style={[styles.intentSub, hajjIntent === intent && styles.intentSubActive]}>
+                    {intent === 'umrah' ? t('onboarding.ritual_umrah_subtitle') : t('onboarding.ritual_hajj_subtitle')}
                   </Text>
                 </TouchableOpacity>
               ))}
             </View>
+
+            {/* Tier 2: Hajj subtype — only shown when Hajj is selected */}
+            {hajjIntent === 'hajj' && (
+              <View style={styles.subtypeBox}>
+                <Text style={styles.subtypeLabel}>{t('onboarding.ritual_subtype_label')}</Text>
+                {HAJJ_SUBTYPES.map((opt) => (
+                  <TouchableOpacity
+                    key={opt.value}
+                    style={[styles.optionBtn, ritualType === opt.value && styles.optionActive]}
+                    onPress={() => setRitualType(opt.value)}
+                  >
+                    <View style={[styles.radio, ritualType === opt.value && styles.radioActive]} />
+                    <View style={{ flex: 1 }}>
+                      <View style={styles.subtypeNameRow}>
+                        <Text style={[styles.optionText, ritualType === opt.value && styles.optionTextActive]}>
+                          {opt.label}
+                        </Text>
+                        {opt.recommended && (
+                          <View style={styles.recommendedBadge}>
+                            <Text style={styles.recommendedText}>{t('onboarding.ritual_recommended')}</Text>
+                          </View>
+                        )}
+                      </View>
+                      <Text style={styles.subtypeHint}>{opt.hint}</Text>
+                    </View>
+                  </TouchableOpacity>
+                ))}
+                <TouchableOpacity onPress={() => setRitualType('hajj_tamattu')} style={styles.unsureBtn}>
+                  <Text style={styles.unsureText}>{t('onboarding.ritual_unsure')}</Text>
+                </TouchableOpacity>
+              </View>
+            )}
           </View>
 
           {/* Mobility */}
@@ -161,6 +205,28 @@ const styles = StyleSheet.create({
   radioActive: { borderColor: Colors.brandGreen, backgroundColor: Colors.brandGreen },
   optionText: { fontSize: 15, color: Colors.textPrimary },
   optionTextActive: { color: Colors.brandGreen, fontWeight: '600' },
+  intentRow: { flexDirection: 'row', gap: 12, marginBottom: 4 },
+  intentCard: {
+    flex: 1, backgroundColor: Colors.white, borderRadius: 14, padding: 16,
+    alignItems: 'center', borderWidth: 1.5, borderColor: Colors.brandGreen + '33',
+  },
+  intentCardActive: { backgroundColor: Colors.brandGreen, borderColor: Colors.brandGreen },
+  intentEmoji: { fontSize: 28, marginBottom: 6 },
+  intentLabel: { fontSize: 15, fontWeight: '700', color: Colors.brandGreen, marginBottom: 3, textAlign: 'center' },
+  intentLabelActive: { color: Colors.white },
+  intentSub: { fontSize: 11, color: Colors.textPrimary, opacity: 0.5, textAlign: 'center', lineHeight: 15 },
+  intentSubActive: { color: Colors.white, opacity: 0.8 },
+  subtypeBox: {
+    marginTop: 12, backgroundColor: Colors.brandGreen + '06',
+    borderRadius: 12, padding: 12, borderWidth: 1, borderColor: Colors.brandGreen + '22', gap: 6,
+  },
+  subtypeLabel: { fontSize: 12, fontWeight: '700', color: Colors.brandGreen, opacity: 0.6, marginBottom: 4 },
+  subtypeNameRow: { flexDirection: 'row', alignItems: 'center', gap: 6 },
+  subtypeHint: { fontSize: 11, color: Colors.textPrimary, opacity: 0.5, marginTop: 2, lineHeight: 16 },
+  recommendedBadge: { backgroundColor: Colors.goldAccent + '30', borderRadius: 4, paddingHorizontal: 6, paddingVertical: 2 },
+  recommendedText: { fontSize: 10, color: Colors.goldAccent, fontWeight: '700' },
+  unsureBtn: { paddingVertical: 8, alignItems: 'center', marginTop: 4 },
+  unsureText: { fontSize: 12, color: Colors.goldAccent, fontWeight: '600', textAlign: 'center' },
   nextBtn: { backgroundColor: Colors.brandGreen, borderRadius: 14, paddingVertical: 16, alignItems: 'center', marginTop: 8 },
   nextText: { color: Colors.white, fontSize: 16, fontWeight: '700' },
 });
