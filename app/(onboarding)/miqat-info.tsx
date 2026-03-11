@@ -3,22 +3,29 @@ import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView, ScrollView } fr
 import { useRouter } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import { usePersonaStore } from '../../src/stores/personaStore';
-import { useLocationStore } from '../../src/stores/locationStore';
 import { Colors } from '../../src/theme/colors';
 import { MIQAT_ZONES } from '../../src/data/miqat-zones';
+import { detectMiqatFromCity } from './origin';
 
 export default function MiqatInfoScreen() {
   const router = useRouter();
   const { t } = useTranslation();
   const { persona, completeOnboarding } = usePersonaStore();
-  const miqatAssignment = useLocationStore((s) => s.miqatAssignment);
+
+  const isAr = (persona?.languageCode ?? 'en').startsWith('ar');
+
+  // Derive suggestion from city entered on screen 3
+  const suggestedId = persona?.originConfirmed
+    ? detectMiqatFromCity(persona.originConfirmed)
+    : null;
+
+  const [selectedId, setSelectedId] = useState<string | null>(suggestedId);
+  const [showOverride, setShowOverride] = useState(false);
   const [locationGranted, setLocationGranted] = useState(false);
   const [permissionDenied, setPermissionDenied] = useState(false);
 
-  const assignedZone = miqatAssignment
-    ? MIQAT_ZONES.find((z) => z.id === miqatAssignment)
-    : null;
-  const isAr = (persona?.languageCode ?? 'en').startsWith('ar');
+  const selectedZone = selectedId ? MIQAT_ZONES.find((z) => z.id === selectedId) : null;
+  const zoneName = (zone: typeof MIQAT_ZONES[0]) => isAr ? zone.nameAr : zone.nameEn;
 
   const requestLocation = () => {
     if (typeof navigator !== 'undefined' && navigator.geolocation) {
@@ -42,25 +49,54 @@ export default function MiqatInfoScreen() {
         <View style={styles.header}>
           <Text style={styles.step}>5 / 5</Text>
           <Text style={styles.title}>{t('onboarding.miqat_title')}</Text>
+          <Text style={styles.subtitle}>{t('onboarding.miqat_subtitle')}</Text>
         </View>
 
-        {assignedZone ? (
-          <View style={styles.miqatCard}>
-            <Text style={styles.miqatEmoji}>🕌</Text>
-            <Text style={styles.miqatLabel}>{t('miqat.assigned', { name: '' })}</Text>
-            <Text style={styles.miqatName}>{isAr ? assignedZone.nameAr : assignedZone.nameEn}</Text>
+        {/* Confirmed selection card */}
+        {selectedZone && !showOverride ? (
+          <View style={styles.confirmedCard}>
+            <View style={styles.confirmedLeft}>
+              <Text style={styles.confirmedBadge}>
+                {suggestedId === selectedId
+                  ? t('onboarding.miqat_suggested')
+                  : t('onboarding.miqat_confirmed')}
+              </Text>
+              <Text style={styles.confirmedName}>{zoneName(selectedZone)}</Text>
+              <Text style={styles.confirmedSub}>{isAr ? selectedZone.nameEn : selectedZone.nameAr}</Text>
+            </View>
+            <TouchableOpacity onPress={() => setShowOverride(true)} style={styles.changeBtn}>
+              <Text style={styles.changeBtnText}>{t('onboarding.miqat_change')}</Text>
+            </TouchableOpacity>
           </View>
         ) : (
-          <View style={styles.infoCard}>
-            <Text style={styles.infoText}>{t('onboarding.origin_miqat_autodetect')}</Text>
+          /* No suggestion or user wants to override — show selection list */
+          <View style={styles.selectCard}>
+            <Text style={styles.selectTitle}>{t('onboarding.miqat_select_manually')}</Text>
+            {MIQAT_ZONES.map((zone) => (
+              <TouchableOpacity
+                key={zone.id}
+                style={[styles.zoneRow, selectedId === zone.id && styles.zoneRowActive]}
+                onPress={() => { setSelectedId(zone.id); setShowOverride(false); }}
+              >
+                <View style={[styles.radio, selectedId === zone.id && styles.radioActive]} />
+                <View style={{ flex: 1 }}>
+                  <Text style={[styles.zoneName, selectedId === zone.id && styles.zoneNameActive]}>
+                    {zoneName(zone)}
+                  </Text>
+                  <Text style={styles.zoneSub}>{isAr ? zone.nameEn : zone.nameAr}</Text>
+                </View>
+              </TouchableOpacity>
+            ))}
           </View>
         )}
 
+        {/* Explanation */}
         <View style={styles.explainCard}>
           <Text style={styles.explainTitle}>{t('onboarding.miqat_what_is')}</Text>
           <Text style={styles.explainBody}>{t('onboarding.miqat_explanation')}</Text>
         </View>
 
+        {/* Location permission */}
         {!locationGranted && !permissionDenied && (
           <View style={styles.permissionCard}>
             <Text style={styles.permissionTitle}>📍 {t('onboarding.miqat_location_permission')}</Text>
@@ -70,13 +106,11 @@ export default function MiqatInfoScreen() {
             </TouchableOpacity>
           </View>
         )}
-
         {locationGranted && (
           <View style={styles.grantedCard}>
             <Text style={styles.grantedText}>✅ {t('onboarding.miqat_location_granted')}</Text>
           </View>
         )}
-
         {permissionDenied && (
           <View style={styles.deniedCard}>
             <Text style={styles.deniedText}>{t('onboarding.miqat_location_denied')}</Text>
@@ -94,27 +128,45 @@ export default function MiqatInfoScreen() {
 const styles = StyleSheet.create({
   safe: { flex: 1, backgroundColor: Colors.parchmentBg },
   scroll: { padding: 24, paddingBottom: 48 },
-  header: { marginBottom: 28 },
+  header: { marginBottom: 24 },
   step: { fontSize: 13, color: Colors.goldAccent, fontWeight: '600', marginBottom: 4 },
-  title: { fontSize: 24, fontWeight: '700', color: Colors.brandGreen },
-  miqatCard: {
-    backgroundColor: Colors.brandGreen, borderRadius: 20, padding: 24,
-    alignItems: 'center', marginBottom: 20,
+  title: { fontSize: 24, fontWeight: '700', color: Colors.brandGreen, marginBottom: 6 },
+  subtitle: { fontSize: 14, color: Colors.textPrimary, opacity: 0.6, lineHeight: 20 },
+  // Confirmed card
+  confirmedCard: {
+    flexDirection: 'row', alignItems: 'center', backgroundColor: Colors.brandGreen,
+    borderRadius: 16, padding: 18, marginBottom: 20, gap: 12,
   },
-  miqatEmoji: { fontSize: 40, marginBottom: 8 },
-  miqatLabel: { fontSize: 13, color: Colors.white, opacity: 0.7, marginBottom: 4 },
-  miqatName: { fontSize: 22, fontWeight: '700', color: Colors.goldAccent, textAlign: 'center' },
-  infoCard: {
-    backgroundColor: Colors.goldAccent + '18', borderRadius: 14, padding: 16,
-    marginBottom: 20, borderWidth: 1, borderColor: Colors.goldAccent + '44',
+  confirmedLeft: { flex: 1 },
+  confirmedBadge: { fontSize: 11, color: Colors.goldAccent, fontWeight: '700', marginBottom: 4, textTransform: 'uppercase', letterSpacing: 0.5 },
+  confirmedName: { fontSize: 20, fontWeight: '700', color: Colors.white, marginBottom: 2 },
+  confirmedSub: { fontSize: 12, color: Colors.white, opacity: 0.6 },
+  changeBtn: { backgroundColor: Colors.white + '22', borderRadius: 8, paddingHorizontal: 12, paddingVertical: 6 },
+  changeBtnText: { color: Colors.white, fontSize: 13, fontWeight: '600' },
+  // Manual select card
+  selectCard: {
+    backgroundColor: Colors.white, borderRadius: 16, padding: 16,
+    marginBottom: 20, borderWidth: 1.5, borderColor: Colors.brandGreen + '33',
   },
-  infoText: { fontSize: 14, color: Colors.textPrimary, lineHeight: 22 },
+  selectTitle: { fontSize: 13, fontWeight: '700', color: Colors.brandGreen, opacity: 0.7, marginBottom: 12 },
+  zoneRow: {
+    flexDirection: 'row', alignItems: 'center', gap: 12, padding: 12,
+    borderRadius: 10, marginBottom: 4,
+  },
+  zoneRowActive: { backgroundColor: Colors.brandGreen + '0D' },
+  radio: { width: 18, height: 18, borderRadius: 9, borderWidth: 2, borderColor: Colors.brandGreen + '55' },
+  radioActive: { backgroundColor: Colors.brandGreen, borderColor: Colors.brandGreen },
+  zoneName: { fontSize: 14, fontWeight: '500', color: Colors.textPrimary },
+  zoneNameActive: { color: Colors.brandGreen, fontWeight: '700' },
+  zoneSub: { fontSize: 11, color: Colors.textPrimary, opacity: 0.45 },
+  // Explanation
   explainCard: {
     backgroundColor: Colors.white, borderRadius: 14, padding: 16,
     marginBottom: 20, borderWidth: 1, borderColor: Colors.brandGreen + '22',
   },
   explainTitle: { fontSize: 15, fontWeight: '700', color: Colors.brandGreen, marginBottom: 8 },
   explainBody: { fontSize: 14, color: Colors.textPrimary, lineHeight: 22, opacity: 0.75 },
+  // Location permission
   permissionCard: {
     backgroundColor: Colors.white, borderRadius: 14, padding: 16,
     marginBottom: 20, borderWidth: 1.5, borderColor: Colors.brandGreen + '44',
