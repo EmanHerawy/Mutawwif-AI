@@ -251,7 +251,14 @@
     "haram_security_title": "Haram Security"
   },
   "dashboard_ui": {
-    "start": "Start"
+    "start": "Start a Ritual",
+    "visit": "Visit",
+    "visit_haram_title": "Masjid Al Haram",
+    "visit_haram_sub": "Gates · Facilities · Etiquette",
+    "visit_nabawi_title": "Masjid Al Nabawi",
+    "visit_nabawi_sub": "The Rawdah · Gates · Facilities",
+    "visit_rawdah_title": "The Rawdah",
+    "visit_rawdah_sub": "A garden from the gardens of Paradise"
   },
  
   "etiquette": {

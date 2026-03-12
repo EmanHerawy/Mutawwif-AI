@@ -251,7 +251,14 @@
     "haram_security_title": "أمن الحرم"
   },
   "dashboard_ui": {
-    "start": "ابدأ"
+    "start": "ابدأ نسكك",
+    "visit": "زيارة",
+    "visit_haram_title": "المسجد الحرام",
+    "visit_haram_sub": "البوابات · المرافق · الآداب",
+    "visit_nabawi_title": "المسجد النبوي",
+    "visit_nabawi_sub": "الروضة الشريفة · البوابات · المرافق",
+    "visit_rawdah_title": "الروضة الشريفة",
+    "visit_rawdah_sub": "روضة من رياض الجنة"
   },
 
   "etiquette": {

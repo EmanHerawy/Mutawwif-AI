@@ -1,12 +1,12 @@
 import { View, Text, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useRouter } from 'expo-router';
+import { FontAwesome5 } from '@expo/vector-icons';
 import { usePersonaStore } from '../../src/stores/personaStore';
 import { useRitualStore } from '../../src/stores/ritualStore';
 import { useLocationStore } from '../../src/stores/locationStore';
 import { useHealthStore } from '../../src/stores/healthStore';
 import { Colors } from '../../src/theme/colors';
-
 import { isHajjSeason } from '../../src/utils/hajjSeason';
 
 const HEAT_COLORS: Record<string, string> = {
@@ -28,7 +28,6 @@ export default function DashboardScreen() {
   const currentTemp = useHealthStore((s) => s.currentTempCelsius);
 
   const name = persona?.name ?? '';
-  const isHajjType = persona?.ritualType && persona.ritualType !== 'umrah';
   const hajjAllowed = isHajjSeason();
 
   return (
@@ -42,10 +41,10 @@ export default function DashboardScreen() {
           </Text>
           <View style={styles.headerActions}>
             <TouchableOpacity style={styles.headerBtn} onPress={() => router.push('/(tabs)/settings')}>
-              <Text style={styles.headerBtnText}>⚙️</Text>
+              <FontAwesome5 name="cog" size={16} color={Colors.brandGreen} />
             </TouchableOpacity>
             <TouchableOpacity style={styles.headerBtn} onPress={() => router.push('/(tabs)/profile')}>
-              <Text style={styles.headerBtnText}>👤</Text>
+              <FontAwesome5 name="user" size={16} color={Colors.brandGreen} />
             </TouchableOpacity>
           </View>
         </View>
@@ -81,7 +80,7 @@ export default function DashboardScreen() {
               </Text>
               <Text style={styles.activeCardProgress}>{counter.completedLaps} / 7 {t('tracker.round')}</Text>
             </View>
-            <Text style={styles.activeCardArrow}>→</Text>
+            <FontAwesome5 name="arrow-right" size={20} color={Colors.white} />
           </TouchableOpacity>
         )}
 
@@ -89,17 +88,19 @@ export default function DashboardScreen() {
         <Text style={styles.sectionLabel}>{t('dashboard_ui.start')}</Text>
         <View style={styles.ritualGroup}>
 
-          {/* Start Umrah — always available */}
+          {/* Start Umrah */}
           <TouchableOpacity
             style={styles.ritualCard}
             onPress={() => router.push('/(tabs)/guide')}
           >
-            <Text style={styles.ritualEmoji}>🕋</Text>
+            <View style={styles.iconBox}>
+              <FontAwesome5 name="kaaba" size={26} color={Colors.brandGreen} solid />
+            </View>
             <View style={styles.ritualCardContent}>
               <Text style={styles.ritualCardTitle}>{t('guide.start_umrah')}</Text>
               <Text style={styles.ritualCardSub}>{t('onboarding.persona_umrah')}</Text>
             </View>
-            <Text style={styles.ritualCardArrow}>→</Text>
+            <FontAwesome5 name="chevron-right" size={14} color={Colors.brandGreen} />
           </TouchableOpacity>
 
           {/* Start Hajj — only during Hajj months */}
@@ -108,7 +109,9 @@ export default function DashboardScreen() {
             onPress={() => hajjAllowed && router.push('/(tabs)/guide')}
             activeOpacity={hajjAllowed ? 0.7 : 1}
           >
-            <Text style={styles.ritualEmoji}>🕌</Text>
+            <View style={[styles.iconBox, !hajjAllowed && styles.iconBoxMuted]}>
+              <FontAwesome5 name="campground" size={26} color={hajjAllowed ? Colors.brandGreen : Colors.textPrimary} solid />
+            </View>
             <View style={styles.ritualCardContent}>
               <Text style={[styles.ritualCardTitle, !hajjAllowed && styles.textMuted]}>
                 {t('guide.start_hajj')}
@@ -118,14 +121,65 @@ export default function DashboardScreen() {
               </Text>
             </View>
             {hajjAllowed
-              ? <Text style={styles.ritualCardArrow}>→</Text>
-              : <View style={styles.lockedBadge}><Text style={styles.lockedBadgeText}>🔒</Text></View>
+              ? <FontAwesome5 name="chevron-right" size={14} color={Colors.brandGreen} />
+              : <FontAwesome5 name="lock" size={14} color={Colors.textPrimary} style={{ opacity: 0.3 }} />
             }
           </TouchableOpacity>
 
         </View>
 
-        {/* ── GROUP 2: Tools ── */}
+        {/* ── GROUP 2: Visit ── */}
+        <Text style={styles.sectionLabel}>{t('dashboard_ui.visit')}</Text>
+        <View style={styles.ritualGroup}>
+
+          {/* Visit Masjid Al Haram */}
+          <TouchableOpacity
+            style={styles.ritualCard}
+            onPress={() => router.push('/(visit)/haram' as any)}
+          >
+            <View style={styles.iconBox}>
+              <FontAwesome5 name="mosque" size={26} color={Colors.brandGreen} solid />
+            </View>
+            <View style={styles.ritualCardContent}>
+              <Text style={styles.ritualCardTitle}>{t('dashboard_ui.visit_haram_title')}</Text>
+              <Text style={styles.ritualCardSub}>{t('dashboard_ui.visit_haram_sub')}</Text>
+            </View>
+            <FontAwesome5 name="chevron-right" size={14} color={Colors.brandGreen} />
+          </TouchableOpacity>
+
+          {/* Visit Masjid Al Nabawi */}
+          <TouchableOpacity
+            style={styles.ritualCard}
+            onPress={() => router.push('/(visit)/nabawi' as any)}
+          >
+            <View style={styles.iconBox}>
+              <FontAwesome5 name="place-of-worship" size={26} color={Colors.brandGreen} solid />
+            </View>
+            <View style={styles.ritualCardContent}>
+              <Text style={styles.ritualCardTitle}>{t('dashboard_ui.visit_nabawi_title')}</Text>
+              <Text style={styles.ritualCardSub}>{t('dashboard_ui.visit_nabawi_sub')}</Text>
+            </View>
+            <FontAwesome5 name="chevron-right" size={14} color={Colors.brandGreen} />
+          </TouchableOpacity>
+
+          {/* Visit Rawdah */}
+          <TouchableOpacity
+            style={[styles.ritualCard, styles.ritualCardRawdah]}
+            onPress={() => router.push('/(visit)/nabawi/rawdah' as any)}
+          >
+            <View style={styles.iconBoxGold}>
+              <FontAwesome5 name="star-of-life" size={24} color={Colors.goldAccent} solid />
+            </View>
+            <View style={styles.ritualCardContent}>
+              <Text style={[styles.ritualCardTitle, styles.ritualCardTitleGold]}>{t('dashboard_ui.visit_rawdah_title')}</Text>
+              <Text style={styles.ritualCardSub}>{t('dashboard_ui.visit_rawdah_sub')}</Text>
+            </View>
+            <FontAwesome5 name="chevron-right" size={14} color={Colors.goldAccent} />
+          </TouchableOpacity>
+
+        </View>
+
+        {/* ── GROUP 3: Tools ── */}
         <Text style={styles.sectionLabel}>{t('tabs.azkar') + ' & ' + t('tabs.guide')}</Text>
         <View style={styles.toolsGrid}>
           {[
@@ -145,7 +199,7 @@ export default function DashboardScreen() {
           ))}
         </View>
 
-        {/* ── GROUP 3: Learn ── */}
+        {/* ── GROUP 4: Learn ── */}
         <Text style={styles.sectionLabel}>{t('tabs.learn')}</Text>
         <TouchableOpacity
           style={styles.learnCard}
@@ -156,7 +210,7 @@ export default function DashboardScreen() {
             <Text style={styles.learnTitle}>{t('etiquette.title')}</Text>
             <Text style={styles.learnSub}>{t('etiquette.subtitle')}</Text>
           </View>
-          <Text style={styles.learnArrow}>→</Text>
+          <FontAwesome5 name="chevron-right" size={14} color={Colors.goldAccent} />
         </TouchableOpacity>
 
         {miqatAssignment && (
@@ -176,8 +230,11 @@ const styles = StyleSheet.create({
   header: { marginBottom: 20, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
   greeting: { fontSize: 22, fontWeight: '700', color: Colors.brandGreen, flex: 1 },
   headerActions: { flexDirection: 'row', gap: 8 },
-  headerBtn: { width: 38, height: 38, borderRadius: 19, backgroundColor: Colors.white, alignItems: 'center', justifyContent: 'center', borderWidth: 1.5, borderColor: Colors.brandGreen + '33' },
-  headerBtnText: { fontSize: 18 },
+  headerBtn: {
+    width: 38, height: 38, borderRadius: 19,
+    backgroundColor: Colors.white, alignItems: 'center', justifyContent: 'center',
+    borderWidth: 1.5, borderColor: Colors.brandGreen + '33',
+  },
   banner: { borderWidth: 1.5, borderRadius: 12, padding: 12, marginBottom: 10, backgroundColor: Colors.white },
   bannerText: { fontSize: 14, fontWeight: '600' },
   activeCard: {
@@ -186,24 +243,36 @@ const styles = StyleSheet.create({
   },
   activeCardLabel: { fontSize: 13, color: Colors.white, opacity: 0.8, marginBottom: 4 },
   activeCardProgress: { fontSize: 20, fontWeight: '700', color: Colors.white },
-  activeCardArrow: { fontSize: 22, color: Colors.white },
-  sectionLabel: { fontSize: 11, fontWeight: '700', color: Colors.textPrimary, opacity: 0.4, marginBottom: 10, textTransform: 'uppercase', letterSpacing: 0.8 },
-  // Ritual group
+  sectionLabel: {
+    fontSize: 11, fontWeight: '700', color: Colors.textPrimary,
+    opacity: 0.4, marginBottom: 10, textTransform: 'uppercase', letterSpacing: 0.8,
+  },
+  // Ritual / Visit cards
   ritualGroup: { gap: 10, marginBottom: 28 },
   ritualCard: {
     flexDirection: 'row', alignItems: 'center', gap: 14,
-    backgroundColor: Colors.white, borderRadius: 16, padding: 18,
+    backgroundColor: Colors.white, borderRadius: 16, padding: 16,
     borderWidth: 1.5, borderColor: Colors.brandGreen + '33',
   },
   ritualCardDisabled: { borderColor: Colors.textPrimary + '18', backgroundColor: Colors.parchmentBg },
-  ritualEmoji: { fontSize: 32 },
+  ritualCardRawdah: { borderColor: Colors.goldAccent + '55' },
+  // Icon containers
+  iconBox: {
+    width: 52, height: 52, borderRadius: 14,
+    backgroundColor: Colors.brandGreen + '10',
+    alignItems: 'center', justifyContent: 'center',
+  },
+  iconBoxMuted: { backgroundColor: Colors.textPrimary + '08' },
+  iconBoxGold: {
+    width: 52, height: 52, borderRadius: 14,
+    backgroundColor: Colors.goldAccent + '15',
+    alignItems: 'center', justifyContent: 'center',
+  },
   ritualCardContent: { flex: 1 },
-  ritualCardTitle: { fontSize: 17, fontWeight: '700', color: Colors.brandGreen, marginBottom: 3 },
+  ritualCardTitle: { fontSize: 16, fontWeight: '700', color: Colors.brandGreen, marginBottom: 3 },
+  ritualCardTitleGold: { color: Colors.goldAccent },
   ritualCardSub: { fontSize: 12, color: Colors.textPrimary, opacity: 0.55 },
-  ritualCardArrow: { fontSize: 20, color: Colors.brandGreen },
   textMuted: { color: Colors.textPrimary, opacity: 0.4 },
-  lockedBadge: { paddingHorizontal: 8, paddingVertical: 4 },
-  lockedBadgeText: { fontSize: 18 },
   // Tools grid
   toolsGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 10, marginBottom: 20 },
   toolCard: {
@@ -224,5 +293,4 @@ const styles = StyleSheet.create({
   learnContent: { flex: 1 },
   learnTitle: { fontSize: 16, fontWeight: '700', color: Colors.brandGreen, marginBottom: 3 },
   learnSub: { fontSize: 12, color: Colors.textPrimary, opacity: 0.55 },
-  learnArrow: { fontSize: 20, color: Colors.goldAccent },
 });
