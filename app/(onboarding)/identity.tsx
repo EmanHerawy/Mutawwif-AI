@@ -8,6 +8,7 @@ import { useTranslation } from 'react-i18next';
 import { usePersonaStore } from '../../src/stores/personaStore';
 import { useIdentityStore } from '../../src/stores/identityStore';
 import { Colors } from '../../src/theme/colors';
+import ScreenBackground from '../../src/components/ScreenBackground';
 
 export default function IdentityScreen() {
   const router = useRouter();
@@ -50,7 +51,8 @@ export default function IdentityScreen() {
   };
 
   return (
-    <SafeAreaView style={styles.safe}>
+    <ScreenBackground>
+      <SafeAreaView style={styles.safe}>
       <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
         <ScrollView contentContainerStyle={styles.scroll} showsVerticalScrollIndicator={false}>
           <View style={styles.header}>
@@ -149,7 +151,8 @@ export default function IdentityScreen() {
           </TouchableOpacity>
         </ScrollView>
       </KeyboardAvoidingView>
-    </SafeAreaView>
+      </SafeAreaView>
+    </ScreenBackground>
   );
 }
 

@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useRitualStore } from '../../src/stores/ritualStore';
 import { Colors } from '../../src/theme/colors';
 import type { RitualCounterType } from '../../src/types/ritual.types';
+import ScreenBackground from '../../src/components/ScreenBackground';
 
 export default function TrackerScreen() {
   const { t } = useTranslation();
@@ -37,7 +38,8 @@ export default function TrackerScreen() {
 
   if (!counter) {
     return (
-      <SafeAreaView style={styles.safe}>
+      <ScreenBackground>
+        <SafeAreaView style={styles.safe}>
         <View style={styles.center}>
           <Text style={styles.pickTitle}>🕋 {t('tabs.tracker')}</Text>
           <Text style={styles.pickSub}>{t('tracker_ui.pick_subtitle')}</Text>
@@ -54,14 +56,16 @@ export default function TrackerScreen() {
             </TouchableOpacity>
           </View>
         </View>
-      </SafeAreaView>
+        </SafeAreaView>
+      </ScreenBackground>
     );
   }
 
   const ritualLabel = counter.ritual === 'tawaf' ? t('tracker.tawaf') : t('tracker.sai');
 
   return (
-    <SafeAreaView style={styles.safe}>
+    <ScreenBackground>
+      <SafeAreaView style={styles.safe}>
       <ScrollView contentContainerStyle={styles.scroll} showsVerticalScrollIndicator={false}>
 
         <View style={styles.rowBetween}>
@@ -136,7 +140,8 @@ export default function TrackerScreen() {
         )}
 
       </ScrollView>
-    </SafeAreaView>
+      </SafeAreaView>
+    </ScreenBackground>
   );
 }
 

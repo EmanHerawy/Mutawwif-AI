@@ -10,6 +10,7 @@ import { useLocationStore } from '../../src/stores/locationStore';
 import { useHealthStore } from '../../src/stores/healthStore';
 import { Colors } from '../../src/theme/colors';
 import { claudeService } from '../../src/services/claudeService';
+import ScreenBackground from '../../src/components/ScreenBackground';
 
 interface Message {
   id: string;
@@ -47,12 +48,14 @@ export default function AskScreen() {
 
   if (ihramState === 'crossed_without_ihram') {
     return (
-      <SafeAreaView style={styles.safe}>
-        <View style={styles.locked}>
-          <Text style={styles.lockedTitle}>{t('ask.damm_locked_title')}</Text>
-          <Text style={styles.lockedBody}>{t('ask.damm_locked_body')}</Text>
-        </View>
-      </SafeAreaView>
+      <ScreenBackground>
+        <SafeAreaView style={styles.safe}>
+          <View style={styles.locked}>
+            <Text style={styles.lockedTitle}>{t('ask.damm_locked_title')}</Text>
+            <Text style={styles.lockedBody}>{t('ask.damm_locked_body')}</Text>
+          </View>
+        </SafeAreaView>
+      </ScreenBackground>
     );
   }
 
@@ -116,7 +119,8 @@ export default function AskScreen() {
   };
 
   return (
-    <SafeAreaView style={styles.safe}>
+    <ScreenBackground>
+      <SafeAreaView style={styles.safe}>
       <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
 
         <View style={styles.header}>
@@ -193,7 +197,8 @@ export default function AskScreen() {
         </View>
 
       </KeyboardAvoidingView>
-    </SafeAreaView>
+      </SafeAreaView>
+    </ScreenBackground>
   );
 }
 

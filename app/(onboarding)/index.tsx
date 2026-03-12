@@ -3,6 +3,7 @@ import { useRouter } from 'expo-router';
 import { initI18n } from '../../src/i18n/config';
 import { usePersonaStore } from '../../src/stores/personaStore';
 import { Colors } from '../../src/theme/colors';
+import ScreenBackground from '../../src/components/ScreenBackground';
 
 const LANGUAGES = [
   { code: 'ar', label: 'العربية', sublabel: 'Arabic', flag: '🇸🇦' },
@@ -24,7 +25,8 @@ export default function LanguageScreen() {
   };
 
   return (
-    <SafeAreaView style={styles.safe}>
+    <ScreenBackground>
+      <SafeAreaView style={styles.safe}>
       <View style={styles.container}>
         <View style={styles.header}>
           <Text style={styles.title}>اختر لغتك{'\n'}Choose Language</Text>
@@ -45,7 +47,8 @@ export default function LanguageScreen() {
           ))}
         </View>
       </View>
-    </SafeAreaView>
+      </SafeAreaView>
+    </ScreenBackground>
   );
 }
 

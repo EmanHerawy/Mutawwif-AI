@@ -10,6 +10,7 @@ import { HAJJ_STEPS } from '../../src/data/manasik-hajj';
 import type { RitualStep, RitualStepStatus } from '../../src/types/ritual.types';
 
 import { isHajjSeason } from '../../src/utils/hajjSeason';
+import ScreenBackground from '../../src/components/ScreenBackground';
 
 export default function GuideScreen() {
   const { t, i18n } = useTranslation();
@@ -76,7 +77,8 @@ export default function GuideScreen() {
   // ── NOT STARTED — intro ──
   if (!hasStarted) {
     return (
-      <SafeAreaView style={styles.safe}>
+      <ScreenBackground>
+        <SafeAreaView style={styles.safe}>
         <ScrollView contentContainerStyle={styles.introScroll} showsVerticalScrollIndicator={false}>
           <Text style={styles.introEmoji}>{isHajj ? '🕌' : '🕋'}</Text>
           <Text style={styles.introTitle}>{isHajj ? t('guide.hajj_title') : t('guide.umrah_title')}</Text>
@@ -107,7 +109,8 @@ export default function GuideScreen() {
             </TouchableOpacity>
           )}
         </ScrollView>
-      </SafeAreaView>
+        </SafeAreaView>
+      </ScreenBackground>
     );
   }
 
@@ -117,7 +120,8 @@ export default function GuideScreen() {
   const isFirstStep = currentIdx === 0;
 
   return (
-    <SafeAreaView style={styles.safe}>
+    <ScreenBackground>
+      <SafeAreaView style={styles.safe}>
       <ScrollView contentContainerStyle={styles.stepScroll} showsVerticalScrollIndicator={false}>
 
         <View style={styles.progressRow}>
@@ -210,7 +214,8 @@ export default function GuideScreen() {
         </View>
 
       </ScrollView>
-    </SafeAreaView>
+      </SafeAreaView>
+    </ScreenBackground>
   );
 }
 

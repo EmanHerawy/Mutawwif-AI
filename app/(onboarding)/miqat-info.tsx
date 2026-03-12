@@ -8,6 +8,7 @@ import { useTranslation } from 'react-i18next';
 import { usePersonaStore } from '../../src/stores/personaStore';
 import { Colors } from '../../src/theme/colors';
 import { MIQAT_ZONES } from '../../src/data/miqat-zones';
+import ScreenBackground from '../../src/components/ScreenBackground';
 
 // Haversine distance in km
 function haversineKm(lat1: number, lon1: number, lat2: number, lon2: number): number {
@@ -140,7 +141,8 @@ export default function MiqatInfoScreen() {
   };
 
   return (
-    <SafeAreaView style={styles.safe}>
+    <ScreenBackground>
+      <SafeAreaView style={styles.safe}>
       <ScrollView contentContainerStyle={styles.scroll} showsVerticalScrollIndicator={false} keyboardShouldPersistTaps="handled">
         <View style={styles.header}>
           <Text style={styles.step}>4 / 4</Text>
@@ -239,7 +241,8 @@ export default function MiqatInfoScreen() {
           <Text style={styles.finishText}>{t('onboarding.miqat_start_journey')}</Text>
         </TouchableOpacity>
       </ScrollView>
-    </SafeAreaView>
+      </SafeAreaView>
+    </ScreenBackground>
   );
 }
 

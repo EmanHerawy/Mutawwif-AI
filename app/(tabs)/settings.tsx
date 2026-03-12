@@ -4,6 +4,7 @@ import { useRouter } from 'expo-router';
 import i18n from '../../src/i18n/config';
 import { usePersonaStore } from '../../src/stores/personaStore';
 import { Colors } from '../../src/theme/colors';
+import ScreenBackground from '../../src/components/ScreenBackground';
 
 const SUPPORTED_LANGUAGES = [
   { code: 'ar', label: 'Arabic',        nativeLabel: 'العربية',       flag: '🇸🇦', rtl: true  },
@@ -32,7 +33,8 @@ export default function SettingsScreen() {
   };
 
   return (
-    <SafeAreaView style={styles.safe}>
+    <ScreenBackground>
+      <SafeAreaView style={styles.safe}>
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
           <Text style={styles.backText}>←</Text>
@@ -78,6 +80,7 @@ export default function SettingsScreen() {
 
       </ScrollView>
     </SafeAreaView>
+    </ScreenBackground>
   );
 }
 
