@@ -8,7 +8,6 @@ import { useHealthStore } from '../../src/stores/healthStore';
 import { Colors } from '../../src/theme/colors';
 
 import { isHajjSeason } from '../../src/utils/hajjSeason';
-import ScreenBackground from '../../src/components/ScreenBackground';
 
 const HEAT_COLORS: Record<string, string> = {
   caution: Colors.goldAccent,
@@ -33,8 +32,7 @@ export default function DashboardScreen() {
   const hajjAllowed = isHajjSeason();
 
   return (
-    <ScreenBackground>
-      <SafeAreaView style={styles.safe}>
+    <SafeAreaView style={styles.safe}>
       <ScrollView contentContainerStyle={styles.scroll} showsVerticalScrollIndicator={false}>
 
         {/* Header */}
@@ -155,12 +153,11 @@ export default function DashboardScreen() {
 
       </ScrollView>
     </SafeAreaView>
-    </ScreenBackground>
   );
 }
 
 const styles = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: 'transparent' },
+  safe: { flex: 1, backgroundColor: Colors.parchmentBg },
   scroll: { padding: 20, paddingBottom: 40 },
   header: { marginBottom: 20, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
   greeting: { fontSize: 22, fontWeight: '700', color: Colors.brandGreen, flex: 1 },

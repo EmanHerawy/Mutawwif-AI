@@ -9,7 +9,6 @@ import { usePersonaStore } from '../../src/stores/personaStore';
 import { useIdentityStore } from '../../src/stores/identityStore';
 import { Colors } from '../../src/theme/colors';
 import type { Gender, RitualType, MobilityLevel } from '../../src/types/persona.types';
-import ScreenBackground from '../../src/components/ScreenBackground';
 
 export default function ProfileScreen() {
   const { t } = useTranslation();
@@ -113,8 +112,7 @@ export default function ProfileScreen() {
   ];
 
   return (
-    <ScreenBackground>
-      <SafeAreaView style={styles.safe}>
+    <SafeAreaView style={styles.safe}>
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
           <Text style={styles.backText}>←</Text>
@@ -293,12 +291,11 @@ export default function ProfileScreen() {
 
       </ScrollView>
     </SafeAreaView>
-    </ScreenBackground>
   );
 }
 
 const styles = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: 'transparent' },
+  safe: { flex: 1, backgroundColor: Colors.parchmentBg },
   header: {
     flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between',
     paddingHorizontal: 16, paddingVertical: 14,

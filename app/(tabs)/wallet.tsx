@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import { usePersonaStore } from '../../src/stores/personaStore';
 import { useIdentityStore } from '../../src/stores/identityStore';
 import { Colors } from '../../src/theme/colors';
-import ScreenBackground from '../../src/components/ScreenBackground';
 
 type Tab = 'emergency' | 'hotel' | 'nusuk';
 
@@ -30,8 +29,7 @@ export default function WalletScreen() {
   ];
 
   return (
-    <ScreenBackground>
-      <SafeAreaView style={styles.safe}>
+    <SafeAreaView style={styles.safe}>
       <ScrollView contentContainerStyle={styles.scroll} showsVerticalScrollIndicator={false}>
 
         <Text style={styles.title}>{t('wallet.title')}</Text>
@@ -148,12 +146,11 @@ export default function WalletScreen() {
 
       </ScrollView>
     </SafeAreaView>
-    </ScreenBackground>
   );
 }
 
 const styles = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: 'transparent' },
+  safe: { flex: 1, backgroundColor: Colors.parchmentBg },
   scroll: { padding: 20, paddingBottom: 48 },
   title: { fontSize: 22, fontWeight: '700', color: Colors.brandGreen, marginBottom: 16 },
   driverBanner: { backgroundColor: Colors.brandGreen, borderRadius: 14, padding: 16, marginBottom: 16, alignItems: 'center' },

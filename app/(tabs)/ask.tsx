@@ -10,7 +10,6 @@ import { useLocationStore } from '../../src/stores/locationStore';
 import { useHealthStore } from '../../src/stores/healthStore';
 import { Colors } from '../../src/theme/colors';
 import { claudeService } from '../../src/services/claudeService';
-import ScreenBackground from '../../src/components/ScreenBackground';
 
 interface Message {
   id: string;
@@ -48,14 +47,12 @@ export default function AskScreen() {
 
   if (ihramState === 'crossed_without_ihram') {
     return (
-      <ScreenBackground>
-        <SafeAreaView style={styles.safe}>
-          <View style={styles.locked}>
-            <Text style={styles.lockedTitle}>{t('ask.damm_locked_title')}</Text>
-            <Text style={styles.lockedBody}>{t('ask.damm_locked_body')}</Text>
-          </View>
-        </SafeAreaView>
-      </ScreenBackground>
+      <SafeAreaView style={styles.safe}>
+        <View style={styles.locked}>
+          <Text style={styles.lockedTitle}>{t('ask.damm_locked_title')}</Text>
+          <Text style={styles.lockedBody}>{t('ask.damm_locked_body')}</Text>
+        </View>
+      </SafeAreaView>
     );
   }
 
@@ -119,8 +116,7 @@ export default function AskScreen() {
   };
 
   return (
-    <ScreenBackground>
-      <SafeAreaView style={styles.safe}>
+    <SafeAreaView style={styles.safe}>
       <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
 
         <View style={styles.header}>
@@ -197,13 +193,12 @@ export default function AskScreen() {
         </View>
 
       </KeyboardAvoidingView>
-      </SafeAreaView>
-    </ScreenBackground>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: 'transparent' },
+  safe: { flex: 1, backgroundColor: Colors.parchmentBg },
   header: { padding: 16, borderBottomWidth: 1, borderBottomColor: Colors.brandGreen + '18' },
   headerTitle: { fontSize: 18, fontWeight: '700', color: Colors.brandGreen, marginBottom: 4 },
   disclaimer: { fontSize: 11, color: Colors.textPrimary, opacity: 0.4, lineHeight: 15 },

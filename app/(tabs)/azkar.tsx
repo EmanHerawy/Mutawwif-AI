@@ -3,7 +3,6 @@ import { View, Text, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity } fr
 import { useTranslation } from 'react-i18next';
 import { Colors } from '../../src/theme/colors';
 import { AZKAR_DATABASE } from '../../src/data/azkar-database';
-import ScreenBackground from '../../src/components/ScreenBackground';
 
 type Category = string;
 
@@ -27,8 +26,7 @@ export default function AzkarScreen() {
   const items = AZKAR_DATABASE.filter((z) => z.category === activeCategory);
 
   return (
-    <ScreenBackground>
-      <SafeAreaView style={styles.safe}>
+    <SafeAreaView style={styles.safe}>
 
       {/* Category pills */}
       <ScrollView
@@ -91,12 +89,11 @@ export default function AzkarScreen() {
         )}
       </ScrollView>
     </SafeAreaView>
-    </ScreenBackground>
   );
 }
 
 const styles = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: 'transparent' },
+  safe: { flex: 1, backgroundColor: Colors.parchmentBg },
   pills: { paddingHorizontal: 16, paddingVertical: 12, gap: 8 },
   pill: {
     flexDirection: 'row', alignItems: 'center', gap: 6,
