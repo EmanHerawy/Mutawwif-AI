@@ -12,6 +12,7 @@ import { Colors } from '../../../src/theme/colors';
 const CATEGORY_ORDER: EtiquetteCategory[] = [
   'ihram_prohibitions',
   'ihram_permissions',
+  'hajj_umrah_rites',
   'common_mistakes',
   'hajj_management',
   'masjid_adab',

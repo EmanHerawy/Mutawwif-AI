@@ -1,16 +1,15 @@
 export type EtiquetteCategory =
-  | 'ihram_prohibitions'// محظورات الإحرام
-  | 'ihram_permissions'// مباحات الإحرام
-  | 'common_mistakes'
-  | 'hajj_management'
-  | 'masjid_adab'
-  | 'sitting_adab'
-  | 'general_adab'       // محظورات الإحرام
+  | 'ihram_prohibitions'       // محظورات الإحرام
+  | 'ihram_permissions'        // مباحات الإحرام
   | 'hajj_umrah_rites'         // واجبات وسنن المناسك (الطواف، السعي، إلخ)
-  | 'makkah_madinah_adab'      // آداب الحرمين الشريفين (الحدود والبيئة)
+  | 'common_mistakes'          // أخطاء شائعة
+  | 'hajj_management'          // إدارة الحشود والسلامة
+  | 'masjid_adab'              // آداب المساجد
+  | 'makkah_madinah_adab'      // آداب الحرمين الشريفين
   | 'rawdah_adab'              // آداب الروضة الشريفة
+  | 'sitting_adab'             // آداب الجلوس في المسجد
   | 'itikaf_adab'              // آداب الاعتكاف
-  | 'general_adab';       // آداب عامة (التعامل مع الآخرين، النظافة)
+  | 'general_adab';            // آداب عامة
 
 export type EtiquetteSeverity =
   /** واجب / فرض: ما أمر به الشارع إلزاماً. يُثاب فاعله امتثالاً ويستحق العقوبة تاركه */

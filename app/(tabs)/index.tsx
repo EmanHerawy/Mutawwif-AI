@@ -146,15 +146,15 @@ export default function DashboardScreen() {
         </View>
 
         {/* ── GROUP 3: Learn ── */}
-        <Text style={styles.sectionLabel}>{t('tabs.learn', 'Learn / تعلّم')}</Text>
+        <Text style={styles.sectionLabel}>{t('tabs.learn')}</Text>
         <TouchableOpacity
           style={styles.learnCard}
           onPress={() => router.push('/(learn)/etiquette' as any)}
         >
           <Text style={styles.learnEmoji}>📜</Text>
           <View style={styles.learnContent}>
-            <Text style={styles.learnTitle}>{t('etiquette.title', 'Etiquette Guide')}</Text>
-            <Text style={styles.learnSub}>{t('etiquette.subtitle', 'Ihram rules · Masjid adab · Common mistakes')}</Text>
+            <Text style={styles.learnTitle}>{t('etiquette.title')}</Text>
+            <Text style={styles.learnSub}>{t('etiquette.subtitle')}</Text>
           </View>
           <Text style={styles.learnArrow}>→</Text>
         </TouchableOpacity>
