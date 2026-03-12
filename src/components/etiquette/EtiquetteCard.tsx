@@ -33,7 +33,7 @@ const SEVERITY_LABEL: Record<EtiquetteSeverity, { ar: string; en: string }> = {
   obligatory: { ar: 'فرض', en: 'Obligation' },
   forbidden: { ar: 'حرام', en: 'Forbidden' },
   disliked: { ar: 'مكروه', en: 'Disliked' },
-  recommended: { ar: 'مستحب', en: 'ٌecommended' },
+  recommended: { ar: 'مستحب', en: 'ٌRecommended' },
   permissible: { ar: 'مباح', en: 'Permissible' },
 };
 

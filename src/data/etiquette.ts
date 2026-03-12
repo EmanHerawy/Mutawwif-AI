@@ -705,7 +705,7 @@ export const ETIQUETTE_CATEGORY_LABELS: Record<EtiquetteCategory, { ar: string; 
   ihram_prohibitions:  { ar: 'محظورات الإحرام',          en: 'Ihram Prohibitions',   emoji: '🩱' },
   ihram_permissions:   { ar: 'المباح في الإحرام',         en: 'Permitted in Ihram',   emoji: '✅' },
   common_mistakes:     { ar: 'أخطاء شائعة',              en: 'Common Mistakes',      emoji: '⚠️' },
-  hajj_umrah_rites:     { ar: 'واجبات وسنن المناسك',     en: 'Hajj Umrah Rites',  emoji: '🛡️' },
+  hajj_umrah_rites:     { ar: 'واجبات وسنن المناسك',     en: 'Hajj Umrah Rites',  emoji: '🕋' },
   hajj_management:     { ar: 'إدارة الحشود والسلامة',     en: 'Safety & Management',  emoji: '🛡️' },
   masjid_adab:         { ar: 'آداب زيارة الحرمين',         en: 'Visiting the Haramayn', emoji: '🕌' },
   makkah_madinah_adab: { ar: 'آداب زيارة مكة والمدينة',  en: 'Makkah & Madinah',     emoji: '🏙️' },
