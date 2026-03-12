@@ -11,8 +11,8 @@ import type { Gender, RitualType, MobilityLevel, DialectKey } from '../../src/ty
 
 export default function PersonaScreen() {
   const router = useRouter();
-  const { t } = useTranslation();
-  const { persona, updatePersona } = usePersonaStore();
+  const { t, i18n } = useTranslation();
+  const { persona, setPersona, updatePersona } = usePersonaStore();
 
   const [name, setName] = useState(persona?.name ?? '');
   const [gender, setGender] = useState<Gender>(persona?.gender ?? 'male');
@@ -43,9 +43,21 @@ export default function PersonaScreen() {
 
   const handleNext = () => {
     if (!name.trim()) { setError(t('onboarding.persona_name_required')); return; }
-    const langCode = persona?.languageCode ?? 'en';
+    const langCode = persona?.languageCode ?? i18n.language ?? 'en';
     const dialectKey: DialectKey = 'standard_arabic';
-    updatePersona({ name: name.trim(), gender, ritualType, mobilityLevel: mobility, languageCode: langCode, dialectKey, nationalityCode: '' });
+    const base = {
+      name: name.trim(), gender, ritualType, mobilityLevel: mobility,
+      languageCode: langCode, dialectKey, nationalityCode: '', originConfirmed: '',
+      emergencyContactName: '', emergencyContactPhone: '',
+      hotelMakkahName: '', hotelMakkahAddress: '',
+      hotelMadinahName: '', hotelMadinahAddress: '',
+      groupGuideName: '', groupGuidePhone: '',
+    };
+    if (persona) {
+      updatePersona(base);
+    } else {
+      setPersona(base);
+    }
     router.push('/(onboarding)/identity');
   };
 

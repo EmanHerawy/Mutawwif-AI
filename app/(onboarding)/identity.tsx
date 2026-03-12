@@ -6,6 +6,7 @@ import {
 import { useRouter } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import { usePersonaStore } from '../../src/stores/personaStore';
+import { useIdentityStore } from '../../src/stores/identityStore';
 import { Colors } from '../../src/theme/colors';
 
 export default function IdentityScreen() {
@@ -13,11 +14,12 @@ export default function IdentityScreen() {
   const { t } = useTranslation();
   const { persona, updatePersona } = usePersonaStore();
 
+  const saveNusukId = useIdentityStore((s) => s.setNusukId);
   const [nusukId, setNusukId] = useState('');
   const [emergencyName, setEmergencyName] = useState(persona?.emergencyContactName ?? '');
   const [emergencyPhone, setEmergencyPhone] = useState(persona?.emergencyContactPhone ?? '');
-  const [hotelName, setHotelName] = useState(persona?.hotelName ?? '');
-  const [hotelAddress, setHotelAddress] = useState(persona?.hotelAddress ?? '');
+  const [hotelName, setHotelName] = useState(persona?.hotelMakkahName ?? '');
+  const [hotelAddress, setHotelAddress] = useState(persona?.hotelMakkahAddress ?? '');
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   // Format-only validation — nothing is required
@@ -40,9 +42,10 @@ export default function IdentityScreen() {
     updatePersona({
       emergencyContactName: emergencyName.trim(),
       emergencyContactPhone: emergencyPhone.trim(),
-      hotelName: hotelName.trim(),
-      hotelAddress: hotelAddress.trim(),
+      hotelMakkahName: hotelName.trim(),
+      hotelMakkahAddress: hotelAddress.trim(),
     });
+    if (nusukId.trim()) saveNusukId(nusukId.trim());
     router.push('/(onboarding)/miqat-info');
   };
 

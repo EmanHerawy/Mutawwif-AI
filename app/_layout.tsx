@@ -19,13 +19,16 @@ const queryClient = new QueryClient({
   },
 });
 
+// Bootstrap i18n once at module level with default language
+initI18n('en');
+
 export default function RootLayout() {
   const persona = usePersonaStore((s) => s.persona);
   const isDarkMode = useUIStore((s) => s.isDarkMode);
 
   useEffect(() => {
-    const lang = persona?.languageCode ?? 'en';
-    initI18n(lang);
+    const lang = persona?.languageCode;
+    if (lang) i18n.changeLanguage(lang);
   }, [persona?.languageCode]);
 
   return (

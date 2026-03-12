@@ -187,8 +187,11 @@ export class ClaudeService {
         )
         .join('\n\n---\n\n');
 
+      const offlineFallbackMsg = persona.languageCode.startsWith('ar')
+        ? 'لم يتم العثور على محتوى مطابق في وضع عدم الاتصال.'
+        : 'No matching content found offline.';
       return {
-        answer: offlineAnswers || 'No matching content found offline.',
+        answer: offlineAnswers || offlineFallbackMsg,
         source: 'offline_fallback',
         confidence: 0,
         showAskAiChip: false,

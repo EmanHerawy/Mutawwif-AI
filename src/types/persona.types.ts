@@ -25,6 +25,12 @@ export interface PersonaModel {
   mobilityLevel: MobilityLevel;
   emergencyContactName: string;  // required — not optional
   emergencyContactPhone: string; // required — used by SOS
-  hotelName: string;
-  hotelAddress: string;
+  // Hotels
+  hotelMakkahName: string;
+  hotelMakkahAddress: string;
+  hotelMadinahName: string;
+  hotelMadinahAddress: string;
+  // Group guide / Mutawwif
+  groupGuideName: string;
+  groupGuidePhone: string;
 }

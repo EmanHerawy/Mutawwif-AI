@@ -147,6 +147,7 @@ export const useRitualStore = create<RitualState>()(
         counter: state.counter,
         currentStepId: state.currentStepId,
         isActive: state.isActive,
+        steps: state.steps,
       }),
     }
   )

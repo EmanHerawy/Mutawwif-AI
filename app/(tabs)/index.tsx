@@ -7,17 +7,7 @@ import { useLocationStore } from '../../src/stores/locationStore';
 import { useHealthStore } from '../../src/stores/healthStore';
 import { Colors } from '../../src/theme/colors';
 
-// Approximate Gregorian windows for Hajj months (Shawwal–Dhul Hijja)
-const HAJJ_SEASONS = [
-  { start: new Date('2025-03-30'), end: new Date('2025-08-28') },
-  { start: new Date('2026-03-20'), end: new Date('2026-08-17') },
-  { start: new Date('2027-03-09'), end: new Date('2027-08-07') },
-  { start: new Date('2028-02-27'), end: new Date('2028-07-26') },
-];
-function isHajjSeason() {
-  const now = new Date();
-  return HAJJ_SEASONS.some((s) => now >= s.start && now <= s.end);
-}
+import { isHajjSeason } from '../../src/utils/hajjSeason';
 
 const HEAT_COLORS: Record<string, string> = {
   caution: Colors.goldAccent,
@@ -50,6 +40,14 @@ export default function DashboardScreen() {
           <Text style={styles.greeting}>
             {name ? `${t('recovery.title')}, ${name} 👋` : '🕋 Mutawwif'}
           </Text>
+          <View style={styles.headerActions}>
+            <TouchableOpacity style={styles.headerBtn} onPress={() => router.push('/(tabs)/settings')}>
+              <Text style={styles.headerBtnText}>⚙️</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.headerBtn} onPress={() => router.push('/(tabs)/profile')}>
+              <Text style={styles.headerBtnText}>👤</Text>
+            </TouchableOpacity>
+          </View>
         </View>
 
         {/* Status banners */}
@@ -61,10 +59,10 @@ export default function DashboardScreen() {
             </Text>
           </View>
         )}
-        {(miqatStatus === 'approaching_50' || miqatStatus === 'approaching_10') && (
+        {(miqatStatus === 'approaching_50km' || miqatStatus === 'approaching_10km') && (
           <View style={[styles.banner, { borderColor: Colors.goldAccent }]}>
             <Text style={[styles.bannerText, { color: Colors.goldAccent }]}>
-              {miqatStatus === 'approaching_10' ? `⚠️ ${t('miqat.approaching_10')}` : `📍 ${t('miqat.approaching_50')}`}
+              {miqatStatus === 'approaching_10km' ? `⚠️ ${t('miqat.approaching_10')}` : `📍 ${t('miqat.approaching_50')}`}
             </Text>
           </View>
         )}
@@ -161,8 +159,11 @@ export default function DashboardScreen() {
 const styles = StyleSheet.create({
   safe: { flex: 1, backgroundColor: Colors.parchmentBg },
   scroll: { padding: 20, paddingBottom: 40 },
-  header: { marginBottom: 20 },
-  greeting: { fontSize: 22, fontWeight: '700', color: Colors.brandGreen },
+  header: { marginBottom: 20, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+  greeting: { fontSize: 22, fontWeight: '700', color: Colors.brandGreen, flex: 1 },
+  headerActions: { flexDirection: 'row', gap: 8 },
+  headerBtn: { width: 38, height: 38, borderRadius: 19, backgroundColor: Colors.white, alignItems: 'center', justifyContent: 'center', borderWidth: 1.5, borderColor: Colors.brandGreen + '33' },
+  headerBtnText: { fontSize: 18 },
   banner: { borderWidth: 1.5, borderRadius: 12, padding: 12, marginBottom: 10, backgroundColor: Colors.white },
   bannerText: { fontSize: 14, fontWeight: '600' },
   activeCard: {

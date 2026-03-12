@@ -158,7 +158,29 @@
     "call": "اتصال",
     "hajj_ministry_phone": "002-814-920-966+",
     "medical_emergency": "911",
-    "haram_security": "3310-579-2-966+"
+    "haram_security": "3310-579-2-966+",
+    "hotel_makkah": "الفندق — مكة المكرمة",
+    "hotel_madinah": "الفندق — المدينة المنورة",
+    "group_guide": "المرشد / المطوف"
+  },
+  "profile": {
+    "title": "ملفي الشخصي",
+    "section_personal": "البيانات الشخصية",
+    "save": "حفظ الملف الشخصي",
+    "saved": "تم الحفظ",
+    "emergency_name_placeholder": "مثال: الأب، الأم",
+    "section_guide": "المرشد / المطوف",
+    "guide_name": "اسم المرشد",
+    "guide_phone": "هاتف المرشد",
+    "guide_name_placeholder": "مثال: الشيخ أحمد",
+    "section_language": "اللغة",
+    "language_en": "English",
+    "language_ar": "عربي"
+  },
+  "settings": {
+    "title": "الإعدادات",
+    "language": "لغة التطبيق",
+    "language_hint": "تغيير اللغة يسري فوراً."
   },
   "ask": {
     "placeholder": "اسأل سؤالك عن الحج أو العمرة...",
@@ -172,7 +194,14 @@
     "setup_required_title": "إعداد الملف الشخصي مطلوب",
     "setup_required_body": "أكمل ملفك الشخصي للحصول على إرشادات مخصصة لأحكام الحج والعمرة.",
     "setup_btn": "إكمال الإعداد",
-    "profile_tip": "أضف ملفك الشخصي للحصول على إجابات مخصصة — اضغط للإعداد"
+    "profile_tip": "أضف ملفك الشخصي للحصول على إجابات مخصصة — اضغط للإعداد",
+    "suggestion_raml": "ما هو الرمل؟",
+    "suggestion_shave": "هل تحتاج المرأة للحلق؟",
+    "suggestion_idtiba": "ما هو الاضطباع؟",
+    "suggestion_talbiyah": "ما هي التلبية؟",
+    "empty_title": "اسأل مطوف",
+    "empty_subtitle": "اسأل عن أي حكم في الحج والعمرة",
+    "no_azkar": "لا توجد أذكار في هذه الفئة بعد."
   },
   "miqat": {
     "assigned": "ميقاتك: {{name}}",

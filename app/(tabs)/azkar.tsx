@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { View, Text, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity } from 'react-native';
-import { usePersonaStore } from '../../src/stores/personaStore';
+import { useTranslation } from 'react-i18next';
 import { Colors } from '../../src/theme/colors';
 import { AZKAR_DATABASE } from '../../src/data/azkar-database';
 
@@ -17,8 +17,8 @@ const CATEGORY_META: Record<string, { en: string; ar: string; emoji: string }> =
 const ORDERED_CATS = ['talbiyah', 'entering_haram', 'tawaf_general', 'sai', 'general'];
 
 export default function AzkarScreen() {
-  const persona = usePersonaStore((s) => s.persona);
-  const isAr = (persona?.languageCode ?? 'en').startsWith('ar');
+  const { i18n } = useTranslation();
+  const isAr = i18n.language.startsWith('ar');
 
   const [activeCategory, setActiveCategory] = useState<Category>('talbiyah');
   const [expanded, setExpanded] = useState<string | null>(null);
@@ -54,7 +54,7 @@ export default function AzkarScreen() {
 
       <ScrollView contentContainerStyle={styles.scroll} showsVerticalScrollIndicator={false}>
         {items.length === 0 ? (
-          <Text style={styles.emptyNote}>No Athkar here yet.</Text>
+          <Text style={styles.emptyNote}>{isAr ? 'لا توجد أذكار في هذه الفئة بعد.' : 'No Athkar in this category yet.'}</Text>
         ) : (
           items.map((item) => {
             const isOpen = expanded === item.id;

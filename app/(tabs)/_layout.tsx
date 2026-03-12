@@ -68,6 +68,8 @@ export default function TabLayout() {
       <Tabs.Screen name="ask" options={{ title: t('tabs.ask') }} />
       <Tabs.Screen name="azkar" options={{ title: t('tabs.azkar') }} />
       <Tabs.Screen name="wallet" options={{ title: t('tabs.wallet') }} />
+      <Tabs.Screen name="profile" options={{ href: null }} />
+      <Tabs.Screen name="settings" options={{ href: null }} />
     </Tabs>
   );
 }

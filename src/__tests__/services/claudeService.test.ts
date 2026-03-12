@@ -12,8 +12,12 @@ const mockPersona: PersonaModel = {
   mobilityLevel: 'standard',
   emergencyContactName: 'Mother',
   emergencyContactPhone: '+201001234567',
-  hotelName: 'Hilton Makkah',
-  hotelAddress: 'Makkah, KSA',
+  hotelMakkahName: 'Hilton Makkah',
+  hotelMakkahAddress: 'Makkah, KSA',
+  hotelMadinahName: '',
+  hotelMadinahAddress: '',
+  groupGuideName: '',
+  groupGuidePhone: '',
 };
 
 const baseParams = {

@@ -9,25 +9,15 @@ import { UMRAH_STEPS } from '../../src/data/manasik-umrah';
 import { HAJJ_STEPS } from '../../src/data/manasik-hajj';
 import type { RitualStep, RitualStepStatus } from '../../src/types/ritual.types';
 
-// Approximate Gregorian windows for Hajj months (Shawwal–Dhul Hijja) 2025–2028
-const HAJJ_SEASONS = [
-  { start: new Date('2025-03-30'), end: new Date('2025-08-28') },
-  { start: new Date('2026-03-20'), end: new Date('2026-08-17') },
-  { start: new Date('2027-03-09'), end: new Date('2027-08-07') },
-  { start: new Date('2028-02-27'), end: new Date('2028-07-26') },
-];
-function isHajjSeason(): boolean {
-  const now = new Date();
-  return HAJJ_SEASONS.some((s) => now >= s.start && now <= s.end);
-}
+import { isHajjSeason } from '../../src/utils/hajjSeason';
 
 export default function GuideScreen() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const router = useRouter();
   const persona = usePersonaStore((s) => s.persona);
   const { steps, currentStepId, setSteps, setCurrentStep } = useRitualStore();
 
-  const isAr = (persona?.languageCode ?? 'en').startsWith('ar');
+  const isAr = i18n.language.startsWith('ar');
   const ritualType = persona?.ritualType ?? 'umrah';
   const isHajj = ritualType !== 'umrah';
   const hajjEnabled = !isHajj || isHajjSeason();
@@ -40,7 +30,7 @@ export default function GuideScreen() {
 
   useEffect(() => {
     if (steps.length === 0) setSteps(baseSteps);
-  }, []);
+  }, [baseSteps, steps.length, setSteps]);
 
   const startRitual = () => {
     const seeded = baseSteps.map((s, i) => ({

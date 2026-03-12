@@ -89,10 +89,10 @@ function filterCities(query: string): { label: string; miqatId: string }[] {
 
 export default function MiqatInfoScreen() {
   const router = useRouter();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { persona, completeOnboarding } = usePersonaStore();
 
-  const isAr = (persona?.languageCode ?? 'en').startsWith('ar');
+  const isAr = i18n.language.startsWith('ar');
 
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [showOverride, setShowOverride] = useState(false);

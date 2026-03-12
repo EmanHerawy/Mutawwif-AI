@@ -93,12 +93,32 @@ export default function WalletScreen() {
 
         {tab === 'hotel' && (
           <View style={styles.card}>
-            {!!(persona?.hotelName || persona?.hotelAddress) ? (
-              <>
-                {!!persona.hotelName && <Text style={styles.hotelName}>{persona.hotelName}</Text>}
-                {!!persona.hotelAddress && <Text style={styles.hotelAddress}>{persona.hotelAddress}</Text>}
-              </>
-            ) : (
+            {!!(persona?.hotelMakkahName || persona?.hotelMakkahAddress) && (
+              <View style={styles.section}>
+                <Text style={styles.sectionLabel}>🕋 {t('wallet.hotel_makkah')}</Text>
+                {!!persona.hotelMakkahName && <Text style={styles.hotelName}>{persona.hotelMakkahName}</Text>}
+                {!!persona.hotelMakkahAddress && <Text style={styles.hotelAddress}>{persona.hotelMakkahAddress}</Text>}
+              </View>
+            )}
+            {!!(persona?.hotelMadinahName || persona?.hotelMadinahAddress) && (
+              <View style={styles.section}>
+                <Text style={styles.sectionLabel}>🕌 {t('wallet.hotel_madinah')}</Text>
+                {!!persona.hotelMadinahName && <Text style={styles.hotelName}>{persona.hotelMadinahName}</Text>}
+                {!!persona.hotelMadinahAddress && <Text style={styles.hotelAddress}>{persona.hotelMadinahAddress}</Text>}
+              </View>
+            )}
+            {!!(persona?.groupGuideName || persona?.groupGuidePhone) && (
+              <View style={styles.section}>
+                <Text style={styles.sectionLabel}>👤 {t('wallet.group_guide')}</Text>
+                {!!persona.groupGuideName && <Text style={styles.contactName}>{persona.groupGuideName}</Text>}
+                {!!persona.groupGuidePhone && (
+                  <TouchableOpacity style={styles.callBtn} onPress={() => call(persona.groupGuidePhone)}>
+                    <Text style={styles.callBtnText}>📞 {t('wallet.call')}  {persona.groupGuidePhone}</Text>
+                  </TouchableOpacity>
+                )}
+              </View>
+            )}
+            {!persona?.hotelMakkahName && !persona?.hotelMadinahName && !persona?.groupGuideName && (
               <Text style={styles.emptyNote}>{t('onboarding.identity_hotel_hint')}</Text>
             )}
           </View>

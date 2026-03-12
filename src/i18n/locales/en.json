@@ -158,7 +158,29 @@
     "call": "Call",
     "hajj_ministry_phone": "+966-920-002-814",
     "medical_emergency": "911",
-    "haram_security": "+966-2-579-3310"
+    "haram_security": "+966-2-579-3310",
+    "hotel_makkah": "Hotel — Makkah",
+    "hotel_madinah": "Hotel — Madinah",
+    "group_guide": "Group Guide / Mutawwif"
+  },
+  "profile": {
+    "title": "My Profile",
+    "section_personal": "Personal",
+    "save": "Save Profile",
+    "saved": "Saved",
+    "emergency_name_placeholder": "e.g. Father, Mother",
+    "section_guide": "Group Guide / Mutawwif",
+    "guide_name": "Guide Name",
+    "guide_phone": "Guide Phone",
+    "guide_name_placeholder": "e.g. Sheikh Ahmad",
+    "section_language": "Language",
+    "language_en": "English",
+    "language_ar": "عربي"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "App Language",
+    "language_hint": "Changing language takes effect immediately."
   },
   "ask": {
     "placeholder": "Ask your question about Hajj or Umrah...",
@@ -172,7 +194,14 @@
     "setup_required_title": "Setup Required",
     "setup_required_body": "Complete your profile to get personalised guidance on Hajj and Umrah rulings.",
     "setup_btn": "Complete Setup",
-    "profile_tip": "Add your profile for personalised answers — tap to set up"
+    "profile_tip": "Add your profile for personalised answers — tap to set up",
+    "suggestion_raml": "What is Raml?",
+    "suggestion_shave": "Does a woman need to shave?",
+    "suggestion_idtiba": "What is Idtiba?",
+    "suggestion_talbiyah": "What is Talbiyah?",
+    "empty_title": "Ask Mutawwif",
+    "empty_subtitle": "Ask any question about Hajj or Umrah",
+    "no_azkar": "No Athkar in this category yet."
   },
   "miqat": {
     "assigned": "Your Miqat: {{name}}",

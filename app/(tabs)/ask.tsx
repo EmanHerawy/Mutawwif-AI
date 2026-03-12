@@ -26,10 +26,10 @@ const SOURCE_LABELS: Record<string, string> = {
   damm_lockout: '🔒 Locked',
 };
 
-const SUGGESTIONS = ['What is Raml?', "Does a woman need to shave?", 'What is Idtiba?', 'What is Talbiyah?'];
+const SUGGESTION_KEYS = ['suggestion_raml', 'suggestion_shave', 'suggestion_idtiba', 'suggestion_talbiyah'] as const;
 
 export default function AskScreen() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const router = useRouter();
   const persona = usePersonaStore((s) => s.persona);
   const currentZone = useLocationStore((s) => s.currentZone);
@@ -39,7 +39,7 @@ export default function AskScreen() {
   const heatStatus = useHealthStore((s) => s.heatStatus);
   const currentTemp = useHealthStore((s) => s.currentTempCelsius);
   const scrollRef = useRef<ScrollView>(null);
-  const isAr = (persona?.languageCode ?? 'en').startsWith('ar');
+  const isAr = i18n.language.startsWith('ar');
 
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
@@ -60,15 +60,19 @@ export default function AskScreen() {
     name: '',
     gender: 'male' as const,
     ritualType: 'umrah' as const,
-    languageCode: 'en',
+    languageCode: i18n.language,
     dialectKey: 'standard_arabic' as const,
     nationalityCode: '',
     originConfirmed: '',
     mobilityLevel: 'standard' as const,
     emergencyContactName: '',
     emergencyContactPhone: '',
-    hotelName: '',
-    hotelAddress: '',
+    hotelMakkahName: '',
+    hotelMakkahAddress: '',
+    hotelMadinahName: '',
+    hotelMadinahAddress: '',
+    groupGuideName: '',
+    groupGuidePhone: '',
   };
 
   const handleSend = async (query?: string) => {
@@ -122,7 +126,7 @@ export default function AskScreen() {
         </View>
 
         {!persona && (
-          <TouchableOpacity style={styles.profileBanner} onPress={() => router.push('/(onboarding)/')}>
+          <TouchableOpacity style={styles.profileBanner} onPress={() => router.push('/(tabs)/profile')}>
             <Text style={styles.profileBannerText}>👤 {t('ask.profile_tip')}</Text>
           </TouchableOpacity>
         )}
@@ -136,16 +140,17 @@ export default function AskScreen() {
           {messages.length === 0 && (
             <View style={styles.emptyState}>
               <Text style={styles.emptyEmoji}>🤲</Text>
-              <Text style={styles.emptyTitle}>{isAr ? 'اسأل مطوف' : 'Ask Mutawwif'}</Text>
-              <Text style={styles.emptySubtitle}>
-                {isAr ? 'اسأل عن أي حكم في الحج والعمرة' : 'Ask any question about Hajj or Umrah'}
-              </Text>
+              <Text style={styles.emptyTitle}>{t('ask.empty_title')}</Text>
+              <Text style={styles.emptySubtitle}>{t('ask.empty_subtitle')}</Text>
               <View style={styles.suggestions}>
-                {SUGGESTIONS.map((q) => (
-                  <TouchableOpacity key={q} style={styles.suggestion} onPress={() => handleSend(q)}>
-                    <Text style={styles.suggestionText}>{q}</Text>
-                  </TouchableOpacity>
-                ))}
+                {SUGGESTION_KEYS.map((key) => {
+                  const q = t(`ask.${key}`);
+                  return (
+                    <TouchableOpacity key={key} style={styles.suggestion} onPress={() => handleSend(q)}>
+                      <Text style={styles.suggestionText}>{q}</Text>
+                    </TouchableOpacity>
+                  );
+                })}
               </View>
             </View>
           )}
