@@ -1,8 +1,9 @@
 export type EtiquetteCategory =
   | 'ihram_prohibitions'
+  | 'ihram_permissions'
   | 'common_mistakes'
-  | 'masjid_haram_adab'
-  | 'masjid_nabawi_adab'
+  | 'hajj_management'
+  | 'masjid_adab'
   | 'makkah_madinah_adab'
   | 'rawdah_adab'
   | 'sitting_adab'
@@ -19,15 +20,15 @@ export type EtiquetteSeverity =
 export interface EtiquetteItem {
   id: string;
   category: EtiquetteCategory;
-  titleAr: string;
-  titleEn: string;
-  contentAr: string;
-  contentEn: string;
-  source: string;          // never empty — use '[SOURCE_NEEDED]' if unverified
+  /** i18n key: etiquette.{id}.title — resolved at render time */
+  titleKey: string;
+  /** i18n key: etiquette.{id}.content — resolved at render time */
+  contentKey: string;
+  source: string;              // never empty — use '[SOURCE_NEEDED]' if unverified
   applicableTo: 'all' | 'male' | 'female';
   mosque: 'haram' | 'nabawi' | 'both' | 'general';
   severity: EtiquetteSeverity;
   consequence?: string;
   tags: string[];
-  permitsMistake?: boolean; // true = no sin/fidya if done by ignorance
+  permitsMistake?: boolean;    // true = no sin/fidya if done by ignorance
 }

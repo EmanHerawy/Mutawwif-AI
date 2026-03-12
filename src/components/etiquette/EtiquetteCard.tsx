@@ -25,7 +25,7 @@ const SEVERITY_LABEL: Record<EtiquetteSeverity, { ar: string; en: string }> = {
 };
 
 export function EtiquetteCard({ item }: Props) {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [expanded, setExpanded] = useState(false);
   const isAr = i18n.language?.startsWith('ar');
 
@@ -41,7 +41,7 @@ export function EtiquetteCard({ item }: Props) {
       <View style={styles.header}>
         <View style={styles.titleRow}>
           <Text style={styles.title}>
-            {isAr ? item.titleAr : item.titleEn}
+            {t(item.titleKey)}
           </Text>
           <View style={[styles.severityBadge, { backgroundColor: borderColor + '22', borderColor }]}>
             <Text style={[styles.severityText, { color: borderColor }]}>
@@ -55,7 +55,7 @@ export function EtiquetteCard({ item }: Props) {
       {expanded && (
         <View style={styles.body}>
           <Text style={[styles.content, isAr && styles.rtl]}>
-            {isAr ? item.contentAr : item.contentEn}
+            {t(item.contentKey)}
           </Text>
           {!!item.consequence && (
             <View style={styles.consequenceBox}>

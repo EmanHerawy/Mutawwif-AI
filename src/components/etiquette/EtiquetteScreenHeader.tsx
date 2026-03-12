@@ -6,9 +6,10 @@ import { Colors } from '../../theme/colors';
 
 const ALL_CATEGORIES: EtiquetteCategory[] = [
   'ihram_prohibitions',
+  'ihram_permissions',
   'common_mistakes',
-  'masjid_haram_adab',
-  'masjid_nabawi_adab',
+  'hajj_management',
+  'masjid_adab',
   'makkah_madinah_adab',
   'rawdah_adab',
   'sitting_adab',

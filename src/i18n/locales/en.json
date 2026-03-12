@@ -251,5 +251,30 @@
   },
   "dashboard_ui": {
     "start": "Start"
+  },
+  "etiquette": {
+    "IH-01": { "title": "Cutting or Removing Hair", "content": "A person in Ihram should not shave or intentionally remove hair until exiting Ihram." },
+    "IH-02": { "title": "Removing Body Hair", "content": "Removing body hair intentionally is not permitted while in Ihram." },
+    "IH-03": { "title": "Cutting Nails", "content": "Cutting fingernails or toenails intentionally is not permitted during Ihram." },
+    "IH-04": { "title": "Using Perfume", "content": "Applying perfume to the body or clothing after entering Ihram is not allowed." },
+    "IH-05": { "title": "Sexual Intercourse", "content": "Sexual intercourse before the first release from Ihram invalidates the Hajj." },
+    "IH-06": { "title": "Sexual Intimacy", "content": "Acts of intimacy involving sexual desire should be avoided during Ihram." },
+    "IH-07": { "title": "Marriage Contract", "content": "A person in Ihram should not conduct or participate in a marriage contract." },
+    "IH-08": { "title": "Hunting Land Animals", "content": "Hunting or assisting in hunting land animals is not permitted during Ihram." },
+    "IH-M1": { "title": "Wearing Tailored Clothing", "content": "Men in Ihram should not wear garments tailored to fit the body such as shirts, trousers, or similar clothing." },
+    "IH-M2": { "title": "Covering the Head", "content": "Men in Ihram should not cover the head with hats, caps, turbans, or similar items." },
+    "IH-M3": { "title": "Footwear Covering the Ankles", "content": "Men in Ihram should normally avoid footwear that covers the ankles. If open sandals are unavailable, some scholars permit wearing shoes out of necessity." },
+    "IH-F1": { "title": "Wearing Niqab", "content": "A woman in Ihram should not wear a niqab." },
+    "IH-F2": { "title": "Wearing Gloves", "content": "A woman in Ihram should not wear gloves." },
+    "IH-P1": { "title": "Medical Treatment", "content": "Medical treatment such as bandaging wounds or taking medicine is permitted during Ihram." },
+    "IH-P2": { "title": "Using Shade", "content": "Using an umbrella, tent, or shade for protection from the sun is permitted." },
+    "IH-P3": { "title": "Removing Harmful Insects", "content": "Removing harmful insects such as lice is permitted." },
+    "CM-06": { "title": "Starting Tawaf Incorrectly", "content": "Tawaf should begin in line with the Black Stone." },
+    "CM-07": { "title": "Walking Clockwise", "content": "Tawaf must be performed counterclockwise around the Kaaba." },
+    "CM-13": { "title": "Tawaf Without Wudu", "content": "Many scholars state that Tawaf should be performed while in a state of ritual purity." },
+    "CM-14": { "title": "Starting Sa'i from Marwah", "content": "Sa'i should start from Safa and end at Marwah." },
+    "CM-18": { "title": "Leaving Arafat Early", "content": "Pilgrims should remain in Arafat until sunset." },
+    "CM-20": { "title": "Incorrect Time for Stoning", "content": "Jamarat al-Aqaba is normally stoned on the Day of Nahr after sunrise. The remaining Jamarat during the Days of Tashriq are stoned after midday." },
+    "MH-OBEY": { "title": "Follow Crowd Management Instructions", "content": "Pilgrim movement is regulated to maintain safety and reduce crowding. Following official instructions helps prevent harm." }
   }
 }
