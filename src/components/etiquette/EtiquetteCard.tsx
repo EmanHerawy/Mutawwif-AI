@@ -9,19 +9,32 @@ interface Props {
 }
 
 const SEVERITY_BORDER: Record<EtiquetteSeverity, string> = {
-  obligation: Colors.danger,
-  forbidden: Colors.danger,
-  warning: Colors.goldAccent,
-  sunnah: Colors.brandGreen,
-  recommended: Colors.brandGreen,
+  // الحرام: أحمر صريح (خطورة عالية/عقوبة)
+  forbidden: Colors.danger, 
+  
+  // الواجب: برتقالي داكن (أهمية قصوى/لزوم الدم)
+  // إذا لم يتوفر orange، استخدم Colors.goldAccent أو لون مخصص
+  obligatory: '#83046a', 
+
+  // المكروه: أصفر ذهبي (تنبيه/تجنب)
+  disliked: Colors.goldAccent, 
+
+  // السنة والمندوب: أخضر البراند (ثواب)
+  recommended: '#1fe44a', 
+
+  // المباح: لون أخضر فاتح جداً أو رمادي مائل للأزرق (إرشاد عام)
+  // لتمييزه عن السنة التي لها أجر خاص
+  permissible: '#95A5A6', 
+
+
 };
 
 const SEVERITY_LABEL: Record<EtiquetteSeverity, { ar: string; en: string }> = {
-  obligation: { ar: 'فرض', en: 'Obligation' },
+  obligatory: { ar: 'فرض', en: 'Obligation' },
   forbidden: { ar: 'حرام', en: 'Forbidden' },
-  warning: { ar: 'تحذير', en: 'Warning' },
-  sunnah: { ar: 'سنة', en: 'Sunnah' },
-  recommended: { ar: 'مباح', en: 'Permissible' },
+  disliked: { ar: 'مكروه', en: 'Disliked' },
+  recommended: { ar: 'مستحب', en: 'ٌecommended' },
+  permissible: { ar: 'مباح', en: 'Permissible' },
 };
 
 export function EtiquetteCard({ item }: Props) {
@@ -57,16 +70,17 @@ export function EtiquetteCard({ item }: Props) {
           <Text style={[styles.content, isAr && styles.rtl]}>
             {t(item.contentKey)}
           </Text>
-          {!!item.consequence && (
-            <View style={styles.consequenceBox}>
-              <Text style={styles.consequenceLabel}>
-                {t('etiquette.consequence_label')}
-              </Text>
-              <Text style={[styles.consequenceText, isAr && styles.rtl]}>
-                {item.consequence}
-              </Text>
-            </View>
-          )}
+      {/* تم استبدال item.consequence بالحقول الجديدة مع التحقق من وجودها */}
+{(isAr ? item.consequenceAr : item.consequenceEn) && (
+  <View style={styles.consequenceBox}>
+    <Text style={styles.consequenceLabel}>
+      {t('etiquette.consequence_label')}
+    </Text>
+    <Text style={[styles.consequenceText, isAr && styles.rtl]}>
+      {isAr ? item.consequenceAr : item.consequenceEn}
+    </Text>
+  </View>
+)}
           {item.permitsMistake && (
             <View style={styles.forgivenessRow}>
               <Text style={styles.forgivenessText}>

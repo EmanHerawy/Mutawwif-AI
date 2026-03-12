@@ -1,21 +1,28 @@
 export type EtiquetteCategory =
-  | 'ihram_prohibitions'
-  | 'ihram_permissions'
+  | 'ihram_prohibitions'// محظورات الإحرام
+  | 'ihram_permissions'// مباحات الإحرام
   | 'common_mistakes'
   | 'hajj_management'
   | 'masjid_adab'
-  | 'makkah_madinah_adab'
-  | 'rawdah_adab'
   | 'sitting_adab'
-  | 'itikaf_adab'
-  | 'general_adab';
+  | 'general_adab'       // محظورات الإحرام
+  | 'hajj_umrah_rites'         // واجبات وسنن المناسك (الطواف، السعي، إلخ)
+  | 'makkah_madinah_adab'      // آداب الحرمين الشريفين (الحدود والبيئة)
+  | 'rawdah_adab'              // آداب الروضة الشريفة
+  | 'itikaf_adab'              // آداب الاعتكاف
+  | 'general_adab';       // آداب عامة (التعامل مع الآخرين، النظافة)
 
 export type EtiquetteSeverity =
-  | 'obligation'   // فرض / واجب
-  | 'forbidden'    // حرام
-  | 'warning'      // تحذير / مكروه
-  | 'sunnah'       // سنة
-  | 'recommended'; // مباح
+  /** واجب / فرض: ما أمر به الشارع إلزاماً. يُثاب فاعله امتثالاً ويستحق العقوبة تاركه */
+  | 'obligatory'   
+  /** محرم / محظور: ما نهى عنه الشارع إلزاماً. يُثاب تاركه امتثالاً ويستحق العقوبة فاعله */
+  | 'forbidden'    
+  /** مكروه: ما نهى عنه الشارع لا على وجه الإلزام. يُثاب تاركه امتثالاً ولا يُعاقب فاعله */
+  | 'disliked'     
+  /** سنة / مندوب / مستحب: ما أمر به الشارع لا على وجه الإلزام. يُثاب فاعله امتثالاً ولا يُعاقب تاركه */
+  | 'recommended'  
+  /** مباح / حلال / جائز: ما لا يتعلق به أمر ولا نهي لذاته. لا ثواب ولا عقاب فيه */
+  | 'permissible'; 
 
 export interface EtiquetteItem {
   id: string;
@@ -24,11 +31,17 @@ export interface EtiquetteItem {
   titleKey: string;
   /** i18n key: etiquette.{id}.content — resolved at render time */
   contentKey: string;
-  source: string;              // never empty — use '[SOURCE_NEEDED]' if unverified
+  /** Primary sources: e.g., Sahih Al-Bukhari, binbaz.org.sa. Use '[SOURCE_NEEDED]' if unverified */
+  source: string;              
   applicableTo: 'all' | 'male' | 'female';
+  /** Scope of the rule: Haram Makkah, Nabawi, Both, or General Islamic etiquette */
   mosque: 'haram' | 'nabawi' | 'both' | 'general';
   severity: EtiquetteSeverity;
-  consequence?: string;
+  /** Arabic description of consequence: e.g., دم، فدية، أو بطلان النسك */
+  consequenceAr?: string;
+  /** English description of consequence: e.g., Sacrifice, Expiation, or Invalidation */
+  consequenceEn?: string;
   tags: string[];
-  permitsMistake?: boolean;    // true = no sin/fidya if done by ignorance
+  /** If true, the action carries no sin/penalty if committed out of ignorance or forgetfulness */
+  permitsMistake?: boolean;    
 }
