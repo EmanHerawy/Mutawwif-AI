@@ -145,6 +145,20 @@ export default function DashboardScreen() {
           ))}
         </View>
 
+        {/* ── GROUP 3: Learn ── */}
+        <Text style={styles.sectionLabel}>{t('tabs.learn', 'Learn / تعلّم')}</Text>
+        <TouchableOpacity
+          style={styles.learnCard}
+          onPress={() => router.push('/(learn)/etiquette' as any)}
+        >
+          <Text style={styles.learnEmoji}>📜</Text>
+          <View style={styles.learnContent}>
+            <Text style={styles.learnTitle}>{t('etiquette.title', 'Etiquette Guide')}</Text>
+            <Text style={styles.learnSub}>{t('etiquette.subtitle', 'Ihram rules · Masjid adab · Common mistakes')}</Text>
+          </View>
+          <Text style={styles.learnArrow}>→</Text>
+        </TouchableOpacity>
+
         {miqatAssignment && (
           <View style={styles.infoCard}>
             <Text style={styles.infoText}>{t('miqat.assigned', { name: miqatAssignment })}</Text>
@@ -200,4 +214,15 @@ const styles = StyleSheet.create({
   toolLabel: { fontSize: 12, fontWeight: '600', color: Colors.brandGreen, textAlign: 'center' },
   infoCard: { backgroundColor: Colors.white, borderRadius: 12, padding: 14, borderWidth: 1, borderColor: Colors.brandGreen + '22' },
   infoText: { fontSize: 13, color: Colors.textPrimary, opacity: 0.6 },
+  // Learn card
+  learnCard: {
+    flexDirection: 'row', alignItems: 'center', gap: 14,
+    backgroundColor: Colors.white, borderRadius: 16, padding: 18,
+    borderWidth: 1.5, borderColor: Colors.goldAccent + '55', marginBottom: 20,
+  },
+  learnEmoji: { fontSize: 32 },
+  learnContent: { flex: 1 },
+  learnTitle: { fontSize: 16, fontWeight: '700', color: Colors.brandGreen, marginBottom: 3 },
+  learnSub: { fontSize: 12, color: Colors.textPrimary, opacity: 0.55 },
+  learnArrow: { fontSize: 20, color: Colors.goldAccent },
 });

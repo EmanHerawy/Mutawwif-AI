@@ -1,0 +1,181 @@
+import { useState } from 'react';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { useTranslation } from 'react-i18next';
+import type { EtiquetteItem, EtiquetteSeverity } from '../../types/etiquette.types';
+import { Colors } from '../../theme/colors';
+
+interface Props {
+  item: EtiquetteItem;
+}
+
+const SEVERITY_BORDER: Record<EtiquetteSeverity, string> = {
+  obligation: Colors.danger,
+  forbidden: Colors.danger,
+  warning: Colors.goldAccent,
+  sunnah: Colors.brandGreen,
+  recommended: Colors.brandGreen,
+};
+
+const SEVERITY_LABEL: Record<EtiquetteSeverity, { ar: string; en: string }> = {
+  obligation: { ar: 'فرض', en: 'Obligation' },
+  forbidden: { ar: 'حرام', en: 'Forbidden' },
+  warning: { ar: 'تحذير', en: 'Warning' },
+  sunnah: { ar: 'سنة', en: 'Sunnah' },
+  recommended: { ar: 'مستحب', en: 'Recommended' },
+};
+
+export function EtiquetteCard({ item }: Props) {
+  const { i18n } = useTranslation();
+  const [expanded, setExpanded] = useState(false);
+  const isAr = i18n.language?.startsWith('ar');
+
+  const borderColor = SEVERITY_BORDER[item.severity];
+  const severityLabel = SEVERITY_LABEL[item.severity];
+
+  return (
+    <TouchableOpacity
+      style={[styles.card, { borderLeftColor: borderColor }]}
+      onPress={() => setExpanded(!expanded)}
+      activeOpacity={0.8}
+    >
+      <View style={styles.header}>
+        <View style={styles.titleRow}>
+          <Text style={styles.title}>
+            {isAr ? item.titleAr : item.titleEn}
+          </Text>
+          <View style={[styles.severityBadge, { backgroundColor: borderColor + '22', borderColor }]}>
+            <Text style={[styles.severityText, { color: borderColor }]}>
+              {isAr ? severityLabel.ar : severityLabel.en}
+            </Text>
+          </View>
+        </View>
+        <Text style={styles.chevron}>{expanded ? '▲' : '▼'}</Text>
+      </View>
+
+      {expanded && (
+        <View style={styles.body}>
+          <Text style={[styles.content, isAr && styles.rtl]}>
+            {isAr ? item.contentAr : item.contentEn}
+          </Text>
+          {!!item.consequence && (
+            <View style={styles.consequenceBox}>
+              <Text style={styles.consequenceLabel}>
+                {isAr ? 'الكفارة / العقوبة:' : 'Consequence:'}
+              </Text>
+              <Text style={[styles.consequenceText, isAr && styles.rtl]}>
+                {item.consequence}
+              </Text>
+            </View>
+          )}
+          {item.permitsMistake && (
+            <View style={styles.forgivenessRow}>
+              <Text style={styles.forgivenessText}>
+                {isAr
+                  ? '✓ من فعله جهلاً أو نسياناً: لا إثم ولا فدية'
+                  : '✓ If done by ignorance or forgetfulness: no sin or fidya'}
+              </Text>
+            </View>
+          )}
+          <Text style={styles.source}>{item.source}</Text>
+        </View>
+      )}
+    </TouchableOpacity>
+  );
+}
+
+const styles = StyleSheet.create({
+  card: {
+    backgroundColor: Colors.white,
+    borderRadius: 12,
+    padding: 14,
+    marginBottom: 10,
+    borderLeftWidth: 4,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.06,
+    shadowRadius: 4,
+    elevation: 2,
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+  },
+  titleRow: {
+    flex: 1,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
+    alignItems: 'center',
+    marginRight: 8,
+  },
+  title: {
+    fontSize: 15,
+    fontWeight: '600',
+    color: Colors.textPrimary,
+    flexShrink: 1,
+  },
+  severityBadge: {
+    borderRadius: 4,
+    borderWidth: 1,
+    paddingHorizontal: 6,
+    paddingVertical: 2,
+  },
+  severityText: {
+    fontSize: 10,
+    fontWeight: '700',
+  },
+  chevron: {
+    fontSize: 11,
+    color: Colors.textPrimary,
+    opacity: 0.4,
+    marginTop: 2,
+  },
+  body: {
+    marginTop: 12,
+    gap: 10,
+  },
+  content: {
+    fontSize: 14,
+    color: Colors.textPrimary,
+    lineHeight: 22,
+  },
+  rtl: {
+    textAlign: 'right',
+    writingDirection: 'rtl',
+  },
+  consequenceBox: {
+    backgroundColor: Colors.danger + '0D',
+    borderRadius: 8,
+    padding: 10,
+    borderLeftWidth: 3,
+    borderLeftColor: Colors.danger,
+    gap: 4,
+  },
+  consequenceLabel: {
+    fontSize: 11,
+    fontWeight: '700',
+    color: Colors.danger,
+    opacity: 0.8,
+  },
+  consequenceText: {
+    fontSize: 13,
+    color: Colors.danger,
+  },
+  forgivenessRow: {
+    backgroundColor: Colors.brandGreen + '0D',
+    borderRadius: 8,
+    padding: 8,
+  },
+  forgivenessText: {
+    fontSize: 12,
+    color: Colors.brandGreen,
+    fontWeight: '600',
+  },
+  source: {
+    fontSize: 11,
+    color: Colors.textPrimary,
+    opacity: 0.45,
+    fontStyle: 'italic',
+  },
+});
