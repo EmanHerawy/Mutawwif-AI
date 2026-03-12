@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity, StyleSheet, I18nManager } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import type { EtiquetteCategory } from '../../types/etiquette.types';
 import { ETIQUETTE_CATEGORY_LABELS, ETIQUETTE_DATA } from '../../data/etiquette';
@@ -25,6 +25,7 @@ interface Props {
 }
 
 export function EtiquetteScreenHeader({ selected, onSelect, isAr, filteredCount }: Props) {
+  const { t } = useTranslation();
   const total = ETIQUETTE_DATA.length;
 
   return (
@@ -32,8 +33,8 @@ export function EtiquetteScreenHeader({ selected, onSelect, isAr, filteredCount 
       {/* Title row */}
       <View style={styles.titleRow}>
         <View style={styles.titleBlock}>
-          <Text style={styles.arabic}>آداب الحرمين</Text>
-          <Text style={styles.english}>Etiquette of the Two Holy Mosques</Text>
+          <Text style={styles.title}>{t('etiquette.screen_title')}</Text>
+          <Text style={styles.subtitle}>{t('etiquette.screen_subtitle')}</Text>
         </View>
         <View style={styles.countBadge}>
           <Text style={styles.countNum}>{selected === 'all' ? `${total}+` : filteredCount}</Text>
@@ -52,7 +53,7 @@ export function EtiquetteScreenHeader({ selected, onSelect, isAr, filteredCount 
           onPress={() => onSelect('all')}
         >
           <Text style={[styles.chipText, selected === 'all' && styles.chipTextActive]}>
-            {isAr ? '🕋 الكل' : '🕋 All'}
+            🕋 {t('etiquette.all_filter')}
           </Text>
         </TouchableOpacity>
 
@@ -90,13 +91,13 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
   },
   titleBlock: { flex: 1, paddingRight: 12 },
-  arabic: {
+  title: {
     fontSize: 22,
     fontWeight: '800',
     color: Colors.goldAccent,
     marginBottom: 4,
   },
-  english: {
+  subtitle: {
     fontSize: 12,
     color: Colors.white,
     opacity: 0.7,

@@ -294,6 +294,11 @@
     "IT-WORSHIP": { "title": "Fill Your I'tikaf with Worship", "content": "During I'tikaf, fill your time with Quran recitation, dhikr, supplication, and learning. Minimise worldly conversation and all distractions." },
     "GA-NO-PUSH": { "title": "No Pushing or Crowding", "content": "Pushing, shoving, and crowding that harms others is forbidden under the foundational principle: 'No harm and no reciprocation of harm.' (Ibn Majah 2341)" },
     "GA-MODESTY": { "title": "Modesty in Sacred Spaces", "content": "Lower your gaze and observe modesty in sacred spaces. Allah commands both men and women to guard their modesty. (Quran 24:30-31)" },
-    "GA-REMEMBER": { "title": "Remember Allah Abundantly", "content": "Fill your visit with the remembrance of Allah. He says: 'Remember Me and I will remember you.' (Quran 2:152) Every moment in the Haram remembered in dhikr is a moment of divine attention." }
+    "GA-REMEMBER": { "title": "Remember Allah Abundantly", "content": "Fill your visit with the remembrance of Allah. He says: 'Remember Me and I will remember you.' (Quran 2:152) Every moment in the Haram remembered in dhikr is a moment of divine attention." },
+    "screen_title": "Etiquette of the Two Holy Mosques",
+    "screen_subtitle": "Rulings · Adab · Common mistakes",
+    "consequence_label": "Consequence:",
+    "permits_mistake": "If done by ignorance or forgetfulness: no sin or fidya",
+    "all_filter": "All"
   }
 }

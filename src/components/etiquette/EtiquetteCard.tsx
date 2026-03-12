@@ -60,7 +60,7 @@ export function EtiquetteCard({ item }: Props) {
           {!!item.consequence && (
             <View style={styles.consequenceBox}>
               <Text style={styles.consequenceLabel}>
-                {isAr ? 'الكفارة / العقوبة:' : 'Consequence:'}
+                {t('etiquette.consequence_label')}
               </Text>
               <Text style={[styles.consequenceText, isAr && styles.rtl]}>
                 {item.consequence}
@@ -70,9 +70,7 @@ export function EtiquetteCard({ item }: Props) {
           {item.permitsMistake && (
             <View style={styles.forgivenessRow}>
               <Text style={styles.forgivenessText}>
-                {isAr
-                  ? '✓ من فعله جهلاً أو نسياناً: لا إثم ولا فدية'
-                  : '✓ If done by ignorance or forgetfulness: no sin or fidya'}
+                ✓ {t('etiquette.permits_mistake')}
               </Text>
             </View>
           )}
