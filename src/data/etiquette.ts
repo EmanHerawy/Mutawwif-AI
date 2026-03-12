@@ -195,6 +195,17 @@ export const ETIQUETTE_DATA: EtiquetteItem[] = [
   // ─── IHRAM PERMISSIONS (مباحات الإحرام) ─────────────────────────────────────
 
   {
+    id: 'IH-P2',
+    category: 'ihram_permissions',
+    titleKey: 'etiquette.IH-P2.title',
+    contentKey: 'etiquette.IH-P2.content',
+    source: 'Sahih Muslim 1206',
+    applicableTo: 'all',
+    mosque: 'general',
+    severity: 'permissible',
+    tags: ['shade', 'umbrella', 'tent'],
+  },
+  {
     id: 'IH-P1',
     category: 'ihram_permissions',
     titleKey: 'etiquette.IH-P1.title',
@@ -394,12 +405,45 @@ export const ETIQUETTE_DATA: EtiquetteItem[] = [
     source: 'Quran 4:59 | لا ضرر ولا ضرار',
     applicableTo: 'all',
     mosque: 'general',
-    severity: 'obligatory',
+    severity: 'recommended',
     tags: ['safety', 'crowd'],
   },
 
   // ─── MASJID ADAB (آداب المساجد) ─────────────────────────────────────────────
 
+  {
+    id: 'MA-CLEAN-01',
+    category: 'masjid_adab',
+    titleKey: 'etiquette.MA-CLEAN-01.title',
+    contentKey: 'etiquette.MA-CLEAN-01.content',
+    source: 'لا ضرر ولا ضرار | Sahih Muslim 285',
+    applicableTo: 'all',
+    mosque: 'both',
+    severity: 'obligatory',
+    tags: ['cleanliness', 'wudu', 'shoes'],
+  },
+  {
+    id: 'MA-04',
+    category: 'masjid_adab',
+    titleKey: 'etiquette.MA-04.title',
+    contentKey: 'etiquette.MA-04.content',
+    source: 'Sahih Al-Bukhari 615',
+    applicableTo: 'all',
+    mosque: 'both',
+    severity: 'recommended',
+    tags: ['prayer', 'early', 'front-rows'],
+  },
+  {
+    id: 'MA-05',
+    category: 'masjid_adab',
+    titleKey: 'etiquette.MA-05.title',
+    contentKey: 'etiquette.MA-05.content',
+    source: 'Sunan Abi Dawud 1332',
+    applicableTo: 'all',
+    mosque: 'both',
+    severity: 'disliked',
+    tags: ['voice', 'dhikr', 'quran'],
+  },
   {
     id: 'MA-01',
     category: 'masjid_adab',
@@ -503,6 +547,28 @@ export const ETIQUETTE_DATA: EtiquetteItem[] = [
     tags: ['nabawi', 'voice'],
   },
   {
+    id: 'MM-GOOD-01',
+    category: 'makkah_madinah_adab',
+    titleKey: 'etiquette.MM-GOOD-01.title',
+    contentKey: 'etiquette.MM-GOOD-01.content',
+    source: 'Sahih Al-Bukhari 1190',
+    applicableTo: 'all',
+    mosque: 'haram',
+    severity: 'recommended',
+    tags: ['makkah', 'reward', 'prayer'],
+  },
+  {
+    id: 'MM-RESPECT-01',
+    category: 'makkah_madinah_adab',
+    titleKey: 'etiquette.MM-RESPECT-01.title',
+    contentKey: 'etiquette.MM-RESPECT-01.content',
+    source: 'Quran 22:32',
+    applicableTo: 'all',
+    mosque: 'haram',
+    severity: 'obligatory',
+    tags: ['makkah', 'reverence', 'symbols'],
+  },
+  {
     id: 'MM-SIN-01',
     category: 'makkah_madinah_adab',
     titleKey: 'etiquette.MM-SIN-01.title',
@@ -516,6 +582,28 @@ export const ETIQUETTE_DATA: EtiquetteItem[] = [
 
   // ─── RAWDAH ADAB (آداب الروضة) ──────────────────────────────────────────────
 
+  {
+    id: 'RA-VIRTUE-01',
+    category: 'rawdah_adab',
+    titleKey: 'etiquette.RA-VIRTUE-01.title',
+    contentKey: 'etiquette.RA-VIRTUE-01.content',
+    source: 'Sahih Al-Bukhari 1196',
+    applicableTo: 'all',
+    mosque: 'nabawi',
+    severity: 'recommended',
+    tags: ['rawdah', 'virtue', 'paradise'],
+  },
+  {
+    id: 'RA-NO-PUSH-01',
+    category: 'rawdah_adab',
+    titleKey: 'etiquette.RA-NO-PUSH-01.title',
+    contentKey: 'etiquette.RA-NO-PUSH-01.content',
+    source: 'لا ضرر ولا ضرار',
+    applicableTo: 'all',
+    mosque: 'nabawi',
+    severity: 'forbidden',
+    tags: ['rawdah', 'harm', 'crowd'],
+  },
   {
     id: 'RA-01',
     category: 'rawdah_adab',
@@ -552,6 +640,39 @@ export const ETIQUETTE_DATA: EtiquetteItem[] = [
 
   // ─── SITTING ADAB (آداب الجلوس) ─────────────────────────────────────────────
 
+  {
+    id: 'SI-CIRCLE-01',
+    category: 'sitting_adab',
+    titleKey: 'etiquette.SI-CIRCLE-01.title',
+    contentKey: 'etiquette.SI-CIRCLE-01.content',
+    source: 'Sahih Muslim 2699',
+    applicableTo: 'all',
+    mosque: 'both',
+    severity: 'recommended',
+    tags: ['dhikr', 'knowledge', 'circles'],
+  },
+  {
+    id: 'SI-MAKE-SPACE',
+    category: 'sitting_adab',
+    titleKey: 'etiquette.SI-MAKE-SPACE.title',
+    contentKey: 'etiquette.SI-MAKE-SPACE.content',
+    source: 'Quran 58:11',
+    applicableTo: 'all',
+    mosque: 'both',
+    severity: 'obligatory',
+    tags: ['space', 'tafasuh'],
+  },
+  {
+    id: 'SI-NO-RESERVE',
+    category: 'sitting_adab',
+    titleKey: 'etiquette.SI-NO-RESERVE.title',
+    contentKey: 'etiquette.SI-NO-RESERVE.content',
+    source: 'Sahih Al-Bukhari 911 | Sahih Muslim 2177',
+    applicableTo: 'all',
+    mosque: 'both',
+    severity: 'forbidden',
+    tags: ['displacement', 'rights'],
+  },
   {
     id: 'SI-01',
     category: 'sitting_adab',
@@ -600,6 +721,28 @@ export const ETIQUETTE_DATA: EtiquetteItem[] = [
   // ─── ITIKAF ADAB (آداب الاعتكاف) ────────────────────────────────────────────
 
   {
+    id: 'IT-STAY-01',
+    category: 'itikaf_adab',
+    titleKey: 'etiquette.IT-STAY-01.title',
+    contentKey: 'etiquette.IT-STAY-01.content',
+    source: 'Sahih Al-Bukhari 2025 | Sahih Muslim 1172',
+    applicableTo: 'all',
+    mosque: 'both',
+    severity: 'recommended',
+    tags: ['itikaf', 'sunnah', 'ramadan'],
+  },
+  {
+    id: 'IT-WORSHIP',
+    category: 'itikaf_adab',
+    titleKey: 'etiquette.IT-WORSHIP.title',
+    contentKey: 'etiquette.IT-WORSHIP.content',
+    source: 'General Sunnah of I\'tikaf',
+    applicableTo: 'all',
+    mosque: 'both',
+    severity: 'recommended',
+    tags: ['itikaf', 'worship', 'quran', 'dhikr'],
+  },
+  {
     id: 'IT-01',
     category: 'itikaf_adab',
     titleKey: 'etiquette.IT-01.title',
@@ -626,6 +769,28 @@ export const ETIQUETTE_DATA: EtiquetteItem[] = [
 
   // ─── GENERAL ADAB (آداب عامة) ───────────────────────────────────────────────
 
+  {
+    id: 'GA-NO-PUSH',
+    category: 'general_adab',
+    titleKey: 'etiquette.GA-NO-PUSH.title',
+    contentKey: 'etiquette.GA-NO-PUSH.content',
+    source: 'Ibn Majah 2341 | لا ضرر ولا ضرار',
+    applicableTo: 'all',
+    mosque: 'both',
+    severity: 'forbidden',
+    tags: ['harm', 'crowd', 'pushing'],
+  },
+  {
+    id: 'GA-MODESTY',
+    category: 'general_adab',
+    titleKey: 'etiquette.GA-MODESTY.title',
+    contentKey: 'etiquette.GA-MODESTY.content',
+    source: 'Quran 24:30-31',
+    applicableTo: 'all',
+    mosque: 'both',
+    severity: 'obligatory',
+    tags: ['modesty', 'gaze'],
+  },
   {
     id: 'GA-01',
     category: 'general_adab',

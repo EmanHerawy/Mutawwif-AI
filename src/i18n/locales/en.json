@@ -288,7 +288,7 @@
     "MA-ENTER-01": { "title": "Enter with the Right Foot", "content": "Enter the Masjid with your right foot and say: 'Bismillah, was-salatu was-salamu ala Rasulillah. Allahumma aftah li abwaba rahmatik' (In the name of Allah, and peace and blessings upon the Messenger of Allah. O Allah, open for me the gates of Your mercy)." },
     "MA-TAHIYYA-01": { "title": "Pray Tahiyyat Al-Masjid", "content": "Pray two rak'ah (Tahiyyat al-Masjid) upon entering the Masjid before sitting, unless it is a time when prayer is prohibited." },
     "MA-CLEAN-01": { "title": "Maintain Cleanliness", "content": "Keep the Masjid clean. Dispose of all waste in bins, avoid eating inside prayer areas, and arrange your shoes neatly." },
-    "MA-VOICE-01": { "title": "Lower Your Voice", "content": "Lower your voice inside the Masjid. Loud talking, laughter, and phone calls disturb worshippers and disrespect the sanctity of the place." },
+    "MA-VOICE-01": { "title": "Raising Your Voice", "content": "Lower your voice inside the Masjid. Loud talking, laughter, and phone calls disturb worshippers and disrespect the sanctity of the place." },
     "MM-SIN-01": { "title": "Sins Carry Greater Weight in Makkah", "content": "Guard yourself against all sins with extra care in Makkah. While rewards are multiplied in number, wrongdoing carries a greater weight of sin — not in number but in gravity. Allah says: 'Whoever intends to commit wrongdoing therein — We will make him taste a painful punishment.' (Quran 22:25)" },
     "MM-GOOD-01": { "title": "Good Deeds Are Multiplied", "content": "Prayer in Al-Masjid Al-Haram equals 100,000 prayers elsewhere. Make the most of every moment in worship, dhikr, and supplication." },
     "MM-RESPECT-01": { "title": "Venerate the Symbols of Allah", "content": "Respect and venerate the sacred symbols of Allah. He says: 'Whoever venerates the symbols of Allah — it is from the piety of hearts.' (Quran 22:32)" },
@@ -338,5 +338,21 @@
     "consequence_label": "Consequence:",
     "permits_mistake": "If done by ignorance or forgetfulness: no sin or fidya",
     "all_filter": "All"
+  },
+  "visit": {
+    "haram_title": "Masjid Al Haram",
+    "haram_subtitle": "Etiquette & Rulings for Visitors",
+    "nabawi_title": "Masjid Al Nabawi",
+    "nabawi_subtitle": "Etiquette & Rulings for Visitors",
+    "rawdah_title": "The Rawdah",
+    "rawdah_subtitle": "ما بين بيتي ومنبري روضة من رياض الجنة",
+    "rawdah_hadith": "The area between my house and my minbar is a garden from the gardens of Paradise. (Sahih Al-Bukhari 1196)",
+    "rules_count_one": "{{count}} rule",
+    "rules_count_other": "{{count}} rules",
+    "section_forbidden": "Forbidden",
+    "section_obligatory": "Obligatory",
+    "section_recommended": "Recommended",
+    "section_disliked": "Disliked",
+    "section_permissible": "Permissible"
   }
 }
