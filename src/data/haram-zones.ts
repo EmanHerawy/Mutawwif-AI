@@ -3,6 +3,14 @@ import type { HaramZoneData } from '../types/location.types';
 // VERIFY_COORDINATES — all coordinates must be validated before production release
 export const HARAM_ZONES: HaramZoneData[] = [
   {
+    // VERIFY_COORDINATES — near Black Stone / Hajar al-Aswad on eastern corner of Kaaba
+    id: 'black_stone_checkpoint',
+    nameAr: 'الحجر الأسود',
+    nameEn: 'Black Stone Checkpoint',
+    center: { latitude: 21.4223, longitude: 39.8263 },
+    radiusMeters: 15,
+  },
+  {
     id: 'mataf_ground',
     nameAr: 'المطاف (الطابق الأرضي)',
     nameEn: 'Mataf — Ground Floor',

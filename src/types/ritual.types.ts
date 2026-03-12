@@ -2,6 +2,12 @@ import type { HaramZone } from './location.types';
 
 export type RitualCounterType = 'tawaf' | 'sai';
 
+export interface TrackerPrefs {
+  autoDetectLaps: boolean;  // GPS-based lap auto-detection (opt-in)
+  trackSteps: boolean;      // Step count per lap via Pedometer (opt-in)
+  trackTime: boolean;       // Elapsed time per lap (opt-in)
+}
+
 export interface LapRecord {
   lapNumber: number;
   startTime: Date;
@@ -9,6 +15,8 @@ export interface LapRecord {
   durationMs: number | null;
   zone: HaramZone;
   gpsValidated: boolean;
+  steps?: number;           // Steps counted during this lap (if trackSteps enabled)
+  autoDetected?: boolean;   // true if lap was auto-detected by GPS
 }
 
 export interface RitualCounterModel {

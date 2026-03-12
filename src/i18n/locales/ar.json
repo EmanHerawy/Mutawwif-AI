@@ -14,7 +14,8 @@
     "save": "حفظ",
     "next": "التالي",
     "back": "رجوع",
-    "skip": "تخطي"
+    "skip": "تخطي",
+    "done": "تم"
   },
   "onboarding": {
     "language_title": "اختر لغتك",
@@ -124,12 +125,17 @@
     "dismiss": "حسناً، فهمت"
   },
   "recovery": {
-    "title": "مرحباً بعودتك",
-    "subtitle": "كنت في منتصف نسك",
+    "title": "نسك غير مكتمل",
+    "subtitle": "لديك نسك لم تكمله. ماذا تريد أن تفعل؟",
     "tawaf_progress": "أكملت {{completed}} من 7 أشواط طواف",
     "sai_progress": "أكملت {{completed}} من 7 أشواط سعي",
-    "last_saved": "آخر حفظ: {{time}}",
-    "resume_from": "استمرار من الشوط {{lap}}"
+    "last_saved": "آخر حفظ",
+    "resume_from": "استمرار من الشوط {{lap}}",
+    "ritual": "النسك",
+    "laps": "الأشواط المكتملة",
+    "resume": "متابعة",
+    "mark_complete": "تعيين كمكتمل",
+    "start_over": "تجاهل والبدء من جديد"
   },
   "damm": {
     "title": "تنبيه: تجاوزت الميقات بدون إحرام",
@@ -241,7 +247,16 @@
     "reset_confirm": "هل تريد إعادة تعيين العداد؟",
     "completed_laps": "الأشواط المكتملة",
     "pause": "إيقاف مؤقت",
-    "reset": "إعادة تعيين"
+    "reset": "إعادة تعيين",
+    "settings_title": "إعدادات العداد",
+    "auto_detect_label": "الكشف التلقائي بالـ GPS",
+    "auto_detect_hint": "يحسب الشوط تلقائياً عند اكتشاف العبور من نقطة التحقق",
+    "auto_detect_active": "الكشف التلقائي بالـ GPS مفعّل",
+    "track_steps_label": "عدّ الخطوات لكل شوط",
+    "track_steps_hint": "يستخدم مقياس الخطوات في جهازك — تأثير محدود على البطارية",
+    "track_time_label": "تتبع الوقت لكل شوط",
+    "track_time_hint": "يعرض الوقت المنقضي للشوط الحالي",
+    "steps": "خطوة"
   },
   "wallet_ui": {
     "pilgrim": "الحاج",

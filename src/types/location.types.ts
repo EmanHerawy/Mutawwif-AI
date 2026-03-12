@@ -36,6 +36,7 @@ export type IhramState =
 export type HaramZone =
   | 'mataf_ground'
   | 'mataf_floor2'
+  | 'black_stone_checkpoint'
   | 'masa'
   | 'safa_platform'
   | 'marwa_platform'

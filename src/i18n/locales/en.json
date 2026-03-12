@@ -14,7 +14,8 @@
     "save": "Save",
     "next": "Next",
     "back": "Back",
-    "skip": "Skip"
+    "skip": "Skip",
+    "done": "Done"
   },
   "onboarding": {
     "language_title": "Choose Your Language",
@@ -124,12 +125,17 @@
     "dismiss": "I understand"
   },
   "recovery": {
-    "title": "Welcome Back",
-    "subtitle": "You were in the middle of a ritual",
+    "title": "Incomplete Ritual Found",
+    "subtitle": "You have an unfinished ritual. What would you like to do?",
     "tawaf_progress": "You completed {{completed}} of 7 Tawaf rounds",
     "sai_progress": "You completed {{completed}} of 7 Sa'i trips",
-    "last_saved": "Last saved: {{time}}",
-    "resume_from": "Resume from round {{lap}}"
+    "last_saved": "Last saved",
+    "resume_from": "Resume from round {{lap}}",
+    "ritual": "Ritual",
+    "laps": "Completed laps",
+    "resume": "Resume",
+    "mark_complete": "Mark as Complete",
+    "start_over": "Discard and Start Over"
   },
   "damm": {
     "title": "Important: Miqat Crossed Without Ihram",
@@ -241,7 +247,16 @@
     "reset_confirm": "Reset the counter?",
     "completed_laps": "Completed laps",
     "pause": "Pause",
-    "reset": "Reset"
+    "reset": "Reset",
+    "settings_title": "Counter Settings",
+    "auto_detect_label": "GPS Auto-detect Laps",
+    "auto_detect_hint": "Automatically count a lap when GPS detects you've crossed the checkpoint",
+    "auto_detect_active": "GPS Auto-detect Active",
+    "track_steps_label": "Count Steps per Lap",
+    "track_steps_hint": "Uses your device pedometer — battery impact is low",
+    "track_time_label": "Track Time per Lap",
+    "track_time_hint": "Shows elapsed time for the current lap",
+    "steps": "steps"
   },
   "wallet_ui": {
     "pilgrim": "Pilgrim",
