@@ -63,7 +63,6 @@ export default function AskScreen() {
     languageCode: i18n.language,
     dialectKey: 'standard_arabic' as const,
     nationalityCode: '',
-    originConfirmed: '',
     mobilityLevel: 'standard' as const,
     emergencyContactName: '',
     emergencyContactPhone: '',

@@ -21,8 +21,7 @@ export interface PersonaModel {
   languageCode: string;          // BCP-47
   dialectKey: DialectKey;
   ritualType: RitualType;
-  originConfirmed: string;       // departure city
-  mobilityLevel: MobilityLevel;
+mobilityLevel: MobilityLevel;
   emergencyContactName: string;  // required — not optional
   emergencyContactPhone: string; // required — used by SOS
   // Hotels

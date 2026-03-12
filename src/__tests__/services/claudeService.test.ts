@@ -8,7 +8,6 @@ const mockPersona: PersonaModel = {
   languageCode: 'ar',
   dialectKey: 'egyptian',
   ritualType: 'umrah',
-  originConfirmed: 'Cairo',
   mobilityLevel: 'standard',
   emergencyContactName: 'Mother',
   emergencyContactPhone: '+201001234567',

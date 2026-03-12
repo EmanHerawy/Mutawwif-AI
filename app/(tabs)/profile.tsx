@@ -84,7 +84,6 @@ export default function ProfileScreen() {
       nationalityCode: persona?.nationalityCode ?? '',
       languageCode: persona?.languageCode ?? 'en',
       dialectKey: persona?.dialectKey ?? 'standard_arabic',
-      originConfirmed: persona?.originConfirmed ?? '',
     };
 
     if (persona) {

@@ -47,7 +47,7 @@ export default function PersonaScreen() {
     const dialectKey: DialectKey = 'standard_arabic';
     const base = {
       name: name.trim(), gender, ritualType, mobilityLevel: mobility,
-      languageCode: langCode, dialectKey, nationalityCode: '', originConfirmed: '',
+      languageCode: langCode, dialectKey, nationalityCode: '',
       emergencyContactName: '', emergencyContactPhone: '',
       hotelMakkahName: '', hotelMakkahAddress: '',
       hotelMadinahName: '', hotelMadinahAddress: '',

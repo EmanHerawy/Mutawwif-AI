@@ -202,23 +202,34 @@ export class ClaudeService {
       persona, currentZone, miqatName, miqatStatus, currentTemp, heatStatus, ihramState,
     });
 
-    // Stream via Claude API (in production: route through server proxy)
     let fullResponse = '';
 
-    const stream = await this.client.messages.stream({
-      model: 'claude-sonnet-4-20250514',
-      max_tokens: 1024,
-      system: systemPrompt,
-      messages: [{ role: 'user', content: sanitized }],
-    });
-
-    for await (const chunk of stream) {
-      if (
-        chunk.type === 'content_block_delta' &&
-        chunk.delta.type === 'text_delta'
-      ) {
-        fullResponse += chunk.delta.text;
-        onToken?.(chunk.delta.text);
+    if (PROXY_ENDPOINT) {
+      // Production path: stream via server proxy (API key never in client bundle)
+      const res = await fetch(PROXY_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query: sanitized, systemPrompt }),
+      });
+      if (!res.ok) throw new Error(`Proxy error ${res.status}`);
+      const data = await res.json();
+      fullResponse = data.answer ?? '';
+    } else {
+      // Development-only path: direct SDK (requires EXPO_PUBLIC_CLAUDE_DEV_KEY)
+      const stream = await this.client.messages.stream({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1024,
+        system: systemPrompt,
+        messages: [{ role: 'user', content: sanitized }],
+      });
+      for await (const chunk of stream) {
+        if (
+          chunk.type === 'content_block_delta' &&
+          chunk.delta.type === 'text_delta'
+        ) {
+          fullResponse += chunk.delta.text;
+          onToken?.(chunk.delta.text);
+        }
       }
     }
 
