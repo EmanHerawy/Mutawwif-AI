@@ -203,7 +203,7 @@ export default function AskScreen() {
 }
 
 const styles = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: Colors.parchmentBg },
+  safe: { flex: 1, backgroundColor: 'transparent' },
   header: { padding: 16, borderBottomWidth: 1, borderBottomColor: Colors.brandGreen + '18' },
   headerTitle: { fontSize: 18, fontWeight: '700', color: Colors.brandGreen, marginBottom: 4 },
   disclaimer: { fontSize: 11, color: Colors.textPrimary, opacity: 0.4, lineHeight: 15 },

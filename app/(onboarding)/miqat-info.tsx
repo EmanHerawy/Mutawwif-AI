@@ -247,7 +247,7 @@ export default function MiqatInfoScreen() {
 }
 
 const styles = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: Colors.parchmentBg },
+  safe: { flex: 1, backgroundColor: 'transparent' },
   scroll: { padding: 24, paddingBottom: 48 },
   header: { marginBottom: 20 },
   step: { fontSize: 13, color: Colors.goldAccent, fontWeight: '600', marginBottom: 4 },

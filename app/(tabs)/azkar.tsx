@@ -96,7 +96,7 @@ export default function AzkarScreen() {
 }
 
 const styles = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: Colors.parchmentBg },
+  safe: { flex: 1, backgroundColor: 'transparent' },
   pills: { paddingHorizontal: 16, paddingVertical: 12, gap: 8 },
   pill: {
     flexDirection: 'row', alignItems: 'center', gap: 6,

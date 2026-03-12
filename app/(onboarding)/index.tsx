@@ -53,7 +53,7 @@ export default function LanguageScreen() {
 }
 
 const styles = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: Colors.parchmentBg },
+  safe: { flex: 1, backgroundColor: 'transparent' },
   container: { flex: 1, paddingHorizontal: 24, paddingTop: 48 },
   header: { alignItems: 'center', marginBottom: 40 },
   title: { fontSize: 26, fontWeight: '700', color: Colors.brandGreen, textAlign: 'center', marginBottom: 8, lineHeight: 36 },

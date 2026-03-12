@@ -220,7 +220,7 @@ export default function GuideScreen() {
 }
 
 const styles = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: Colors.parchmentBg },
+  safe: { flex: 1, backgroundColor: 'transparent' },
   introScroll: { padding: 24, paddingBottom: 48, alignItems: 'center' },
   introEmoji: { fontSize: 56, marginBottom: 16 },
   introTitle: { fontSize: 26, fontWeight: '800', color: Colors.brandGreen, marginBottom: 8, textAlign: 'center' },

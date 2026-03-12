@@ -153,7 +153,7 @@ export default function WalletScreen() {
 }
 
 const styles = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: Colors.parchmentBg },
+  safe: { flex: 1, backgroundColor: 'transparent' },
   scroll: { padding: 20, paddingBottom: 48 },
   title: { fontSize: 22, fontWeight: '700', color: Colors.brandGreen, marginBottom: 16 },
   driverBanner: { backgroundColor: Colors.brandGreen, borderRadius: 14, padding: 16, marginBottom: 16, alignItems: 'center' },

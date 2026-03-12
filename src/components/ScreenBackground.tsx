@@ -12,6 +12,6 @@ export default function ScreenBackground({ children }: { children: ReactNode }) 
 }
 
 const styles = StyleSheet.create({
-  fill: { flex: 1 },
+  fill: { flex: 1, backgroundColor: '#FAF7F2' },
   pattern: { opacity: 0.18, resizeMode: 'repeat' },
 });

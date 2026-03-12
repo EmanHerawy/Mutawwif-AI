@@ -146,7 +146,7 @@ export default function TrackerScreen() {
 }
 
 const styles = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: Colors.parchmentBg },
+  safe: { flex: 1, backgroundColor: 'transparent' },
   center: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: 24 },
   pickTitle: { fontSize: 22, fontWeight: '700', color: Colors.brandGreen, marginBottom: 6 },
   pickSub: { fontSize: 14, color: Colors.textPrimary, opacity: 0.55, marginBottom: 32 },

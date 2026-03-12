@@ -160,7 +160,7 @@ export default function DashboardScreen() {
 }
 
 const styles = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: Colors.parchmentBg },
+  safe: { flex: 1, backgroundColor: 'transparent' },
   scroll: { padding: 20, paddingBottom: 40 },
   header: { marginBottom: 20, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
   greeting: { fontSize: 22, fontWeight: '700', color: Colors.brandGreen, flex: 1 },
