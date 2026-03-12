@@ -14,7 +14,7 @@ export type EtiquetteSeverity =
   | 'forbidden'    // حرام
   | 'warning'      // تحذير / مكروه
   | 'sunnah'       // سنة
-  | 'recommended'; // مستحب
+  | 'recommended'; // مباح
 
 export interface EtiquetteItem {
   id: string;

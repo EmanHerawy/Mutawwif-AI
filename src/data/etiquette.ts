@@ -1226,14 +1226,14 @@ export function getByMosque(mosque: 'haram' | 'nabawi'): EtiquetteItem[] {
 }
 
 
-export const ETIQUETTE_CATEGORY_LABELS: Record<EtiquetteCategory, { ar: string; en: string }> = {
-  ihram_prohibitions: { ar: 'محظورات الإحرام', en: 'Ihram Prohibitions' },
-  common_mistakes: { ar: 'الأخطاء الشائعة', en: 'Common Mistakes' },
-  masjid_haram_adab: { ar: 'آداب المسجد الحرام', en: 'Masjid Al-Haram Adab' },
-  masjid_nabawi_adab: { ar: 'آداب المسجد النبوي', en: 'Masjid Al-Nabawi Adab' },
-  makkah_madinah_adab: { ar: 'آداب مكة والمدينة', en: 'Makkah & Madinah Adab' },
-  rawdah_adab: { ar: 'آداب الروضة الشريفة', en: 'Rawdah Al-Shareefah Adab' },
-  sitting_adab: { ar: 'آداب الجلوس', en: 'Sitting Adab' },
-  itikaf_adab: { ar: 'آداب الاعتكاف', en: "I'tikaf Adab" },
-  general_adab: { ar: 'الآداب العامة', en: 'General Adab' },
+export const ETIQUETTE_CATEGORY_LABELS: Record<EtiquetteCategory, { ar: string; en: string; emoji: string }> = {
+  ihram_prohibitions:  { ar: 'محظورات الإحرام',            en: 'Ihram Prohibitions',    emoji: '🩱' },
+  common_mistakes:     { ar: 'أخطاء شائعة',                en: 'Common Mistakes',       emoji: '⚠️' },
+  masjid_haram_adab:   { ar: 'آداب زيارة المسجد الحرام',   en: 'Al-Masjid Al-Haram',   emoji: '🕋' },
+  masjid_nabawi_adab:  { ar: 'آداب زيارة المسجد النبوي',   en: 'Al-Masjid Al-Nabawi',  emoji: '🌹' },
+  makkah_madinah_adab: { ar: 'آداب زيارة مكة والمدينة',    en: 'Makkah & Madinah',     emoji: '🏙️' },
+  rawdah_adab:         { ar: 'آداب زيارة الروضة',          en: 'The Rawdah',            emoji: '✨' },
+  sitting_adab:        { ar: 'آداب الجلوس في المسجد',      en: 'Sitting in the Masjid', emoji: '🪑' },
+  itikaf_adab:         { ar: 'آداب الاعتكاف',              en: "I'tikaf",               emoji: '🌙' },
+  general_adab:        { ar: 'آداب عامة',                  en: 'General Adab',          emoji: '📋' },
 };

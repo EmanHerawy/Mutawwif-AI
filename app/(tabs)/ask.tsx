@@ -138,7 +138,7 @@ export default function AskScreen() {
         >
           {messages.length === 0 && (
             <View style={styles.emptyState}>
-              <Text style={styles.emptyEmoji}>🤲</Text>
+              <Text style={styles.emptyEmoji}>🤔</Text>
               <Text style={styles.emptyTitle}>{t('ask.empty_title')}</Text>
               <Text style={styles.emptySubtitle}>{t('ask.empty_subtitle')}</Text>
               <View style={styles.suggestions}>

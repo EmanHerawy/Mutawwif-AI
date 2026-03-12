@@ -21,7 +21,7 @@ const SEVERITY_LABEL: Record<EtiquetteSeverity, { ar: string; en: string }> = {
   forbidden: { ar: 'حرام', en: 'Forbidden' },
   warning: { ar: 'تحذير', en: 'Warning' },
   sunnah: { ar: 'سنة', en: 'Sunnah' },
-  recommended: { ar: 'مستحب', en: 'Recommended' },
+  recommended: { ar: 'مباح', en: 'Permissible' },
 };
 
 export function EtiquetteCard({ item }: Props) {
