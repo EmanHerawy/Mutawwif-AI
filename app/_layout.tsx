@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Stack } from 'expo-router';
+import { Stack, useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { I18nextProvider } from 'react-i18next';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -38,6 +38,7 @@ export default function RootLayout() {
   const markComplete = useRitualStore((s) => s.markComplete);
   const resetCounter = useRitualStore((s) => s.resetCounter);
 
+  const router = useRouter();
   const [showRecovery, setShowRecovery] = useState(false);
 
   useEffect(() => {
@@ -83,7 +84,10 @@ export default function RootLayout() {
                 ritual={counter.ritual as RitualCounterType}
                 completedLaps={counter.completedLaps}
                 lastSavedAt={counter.lastSavedAt as Date | string | null}
-                onResume={() => setShowRecovery(false)}
+                onResume={() => {
+                  setShowRecovery(false);
+                  router.push('/(tabs)/tracker');
+                }}
                 onStartOver={() => {
                   resetCounter();
                   setShowRecovery(false);
