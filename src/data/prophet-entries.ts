@@ -3,17 +3,31 @@ import type { ProphetEntry } from '../types/prophet.types';
 export const PROPHET_ENTRIES: ProphetEntry[] = [
   // ─── physical_description ────────────────────────────────────────────────
   {
+    id: 'pd-06',
+    category: 'physical_description',
+    titleAr: 'مشيته كأنه ينحطُّ من صَبَب ﷺ',
+    titleEn: 'He Walked as Though Descending a Slope ﷺ',
+    textAr:
+      'قال علي بن أبي طالب رضي الله عنه: كان رسول الله ﷺ إذا مشى تكفَّأ تكفُّؤاً كأنما ينحطُّ من صَبَب.',
+    textEn:
+      'Ali ibn Abi Talib (may Allah be pleased with him) said: When the Messenger of Allah ﷺ walked, he leaned forward with purpose, as though descending from a height — a gait of strength and energy, without arrogance or swaggering.',
+    citationAr: 'الشمائل المحمدية للترمذي — باب ما جاء في مشية رسول الله ﷺ',
+    citationEn: 'Al-Tirmidhi — Al-Shamail Al-Muhammadiyah, Chapter on the Gait of the Prophet ﷺ',
+    source: 'shamail',
+    reviewedBy: 'MH',
+  },
+  {
     id: 'pd-01',
     category: 'physical_description',
-    titleAr: 'صفة وجهه الشريف ﷺ',
-    titleEn: 'The Radiance of His Face ﷺ',
+    titleAr: 'وجهه كالقمر ليلة البدر ﷺ',
+    titleEn: 'His Face Like the Full Moon ﷺ',
     textAr:
       'قال جابر بن سمرة رضي الله عنه: رأيت رسول الله ﷺ في ليلة إضحيان، وعليه حلة حمراء، فجعلت أنظر إليه وإلى القمر، فلهو عندي أحسن من القمر.',
     textEn:
-      'Jabir ibn Samurah (may Allah be pleased with him) said: I saw the Messenger of Allah ﷺ on a night when there was a full moon, and he was wearing a red garment. I began looking at him, then at the moon — and by Allah, he was more beautiful to me than the moon.',
-    citationAr: 'رواه مسلم — كتاب الفضائل، باب صفة النبي ﷺ',
-    citationEn: 'Sahih Muslim — Book of Virtues, #2344',
-    source: 'muslim',
+      'Jabir ibn Samurah (may Allah be pleased with him) said: I saw the Messenger of Allah ﷺ on a moonlit night wearing a red garment. I kept looking at him, then at the moon — and by Allah, he was more beautiful to me than the full moon.',
+    citationAr: 'رواه الترمذي في الشمائل المحمدية — باب ما جاء في خَلق رسول الله ﷺ',
+    citationEn: 'Al-Tirmidhi — Al-Shamail Al-Muhammadiyah, Chapter on the Noble Features of the Prophet ﷺ',
+    source: 'shamail',
     reviewedBy: 'MH',
   },
   {
@@ -24,7 +38,7 @@ export const PROPHET_ENTRIES: ProphetEntry[] = [
     textAr:
       'قال البراء بن عازب رضي الله عنه: كان رسول الله ﷺ أحسن الناس وجهاً، وأحسنهم خَلقاً، ليس بالطويل البائن ولا بالقصير.',
     textEn:
-      'Al-Bara\' ibn \'Azib (may Allah be pleased with him) said: The Messenger of Allah ﷺ was the most handsome of people in face and the most beautiful in form — neither excessively tall nor short.',
+      'Al-Bara\' ibn \'Azib (may Allah be pleased with him) said: The Messenger of Allah ﷺ was the most handsome of all people in face and the most beautiful in form — neither excessively tall nor short.',
     citationAr: 'متفق عليه — رواه البخاري (٣٥٤٩) ومسلم',
     citationEn: 'Agreed upon — Sahih Al-Bukhari #3549 and Sahih Muslim',
     source: 'bukhari',
@@ -33,14 +47,14 @@ export const PROPHET_ENTRIES: ProphetEntry[] = [
   {
     id: 'pd-03',
     category: 'physical_description',
-    titleAr: 'صفته الجامعة كما وصفها هند بن أبي هالة',
-    titleEn: 'The Comprehensive Description of Hind ibn Abi Hala',
+    titleAr: 'الوصف الجامع لهيئته ﷺ',
+    titleEn: 'The Comprehensive Description of His Form ﷺ',
     textAr:
-      'روى هند بن أبي هالة رضي الله عنه — وكان وَصّافاً — وصف النبي ﷺ فقال: كان رسول الله ﷺ فخماً مفخَّماً، يتلألأ وجهه تلألؤ القمر ليلة البدر. وكان أطول من المربوع وأقصر من المشذَّب، عظيم الهامة، رجل الشعر. وإذا تفرَّق عقيقته فرَّقه، وإلا فلا يجاوز شعره شحمة أذنيه إذا هو وفَّره.',
+      'كان رسول الله ﷺ ليس بالطويل البائن ولا بالقصير، ولا بالأبيض الأمهق ولا بالآدم، ولا بالجعد القطط ولا بالسبط، رجِلاً، حسنَ الجسمِ، بعيدَ ما بين المنكبين، عظيم الهامة، أدعج العينين، أهدب الأشفار، إذا مشى يتكفَّأ كأنما ينحطُّ من صَبَب. من رآه بديهةً هابَه، ومن خالطه معرفةً أحبَّه.',
     textEn:
-      'Hind ibn Abi Hala (may Allah be pleased with him) — who was known for his eloquence of description — described the Prophet ﷺ saying: The Messenger of Allah ﷺ was majestic and held in awe. His face shone like the full moon. He was taller than medium height but shorter than very tall, with a large noble head and wavy hair. When his hair parted naturally he left it parted; otherwise, it would not exceed his earlobes when grown long.',
+      'The Messenger of Allah ﷺ was neither excessively tall nor short, neither stark white nor dark brown, and his hair was neither tightly curled nor completely straight — it had a slight wave. He had a fine physique, broad shoulders, a large noble head, intensely dark eyes with long lashes, and when he walked he leaned forward as though descending a slope. Whoever saw him unexpectedly was struck with awe; whoever knew him closely loved him.',
     citationAr: 'الشمائل المحمدية للترمذي — باب ما جاء في خَلق رسول الله ﷺ',
-    citationEn: 'Al-Shamail Al-Muhammadiyah of Al-Tirmidhi — Chapter on the Physical Form of the Prophet ﷺ',
+    citationEn: 'Al-Shamail Al-Muhammadiyah of Al-Tirmidhi — Chapter on the Noble Features of the Prophet ﷺ',
     source: 'shamail',
     reviewedBy: 'MH',
   },
@@ -48,13 +62,27 @@ export const PROPHET_ENTRIES: ProphetEntry[] = [
     id: 'pd-04',
     category: 'physical_description',
     titleAr: 'بياضه المشرب بالحمرة ﷺ',
-    titleEn: 'His Complexion: White Tinged with Rose ﷺ',
+    titleEn: 'His Complexion: Fair With a Radiant Glow ﷺ',
     textAr:
       'عن أنس بن مالك رضي الله عنه قال: كان النبي ﷺ أزهر اللون — ليس بأبيض أمهق ولا آدم.',
     textEn:
-      'Anas ibn Malik (may Allah be pleased with him) said: The Prophet ﷺ had a bright complexion — neither strikingly pale white nor dark brown, but luminously fair.',
-    citationAr: 'رواه مسلم — كتاب الفضائل، باب في صفة النبي ﷺ، ومتفق على معناه',
-    citationEn: 'Sahih Muslim — Book of Virtues; agreed upon in meaning',
+      'Anas ibn Malik (may Allah be pleased with him) said: The Prophet ﷺ had a luminously fair complexion — neither strikingly pale white nor dark brown.',
+    citationAr: 'رواه مسلم — كتاب الفضائل، باب في صفة النبي ﷺ',
+    citationEn: 'Sahih Muslim — Book of Virtues, Chapter on the Description of the Prophet ﷺ',
+    source: 'muslim',
+    reviewedBy: 'MH',
+  },
+  {
+    id: 'pd-05',
+    category: 'physical_description',
+    titleAr: 'خاتم النبوة بين كتفيه ﷺ',
+    titleEn: 'The Seal of Prophethood Between His Shoulders ﷺ',
+    textAr:
+      'عن جابر بن سمرة رضي الله عنه قال: رأيت الخاتم بين كتفَي رسول الله ﷺ — غُدَّة حمراء مثل بيضة الحمامة.',
+    textEn:
+      'Jabir ibn Samurah (may Allah be pleased with him) said: I saw the Seal (of Prophethood) between the shoulders of the Messenger of Allah ﷺ — a raised red formation the size of a pigeon\'s egg.',
+    citationAr: 'رواه مسلم — كتاب الفضائل (٢٣٤٤)',
+    citationEn: 'Sahih Muslim — Book of Virtues, #2344',
     source: 'muslim',
     reviewedBy: 'MH',
   },
@@ -63,15 +91,15 @@ export const PROPHET_ENTRIES: ProphetEntry[] = [
   {
     id: 'ch-01',
     category: 'character',
-    titleAr: 'لم يكن فاحشاً ولا متفحِّشاً ﷺ',
-    titleEn: 'He Was Never Obscene or Indecent ﷺ',
+    titleAr: 'كان خُلقه القرآن ﷺ',
+    titleEn: 'His Character Was the Quran ﷺ',
     textAr:
-      'قال عبد الله بن عمرو رضي الله عنهما: لم يكن النبي ﷺ فاحشاً ولا متفحِّشاً، وكان يقول: "إن من خياركم أحسنكم أخلاقاً".',
+      'سُئلت عائشة رضي الله عنها عن خُلق رسول الله ﷺ فقالت: كان خُلقُه القرآنَ.',
     textEn:
-      'Abdullah ibn \'Amr (may Allah be pleased with them both) said: The Prophet ﷺ was never obscene and never indulged in indecent speech. He used to say: "Verily, the best among you are those with the finest character."',
-    citationAr: 'رواه البخاري — كتاب المناقب، باب صفة النبي ﷺ (٣٥٥٩)',
-    citationEn: 'Sahih Al-Bukhari — Book of Virtues, #3559',
-    source: 'bukhari',
+      '\'Aisha (may Allah be pleased with her) was asked about the character of the Messenger of Allah ﷺ. She said: "His character was the Quran." — meaning he embodied every virtue that the Quran commands and avoided every fault it forbids.',
+    citationAr: 'رواه مسلم — كتاب صلاة المسافرين (٧٤٦)',
+    citationEn: 'Sahih Muslim — Book of the Traveller\'s Prayer, #746',
+    source: 'muslim',
     reviewedBy: 'MH',
   },
   {
@@ -80,9 +108,9 @@ export const PROPHET_ENTRIES: ProphetEntry[] = [
     titleAr: 'عشر سنوات لم يقل لي "أُفّ" ﷺ',
     titleEn: 'Ten Years and He Never Said "Uff" to Me ﷺ',
     textAr:
-      'قال أنس بن مالك رضي الله عنه: خدمت النبي ﷺ عشر سنين، فما قال لي: أُفٍّ قط، ولا قال لشيء فعلته: لِمَ فعلته؟ ولا لشيء لم أفعله: ألا فعلت كذا.',
+      'قال أنس بن مالك رضي الله عنه: خدمت النبي ﷺ عشر سنين، والله ما قال لي: أُفّ قط، ولا قال لشيء فعلته: لِمَ فعلته؟ ولا لشيء لم أفعله: ألا فعلت كذا.',
     textEn:
-      'Anas ibn Malik (may Allah be pleased with him) said: I served the Prophet ﷺ for ten years. He never once said "Uff!" to me, and he never said about anything I did: "Why did you do that?" nor about anything I did not do: "Why did you not do it?"',
+      'Anas ibn Malik (may Allah be pleased with him) said: I served the Prophet ﷺ for ten years. By Allah, he never once said "Uff!" to me, and he never said about anything I did: "Why did you do that?" nor about anything I did not do: "Why did you not do it?"',
     citationAr: 'متفق عليه — رواه البخاري (٦٠٣٨) ومسلم (٢٣٠٩)',
     citationEn: 'Agreed upon — Sahih Al-Bukhari #6038 and Sahih Muslim #2309',
     source: 'bukhari',
@@ -91,29 +119,99 @@ export const PROPHET_ENTRIES: ProphetEntry[] = [
   {
     id: 'ch-03',
     category: 'character',
+    titleAr: 'ما ضرب خادماً ولا امرأة ﷺ',
+    titleEn: 'He Never Struck a Servant or a Woman ﷺ',
+    textAr:
+      'قالت عائشة رضي الله عنها: ما ضرب رسول الله ﷺ خادماً له قط، ولا امرأةً، ولا ضرب بيده شيئاً قط إلا أن يجاهد في سبيل الله.',
+    textEn:
+      '\'Aisha (may Allah be pleased with her) said: The Messenger of Allah ﷺ never struck a servant, never struck a woman, and never struck anything with his hand — except in striving in the path of Allah.',
+    citationAr: 'رواه مسلم — كتاب الفضائل، ومالك في الموطأ',
+    citationEn: 'Sahih Muslim — Book of Virtues; also in Malik\'s Muwatta',
+    source: 'muslim',
+    reviewedBy: 'MH',
+  },
+  {
+    id: 'ch-04',
+    category: 'character',
     titleAr: 'صبره مع الأعرابي الجافي ﷺ',
     titleEn: 'His Forbearance with the Rough Bedouin ﷺ',
     textAr:
       'عن أنس رضي الله عنه قال: كنت أمشي مع النبي ﷺ وعليه برد نجراني غليظ الحاشية، فأدركه أعرابي فجذبه جذبة شديدة، فنظرت إلى صفحة عاتق النبي ﷺ وقد أثَّرت بها حاشية الرداء من شدة جذبته، ثم قال: يا محمد، مُر لي من مال الله الذي عندك! فالتفت إليه فضحك، ثم أمر له بعطاء.',
     textEn:
-      'Anas (may Allah be pleased with him) reported: I was walking with the Prophet ﷺ when a Bedouin came and seized his cloak with a violent tug. I looked at the Prophet\'s neck and saw that the edge of the garment had left a mark from the force. Then the man said: "O Muhammad! Give me from Allah\'s wealth that you have!" The Prophet ﷺ turned to him, smiled, and then ordered that he be given a gift.',
+      'Anas (may Allah be pleased with him) reported: I was walking with the Prophet ﷺ when a Bedouin seized his cloak with a violent tug — I saw the mark of the cloak\'s edge on his neck. The man said: "O Muhammad! Give me from Allah\'s wealth that you have!" The Prophet ﷺ turned to him, smiled, and ordered that he be given a gift.',
     citationAr: 'رواه البخاري — كتاب الأدب (٦٠٨٨)',
     citationEn: 'Sahih Al-Bukhari — Book of Good Manners, #6088',
     source: 'bukhari',
     reviewedBy: 'MH',
   },
   {
-    id: 'ch-04',
+    id: 'ch-05',
     category: 'character',
-    titleAr: 'كان يخصف نعله ويخيط ثوبه ﷺ',
-    titleEn: 'He Mended His Sandals and Sewed His Own Garment ﷺ',
+    titleAr: 'كان يسلّم على الصبيان ﷺ',
+    titleEn: 'He Would Greet Children with Salaam ﷺ',
     textAr:
-      'عن عائشة رضي الله عنها قالت: كان رسول الله ﷺ يخصف نعله، ويخيط ثوبه، ويعمل في بيته كما يعمل أحدكم في بيته.',
+      'عن أنس رضي الله عنه: أنه مرَّ على صبيان فسلَّم عليهم، وقال: كان النبي ﷺ يفعله.',
     textEn:
-      '\'Aisha (may Allah be pleased with her) said: The Messenger of Allah ﷺ used to mend his sandals, sew his own garment, and do household work just as any one of you would do in his own home.',
-    citationAr: 'رواه أحمد، وذكره ابن هشام في السيرة النبوية',
-    citationEn: 'Reported by Ahmad; mentioned by Ibn Hisham in Al-Sirah Al-Nabawiyyah',
-    source: 'ibn_hisham',
+      'Anas (may Allah be pleased with him) reported: He passed by some children and greeted them with salaam, saying: "The Prophet ﷺ used to do this."',
+    citationAr: 'متفق عليه — رواه البخاري ومسلم',
+    citationEn: 'Agreed upon — Sahih Al-Bukhari and Sahih Muslim',
+    source: 'bukhari',
+    reviewedBy: 'MH',
+  },
+  {
+    id: 'ch-06',
+    category: 'character',
+    titleAr: 'يا أبا عُمَيْر، ما فعل النُّغَيْر؟ ﷺ',
+    titleEn: 'O Abu Umayr — What Happened to Your Little Bird? ﷺ',
+    textAr:
+      'قال أنس بن مالك رضي الله عنه: كان رسول الله ﷺ من أحسن الناس خُلقاً، ولقد كان لي أخٌ يُقال له أبو عمير، فكان إذا جاء قال: يا أبا عمير، ما فعل النُّغَيْر؟ — والنُّغَير: طائر صغير كان يلعب به.',
+    textEn:
+      'Anas ibn Malik (may Allah be pleased with him) said: The Messenger of Allah ﷺ was among the finest of people in character. I had a little brother called Abu Umayr, and whenever the Prophet ﷺ came he would say: "O Abu Umayr, what happened to your little nujayr?" — The nujayr was a small bird the child used to play with.',
+    citationAr: 'الشمائل المحمدية للترمذي — باب ما جاء في خُلق رسول الله ﷺ',
+    citationEn: 'Al-Tirmidhi — Al-Shamail Al-Muhammadiyah, Chapter on the Character of the Prophet ﷺ',
+    source: 'shamail',
+    reviewedBy: 'MH',
+  },
+  {
+    id: 'ch-07',
+    category: 'character',
+    titleAr: 'لا يجزي بالسيئة السيئة — العفو والصفح ﷺ',
+    titleEn: 'He Never Returned Evil with Evil ﷺ',
+    textAr:
+      'قالت عائشة رضي الله عنها: لم يكن رسول الله ﷺ فاحشاً ولا متفحِّشاً، ولا صخَّاباً في الأسواق، ولا يجزي بالسيئة السيئة، ولكن يعفو ويصفح.',
+    textEn:
+      '\'Aisha (may Allah be pleased with her) said: The Messenger of Allah ﷺ was never obscene, never deliberately coarse, never loud or quarrelsome in the markets, and he never returned evil with evil — rather he pardoned and forgave.',
+    citationAr: 'الشمائل المحمدية للترمذي — باب ما جاء في خُلق رسول الله ﷺ',
+    citationEn: 'Al-Tirmidhi — Al-Shamail Al-Muhammadiyah, Chapter on the Character of the Prophet ﷺ',
+    source: 'shamail',
+    reviewedBy: 'MH',
+  },
+  {
+    id: 'ch-08',
+    category: 'character',
+    titleAr: 'كلامه فصلٌ لا فضول ولا تقصير ﷺ',
+    titleEn: 'His Speech Was Clear — Neither Excessive Nor Deficient ﷺ',
+    textAr:
+      'قال هند بن أبي هالة رضي الله عنه: كان رسول الله ﷺ مُتواصِل الأحزان، دائم الفِكرة، ليست له راحة، طويل السَّكت، لا يتكلم في غير حاجة، يفتتح الكلام ويختمه بأسماء الله تعالى، ويتكلم بجوامع الكلِم، كلامه فصلٌ، لا فضول ولا تقصير.',
+    textEn:
+      'Hind ibn Abi Halah (may Allah be pleased with him) said: The Messenger of Allah ﷺ was continuously mindful and always deep in thought; he had no idle rest and was long in silence. He would not speak unless there was a need. He began and ended his speech by naming Allah, and he spoke in comprehensive brief expressions. His speech was decisive — neither excessive nor falling short.',
+    citationAr: 'الشمائل المحمدية للترمذي — باب ما جاء في كلام رسول الله ﷺ',
+    citationEn: 'Al-Tirmidhi — Al-Shamail Al-Muhammadiyah, Chapter on the Speech of the Prophet ﷺ',
+    source: 'shamail',
+    reviewedBy: 'MH',
+  },
+  {
+    id: 'ch-09',
+    category: 'character',
+    titleAr: 'كنا نتقي به إذا اشتد البأس ﷺ',
+    titleEn: 'We Would Shelter Behind Him When Battle Raged ﷺ',
+    textAr:
+      'قال علي بن أبي طالب رضي الله عنه: كنا إذا احمرَّ البأس — أي اشتد القتال — ولقي القومُ القومَ، اتَّقينا برسول الله ﷺ، فما يكون منَّا أحدٌ أدنى إلى العدو منه.',
+    textEn:
+      'Ali ibn Abi Talib (may Allah be pleased with him) said: When battle raged at its fiercest and the two sides clashed, we would shelter behind the Messenger of Allah ﷺ — and there was no one among us closer to the enemy than him.',
+    citationAr: 'الشمائل المحمدية للترمذي — باب ما جاء في خُلق رسول الله ﷺ',
+    citationEn: 'Al-Tirmidhi — Al-Shamail Al-Muhammadiyah, Chapter on the Character of the Prophet ﷺ',
+    source: 'shamail',
     reviewedBy: 'MH',
   },
 
@@ -135,8 +233,36 @@ export const PROPHET_ENTRIES: ProphetEntry[] = [
   {
     id: 'dl-02',
     category: 'daily_life',
-    titleAr: 'نومه على شِقِّه الأيمن ودعاؤه ﷺ',
-    titleEn: 'He Slept on His Right Side and Made Du\'a ﷺ',
+    titleAr: 'لم يذم طعاماً قط ﷺ',
+    titleEn: 'He Never Criticised Food ﷺ',
+    textAr:
+      'عن أبي هريرة رضي الله عنه قال: ما عاب النبي ﷺ طعاماً قط، إن اشتهاه أكله، وإن كرهه تركه.',
+    textEn:
+      'Abu Hurayrah (may Allah be pleased with him) said: The Prophet ﷺ never criticised food. If he liked it, he ate it; if he disliked it, he simply left it.',
+    citationAr: 'متفق عليه — رواه البخاري (٣٥٦٣) ومسلم (٢٠٦٤)',
+    citationEn: 'Agreed upon — Sahih Al-Bukhari #3563 and Sahih Muslim #2064',
+    source: 'bukhari',
+    reviewedBy: 'MH',
+  },
+  {
+    id: 'dl-03',
+    category: 'daily_life',
+    titleAr: 'يجيب دعوة العبد ويركب الحمار ﷺ',
+    titleEn: 'He Accepted the Slave\'s Invitation and Rode a Donkey ﷺ',
+    textAr:
+      'عن أنس رضي الله عنه قال: كان رسول الله ﷺ يعود المريض، ويتبع الجنازة، ويجيب دعوة المملوك، ويركب الحمار.',
+    textEn:
+      'Anas (may Allah be pleased with him) said: The Messenger of Allah ﷺ used to visit the sick, follow funeral processions, accept the invitation of a slave, and ride a donkey.',
+    citationAr: 'رواه الترمذي في الشمائل المحمدية — باب ما جاء في تواضع رسول الله ﷺ',
+    citationEn: 'Al-Tirmidhi — Al-Shamail Al-Muhammadiyah, Chapter on the Humility of the Prophet ﷺ',
+    source: 'shamail',
+    reviewedBy: 'MH',
+  },
+  {
+    id: 'dl-04',
+    category: 'daily_life',
+    titleAr: 'نومه على شِقِّه الأيمن ﷺ',
+    titleEn: 'He Slept on His Right Side ﷺ',
     textAr:
       'عن البراء بن عازب رضي الله عنه أن النبي ﷺ قال: "إذا أتيت مضجعك، فتوضأ وضوءك للصلاة، ثم اضطجع على شِقِّك الأيمن، وقل: اللهم أسلمت نفسي إليك، ووجَّهت وجهي إليك، وفوَّضت أمري إليك، وألجأت ظهري إليك..."',
     textEn:
@@ -147,31 +273,74 @@ export const PROPHET_ENTRIES: ProphetEntry[] = [
     reviewedBy: 'MH',
   },
   {
-    id: 'dl-03',
+    id: 'dl-05',
     category: 'daily_life',
-    titleAr: 'مداومته على السواك ﷺ',
-    titleEn: 'His Frequent Use of the Siwak ﷺ',
+    titleAr: 'يجيب دعوة خبز الشعير والإهالة السَّنِخة ﷺ',
+    titleEn: 'He Accepted Invitations to Barley Bread and Rancid Fat ﷺ',
     textAr:
-      'عن أبي هريرة رضي الله عنه أن رسول الله ﷺ قال: "لولا أن أشق على أمتي لأمرتهم بالسواك عند كل صلاة".',
+      'عن أنس رضي الله عنه أن رسول الله ﷺ كان يُدعى إلى خبز الشعير والإهالة السَّنِخة — أي الدهن الفاسد — فيجيب.',
     textEn:
-      'Abu Hurayrah (may Allah be pleased with him) reported that the Messenger of Allah ﷺ said: "Were it not that I would be burdening my community, I would have commanded them to use the siwak at every prayer."',
-    citationAr: 'متفق عليه — رواه البخاري (٨٨٧) ومسلم (٢٥٢)',
-    citationEn: 'Agreed upon — Sahih Al-Bukhari #887 and Sahih Muslim #252',
-    source: 'bukhari',
+      'Anas (may Allah be pleased with him) reported that the Messenger of Allah ﷺ would be invited to eat barley bread and rancid fat — and he would accept.',
+    citationAr: 'الشمائل المحمدية للترمذي — باب ما جاء في معيشة رسول الله ﷺ',
+    citationEn: 'Al-Tirmidhi — Al-Shamail Al-Muhammadiyah, Chapter on the Livelihood of the Prophet ﷺ',
+    source: 'shamail',
+    reviewedBy: 'MH',
+  },
+
+  {
+    id: 'dl-06',
+    category: 'daily_life',
+    titleAr: 'كان بشراً يخدم نفسه ﷺ',
+    titleEn: 'He Was a Human Being — He Served Himself ﷺ',
+    textAr:
+      'سُئلت عائشة رضي الله عنها: ما كان رسول الله ﷺ يعمل في بيته؟ قالت: كان بشراً من البشر، يَفلي ثوبه، ويَحلُب شاته، ويخدم نفسه.',
+    textEn:
+      '\'Aisha (may Allah be pleased with her) was asked: What did the Messenger of Allah ﷺ do in his home? She said: "He was a human being like any other — he would delouse his own garment, milk his own goat, and serve himself."',
+    citationAr: 'الشمائل المحمدية للترمذي — باب ما جاء في عيش رسول الله ﷺ',
+    citationEn: 'Al-Tirmidhi — Al-Shamail Al-Muhammadiyah, Chapter on the Livelihood of the Prophet ﷺ',
+    source: 'shamail',
     reviewedBy: 'MH',
   },
   {
-    id: 'dl-04',
+    id: 'dl-07',
     category: 'daily_life',
-    titleAr: 'لم يذم طعاماً قط ﷺ',
-    titleEn: 'He Never Criticised Food ﷺ',
+    titleAr: 'لا يردُّ الطِّيب ﷺ',
+    titleEn: 'He Never Refused a Gift of Perfume ﷺ',
     textAr:
-      'عن أبي هريرة رضي الله عنه قال: ما عاب النبي ﷺ طعاماً قط، إن اشتهاه أكله، وإن كرهه تركه.',
+      'عن أنس بن مالك رضي الله عنه قال: كان لرسول الله ﷺ سُكَّة يَتطيَّب منها. وعن ثُمامة بن عبد الله قال: كان أنس بن مالك لا يردُّ الطيب، وقال أنس: إن النبي ﷺ كان لا يردُّ الطيب.',
     textEn:
-      'Abu Hurayrah (may Allah be pleased with him) said: The Prophet ﷺ never criticised food. If he liked it, he ate it; if he disliked it, he simply left it.',
-    citationAr: 'متفق عليه — رواه البخاري (٣٥٦٣) ومسلم (٢٠٦٤)',
-    citationEn: 'Agreed upon — Sahih Al-Bukhari #3563 and Sahih Muslim #2064',
-    source: 'bukhari',
+      'Anas ibn Malik (may Allah be pleased with him) said: The Messenger of Allah ﷺ had a perfume flask from which he would apply fragrance. Thumamah ibn Abdullah reported: Anas used to never refuse a gift of perfume, and Anas said: "The Prophet ﷺ never refused perfume."',
+    citationAr: 'الشمائل المحمدية للترمذي — باب ما جاء في طيب رسول الله ﷺ',
+    citationEn: 'Al-Tirmidhi — Al-Shamail Al-Muhammadiyah, Chapter on the Perfume of the Prophet ﷺ',
+    source: 'shamail',
+    reviewedBy: 'MH',
+  },
+  {
+    id: 'dl-08',
+    category: 'daily_life',
+    titleAr: 'أحبُّ الثياب إليه القميص ﷺ',
+    titleEn: 'His Favourite Garment Was the Shirt ﷺ',
+    textAr:
+      'قالت أم سلمة رضي الله عنها: كان أحبَّ الثياب إلى رسول الله ﷺ القميص. وقال ﷺ: "عليكم بالبياض من الثياب، لِيَلبَسها أحياؤكم، وكفِّنوا فيها موتاكم، فإنها من خير ثيابكم".',
+    textEn:
+      'Umm Salama (may Allah be pleased with her) said: The garment most beloved to the Messenger of Allah ﷺ was the shirt (qamis). And he ﷺ said: "Wear white garments — let your living wear them and shroud your dead in them, for they are among the best of your garments."',
+    citationAr: 'الشمائل المحمدية للترمذي — باب ما جاء في لباس رسول الله ﷺ',
+    citationEn: 'Al-Tirmidhi — Al-Shamail Al-Muhammadiyah, Chapter on the Clothing of the Prophet ﷺ',
+    source: 'shamail',
+    reviewedBy: 'MH',
+  },
+  {
+    id: 'dl-09',
+    category: 'daily_life',
+    titleAr: 'لم يأكل على خِوانٍ ولا في سُكُرُّجة ﷺ',
+    titleEn: 'He Never Ate at a Raised Table or From Ornamental Dishes ﷺ',
+    textAr:
+      'عن قتادة عن أنس بن مالك رضي الله عنه قال: ما أكل نبيُّ الله ﷺ على خِوانٍ — أي طاولة مرتفعة — ولا في سُكُرُّجة — أي أطباق صغيرة للزينة — ولا خُبِز له مُرقَّق.',
+    textEn:
+      'Qatadah narrated from Anas ibn Malik (may Allah be pleased with him): The Prophet of Allah ﷺ never ate at a raised table, never ate from small ornamental serving dishes, and no fine thin bread was ever baked for him.',
+    citationAr: 'الشمائل المحمدية للترمذي — باب ما جاء في خبز رسول الله ﷺ',
+    citationEn: 'Al-Tirmidhi — Al-Shamail Al-Muhammadiyah, Chapter on the Bread of the Prophet ﷺ',
+    source: 'shamail',
     reviewedBy: 'MH',
   },
 
@@ -193,33 +362,19 @@ export const PROPHET_ENTRIES: ProphetEntry[] = [
   {
     id: 'wr-02',
     category: 'worship',
-    titleAr: 'صلاته بالليل إحدى عشرة ركعة ﷺ',
-    titleEn: 'His Night Prayer: Eleven Rak\'ahs ﷺ',
+    titleAr: 'أزيزٌ في صدره كأزيز المرجل ﷺ',
+    titleEn: 'His Chest Made the Sound of a Boiling Pot in Prayer ﷺ',
     textAr:
-      'عن عائشة رضي الله عنها قالت: كان النبي ﷺ يصلي من الليل ثلاث عشرة ركعة، يوتر من ذلك بخمس لا يجلس في شيء منهن إلا في آخرهن.',
+      'عن عبد الله بن الشخِّير رضي الله عنه قال: أتيت رسول الله ﷺ وهو يصلي، ولجوفه أزيزٌ كأزيز المرجل من البكاء.',
     textEn:
-      '\'Aisha (may Allah be pleased with her) said: The Prophet ﷺ used to pray thirteen rak\'ahs during the night, including five witr in which he would not sit except at the very end.',
-    citationAr: 'رواه البخاري — كتاب التهجد (١١٣٩) ومسلم (٧٣٧)',
-    citationEn: 'Sahih Al-Bukhari — Book of Tahajjud, #1139; Sahih Muslim #737',
-    source: 'bukhari',
+      'Abdullah ibn Al-Shakhkhir (may Allah be pleased with him) said: I came to the Messenger of Allah ﷺ while he was praying, and there was a sound coming from his chest like the boiling of a pot — from weeping.',
+    citationAr: 'الشمائل المحمدية للترمذي — باب ما جاء في بكاء رسول الله ﷺ في الصلاة',
+    citationEn: 'Al-Tirmidhi — Al-Shamail Al-Muhammadiyah, Chapter on the Weeping of the Prophet ﷺ in Prayer',
+    source: 'shamail',
     reviewedBy: 'MH',
   },
   {
     id: 'wr-03',
-    category: 'worship',
-    titleAr: 'وتره ﷺ',
-    titleEn: 'His Witr Prayer ﷺ',
-    textAr:
-      'عن عائشة رضي الله عنها قالت: من كل الليل قد أوتر رسول الله ﷺ — من أول الليل وأوسطه وآخره، فانتهى وتره إلى السَّحَر.',
-    textEn:
-      '\'Aisha (may Allah be pleased with her) said: The Messenger of Allah ﷺ performed witr at every part of the night — early, middle, and late — and in the end his witr settled at the time of suhur (pre-dawn).',
-    citationAr: 'متفق عليه — رواه البخاري (٩٩٦) ومسلم (٧٤٥)',
-    citationEn: 'Agreed upon — Sahih Al-Bukhari #996 and Sahih Muslim #745',
-    source: 'bukhari',
-    reviewedBy: 'MH',
-  },
-  {
-    id: 'wr-04',
     category: 'worship',
     titleAr: 'صيامه الاثنين والخميس ﷺ',
     titleEn: 'His Fasting on Mondays and Thursdays ﷺ',
@@ -227,9 +382,23 @@ export const PROPHET_ENTRIES: ProphetEntry[] = [
       'عن أبي هريرة رضي الله عنه أن رسول الله ﷺ كان أكثر ما يصوم الاثنين والخميس، فقيل له، فقال: "إن الأعمال تُعرض كل اثنين وخميس، فأحب أن يُعرض عملي وأنا صائم".',
     textEn:
       'Abu Hurayrah (may Allah be pleased with him) reported that the Messenger of Allah ﷺ most often fasted on Mondays and Thursdays. When asked about it, he said: "Deeds are presented to Allah on Monday and Thursday, and I love for my deeds to be presented while I am fasting."',
-    citationAr: 'رواه الترمذي (٧٤٧) وهو في الشمائل المحمدية في باب صيامه ﷺ',
-    citationEn: 'Al-Tirmidhi #747; referenced in Al-Shamail Al-Muhammadiyah — Chapter on His Fasting ﷺ',
+    citationAr: 'رواه الترمذي (٧٤٧) — الشمائل المحمدية، باب ما جاء في صوم رسول الله ﷺ',
+    citationEn: 'Al-Tirmidhi #747 — Al-Shamail Al-Muhammadiyah, Chapter on the Fasting of the Prophet ﷺ',
     source: 'shamail',
+    reviewedBy: 'MH',
+  },
+  {
+    id: 'wr-04',
+    category: 'worship',
+    titleAr: 'أكثر دعائه ﷺ',
+    titleEn: 'His Most Frequent Supplication ﷺ',
+    textAr:
+      'عن أنس رضي الله عنه قال: كان أكثر دعاء النبي ﷺ: "اللهم ربنا آتنا في الدنيا حسنةً، وفي الآخرة حسنةً، وقنا عذاب النار".',
+    textEn:
+      'Anas (may Allah be pleased with him) said: The most frequent supplication of the Prophet ﷺ was: "O Allah, our Lord, grant us good in this world and good in the Hereafter, and protect us from the punishment of the Fire."',
+    citationAr: 'متفق عليه — رواه البخاري (٦٣٨٩) ومسلم (٢٦٩٠)',
+    citationEn: 'Agreed upon — Sahih Al-Bukhari #6389 and Sahih Muslim #2690',
+    source: 'bukhari',
     reviewedBy: 'MH',
   },
 
@@ -251,101 +420,101 @@ export const PROPHET_ENTRIES: ProphetEntry[] = [
   {
     id: 'mr-02',
     category: 'mercy',
-    titleAr: 'نهيه عن قطع الشجر في الحرب ﷺ',
-    titleEn: 'His Prohibition of Cutting Trees in War ﷺ',
+    titleAr: 'رحمته بأهل الطائف ﷺ',
+    titleEn: 'His Mercy Toward the People of Ta\'if ﷺ',
     textAr:
-      'كان رسول الله ﷺ إذا أمَّر أميراً على جيش أوصاه في خاصة نفسه بتقوى الله، ومن وصيته: "لا تقتلوا وليداً، ولا امرأة، ولا شيخاً كبيراً، ولا تعقروا نخلاً ولا شجراً إلا لضرورة."',
+      'لما آذى أهل الطائف رسول الله ﷺ بالحجارة حتى أَدمَوا قدميه، عرض عليه المَلَك أن يُطبق عليهم الجبلين، فقال ﷺ: "بل أرجو أن يخرج الله من أصلابهم من يعبد الله وحده لا يشرك به شيئاً".',
     textEn:
-      'When the Messenger of Allah ﷺ dispatched a commander with an army, he would counsel him personally to fear Allah, and among his instructions: "Do not kill a child, nor a woman, nor an old man, and do not cut down a palm tree or any tree except out of necessity."',
-    citationAr: 'ذكره ابن هشام في السيرة النبوية — باب وصايا النبي ﷺ لأمراء الجيوش',
-    citationEn: 'Ibn Hisham — Al-Sirah Al-Nabawiyyah — Chapter on the Prophet\'s Instructions to Army Commanders',
-    source: 'ibn_hisham',
+      'When the people of Ta\'if pelted the Messenger of Allah ﷺ with stones until his feet bled, the angel offered to crush them between two mountains. He ﷺ said: "No — rather, I hope that Allah will bring forth from their descendants those who worship Allah alone and associate nothing with Him."',
+    citationAr: 'متفق عليه — رواه البخاري (٣٢٣١) ومسلم (١٧٩٥)',
+    citationEn: 'Agreed upon — Sahih Al-Bukhari #3231 and Sahih Muslim #1795',
+    source: 'bukhari',
     reviewedBy: 'MH',
   },
   {
     id: 'mr-03',
     category: 'mercy',
-    titleAr: 'رحمته بأم المؤمنين في غزوة أُحُد ﷺ',
-    titleEn: 'His Mercy to an Ansar Mother After Uhud ﷺ',
-    textAr:
-      'لما انصرف الناس يوم أُحُد جاءت امرأة من الأنصار فنُعي إليها زوجها وأبوها وأخوها وابنها، فقالت: ما فعل رسول الله ﷺ؟ قالوا: بخير يا أمَّ فلان، هو كما تحبين. قالت: أرونيه، فلما رأته قالت: كل مصيبة بعدك جَلَل يا رسول الله.',
-    textEn:
-      'When the people returned from the Battle of Uhud, a woman of the Ansar was told of the deaths of her husband, her father, her brother, and her son. She asked: "What has become of the Messenger of Allah ﷺ?" They said: "He is well, O Mother — as you would wish." She said: "Show him to me." When she saw him she said: "Every calamity after you, O Messenger of Allah, is bearable."',
-    citationAr: 'ذكره ابن هشام في السيرة النبوية — غزوة أُحُد، وابن كثير في البداية والنهاية',
-    citationEn: 'Ibn Hisham — Al-Sirah Al-Nabawiyyah — Battle of Uhud; Ibn Kathir — Al-Bidayah wa Al-Nihayah',
-    source: 'ibn_hisham',
-    reviewedBy: 'MH',
-  },
-  {
-    id: 'mr-04',
-    category: 'mercy',
-    titleAr: 'رحمته بالأطفال والضعفاء ﷺ',
-    titleEn: 'His Mercy Toward Children and the Weak ﷺ',
+    titleAr: 'رحمته بالأطفال ﷺ',
+    titleEn: 'His Mercy Toward Children ﷺ',
     textAr:
       'عن أبي هريرة رضي الله عنه قال: قبَّل رسول الله ﷺ الحسن بن علي، وعنده الأقرع بن حابس التميمي جالساً، فقال الأقرع: إن لي عشرة من الولد ما قبَّلت منهم أحداً. فنظر إليه رسول الله ﷺ ثم قال: "مَن لا يَرحَم لا يُرحَم".',
     textEn:
-      'Abu Hurayrah (may Allah be pleased with him) said: The Messenger of Allah ﷺ kissed Al-Hasan ibn Ali while Al-Aqra\' ibn Habis was sitting nearby. Al-Aqra\' said: "I have ten children and I have never kissed any of them." The Messenger of Allah ﷺ looked at him and said: "Whoever does not show mercy will not be shown mercy."',
+      'Abu Hurayrah (may Allah be pleased with him) said: The Messenger of Allah ﷺ kissed Al-Hasan ibn Ali while Al-Aqra\' ibn Habis was present. Al-Aqra\' said: "I have ten children and I have never kissed any of them." The Messenger of Allah ﷺ looked at him and said: "Whoever does not show mercy will not be shown mercy."',
     citationAr: 'متفق عليه — رواه البخاري (٥٩٩٧) ومسلم (٢٣١٨)',
     citationEn: 'Agreed upon — Sahih Al-Bukhari #5997 and Sahih Muslim #2318',
     source: 'bukhari',
     reviewedBy: 'MH',
   },
+  {
+    id: 'mr-04',
+    category: 'mercy',
+    titleAr: 'نهيه عن الإيذاء في الحرب ﷺ',
+    titleEn: 'His Prohibition of Harm in War ﷺ',
+    textAr:
+      'كان رسول الله ﷺ إذا أمَّر أميراً على جيش أوصاه في خاصة نفسه بتقوى الله، ومن وصيته: "لا تقتلوا وليداً، ولا امرأة، ولا شيخاً كبيراً، ولا تعقروا نخلاً ولا شجراً إلا لضرورة."',
+    textEn:
+      'When the Messenger of Allah ﷺ dispatched a commander with an army, he would counsel him to fear Allah, and among his instructions: "Do not kill a child, nor a woman, nor an elderly man, and do not cut down a palm tree or any tree except out of necessity."',
+    citationAr: 'ذكره ابن هشام في السيرة النبوية — باب وصايا النبي ﷺ لأمراء الجيوش',
+    citationEn: 'Ibn Hisham — Al-Sirah Al-Nabawiyyah — Chapter on the Prophet\'s Instructions to Army Commanders',
+    source: 'ibn_hisham',
+    reviewedBy: 'MH',
+  },
 
-  // ─── humor (تواضعه ورفقه) ────────────────────────────────────────────────
+  // ─── humor (تواضعه ومزاحه) ───────────────────────────────────────────────
   {
     id: 'hm-01',
     category: 'humor',
-    titleAr: 'مسابقته عائشة في الجري ﷺ',
-    titleEn: 'He Raced with \'Aisha ﷺ',
+    titleAr: 'مزاحه ﷺ — لا يقول إلا حقاً',
+    titleEn: 'He Joked — But Only Said the Truth ﷺ',
     textAr:
-      'عن عائشة رضي الله عنها قالت: خرجت مع رسول الله ﷺ في بعض أسفاره وأنا جارية لم أحمل اللحم ولم أبدُن بعد، فقال للناس: تقدَّموا. فتقدَّموا، ثم قال لي: تعالي حتى أسابقك. فسابقته فسبقته، فسكت عني. حتى إذا حملت اللحم وبدُنت، أمر الناس فتقدَّموا، ثم قال لي: هلم حتى أسابقك. فسابقته فسبقني، فقال: "هذه بتلك".',
+      'عن أنس رضي الله عنه أن رجلاً أتى النبي ﷺ فقال: يا رسول الله، احمِلني. قال: "إني حاملُك على ولد الناقة". قال: وما أصنع بولد الناقة؟ قال: "وهل تلد الإبلَ إلا النوق؟"',
     textEn:
-      '\'Aisha (may Allah be pleased with her) said: I went with the Messenger of Allah ﷺ on a journey when I was still young and slim. He told the people to go ahead, then said to me: "Come, let us race." I raced him and beat him, and he said nothing. Later, when I had put on weight, he again sent the people ahead and said: "Come, let us race." This time he beat me and said: "That is for that."',
-    citationAr: 'رواه أبو داود (٢٥٧٨) وهو في سياق الشمائل المحمدية',
-    citationEn: 'Abu Dawud #2578; in the context of Al-Shamail Al-Muhammadiyah',
+      'Anas (may Allah be pleased with him) reported that a man came to the Prophet ﷺ and said: "O Messenger of Allah, carry me (give me a mount)!" He said: "I will carry you on a camel\'s child." The man said: "What will I do with a camel\'s child?" He said: "And do camels give birth to anything other than camels?"',
+    citationAr: 'الشمائل المحمدية للترمذي — باب ما جاء في مزاح رسول الله ﷺ',
+    citationEn: 'Al-Tirmidhi — Al-Shamail Al-Muhammadiyah, Chapter on the Joking of the Prophet ﷺ',
     source: 'shamail',
     reviewedBy: 'MH',
   },
   {
     id: 'hm-02',
     category: 'humor',
-    titleAr: 'زيارته للمرضى والمساكين ﷺ',
-    titleEn: 'He Visited the Sick and the Poor ﷺ',
+    titleAr: 'مسابقته عائشة في الجري ﷺ',
+    titleEn: 'He Raced \'Aisha ﷺ',
     textAr:
-      'عن أنس رضي الله عنه قال: كان رسول الله ﷺ يعود المريض، ويتبع الجنازة، ويجيب دعوة المملوك، ويركب الحمار.',
+      'قالت عائشة رضي الله عنها: خرجت مع رسول الله ﷺ في بعض أسفاره وأنا جارية، فقال للناس: تقدَّموا. فتقدَّموا، ثم قال لي: تعالي حتى أسابقك. فسابقته فسبقته. ثم لما حملت اللحم سابقته فسبقني، فقال: "هذه بتلك".',
     textEn:
-      'Anas (may Allah be pleased with him) said: The Messenger of Allah ﷺ used to visit the sick, follow funeral processions, accept the invitation of a slave, and ride a donkey.',
-    citationAr: 'رواه البخاري — كتاب المناقب (٥٧١٠)',
-    citationEn: 'Sahih Al-Bukhari — Book of Virtues, #5710',
-    source: 'bukhari',
+      '\'Aisha (may Allah be pleased with her) said: I went out with the Messenger of Allah ﷺ on a journey when I was still young and slender. He told the people to go ahead, then said to me: "Come, let us race." I raced him and beat him. Later, when I had gained weight, he raced me and beat me, then said: "That is for that."',
+    citationAr: 'الشمائل المحمدية للترمذي — باب ما جاء في تواضع رسول الله ﷺ ورفقه بأهله',
+    citationEn: 'Al-Tirmidhi — Al-Shamail Al-Muhammadiyah, Chapter on the Gentleness of the Prophet ﷺ with His Family',
+    source: 'shamail',
     reviewedBy: 'MH',
   },
   {
     id: 'hm-03',
     category: 'humor',
-    titleAr: 'حَمله الماء لأهل بيته ﷺ',
-    titleEn: 'He Carried Water for His Household ﷺ',
+    titleAr: 'ضحكه ﷺ — تبسُّم لا قهقهة',
+    titleEn: 'His Laughter Was a Smile, Never a Loud Laugh ﷺ',
     textAr:
-      'كان رسول الله ﷺ يخدم نفسه وأهله، ويحمل الماء، ويكنس البيت، ولا يرى نفسه فوق خدمة أهله.',
+      'قال عبد الله بن الحارث رضي الله عنه: ما كان ضحك رسول الله ﷺ إلا تبسُّماً. وقال جرير بن عبد الله رضي الله عنه: ما حجبني رسول الله ﷺ منذ أسلمت، ولا رآني إلا تبسَّم في وجهي.',
     textEn:
-      'The Messenger of Allah ﷺ used to serve himself and his family, carry water, sweep the house, and never considered himself above serving his household.',
-    citationAr: 'ذكره ابن هشام في السيرة النبوية — باب أخلاقه ﷺ في بيته',
-    citationEn: 'Ibn Hisham — Al-Sirah Al-Nabawiyyah — Chapter on His Conduct at Home',
-    source: 'ibn_hisham',
+      'Abdullah ibn Al-Harith (may Allah be pleased with him) said: The laughter of the Messenger of Allah ﷺ was only a smile. Jarir ibn Abdullah (may Allah be pleased with him) said: From the day I accepted Islam, the Prophet ﷺ never turned me away nor did he see me without smiling at me.',
+    citationAr: 'الشمائل المحمدية للترمذي — باب ما جاء في ضحك رسول الله ﷺ؛ حديث جرير: رواه البخاري — كتاب المناقب',
+    citationEn: 'Al-Tirmidhi — Al-Shamail Al-Muhammadiyah, Chapter on the Laughter of the Prophet ﷺ; Jarir\'s narration: Sahih Al-Bukhari — Book of Virtues',
+    source: 'shamail',
     reviewedBy: 'MH',
   },
   {
     id: 'hm-04',
     category: 'humor',
-    titleAr: 'لن تؤمنوا حتى أكون أحب إليكم ﷺ',
-    titleEn: 'Dearer Than All People ﷺ',
+    titleAr: 'حجَّ على رَحل رثٍّ وقطيفة ﷺ',
+    titleEn: 'He Performed Hajj on a Worn Saddle and Old Blanket ﷺ',
     textAr:
-      'قال رسول الله ﷺ: "لا يؤمن أحدكم حتى أكون أحب إليه من والده وولده والناس أجمعين".',
+      'حجَّ رسول الله ﷺ على رَحل رثٍّ وقطيفة تساوي أربعة دراهم أو تقلُّ، ثم قال: "اللهم حجةً لا رياء فيها ولا سمعة".',
     textEn:
-      'The Messenger of Allah ﷺ said: "None of you truly believes until I am dearer to him than his father, his child, and all of mankind."',
-    citationAr: 'متفق عليه — رواه البخاري (١٥) ومسلم (٤٤)',
-    citationEn: 'Agreed upon — Sahih Al-Bukhari #15 and Sahih Muslim #44',
-    source: 'bukhari',
+      'The Messenger of Allah ﷺ performed Hajj on a worn saddle and a thin old blanket worth four dirhams or less, then said: "O Allah, a pilgrimage with no showing off and no seeking of reputation."',
+    citationAr: 'الشمائل المحمدية للترمذي — باب ما جاء في تواضع رسول الله ﷺ',
+    citationEn: 'Al-Tirmidhi — Al-Shamail Al-Muhammadiyah, Chapter on the Humility of the Prophet ﷺ',
+    source: 'shamail',
     reviewedBy: 'MH',
   },
 
@@ -353,13 +522,13 @@ export const PROPHET_ENTRIES: ProphetEntry[] = [
   {
     id: 'fm-01',
     category: 'family',
-    titleAr: 'كان يساعد في أعمال البيت ﷺ',
-    titleEn: 'He Helped with Household Work ﷺ',
+    titleAr: 'كان في مهنة أهله ﷺ',
+    titleEn: 'He Was at the Service of His Household ﷺ',
     textAr:
-      'سُئل الأسود بن يزيد: ما كان النبي ﷺ يصنع في أهله؟ قال عائشة: كان يكون في مهنة أهله — يخدم أهله — فإذا حضرت الصلاة خرج إلى الصلاة.',
+      'سُئل الأسود بن يزيد: ما كان النبي ﷺ يصنع في أهله؟ قال — تعني عائشة —: كان يكون في مهنة أهله — يخدم أهله — فإذا حضرت الصلاة خرج إلى الصلاة.',
     textEn:
-      'Al-Aswad ibn Yazid asked: What did the Prophet ﷺ do in his household? \'Aisha said: He used to be occupied with household service — serving his family — and when the time of prayer came, he would go out to prayer.',
-    citationAr: 'رواه البخاري — كتاب الأدب، باب كيف يكون الرجل في أهله (٦٠٣٩)',
+      'Al-Aswad ibn Yazid asked \'Aisha: What did the Prophet ﷺ do in his household? She said: He used to be occupied in the service of his family — serving them — and when the time of prayer came, he would go out to prayer.',
+    citationAr: 'رواه البخاري — كتاب الأدب (٦٠٣٩)',
     citationEn: 'Sahih Al-Bukhari — Book of Good Manners, #6039',
     source: 'bukhari',
     reviewedBy: 'MH',
@@ -381,29 +550,44 @@ export const PROPHET_ENTRIES: ProphetEntry[] = [
   {
     id: 'fm-03',
     category: 'family',
-    titleAr: 'حبه للحسن والحسين ﷺ',
-    titleEn: 'His Love for Al-Hasan and Al-Husayn ﷺ',
+    titleAr: 'خيركم خيركم لأهله ﷺ',
+    titleEn: 'The Best of You Is the Best to His Family ﷺ',
     textAr:
-      'عن أبي بكرة رضي الله عنه قال: رأيت النبي ﷺ على المنبر والحسن بن علي إلى جانبه، وهو يُقبل على الناس مرة وعليه أخرى، ويقول: "إن ابني هذا سيد، ولعل الله أن يُصلح به بين فئتين من المسلمين".',
+      'قال رسول الله ﷺ: "خيركم خيركم لأهله، وأنا خيركم لأهلي".',
     textEn:
-      'Abu Bakrah (may Allah be pleased with him) said: I saw the Prophet ﷺ on the pulpit with Al-Hasan ibn Ali beside him. He would turn to the people, then turn to him, and say: "This son of mine is a master (sayyid), and perhaps Allah will reconcile through him two groups among the Muslims."',
-    citationAr: 'رواه البخاري — كتاب الصلح (٢٧٠٤)',
-    citationEn: 'Sahih Al-Bukhari — Book of Peacemaking, #2704',
-    source: 'bukhari',
+      'The Messenger of Allah ﷺ said: "The best of you is the best to his family, and I am the best of you to my family."',
+    citationAr: 'الشمائل المحمدية للترمذي — باب ما جاء في خُلق رسول الله ﷺ في أهله',
+    citationEn: 'Al-Tirmidhi — Al-Shamail Al-Muhammadiyah, Chapter on the Character of the Prophet ﷺ with His Family',
+    source: 'shamail',
     reviewedBy: 'MH',
   },
   {
     id: 'fm-04',
     category: 'family',
-    titleAr: 'رفقه بزوجاته ﷺ',
-    titleEn: 'His Gentleness with His Wives ﷺ',
+    titleAr: 'حبه للحسن والحسين ﷺ',
+    titleEn: 'His Love for Al-Hasan and Al-Husayn ﷺ',
     textAr:
-      'قال رسول الله ﷺ: "خيركم خيركم لأهله، وأنا خيركم لأهلي".',
+      'عن أبي بكرة رضي الله عنه قال: رأيت النبي ﷺ على المنبر والحسن بن علي إلى جانبه، وهو يُقبل على الناس مرة وعليه أخرى، ويقول: "إن ابني هذا سيد، ولعل الله أن يُصلح به بين فئتين من المسلمين".',
     textEn:
-      'The Messenger of Allah ﷺ said: "The best of you is the best to his family, and I am the best of you to my family."',
-    citationAr: 'رواه الترمذي (٣٨٩٥) وهو في الشمائل المحمدية — باب ما جاء في حسن خُلق النبي ﷺ',
-    citationEn: 'Al-Tirmidhi #3895; Al-Shamail Al-Muhammadiyah — Chapter on His Noble Character',
-    source: 'shamail',
+      'Abu Bakrah (may Allah be pleased with him) said: I saw the Prophet ﷺ on the pulpit with Al-Hasan ibn Ali beside him. He would turn to the people, then turn to him, and say: "This son of mine is a master, and perhaps Allah will reconcile through him two groups among the Muslims."',
+    citationAr: 'رواه البخاري — كتاب الصلح (٢٧٠٤)',
+    citationEn: 'Sahih Al-Bukhari — Book of Peacemaking, #2704',
+    source: 'bukhari',
+    reviewedBy: 'MH',
+  },
+
+  {
+    id: 'fm-05',
+    category: 'family',
+    titleAr: 'وفاؤه لخديجة بعد وفاتها ﷺ',
+    titleEn: 'His Faithfulness to Khadija After Her Death ﷺ',
+    textAr:
+      'قالت عائشة رضي الله عنها: ما غِرت على امرأة ما غِرت على خديجة، وما بي أن أكون أدركتها، ولكن لكثرة ذِكر رسول الله ﷺ لها. وإن كان ليذبح الشاة فيتتبَّع بها صدائق خديجة فيُهديها لهن.',
+    textEn:
+      '\'Aisha (may Allah be pleased with her) said: I was never more jealous of any woman than I was of Khadija — not because I had known her, but because the Messenger of Allah ﷺ remembered her so often. And he would slaughter a sheep and then seek out the friends of Khadija and send gifts of meat to them.',
+    citationAr: 'متفق عليه — رواه البخاري (٣٨١٦) ومسلم (٢٤٣٥) — كتاب الفضائل',
+    citationEn: 'Agreed upon — Sahih Al-Bukhari #3816 and Sahih Muslim #2435 — Book of Virtues',
+    source: 'bukhari',
     reviewedBy: 'MH',
   },
 
@@ -425,6 +609,20 @@ export const PROPHET_ENTRIES: ProphetEntry[] = [
   {
     id: 'nt-02',
     category: 'names_titles',
+    titleAr: 'أسماؤه الأخرى ﷺ',
+    titleEn: 'His Other Names ﷺ',
+    textAr:
+      'عن أبي موسى الأشعري رضي الله عنه قال: كان رسول الله ﷺ يسمي نفسه أسماء، فقال: "أنا محمد، وأحمد، والمقفِّي، والحاشر، ونبي التوبة، ونبي الرحمة".',
+    textEn:
+      'Abu Musa Al-Ash\'ari (may Allah be pleased with him) said: The Messenger of Allah ﷺ named himself by various names, saying: "I am Muhammad, Ahmad, Al-Muqaffi (the Successor), Al-Hashir (the Gatherer), the Prophet of Repentance, and the Prophet of Mercy."',
+    citationAr: 'رواه مسلم — كتاب الفضائل (٢٣٥٥)',
+    citationEn: 'Sahih Muslim — Book of Virtues, #2355',
+    source: 'muslim',
+    reviewedBy: 'MH',
+  },
+  {
+    id: 'nt-03',
+    category: 'names_titles',
     titleAr: 'الأمين — لقبه قبل البعثة ﷺ',
     titleEn: 'Al-Amin: His Title Before Prophethood ﷺ',
     textAr:
@@ -437,31 +635,17 @@ export const PROPHET_ENTRIES: ProphetEntry[] = [
     reviewedBy: 'MH',
   },
   {
-    id: 'nt-03',
+    id: 'nt-04',
     category: 'names_titles',
     titleAr: 'رحمة للعالمين — لقبه في القرآن ﷺ',
     titleEn: 'Mercy to All the Worlds: His Quranic Title ﷺ',
     textAr:
-      'قال الله تعالى: {وَمَا أَرْسَلْنَاكَ إِلَّا رَحْمَةً لِّلْعَالَمِينَ} [الأنبياء: ١٠٧]. قال ابن كثير رحمه الله: يعني: قد أرسلناك نعمةً من الله ورحمةً للخلق أجمعين من آمن به واتَّبعه كانت له رحمة الدنيا والآخرة، ومن لم يؤمن به عُوفي مما كان يحلُّ بالأمم قبله من الخسف والمسخ والقذف.',
+      'قال الله تعالى: {وَمَا أَرْسَلْنَاكَ إِلَّا رَحْمَةً لِّلْعَالَمِينَ} [الأنبياء: ١٠٧]. قال ابن كثير رحمه الله: من آمن به واتَّبعه كانت له رحمة الدنيا والآخرة، ومن لم يؤمن به عُوفي مما كان يحلُّ بالأمم قبله من الخسف والمسخ والقذف.',
     textEn:
-      'Allah Most High said: {And We have not sent you except as a mercy to all the worlds} [Al-Anbiya: 107]. Ibn Kathir (may Allah have mercy on him) said: This means: We have sent you as a blessing and a mercy to all creation. For those who believed in him and followed him, it was mercy in this life and the next. And those who did not believe were spared the mass punishments that had befallen previous nations — such as the earth swallowing them, transformation, and destruction from the sky.',
-    citationAr: 'القرآن الكريم — الأنبياء: ١٠٧؛ ابن كثير — تفسير ابن كثير (البداية والنهاية)',
-    citationEn: 'Quran — Al-Anbiya: 107; Ibn Kathir — Tafsir Ibn Kathir (Al-Bidayah wa Al-Nihayah)',
+      'Allah Most High said: {And We have not sent you except as a mercy to all the worlds} [Al-Anbiya: 107]. Ibn Kathir said: For those who believed in him and followed him, it was mercy in this life and the next. And those who did not believe were spared the mass punishments that had befallen previous nations.',
+    citationAr: 'القرآن الكريم — الأنبياء: ١٠٧؛ ابن كثير — تفسير ابن كثير',
+    citationEn: 'Quran — Al-Anbiya: 107; Ibn Kathir — Tafsir Ibn Kathir',
     source: 'ibn_kathir',
-    reviewedBy: 'MH',
-  },
-  {
-    id: 'nt-04',
-    category: 'names_titles',
-    titleAr: 'كنيته أبو القاسم ﷺ',
-    titleEn: 'His Epithet: Abu Al-Qasim ﷺ',
-    textAr:
-      'عن أنس بن مالك رضي الله عنه قال: نادى رجل بالبقيع: يا أبا القاسم! فالتفت النبي ﷺ. فقال: يا رسول الله، إني لم أعنك، إنما دعوت فلاناً. فقال النبي ﷺ: "تسمَّوا باسمي ولا تكنَّوا بكنيتي".',
-    textEn:
-      'Anas ibn Malik (may Allah be pleased with him) said: A man called out at Al-Baqi\': "O Abu Al-Qasim!" The Prophet ﷺ turned around. The man said: "O Messenger of Allah, I was not calling you — I was calling someone else." The Prophet ﷺ said: "You may use my name, but do not use my epithet."',
-    citationAr: 'رواه البخاري — كتاب الأدب (٦١٨٨)',
-    citationEn: 'Sahih Al-Bukhari — Book of Good Manners, #6188',
-    source: 'bukhari',
     reviewedBy: 'MH',
   },
 ];
