@@ -5,6 +5,7 @@ import { Pedometer } from 'expo-sensors';
 import { useTranslation } from 'react-i18next';
 import { useRitualStore } from '../../src/stores/ritualStore';
 import { Colors } from '../../src/theme/colors';
+import { AZKAR_DATABASE } from '../../src/data/azkar-database';
 import type { RitualCounterType } from '../../src/types/ritual.types';
 
 // --- Elapsed time hook ---
@@ -210,6 +211,11 @@ export default function TrackerScreen() {
           }
         </View>
 
+        {/* Per-lap du'a card */}
+        {!isComplete && (
+          <LapAzkarCard ritual={counter.ritual} lapNumber={counter.currentLap} />
+        )}
+
         {/* Lap history */}
         {counter.lapHistory.length > 0 && (
           <View style={styles.historyBox}>
@@ -251,6 +257,79 @@ export default function TrackerScreen() {
         onToggleTime={(v) => updateTrackerPrefs({ trackTime: v })}
       />
     </SafeAreaView>
+  );
+}
+
+// --- Per-lap Du'a Card ---
+const RITUAL_AZKAR_CATEGORY: Record<RitualCounterType, string> = {
+  tawaf: 'tawaf_general',
+  sai: 'sai',
+};
+
+function LapAzkarCard({ ritual, lapNumber }: { ritual: RitualCounterType; lapNumber: number }) {
+  const { t, i18n } = useTranslation();
+  const isAr = i18n.language.startsWith('ar');
+  const [open, setOpen] = useState(false);
+  const [expandedId, setExpandedId] = useState<string | null>(null);
+
+  const category = RITUAL_AZKAR_CATEGORY[ritual];
+  const items = AZKAR_DATABASE.filter(
+    (z) => z.category === category && (z.lapNumber === null || z.lapNumber === lapNumber),
+  );
+
+  if (items.length === 0) return null;
+
+  return (
+    <View style={azkarStyles.card}>
+      <TouchableOpacity style={azkarStyles.header} onPress={() => setOpen((v) => !v)} activeOpacity={0.8}>
+        <View style={azkarStyles.headerLeft}>
+          <FontAwesome5 name="book-open" size={13} color={Colors.brandGreen} />
+          <Text style={azkarStyles.headerTitle}>
+            {isAr ? 'أذكار هذا الشوط' : "This Lap's Du'a"}
+          </Text>
+          <View style={azkarStyles.countBadge}>
+            <Text style={azkarStyles.countText}>{items.length}</Text>
+          </View>
+        </View>
+        <FontAwesome5 name={open ? 'chevron-up' : 'chevron-down'} size={11} color={Colors.brandGreen} />
+      </TouchableOpacity>
+
+      {open && (
+        <View style={azkarStyles.list}>
+          {items.map((item, idx) => {
+            const isExpanded = expandedId === item.id;
+            return (
+              <TouchableOpacity
+                key={item.id}
+                style={[azkarStyles.item, idx < items.length - 1 && azkarStyles.itemBorder]}
+                onPress={() => setExpandedId(isExpanded ? null : item.id)}
+                activeOpacity={0.8}
+              >
+                <View style={azkarStyles.itemRow}>
+                  <Text style={azkarStyles.arabic} numberOfLines={isExpanded ? undefined : 2}>
+                    {item.arabicText}
+                  </Text>
+                  {item.repeatCount > 1 && (
+                    <View style={azkarStyles.repeatBadge}>
+                      <Text style={azkarStyles.repeatText}>×{item.repeatCount}</Text>
+                    </View>
+                  )}
+                </View>
+                {isExpanded && (
+                  <View style={azkarStyles.expanded}>
+                    {!!item.transliteration && (
+                      <Text style={azkarStyles.transliteration}>{item.transliteration}</Text>
+                    )}
+                    <Text style={azkarStyles.translation}>{item.translationEn}</Text>
+                    {!!item.source && <Text style={azkarStyles.source}>{item.source}</Text>}
+                  </View>
+                )}
+              </TouchableOpacity>
+            );
+          })}
+        </View>
+      )}
+    </View>
   );
 }
 
@@ -367,6 +446,64 @@ const styles = StyleSheet.create({
   historyRight: { alignItems: 'flex-end', gap: 2 },
   historyMeta: { fontSize: 12, color: Colors.textPrimary, opacity: 0.55 },
   historyDur: { fontSize: 14, color: Colors.textPrimary, opacity: 0.45 },
+});
+
+const azkarStyles = StyleSheet.create({
+  card: {
+    backgroundColor: Colors.white,
+    borderRadius: 14,
+    borderWidth: 1.5,
+    borderColor: Colors.brandGreen + '22',
+    marginBottom: 20,
+    overflow: 'hidden',
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: 16,
+    paddingVertical: 14,
+  },
+  headerLeft: { flexDirection: 'row', alignItems: 'center', gap: 8 },
+  headerTitle: { fontSize: 13, fontWeight: '700', color: Colors.brandGreen },
+  countBadge: {
+    backgroundColor: Colors.brandGreen + '18',
+    borderRadius: 10,
+    paddingHorizontal: 7,
+    paddingVertical: 1,
+  },
+  countText: { fontSize: 11, fontWeight: '700', color: Colors.brandGreen },
+  list: { borderTopWidth: 1, borderTopColor: Colors.brandGreen + '15' },
+  item: { paddingHorizontal: 16, paddingVertical: 14 },
+  itemBorder: { borderBottomWidth: 1, borderBottomColor: Colors.brandGreen + '11' },
+  itemRow: { flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-between', gap: 8 },
+  arabic: {
+    flex: 1,
+    fontSize: 18,
+    color: Colors.brandGreen,
+    fontWeight: '700',
+    textAlign: 'right',
+    lineHeight: 32,
+  },
+  repeatBadge: {
+    backgroundColor: Colors.goldAccent + '22',
+    borderRadius: 6,
+    paddingHorizontal: 7,
+    paddingVertical: 2,
+    marginTop: 4,
+  },
+  repeatText: { fontSize: 11, color: Colors.goldAccent, fontWeight: '700' },
+  expanded: { marginTop: 10 },
+  transliteration: {
+    fontSize: 11,
+    color: Colors.textPrimary,
+    opacity: 0.5,
+    fontStyle: 'italic',
+    lineHeight: 18,
+    marginBottom: 8,
+  },
+  translation: { fontSize: 13, color: Colors.textPrimary, lineHeight: 20, marginBottom: 4 },
+  source: { fontSize: 10, color: Colors.textPrimary, opacity: 0.35, marginTop: 2 },
 });
 
 const settStyles = StyleSheet.create({
