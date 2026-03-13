@@ -3,6 +3,7 @@ import { immer } from 'zustand/middleware/immer';
 import { createJSONStorage, persist } from 'zustand/middleware';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import type { IdentityModel, PermitType } from '../types/identity.types';
+import { toDateOrNull } from '../utils/dateUtils';
 
 interface IdentityState extends IdentityModel {
   setPermit: (data: {
@@ -73,6 +74,10 @@ export const useIdentityStore = create<IdentityState>()(
     {
       name: 'identity-store',
       storage: createJSONStorage(() => AsyncStorage),
+      onRehydrateStorage: () => (state) => {
+        if (!state) return;
+        state.permitExpiryDate = toDateOrNull(state.permitExpiryDate);
+      },
     }
   )
 );

@@ -4,6 +4,7 @@ import { createJSONStorage, persist } from 'zustand/middleware';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import type { RitualCounterModel, LapRecord, RitualCounterType, RitualStep, TrackerPrefs } from '../types/ritual.types';
 import type { HaramZone } from '../types/location.types';
+import { toDate, toDateOrNull } from '../utils/dateUtils';
 
 // --- Ephemeral auto-detect state (not persisted) ---
 let lastSaiZone: 'safa_platform' | 'marwa_platform' | null = null;
@@ -207,6 +208,17 @@ export const useRitualStore = create<RitualState>()(
         steps: state.steps,
         trackerPrefs: state.trackerPrefs,
       }),
+
+      onRehydrateStorage: () => (state) => {
+        if (!state?.counter) return;
+        state.counter.lastSavedAt = toDate(state.counter.lastSavedAt);
+        state.counter.pausedAt = toDateOrNull(state.counter.pausedAt);
+        state.counter.lapHistory = state.counter.lapHistory.map((lap) => ({
+          ...lap,
+          startTime: toDate(lap.startTime),
+          endTime: toDateOrNull(lap.endTime),
+        }));
+      },
     }
   )
 );

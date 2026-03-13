@@ -4,6 +4,7 @@ import { createJSONStorage, persist } from 'zustand/middleware';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import type { HealthModel, HeatStatus, HydrationLog } from '../types/health.types';
 import type { Coordinates } from '../types/location.types';
+import { toDate, toDateOrNull } from '../utils/dateUtils';
 
 interface HealthState extends HealthModel {
   setWeatherData: (temp: number, heatIndex: number) => void;
@@ -78,6 +79,15 @@ export const useHealthStore = create<HealthState>()(
         hydrationAlertsToday: state.hydrationAlertsToday,
         hydrationLog: state.hydrationLog,
       }),
+
+      onRehydrateStorage: () => (state) => {
+        if (!state) return;
+        state.lastHydrationPrompt = toDateOrNull(state.lastHydrationPrompt);
+        state.hydrationLog = (state.hydrationLog ?? []).map((log) => ({
+          ...log,
+          timestamp: toDate(log.timestamp),
+        }));
+      },
     }
   )
 );
