@@ -75,7 +75,7 @@ export default function TrackerScreen() {
 
   const handleTap = () => {
     if (!counter || isPaused || isComplete) return;
-    incrementLap(null as any, false, false);
+    incrementLap(null, false, false);
   };
 
   const handleReset = () => {
