@@ -1,4 +1,4 @@
-import { View, Text, SectionList, StyleSheet, SafeAreaView } from 'react-native';
+import { View, Text, SectionList, StyleSheet, SafeAreaView, TouchableOpacity } from 'react-native';
 import { Stack } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import { FontAwesome5 } from '@expo/vector-icons';
@@ -39,6 +39,32 @@ interface Props {
   items: EtiquetteItem[];
   /** Optional hadith / quote shown below header */
   quote?: string;
+  /** Optional quick-navigation cards rendered below the header */
+  navCards?: { titleEn: string; titleAr: string; icon: string; onPress: () => void }[];
+}
+
+// ─── Nav cards ────────────────────────────────────────────────────────────────
+
+function NavCards({
+  cards,
+  isAr,
+}: {
+  cards: { titleEn: string; titleAr: string; icon: string; onPress: () => void }[];
+  isAr: boolean;
+}) {
+  return (
+    <View style={styles.navRow}>
+      {cards.map((c) => (
+        <TouchableOpacity key={c.titleEn} style={styles.navCard} onPress={c.onPress} activeOpacity={0.75}>
+          <View style={styles.navIcon}>
+            <FontAwesome5 name={c.icon as any} size={18} color={Colors.brandGreen} />
+          </View>
+          <Text style={styles.navLabel}>{isAr ? c.titleAr : c.titleEn}</Text>
+          <FontAwesome5 name="chevron-right" size={10} color={Colors.brandGreen} style={styles.navChevron} />
+        </TouchableOpacity>
+      ))}
+    </View>
+  );
 }
 
 // ─── Severity section header ──────────────────────────────────────────────────
@@ -98,6 +124,7 @@ export function VisitGuideScreen({
   iconColor = Colors.brandGreen,
   items,
   quote,
+  navCards,
 }: Props) {
   const { i18n } = useTranslation();
   const isAr = i18n.language?.startsWith('ar');
@@ -122,15 +149,20 @@ export function VisitGuideScreen({
           <SeverityHeader severity={section.severity} count={section.data.length} />
         )}
         ListHeaderComponent={
-          <VisitHeader
-            title={headerTitle}
-            subtitle={headerSubtitle}
-            iconName={iconName}
-            iconColor={iconColor}
-            totalCount={items.length}
-            quote={quote}
-            isAr={isAr}
-          />
+          <>
+            <VisitHeader
+              title={headerTitle}
+              subtitle={headerSubtitle}
+              iconName={iconName}
+              iconColor={iconColor}
+              totalCount={items.length}
+              quote={quote}
+              isAr={isAr}
+            />
+            {navCards && navCards.length > 0 && (
+              <NavCards cards={navCards} isAr={isAr} />
+            )}
+          </>
         }
         contentContainerStyle={styles.list}
         stickySectionHeadersEnabled={false}
@@ -240,4 +272,36 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: '700',
   },
+  // Nav cards
+  navRow: {
+    flexDirection: 'row',
+    gap: 10,
+    marginBottom: 16,
+  },
+  navCard: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: Colors.white,
+    borderRadius: 12,
+    padding: 14,
+    borderWidth: 1.5,
+    borderColor: Colors.brandGreen + '22',
+    gap: 8,
+  },
+  navIcon: {
+    width: 34,
+    height: 34,
+    borderRadius: 10,
+    backgroundColor: Colors.brandGreen + '12',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  navLabel: {
+    flex: 1,
+    fontSize: 13,
+    fontWeight: '700',
+    color: Colors.brandGreen,
+  },
+  navChevron: { opacity: 0.5 },
 });

@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useRouter } from 'expo-router';
 import { usePersonaStore } from '../../../src/stores/personaStore';
 import { ETIQUETTE_DATA } from '../../../src/data/etiquette';
 import { VisitGuideScreen } from '../../../src/components/visit/VisitGuideScreen';
@@ -10,6 +11,7 @@ const EXCLUDED_CATEGORIES = new Set(['hajj_umrah_rites', 'ihram_prohibitions', '
 
 export default function HaramVisitScreen() {
   const { t, i18n } = useTranslation();
+  const router = useRouter();
   const persona = usePersonaStore((s) => s.persona);
   const gender = persona?.gender ?? 'male';
   const isAr = i18n.language?.startsWith('ar');
@@ -30,6 +32,14 @@ export default function HaramVisitScreen() {
       headerSubtitle={t('visit.haram_subtitle')}
       iconName="mosque"
       items={items}
+      navCards={[
+        {
+          titleEn: 'Gates',
+          titleAr: 'البوابات',
+          icon: 'door-open',
+          onPress: () => router.push('/(visit)/haram/gates'),
+        },
+      ]}
     />
   );
 }
