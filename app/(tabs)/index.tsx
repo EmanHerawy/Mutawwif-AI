@@ -37,7 +37,7 @@ export default function DashboardScreen() {
         {/* Header */}
         <View style={styles.header}>
           <Text style={styles.greeting}>
-            {name ? `${t('recovery.title')}, ${name} 👋` : '🕋 Mutawwif'}
+            {name ? `${t('dashboard_ui.greeting')}, ${name} 👋` : '🕋 Mutawwif'}
           </Text>
           <View style={styles.headerActions}>
             <TouchableOpacity style={styles.headerBtn} onPress={() => router.push('/(tabs)/settings')}>
@@ -76,7 +76,7 @@ export default function DashboardScreen() {
           <TouchableOpacity style={styles.activeCard} onPress={() => router.push('/(tabs)/tracker')}>
             <View>
               <Text style={styles.activeCardLabel}>
-                {counter.ritual === 'tawaf' ? t('tracker.tawaf') : t('tracker.sai')} · {t('recovery.subtitle')}
+                {counter.ritual === 'tawaf' ? t('tracker.tawaf') : t('tracker.sai')} · {t('dashboard_ui.active_ritual')}
               </Text>
               <Text style={styles.activeCardProgress}>{counter.completedLaps} / 7 {t('tracker.round')}</Text>
             </View>

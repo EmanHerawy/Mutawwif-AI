@@ -273,7 +273,9 @@
     "visit_nabawi_title": "Masjid Al Nabawi",
     "visit_nabawi_sub": "The Rawdah · Gates · Facilities",
     "visit_rawdah_title": "The Rawdah",
-    "visit_rawdah_sub": "A garden from the gardens of Paradise"
+    "visit_rawdah_sub": "A garden from the gardens of Paradise",
+    "greeting": "Welcome",
+    "active_ritual": "In progress"
   },
  
   "etiquette": {

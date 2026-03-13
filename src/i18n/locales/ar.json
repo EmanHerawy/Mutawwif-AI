@@ -273,7 +273,9 @@
     "visit_nabawi_title": "المسجد النبوي",
     "visit_nabawi_sub": "الروضة الشريفة · البوابات · المرافق",
     "visit_rawdah_title": "الروضة الشريفة",
-    "visit_rawdah_sub": "روضة من رياض الجنة"
+    "visit_rawdah_sub": "روضة من رياض الجنة",
+    "greeting": "أهلاً",
+    "active_ritual": "جارٍ الآن"
   },
 
   "etiquette": {
