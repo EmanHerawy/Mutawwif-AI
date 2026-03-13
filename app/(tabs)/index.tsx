@@ -187,17 +187,30 @@ export default function DashboardScreen() {
 
         {/* ── GROUP 4: Learn ── */}
         <Text style={styles.sectionLabel}>{t('tabs.learn')}</Text>
-        <TouchableOpacity
-          style={styles.learnCard}
-          onPress={() => router.push('/(learn)/etiquette' as any)}
-        >
-          <Text style={styles.learnEmoji}>📜</Text>
-          <View style={styles.learnContent}>
-            <Text style={styles.learnTitle}>{t('etiquette.title')}</Text>
-            <Text style={styles.learnSub}>{t('etiquette.subtitle')}</Text>
-          </View>
-          <FontAwesome5 name="chevron-right" size={14} color={Colors.goldAccent} />
-        </TouchableOpacity>
+        <View style={styles.ritualGroup}>
+          <TouchableOpacity
+            style={styles.learnCard}
+            onPress={() => router.push('/(learn)/etiquette' as any)}
+          >
+            <Text style={styles.learnEmoji}>📜</Text>
+            <View style={styles.learnContent}>
+              <Text style={styles.learnTitle}>{t('etiquette.title')}</Text>
+              <Text style={styles.learnSub}>{t('etiquette.subtitle')}</Text>
+            </View>
+            <FontAwesome5 name="chevron-right" size={14} color={Colors.goldAccent} />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.learnCard}
+            onPress={() => router.push('/(learn)/prophet' as any)}
+          >
+            <Text style={styles.learnEmoji}>✦</Text>
+            <View style={styles.learnContent}>
+              <Text style={styles.learnTitle}>اعرف نبيك ﷺ</Text>
+              <Text style={styles.learnSub}>Know Your Prophet</Text>
+            </View>
+            <FontAwesome5 name="chevron-right" size={14} color={Colors.goldAccent} />
+          </TouchableOpacity>
+        </View>
 
         {miqatAssignment && (
           <View style={styles.infoCard}>
