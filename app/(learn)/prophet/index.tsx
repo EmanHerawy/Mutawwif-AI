@@ -10,25 +10,22 @@ import { Spacing } from '../../../src/theme/spacing';
 
 interface CategoryMeta {
   category: ProphetCategory;
-  ar: string;
-  en: string;
   icon: string;
 }
 
 const CATEGORIES: CategoryMeta[] = [
-  { category: 'physical_description', ar: 'صفته الجسدية',    en: 'His Appearance',    icon: '✦' },
-  { category: 'character',            ar: 'أخلاقه',          en: 'His Character',     icon: '◈' },
-  { category: 'daily_life',           ar: 'حياته اليومية',   en: 'Daily Life',        icon: '◇' },
-  { category: 'worship',              ar: 'عبادته',          en: 'His Worship',       icon: '❖' },
-  { category: 'mercy',                ar: 'رحمته',           en: 'His Mercy',         icon: '◆' },
-  { category: 'humor',                ar: 'تواضعه',          en: 'His Humility',      icon: '✧' },
-  { category: 'family',               ar: 'أسرته',           en: 'His Family',        icon: '◉' },
-  { category: 'names_titles',         ar: 'أسماؤه وألقابه',  en: 'Names & Titles',    icon: '❋' },
+  { category: 'physical_description', icon: '✦' },
+  { category: 'character',            icon: '◈' },
+  { category: 'daily_life',           icon: '◇' },
+  { category: 'worship',              icon: '❖' },
+  { category: 'mercy',                icon: '◆' },
+  { category: 'humor',                icon: '✧' },
+  { category: 'family',               icon: '◉' },
+  { category: 'names_titles',         icon: '❋' },
 ];
 
 export default function ProphetIndexScreen() {
-  const { i18n } = useTranslation();
-  const isAr = i18n.language?.startsWith('ar');
+  const { t } = useTranslation();
 
   const countByCategory = useMemo(() => {
     const map: Partial<Record<ProphetCategory, number>> = {};
@@ -42,7 +39,7 @@ export default function ProphetIndexScreen() {
     <SafeAreaView style={styles.safe}>
       <Stack.Screen
         options={{
-          title: isAr ? 'اعرف نبيك ﷺ' : 'Know Your Prophet ﷺ',
+          title: `${t('prophet.title')} ﷺ`,
           headerStyle: { backgroundColor: Colors.parchmentBg },
           headerTintColor: Colors.brandGreen,
           headerTitleStyle: { fontWeight: '700', color: Colors.brandGreen },
@@ -53,11 +50,10 @@ export default function ProphetIndexScreen() {
         keyExtractor={(item) => item.category}
         numColumns={2}
         columnWrapperStyle={styles.row}
-        ListHeaderComponent={<ProphetHeader isAr={isAr} />}
+        ListHeaderComponent={<ProphetHeader />}
         renderItem={({ item }) => (
           <CategoryCard
             meta={item}
-            isAr={isAr}
             count={countByCategory[item.category] ?? 0}
           />
         )}
@@ -68,25 +64,16 @@ export default function ProphetIndexScreen() {
   );
 }
 
-function ProphetHeader({ isAr }: { isAr: boolean }) {
+function ProphetHeader() {
+  const { t } = useTranslation();
   return (
     <IslamicPatternBg style={styles.headerBanner}>
       <View style={styles.headerInner}>
-        <Text style={styles.headerTitle}>
-          {isAr ? 'اعرف نبيك' : 'Know Your Prophet'}
-        </Text>
+        <Text style={styles.headerTitle}>{t('prophet.title')}</Text>
         <Text style={styles.headerSallallahu}>ﷺ</Text>
-        <Text style={styles.headerSubtitle}>
-          {isAr
-            ? 'روايات موثَّقة من المصادر الصحيحة'
-            : 'Authenticated narrations from verified sources'}
-        </Text>
+        <Text style={styles.headerSubtitle}>{t('prophet.subtitle')}</Text>
         <View style={styles.headerDivider} />
-        <Text style={styles.headerNote}>
-          {isAr
-            ? '✦  لا يوجد محتوى مولَّد بالذكاء الاصطناعي في هذه الصفحة  ✦'
-            : '✦  No AI-generated content — human-reviewed entries only  ✦'}
-        </Text>
+        <Text style={styles.headerNote}>✦  {t('prophet.ai_note')}  ✦</Text>
       </View>
     </IslamicPatternBg>
   );
@@ -94,11 +81,13 @@ function ProphetHeader({ isAr }: { isAr: boolean }) {
 
 interface CardProps {
   meta: CategoryMeta;
-  isAr: boolean;
   count: number;
 }
 
-function CategoryCard({ meta, isAr, count }: CardProps) {
+function CategoryCard({ meta, count }: CardProps) {
+  const { t } = useTranslation();
+  const label = t(`prophet.category.${meta.category}`);
+
   return (
     <TouchableOpacity
       style={styles.card}
@@ -111,12 +100,7 @@ function CategoryCard({ meta, isAr, count }: CardProps) {
       }
     >
       <Text style={styles.cardIcon}>{meta.icon}</Text>
-      <Text style={[styles.cardPrimary, isAr && styles.rtlText]} numberOfLines={2}>
-        {isAr ? meta.ar : meta.en}
-      </Text>
-      <Text style={styles.cardSecondary} numberOfLines={1}>
-        {isAr ? meta.en : meta.ar}
-      </Text>
+      <Text style={styles.cardPrimary} numberOfLines={2}>{label}</Text>
       <View style={styles.countBadge}>
         <Text style={styles.countText}>{count}</Text>
       </View>
@@ -203,12 +187,6 @@ const styles = StyleSheet.create({
     color: Colors.brandGreen,
     textAlign: 'center',
   },
-  cardSecondary: {
-    fontSize: 11,
-    color: Colors.textPrimary,
-    opacity: 0.6,
-    textAlign: 'center',
-  },
   countBadge: {
     marginTop: 4,
     backgroundColor: Colors.brandGreen + '18',
@@ -220,8 +198,5 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: '700',
     color: Colors.brandGreen,
-  },
-  rtlText: {
-    writingDirection: 'rtl',
   },
 });
