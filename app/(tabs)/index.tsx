@@ -241,7 +241,6 @@ const styles = StyleSheet.create({
     borderWidth: 1.5, borderColor: Colors.brandGreen + '33',
   },
   ritualCardDisabled: { borderColor: Colors.textPrimary + '18', backgroundColor: Colors.parchmentBg },
-  ritualCardRawdah: { borderColor: Colors.goldAccent + '55' },
   // Icon containers
   iconBox: {
     width: 52, height: 52, borderRadius: 14,
@@ -249,14 +248,8 @@ const styles = StyleSheet.create({
     alignItems: 'center', justifyContent: 'center',
   },
   iconBoxMuted: { backgroundColor: Colors.textPrimary + '08' },
-  iconBoxGold: {
-    width: 52, height: 52, borderRadius: 14,
-    backgroundColor: Colors.goldAccent + '15',
-    alignItems: 'center', justifyContent: 'center',
-  },
   ritualCardContent: { flex: 1 },
   ritualCardTitle: { fontSize: 16, fontWeight: '700', color: Colors.brandGreen, marginBottom: 3 },
-  ritualCardTitleGold: { color: Colors.goldAccent },
   ritualCardSub: { fontSize: 12, color: Colors.textPrimary, opacity: 0.55 },
   textMuted: { color: Colors.textPrimary, opacity: 0.4 },
   // Tools grid
