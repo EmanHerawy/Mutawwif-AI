@@ -5,8 +5,8 @@ export const PROPHET_ENTRIES: ProphetEntry[] = [
   {
     id: 'pd-06',
     category: 'physical_description',
-    titleAr: 'مشيته كأنه ينحطُّ من صَبَب ﷺ',
-    titleEn: 'He Walked as Though Descending a Slope ﷺ',
+    titleAr: 'قوة مشيته وهيبتها ﷺ',
+    titleEn: 'The Strength and Dignity of His Gait ﷺ',
     textAr:
       'قال علي بن أبي طالب رضي الله عنه: كان رسول الله ﷺ إذا مشى تكفَّأ تكفُّؤاً كأنما ينحطُّ من صَبَب.',
     textEn:
@@ -33,8 +33,8 @@ export const PROPHET_ENTRIES: ProphetEntry[] = [
   {
     id: 'pd-02',
     category: 'physical_description',
-    titleAr: 'لم يكن بالطويل ولا بالقصير ﷺ',
-    titleEn: 'Neither Tall Nor Short ﷺ',
+    titleAr: 'قامته المعتدلة الكاملة ﷺ',
+    titleEn: 'His Perfectly Balanced Stature ﷺ',
     textAr:
       'قال البراء بن عازب رضي الله عنه: كان رسول الله ﷺ أحسن الناس وجهاً، وأحسنهم خَلقاً، ليس بالطويل البائن ولا بالقصير.',
     textEn:
@@ -61,8 +61,8 @@ export const PROPHET_ENTRIES: ProphetEntry[] = [
   {
     id: 'pd-04',
     category: 'physical_description',
-    titleAr: 'بياضه المشرب بالحمرة ﷺ',
-    titleEn: 'His Complexion: Fair With a Radiant Glow ﷺ',
+    titleAr: 'وجهه ﷺ',
+    titleEn: 'His Complexion ﷺ',
     textAr:
       'عن أنس بن مالك رضي الله عنه قال: كان النبي ﷺ أزهر اللون — ليس بأبيض أمهق ولا آدم.',
     textEn:
@@ -105,8 +105,8 @@ export const PROPHET_ENTRIES: ProphetEntry[] = [
   {
     id: 'ch-02',
     category: 'character',
-    titleAr: 'عشر سنوات لم يقل لي "أُفّ" ﷺ',
-    titleEn: 'Ten Years and He Never Said "Uff" to Me ﷺ',
+    titleAr: 'صبره وحِلمه مع خادمه ﷺ',
+    titleEn: 'His Patience and Forbearance with His Servant ﷺ',
     textAr:
       'قال أنس بن مالك رضي الله عنه: خدمت النبي ﷺ عشر سنين، والله ما قال لي: أُفّ قط، ولا قال لشيء فعلته: لِمَ فعلته؟ ولا لشيء لم أفعله: ألا فعلت كذا.',
     textEn:
@@ -119,8 +119,8 @@ export const PROPHET_ENTRIES: ProphetEntry[] = [
   {
     id: 'ch-03',
     category: 'character',
-    titleAr: 'ما ضرب خادماً ولا امرأة ﷺ',
-    titleEn: 'He Never Struck a Servant or a Woman ﷺ',
+    titleAr: 'رِفقه ولطفه مع من حوله ﷺ',
+    titleEn: 'His Gentleness with Those Around Him ﷺ',
     textAr:
       'قالت عائشة رضي الله عنها: ما ضرب رسول الله ﷺ خادماً له قط، ولا امرأةً، ولا ضرب بيده شيئاً قط إلا أن يجاهد في سبيل الله.',
     textEn:
@@ -147,8 +147,8 @@ export const PROPHET_ENTRIES: ProphetEntry[] = [
   {
     id: 'ch-05',
     category: 'character',
-    titleAr: 'كان يسلّم على الصبيان ﷺ',
-    titleEn: 'He Would Greet Children with Salaam ﷺ',
+    titleAr: 'حنانه غلى الصبيان ﷺ',
+    titleEn: 'His Kindness with Children ﷺ',
     textAr:
       'عن أنس رضي الله عنه: أنه مرَّ على صبيان فسلَّم عليهم، وقال: كان النبي ﷺ يفعله.',
     textEn:
@@ -161,8 +161,8 @@ export const PROPHET_ENTRIES: ProphetEntry[] = [
   {
     id: 'ch-06',
     category: 'character',
-    titleAr: 'يا أبا عُمَيْر، ما فعل النُّغَيْر؟ ﷺ',
-    titleEn: 'O Abu Umayr — What Happened to Your Little Bird? ﷺ',
+    titleAr: 'مؤانسته للأطفال ومزاحه معهم ﷺ',
+    titleEn: 'His Playfulness and Warmth with Children ﷺ',
     textAr:
       'قال أنس بن مالك رضي الله عنه: كان رسول الله ﷺ من أحسن الناس خُلقاً، ولقد كان لي أخٌ يُقال له أبو عمير، فكان إذا جاء قال: يا أبا عمير، ما فعل النُّغَيْر؟ — والنُّغَير: طائر صغير كان يلعب به.',
     textEn:
@@ -203,8 +203,8 @@ export const PROPHET_ENTRIES: ProphetEntry[] = [
   {
     id: 'ch-09',
     category: 'character',
-    titleAr: 'كنا نتقي به إذا اشتد البأس ﷺ',
-    titleEn: 'We Would Shelter Behind Him When Battle Raged ﷺ',
+    titleAr: 'شجاعته في الميدان ﷺ',
+    titleEn: 'His Courage on the Battlefield ﷺ',
     textAr:
       'قال علي بن أبي طالب رضي الله عنه: كنا إذا احمرَّ البأس — أي اشتد القتال — ولقي القومُ القومَ، اتَّقينا برسول الله ﷺ، فما يكون منَّا أحدٌ أدنى إلى العدو منه.',
     textEn:
@@ -219,8 +219,8 @@ export const PROPHET_ENTRIES: ProphetEntry[] = [
   {
     id: 'dl-01',
     category: 'daily_life',
-    titleAr: 'أكل بثلاثة أصابع ولعقها ﷺ',
-    titleEn: 'He Ate with Three Fingers and Licked Them ﷺ',
+    titleAr: 'أدبه مع الطعام ﷺ',
+    titleEn: 'His Etiquette with Food ﷺ',
     textAr:
       'عن كعب بن مالك رضي الله عنه قال: كان رسول الله ﷺ يأكل بثلاث أصابع، ولا يمسح يده حتى يلعقها.',
     textEn:
@@ -233,8 +233,8 @@ export const PROPHET_ENTRIES: ProphetEntry[] = [
   {
     id: 'dl-02',
     category: 'daily_life',
-    titleAr: 'لم يذم طعاماً قط ﷺ',
-    titleEn: 'He Never Criticised Food ﷺ',
+    titleAr: 'سَماحته وقبوله ﷺ',
+    titleEn: 'His Graciousness and Contentment ﷺ',
     textAr:
       'عن أبي هريرة رضي الله عنه قال: ما عاب النبي ﷺ طعاماً قط، إن اشتهاه أكله، وإن كرهه تركه.',
     textEn:
@@ -247,8 +247,8 @@ export const PROPHET_ENTRIES: ProphetEntry[] = [
   {
     id: 'dl-03',
     category: 'daily_life',
-    titleAr: 'يجيب دعوة العبد ويركب الحمار ﷺ',
-    titleEn: 'He Accepted the Slave\'s Invitation and Rode a Donkey ﷺ',
+    titleAr: 'تواضعه مع الجميع بلا استثناء ﷺ',
+    titleEn: 'His Humility with Everyone — No Exceptions ﷺ',
     textAr:
       'عن أنس رضي الله عنه قال: كان رسول الله ﷺ يعود المريض، ويتبع الجنازة، ويجيب دعوة المملوك، ويركب الحمار.',
     textEn:
@@ -261,8 +261,8 @@ export const PROPHET_ENTRIES: ProphetEntry[] = [
   {
     id: 'dl-04',
     category: 'daily_life',
-    titleAr: 'نومه على شِقِّه الأيمن ﷺ',
-    titleEn: 'He Slept on His Right Side ﷺ',
+    titleAr: 'هَديه في النوم والراحة ﷺ',
+    titleEn: 'His Guidance on Rest and Sleep ﷺ',
     textAr:
       'عن البراء بن عازب رضي الله عنه أن النبي ﷺ قال: "إذا أتيت مضجعك، فتوضأ وضوءك للصلاة، ثم اضطجع على شِقِّك الأيمن، وقل: اللهم أسلمت نفسي إليك، ووجَّهت وجهي إليك، وفوَّضت أمري إليك، وألجأت ظهري إليك..."',
     textEn:
@@ -272,26 +272,14 @@ export const PROPHET_ENTRIES: ProphetEntry[] = [
     source: 'bukhari',
     reviewedBy: 'MH',
   },
-  {
-    id: 'dl-05',
-    category: 'daily_life',
-    titleAr: 'يجيب دعوة خبز الشعير والإهالة السَّنِخة ﷺ',
-    titleEn: 'He Accepted Invitations to Barley Bread and Rancid Fat ﷺ',
-    textAr:
-      'عن أنس رضي الله عنه أن رسول الله ﷺ كان يُدعى إلى خبز الشعير والإهالة السَّنِخة — أي الدهن الفاسد — فيجيب.',
-    textEn:
-      'Anas (may Allah be pleased with him) reported that the Messenger of Allah ﷺ would be invited to eat barley bread and rancid fat — and he would accept.',
-    citationAr: 'الشمائل المحمدية للترمذي — باب ما جاء في معيشة رسول الله ﷺ',
-    citationEn: 'Al-Tirmidhi — Al-Shamail Al-Muhammadiyah, Chapter on the Livelihood of the Prophet ﷺ',
-    source: 'shamail',
-    reviewedBy: 'MH',
-  },
+
+  
 
   {
     id: 'dl-06',
     category: 'daily_life',
-    titleAr: 'كان بشراً يخدم نفسه ﷺ',
-    titleEn: 'He Was a Human Being — He Served Himself ﷺ',
+    titleAr: 'تواضعه واعتماده على نفسه ﷺ',
+    titleEn: 'His Humble Self-Reliance ﷺ',
     textAr:
       'سُئلت عائشة رضي الله عنها: ما كان رسول الله ﷺ يعمل في بيته؟ قالت: كان بشراً من البشر، يَفلي ثوبه، ويَحلُب شاته، ويخدم نفسه.',
     textEn:
@@ -304,8 +292,8 @@ export const PROPHET_ENTRIES: ProphetEntry[] = [
   {
     id: 'dl-07',
     category: 'daily_life',
-    titleAr: 'لا يردُّ الطِّيب ﷺ',
-    titleEn: 'He Never Refused a Gift of Perfume ﷺ',
+    titleAr: 'عنايته بالطيب والنظافة ﷺ',
+    titleEn: 'His Love of Fragrance and Cleanliness ﷺ',
     textAr:
       'عن أنس بن مالك رضي الله عنه قال: كان لرسول الله ﷺ سُكَّة يَتطيَّب منها. وعن ثُمامة بن عبد الله قال: كان أنس بن مالك لا يردُّ الطيب، وقال أنس: إن النبي ﷺ كان لا يردُّ الطيب.',
     textEn:
@@ -318,8 +306,8 @@ export const PROPHET_ENTRIES: ProphetEntry[] = [
   {
     id: 'dl-08',
     category: 'daily_life',
-    titleAr: 'أحبُّ الثياب إليه القميص ﷺ',
-    titleEn: 'His Favourite Garment Was the Shirt ﷺ',
+    titleAr: 'بساطة لباسه  ﷺ',
+    titleEn: 'His Simple  Dress ﷺ',
     textAr:
       'قالت أم سلمة رضي الله عنها: كان أحبَّ الثياب إلى رسول الله ﷺ القميص. وقال ﷺ: "عليكم بالبياض من الثياب، لِيَلبَسها أحياؤكم، وكفِّنوا فيها موتاكم، فإنها من خير ثيابكم".',
     textEn:
@@ -332,8 +320,8 @@ export const PROPHET_ENTRIES: ProphetEntry[] = [
   {
     id: 'dl-09',
     category: 'daily_life',
-    titleAr: 'لم يأكل على خِوانٍ ولا في سُكُرُّجة ﷺ',
-    titleEn: 'He Never Ate at a Raised Table or From Ornamental Dishes ﷺ',
+    titleAr: 'إعراضه عن مظاهر الترف ﷺ',
+    titleEn: 'His Rejection of Extravagance and Luxury ﷺ',
     textAr:
       'عن قتادة عن أنس بن مالك رضي الله عنه قال: ما أكل نبيُّ الله ﷺ على خِوانٍ — أي طاولة مرتفعة — ولا في سُكُرُّجة — أي أطباق صغيرة للزينة — ولا خُبِز له مُرقَّق.',
     textEn:
@@ -348,8 +336,8 @@ export const PROPHET_ENTRIES: ProphetEntry[] = [
   {
     id: 'wr-01',
     category: 'worship',
-    titleAr: 'قيامه حتى تتفطَّر قدماه ﷺ',
-    titleEn: 'He Stood in Prayer Until His Feet Swelled ﷺ',
+    titleAr: 'خشوعه وطول قيامه في الصلاة ﷺ',
+    titleEn: 'His Deep Devotion and Long Standing in Prayer ﷺ',
     textAr:
       'عن المغيرة بن شعبة رضي الله عنه قال: إن كان النبي ﷺ ليقوم — أو ليصلي — حتى ترم قدماه أو ساقاه، فيقال له، فيقول: "أفلا أكون عبداً شكوراً".',
     textEn:
@@ -362,8 +350,8 @@ export const PROPHET_ENTRIES: ProphetEntry[] = [
   {
     id: 'wr-02',
     category: 'worship',
-    titleAr: 'أزيزٌ في صدره كأزيز المرجل ﷺ',
-    titleEn: 'His Chest Made the Sound of a Boiling Pot in Prayer ﷺ',
+    titleAr: 'بكاؤه من خشية الله في الصلاة ﷺ',
+    titleEn: 'His Weeping Before Allah in Prayer ﷺ',
     textAr:
       'عن عبد الله بن الشخِّير رضي الله عنه قال: أتيت رسول الله ﷺ وهو يصلي، ولجوفه أزيزٌ كأزيز المرجل من البكاء.',
     textEn:
@@ -478,8 +466,8 @@ export const PROPHET_ENTRIES: ProphetEntry[] = [
   {
     id: 'hm-02',
     category: 'humor',
-    titleAr: 'مسابقته عائشة في الجري ﷺ',
-    titleEn: 'He Raced \'Aisha ﷺ',
+    titleAr: 'رِفقه ومرَحه مع زوجاته ﷺ',
+    titleEn: 'His Playfulness and Tenderness with His Wives ﷺ',
     textAr:
       'قالت عائشة رضي الله عنها: خرجت مع رسول الله ﷺ في بعض أسفاره وأنا جارية، فقال للناس: تقدَّموا. فتقدَّموا، ثم قال لي: تعالي حتى أسابقك. فسابقته فسبقته. ثم لما حملت اللحم سابقته فسبقني، فقال: "هذه بتلك".',
     textEn:
@@ -506,8 +494,8 @@ export const PROPHET_ENTRIES: ProphetEntry[] = [
   {
     id: 'hm-04',
     category: 'humor',
-    titleAr: 'حجَّ على رَحل رثٍّ وقطيفة ﷺ',
-    titleEn: 'He Performed Hajj on a Worn Saddle and Old Blanket ﷺ',
+    titleAr: 'زهده وإخلاصه في حجَّته ﷺ',
+    titleEn: 'His Simplicity and Sincerity in Hajj ﷺ',
     textAr:
       'حجَّ رسول الله ﷺ على رَحل رثٍّ وقطيفة تساوي أربعة دراهم أو تقلُّ، ثم قال: "اللهم حجةً لا رياء فيها ولا سمعة".',
     textEn:
@@ -522,8 +510,8 @@ export const PROPHET_ENTRIES: ProphetEntry[] = [
   {
     id: 'fm-01',
     category: 'family',
-    titleAr: 'كان في مهنة أهله ﷺ',
-    titleEn: 'He Was at the Service of His Household ﷺ',
+    titleAr: 'خدمته لأهل بيته ومشاركتهم ﷺ',
+    titleEn: 'His Service and Partnership with His Household ﷺ',
     textAr:
       'سُئل الأسود بن يزيد: ما كان النبي ﷺ يصنع في أهله؟ قال — تعني عائشة —: كان يكون في مهنة أهله — يخدم أهله — فإذا حضرت الصلاة خرج إلى الصلاة.',
     textEn:
