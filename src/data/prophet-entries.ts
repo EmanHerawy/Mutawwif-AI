@@ -61,8 +61,8 @@ export const PROPHET_ENTRIES: ProphetEntry[] = [
   {
     id: 'pd-04',
     category: 'physical_description',
-    titleAr: 'وجهه ﷺ',
-    titleEn: 'His Complexion ﷺ',
+    titleAr: 'نضارة لونه وإشراق وجهه ﷺ',
+    titleEn: 'The Radiance and Glow of His Complexion ﷺ',
     textAr:
       'عن أنس بن مالك رضي الله عنه قال: كان النبي ﷺ أزهر اللون — ليس بأبيض أمهق ولا آدم.',
     textEn:
@@ -147,7 +147,7 @@ export const PROPHET_ENTRIES: ProphetEntry[] = [
   {
     id: 'ch-05',
     category: 'character',
-    titleAr: 'حنانه غلى الصبيان ﷺ',
+    titleAr: 'حنانه على الصبيان ﷺ',
     titleEn: 'His Kindness with Children ﷺ',
     textAr:
       'عن أنس رضي الله عنه: أنه مرَّ على صبيان فسلَّم عليهم، وقال: كان النبي ﷺ يفعله.',
@@ -272,9 +272,20 @@ export const PROPHET_ENTRIES: ProphetEntry[] = [
     source: 'bukhari',
     reviewedBy: 'MH',
   },
-
-  
-
+  {
+    id: 'dl-05',
+    category: 'daily_life',
+    titleAr: 'رِضاه وزهده في الطعام ﷺ',
+    titleEn: 'His Contentment and Simplicity in Food ﷺ',
+    textAr:
+      'عن أنس رضي الله عنه أن رسول الله ﷺ كان يُدعى إلى خبز الشعير والإهالة السَّنِخة — أي الدهن الفاسد — فيجيب.',
+    textEn:
+      'Anas (may Allah be pleased with him) reported that the Messenger of Allah ﷺ would be invited to eat barley bread and rancid fat — and he would accept.',
+    citationAr: 'الشمائل المحمدية للترمذي — باب ما جاء في معيشة رسول الله ﷺ',
+    citationEn: 'Al-Tirmidhi — Al-Shamail Al-Muhammadiyah, Chapter on the Livelihood of the Prophet ﷺ',
+    source: 'shamail',
+    reviewedBy: 'MH',
+  },
   {
     id: 'dl-06',
     category: 'daily_life',
@@ -306,8 +317,8 @@ export const PROPHET_ENTRIES: ProphetEntry[] = [
   {
     id: 'dl-08',
     category: 'daily_life',
-    titleAr: 'بساطة لباسه  ﷺ',
-    titleEn: 'His Simple  Dress ﷺ',
+    titleAr: 'بساطة لباسه وأناقته ﷺ',
+    titleEn: 'His Simple and Dignified Dress ﷺ',
     textAr:
       'قالت أم سلمة رضي الله عنها: كان أحبَّ الثياب إلى رسول الله ﷺ القميص. وقال ﷺ: "عليكم بالبياض من الثياب، لِيَلبَسها أحياؤكم، وكفِّنوا فيها موتاكم، فإنها من خير ثيابكم".',
     textEn:
