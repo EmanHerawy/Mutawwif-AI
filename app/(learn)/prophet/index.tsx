@@ -111,11 +111,11 @@ function CategoryCard({ meta, isAr, count }: CardProps) {
       }
     >
       <Text style={styles.cardIcon}>{meta.icon}</Text>
-      <Text style={[styles.cardAr, isAr && styles.rtlText]}>
-        {meta.ar}
+      <Text style={[styles.cardPrimary, isAr && styles.rtlText]} numberOfLines={2}>
+        {isAr ? meta.ar : meta.en}
       </Text>
-      <Text style={styles.cardEn} numberOfLines={1}>
-        {meta.en}
+      <Text style={styles.cardSecondary} numberOfLines={1}>
+        {isAr ? meta.en : meta.ar}
       </Text>
       <View style={styles.countBadge}>
         <Text style={styles.countText}>{count}</Text>
@@ -197,13 +197,13 @@ const styles = StyleSheet.create({
     fontSize: 28,
     color: Colors.goldAccent,
   },
-  cardAr: {
+  cardPrimary: {
     fontSize: 15,
     fontWeight: '700',
     color: Colors.brandGreen,
     textAlign: 'center',
   },
-  cardEn: {
+  cardSecondary: {
     fontSize: 11,
     color: Colors.textPrimary,
     opacity: 0.6,

@@ -23,10 +23,11 @@ const SOURCE_LABEL: Record<ProphetEntrySource, { ar: string; en: string }> = {
 };
 
 export default function ProphetEntryScreen() {
-  const { entry: id } = useLocalSearchParams<{ entry: string }>();
+  const { entry: entryParam } = useLocalSearchParams<{ entry: string | string[] }>();
   const { i18n } = useTranslation();
   const isAr = i18n.language?.startsWith('ar');
 
+  const id = Array.isArray(entryParam) ? entryParam[0] : entryParam;
   const entry = PROPHET_ENTRIES.find((e) => e.id === id);
 
   if (!entry) {

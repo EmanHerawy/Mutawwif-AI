@@ -20,7 +20,8 @@ const CATEGORY_LABELS: Record<ProphetCategory, { ar: string; en: string; icon: s
 };
 
 export default function ProphetCategoryScreen() {
-  const { category } = useLocalSearchParams<{ category: string }>();
+  const { category: categoryParam } = useLocalSearchParams<{ category: string | string[] }>();
+  const category = Array.isArray(categoryParam) ? categoryParam[0] : categoryParam;
   const { i18n } = useTranslation();
   const isAr = i18n.language?.startsWith('ar');
 
