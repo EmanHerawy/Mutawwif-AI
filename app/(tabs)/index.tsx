@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useRouter } from 'expo-router';
-import { FontAwesome5 } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons'; // still used by cards below
 import { usePersonaStore } from '../../src/stores/personaStore';
 import { useRitualStore } from '../../src/stores/ritualStore';
 import { useLocationStore } from '../../src/stores/locationStore';
@@ -39,14 +39,6 @@ export default function DashboardScreen() {
           <Text style={styles.greeting}>
             {name ? `${t('dashboard_ui.greeting')}, ${name} 👋` : '🕋 Mutawwif'}
           </Text>
-          <View style={styles.headerActions}>
-            <TouchableOpacity style={styles.headerBtn} onPress={() => router.push('/(tabs)/settings')}>
-              <FontAwesome5 name="cog" size={16} color={Colors.brandGreen} />
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.headerBtn} onPress={() => router.push('/(tabs)/profile')}>
-              <FontAwesome5 name="user" size={16} color={Colors.brandGreen} />
-            </TouchableOpacity>
-          </View>
         </View>
 
         {/* Status banners */}
@@ -226,14 +218,8 @@ export default function DashboardScreen() {
 const styles = StyleSheet.create({
   safe: { flex: 1, backgroundColor: Colors.parchmentBg },
   scroll: { padding: 20, paddingBottom: 40 },
-  header: { marginBottom: 20, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
-  greeting: { fontSize: 22, fontWeight: '700', color: Colors.brandGreen, flex: 1 },
-  headerActions: { flexDirection: 'row', gap: 8 },
-  headerBtn: {
-    width: 38, height: 38, borderRadius: 19,
-    backgroundColor: Colors.white, alignItems: 'center', justifyContent: 'center',
-    borderWidth: 1.5, borderColor: Colors.brandGreen + '33',
-  },
+  header: { marginBottom: 20 },
+  greeting: { fontSize: 22, fontWeight: '700', color: Colors.brandGreen },
   banner: { borderWidth: 1.5, borderRadius: 12, padding: 12, marginBottom: 10, backgroundColor: Colors.white },
   bannerText: { fontSize: 14, fontWeight: '600' },
   activeCard: {

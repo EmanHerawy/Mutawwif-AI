@@ -93,7 +93,10 @@
     "ask": "اسأل مطوف",
     "azkar": "الأذكار",
     "wallet": "المحفظة",
-    "learn": "تعلّم"
+    "learn": "تعلّم",
+    "more": "المزيد",
+    "profile": "الملف الشخصي",
+    "settings": "الإعدادات"
   },
   "tracker": {
     "tawaf": "طواف",
@@ -372,5 +375,23 @@
     "section_recommended": "المستحبات",
     "section_disliked": "المكروهات",
     "section_permissible": "المباحات"
+  },
+  "prophet": {
+    "title": "اعرف نبيك",
+    "subtitle": "روايات موثَّقة من المصادر الصحيحة",
+    "ai_note": "لا يوجد محتوى مولَّد بالذكاء الاصطناعي — محتوى بشري موثَّق فقط",
+    "source_label": "المصدر",
+    "verified": "رواية موثَّقة",
+    "share": "مشاركة النص والمصدر",
+    "category": {
+      "physical_description": "صفته الجسدية",
+      "character": "أخلاقه",
+      "daily_life": "حياته اليومية",
+      "worship": "عبادته",
+      "mercy": "رحمته",
+      "humor": "تواضعه",
+      "family": "أسرته",
+      "names_titles": "أسماؤه وألقابه"
+    }
   }
 }

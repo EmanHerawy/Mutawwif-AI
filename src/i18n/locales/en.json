@@ -93,7 +93,10 @@
     "ask": "Ask Mutawwif",
     "azkar": "Athkar",
     "wallet": "Wallet",
-    "learn": "Learn"
+    "learn": "Learn",
+    "more": "More",
+    "profile": "Profile",
+    "settings": "Settings"
   },
   "tracker": {
     "tawaf": "Tawaf",
@@ -371,5 +374,23 @@
     "section_recommended": "Recommended",
     "section_disliked": "Disliked",
     "section_permissible": "Permissible"
+  },
+  "prophet": {
+    "title": "Know Your Prophet",
+    "subtitle": "Authenticated narrations from verified sources",
+    "ai_note": "No AI-generated content — human-reviewed entries only",
+    "source_label": "Source",
+    "verified": "Verified Narration",
+    "share": "Share Text & Citation",
+    "category": {
+      "physical_description": "His Appearance",
+      "character": "His Character",
+      "daily_life": "Daily Life",
+      "worship": "His Worship",
+      "mercy": "His Mercy",
+      "humor": "His Humility",
+      "family": "His Family",
+      "names_titles": "Names & Titles"
+    }
   }
 }
