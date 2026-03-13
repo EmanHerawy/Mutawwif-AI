@@ -162,20 +162,6 @@ export default function DashboardScreen() {
             <FontAwesome5 name="chevron-right" size={14} color={Colors.brandGreen} />
           </TouchableOpacity>
 
-          {/* Visit Rawdah */}
-          <TouchableOpacity
-            style={[styles.ritualCard, styles.ritualCardRawdah]}
-            onPress={() => router.push('/(visit)/nabawi/rawdah' as any)}
-          >
-            <View style={styles.iconBoxGold}>
-              <FontAwesome5 name="star-of-life" size={24} color={Colors.goldAccent} solid />
-            </View>
-            <View style={styles.ritualCardContent}>
-              <Text style={[styles.ritualCardTitle, styles.ritualCardTitleGold]}>{t('dashboard_ui.visit_rawdah_title')}</Text>
-              <Text style={styles.ritualCardSub}>{t('dashboard_ui.visit_rawdah_sub')}</Text>
-            </View>
-            <FontAwesome5 name="chevron-right" size={14} color={Colors.goldAccent} />
-          </TouchableOpacity>
 
         </View>
 
