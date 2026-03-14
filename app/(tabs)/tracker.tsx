@@ -71,25 +71,25 @@ const TAWAF_FLOORS: FloorOption[] = [
 const SAI_FLOORS: FloorOption[] = [
   {
     id: 'ground', nameAr: 'الدور الأرضي', nameEn: 'Ground Floor',
-    notesAr: 'ممهد للكراسي — منطقة الهرولة الخضراء (للرجال) — الأكثر ازدحاماً',
-    notesEn: 'Wheelchair accessible — green jogging zone (men) — most crowded',
+    notesAr: 'عربات يدوية وكهربائية — مسار مخصص — منطقة الهرولة (رجال) — الأكثر ازدحاماً',
+    notesEn: 'Manual & electric carts — dedicated lane — jogging zone (men) — most crowded',
     accessible: true, defaultCrowd: 'heavy', icon: 'running',
   },
   {
-    id: 'floor_1', nameAr: 'الطابق الأول', nameEn: '1st Floor',
-    notesAr: 'مسقّف — ازدحام معتدل — مناسب للنساء وكبار السن',
-    notesEn: 'Covered — moderate — suitable for women and elderly',
-    accessible: false, defaultCrowd: 'moderate', icon: 'layer-group',
+    id: 'floor_1', nameAr: 'الطابق الأول (الميزانين)', nameEn: '1st Floor (Mezzanine)',
+    notesAr: 'عربات يدوية وكهربائية — نقاط استلام وتسليم — مسارات مخصصة — ازدحام معتدل',
+    notesEn: 'Manual & electric carts — pickup/return points — dedicated lanes — moderate crowd',
+    accessible: true, defaultCrowd: 'moderate', icon: 'layer-group',
   },
   {
     id: 'floor_2', nameAr: 'الطابق الثاني', nameEn: '2nd Floor',
-    notesAr: 'مسقّف — أقل ازدحاماً عادة',
-    notesEn: 'Covered — usually less crowded',
-    accessible: false, defaultCrowd: 'light', icon: 'layer-group',
+    notesAr: 'عربات كهربائية ذاتية القيادة — مسارات مخصصة — أقل ازدحاماً',
+    notesEn: 'Self-driving electric carts — dedicated lanes — less crowded',
+    accessible: true, defaultCrowd: 'light', icon: 'layer-group',
   },
   {
     id: 'floor_3', nameAr: 'الطابق الثالث', nameEn: '3rd Floor',
-    notesAr: 'مسقّف — الأقل ازدحاماً — الأبعد عن الصفا والمروة',
+    notesAr: 'مسقّف — الأقل ازدحاماً — الأبعد عن منصتي الصفا والمروة',
     notesEn: 'Covered — least crowded — farthest from Safa/Marwa platforms',
     accessible: false, defaultCrowd: 'light', icon: 'layer-group',
   },
@@ -345,13 +345,15 @@ export default function TrackerScreen() {
             </View>
           </View>
 
-          {/* Wheelchair / Cart info — Tawaf only */}
-          {pendingRitual === 'tawaf' && (
+          {/* Wheelchair / Cart info */}
+          {(pendingRitual === 'tawaf' || pendingRitual === 'sai') && (
             <View style={styles.cartInfoBox}>
               <View style={styles.cartInfoHeader}>
                 <FontAwesome5 name="wheelchair" size={13} color={Colors.brandGreen} />
                 <Text style={styles.cartInfoTitle}>
-                  {isAr ? 'الطواف بالكرسي المتحرك أو العربة' : 'Tawaf by Wheelchair / Cart'}
+                  {pendingRitual === 'tawaf'
+                    ? (isAr ? 'الطواف بالكرسي المتحرك أو العربة' : 'Tawaf by Wheelchair / Cart')
+                    : (isAr ? 'السعي بالكرسي المتحرك أو العربة' : "Sa'i by Wheelchair / Cart")}
                 </Text>
               </View>
               <Text style={styles.cartInfoRule}>
@@ -362,23 +364,32 @@ export default function TrackerScreen() {
               <View style={styles.cartInfoDivider} />
               <Text style={styles.cartInfoItem}>
                 {isAr
-                  ? '🛒 الأنواع: عربات يدوية (دفع) وكهربائية مفردة أو مزدوجة'
-                  : '🛒 Types: Manual (push) and electric — single or double-seat'}
+                  ? '🛒 الأنواع: يدوية (دفع) — كهربائية مفردة أو مزدوجة — ذاتية القيادة (الطابقين الأول والثاني)'
+                  : '🛒 Types: Manual (push) — electric single/double — self-driving (floors 1 & 2)'}
               </Text>
               <Text style={styles.cartInfoItem}>
                 {isAr
                   ? '📍 الحجز: داخل الحرم أو عبر تطبيق «تنمية»'
                   : '📍 Rental: Available inside the Haram or via the "Tanmiya" app'}
               </Text>
-              <Text style={styles.cartInfoItem}>
-                {isAr
-                  ? '🚏 نقاط الاستلام: باب الملك عبد العزيز — باب العمرة — باب الفتح'
-                  : '🚏 Pickup points: King Abdulaziz Gate — Umrah Gate — Fath Gate'}
-              </Text>
+              {pendingRitual === 'tawaf' && (
+                <Text style={styles.cartInfoItem}>
+                  {isAr
+                    ? '🚏 نقاط الاستلام: باب الملك عبد العزيز — باب العمرة — باب الفتح'
+                    : '🚏 Pickup points: King Abdulaziz Gate — Umrah Gate — Fath Gate'}
+                </Text>
+              )}
+              {pendingRitual === 'sai' && (
+                <Text style={styles.cartInfoItem}>
+                  {isAr
+                    ? '🚏 نقاط الاستلام والتسليم: الدور الأرضي — الطابق الأول (الميزانين) — الطابق الثاني'
+                    : '🚏 Pickup/return points: Ground floor — 1st floor (mezzanine) — 2nd floor'}
+                </Text>
+              )}
               <Text style={styles.cartInfoItem}>
                 {isAr
                   ? '⚠️ الزم مسار العربات المخصص — تجنب الاصطدام بالمشاة'
-                  : '⚠️ Stay in the designated wheelchair lane — avoid disturbing pedestrians'}
+                  : '⚠️ Stay in the designated cart lane — avoid collisions with pedestrians'}
               </Text>
             </View>
           )}
