@@ -1,8 +1,9 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
 import { Colors } from '../../theme/colors';
+import { openInMaps } from '../../utils/openInMaps';
 import type { FacilityInfo, FacilityType, FacilityFloor, FacilityWing } from '../../types/facility.types';
 
 const TYPE_COLORS: Record<FacilityType, string> = {
@@ -162,6 +163,20 @@ export function FacilityCard({ item }: Props) {
           </Text>
         )}
 
+        {/* Open in Maps */}
+        {item.lat !== undefined && item.lng !== undefined && (
+          <TouchableOpacity
+            style={styles.mapsBtn}
+            onPress={() => openInMaps(item.lat!, item.lng!, isAr ? item.nameAr : item.nameEn)}
+            activeOpacity={0.75}
+          >
+            <FontAwesome5 name="map-marker-alt" size={12} color={Colors.white} />
+            <Text style={styles.mapsBtnText}>
+              {isAr ? 'افتح في الخريطة' : 'Open in Maps'}
+            </Text>
+          </TouchableOpacity>
+        )}
+
         <Text style={styles.mockBadge}>⚪ {isAr ? 'بيانات تقريبية — تحقق على أرض الواقع' : 'Mock data — verify on-site'}</Text>
       </View>
     </View>
@@ -269,6 +284,22 @@ const styles = StyleSheet.create({
     fontStyle: 'italic',
     lineHeight: 17,
     textAlign: 'right',
+  },
+  mapsBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    backgroundColor: Colors.brandGreen,
+    paddingHorizontal: 12,
+    paddingVertical: 7,
+    borderRadius: 8,
+    alignSelf: 'flex-start',
+    marginTop: 2,
+  },
+  mapsBtnText: {
+    fontSize: 12,
+    fontWeight: '700',
+    color: Colors.white,
   },
   mockBadge: {
     fontSize: 10,

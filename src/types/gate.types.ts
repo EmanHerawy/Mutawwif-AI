@@ -12,6 +12,9 @@ export interface GateInfo {
   accessible: boolean;
   mosque: MosqueType;
   notes?: string;
+  /** Approximate coordinates — VERIFY_COORDINATES before production */
+  lat?: number;
+  lng?: number;
 }
 
 export interface GateFetchResult {

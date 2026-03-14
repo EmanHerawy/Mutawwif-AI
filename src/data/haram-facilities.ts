@@ -31,6 +31,7 @@ export const HARAM_FACILITIES: FacilityInfo[] = [
     operatingHours: '24/7',
     notesAr: 'مجهزة بمداخل للكراسي المتحركة ومقاعد للمسنين',
     notesEn: 'Equipped with wheelchair-accessible stalls and elderly seating',
+    lat: 21.4249, lng: 39.8245, // VERIFY_COORDINATES
   },
   {
     id: 'haram_restroom_basement',
@@ -46,6 +47,7 @@ export const HARAM_FACILITIES: FacilityInfo[] = [
     operatingHours: '24/7',
     notesAr: 'وصول للكرسي المتحرك عبر المصعد المجاور لسلالم المطاف',
     notesEn: 'Wheelchair access via elevator next to Mataf stairs',
+    lat: 21.4225, lng: 39.8262, // VERIFY_COORDINATES
   },
   {
     id: 'haram_restroom_east',
@@ -61,6 +63,7 @@ export const HARAM_FACILITIES: FacilityInfo[] = [
     operatingHours: '24/7',
     notesAr: 'دورات منفصلة للرجال والنساء على طرفي الممر',
     notesEn: 'Separate men\'s and women\'s facilities at each end of the corridor',
+    lat: 21.4237, lng: 39.8280, // VERIFY_COORDINATES
   },
   {
     id: 'haram_restroom_south',
@@ -76,6 +79,7 @@ export const HARAM_FACILITIES: FacilityInfo[] = [
     operatingHours: '24/7',
     notesAr: 'لا يوجد منحدر في هذا المدخل — يُنصح لمستخدمي الكرسي باستخدام الجناح الشمالي',
     notesEn: 'No ramp at this entrance — wheelchair users advised to use north wing',
+    lat: 21.4196, lng: 39.8261, // VERIFY_COORDINATES
   },
   {
     id: 'haram_restroom_west',
@@ -89,6 +93,7 @@ export const HARAM_FACILITIES: FacilityInfo[] = [
     floor: 'ground',
     accessible: true,
     operatingHours: '24/7',
+    lat: 21.4225, lng: 39.8233, // VERIFY_COORDINATES
   },
   {
     id: 'haram_restroom_floor1',
@@ -104,6 +109,7 @@ export const HARAM_FACILITIES: FacilityInfo[] = [
     operatingHours: '24/7',
     notesAr: 'يُصل إليها من سلالم أو مصاعد الأجنحة الشمالية والشرقية',
     notesEn: 'Accessible via stairs or elevators in the north and east wings',
+    lat: 21.4248, lng: 39.8260, // VERIFY_COORDINATES
   },
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -123,6 +129,7 @@ export const HARAM_FACILITIES: FacilityInfo[] = [
     operatingHours: '24/7',
     notesAr: 'مجهزة بمقاعد للمسنين ومداخل وكراسي خاصة لذوي الإعاقة — منفصلة للرجال والنساء',
     notesEn: 'Elderly seating, wheelchair access and dedicated stalls for mobility-impaired — separated men / women',
+    lat: 21.4225, lng: 39.8262, // VERIFY_COORDINATES
   },
   {
     id: 'haram_wudu_north',
@@ -136,6 +143,7 @@ export const HARAM_FACILITIES: FacilityInfo[] = [
     floor: 'ground',
     accessible: true,
     operatingHours: '24/7',
+    lat: 21.4249, lng: 39.8247, // VERIFY_COORDINATES
   },
   {
     id: 'haram_wudu_south',
@@ -149,6 +157,7 @@ export const HARAM_FACILITIES: FacilityInfo[] = [
     floor: 'ground',
     accessible: false,
     operatingHours: '24/7',
+    lat: 21.4196, lng: 39.8259, // VERIFY_COORDINATES
   },
   {
     id: 'haram_wudu_east',
@@ -164,6 +173,7 @@ export const HARAM_FACILITIES: FacilityInfo[] = [
     operatingHours: '24/7',
     notesAr: 'خاصة بالقادمين من الجانب الشرقي والمسعى',
     notesEn: "Serving pilgrims arriving from the east side and Masa'a",
+    lat: 21.4229, lng: 39.8284, // VERIFY_COORDINATES
   },
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -183,6 +193,7 @@ export const HARAM_FACILITIES: FacilityInfo[] = [
     operatingHours: '24/7',
     notesAr: 'أطباء وممرضون مقيمون — سيارات إسعاف — طوارئ قلبية وإغماء وإجهاد حراري',
     notesEn: 'Resident doctors & nurses — ambulances — cardiac, fainting & heat exhaustion emergencies',
+    lat: 21.4256, lng: 39.8242, // VERIFY_COORDINATES
   },
   {
     id: 'haram_medical_east',
@@ -198,6 +209,7 @@ export const HARAM_FACILITIES: FacilityInfo[] = [
     operatingHours: '24/7',
     notesAr: 'إسعافات أولية — حالات الإغماء والإجهاد الحراري',
     notesEn: 'First aid — fainting and heat exhaustion',
+    lat: 21.4228, lng: 39.8287, // VERIFY_COORDINATES
   },
   {
     id: 'haram_medical_south',
@@ -213,6 +225,7 @@ export const HARAM_FACILITIES: FacilityInfo[] = [
     operatingHours: '24/7',
     notesAr: 'إسعافات أولية وحالات طوارئ فقط — لا إقامة',
     notesEn: 'First aid and emergencies only — no admission',
+    lat: 21.4194, lng: 39.8259, // VERIFY_COORDINATES
   },
   {
     id: 'haram_medical_women',
@@ -228,6 +241,7 @@ export const HARAM_FACILITIES: FacilityInfo[] = [
     operatingHours: '24/7',
     notesAr: 'طاقم طبي نسائي متكامل — رعاية الحوامل — إسعافات الولادة المبكرة',
     notesEn: 'All-female medical staff — maternity care — emergency obstetric support',
+    lat: 21.4222, lng: 39.8285, // VERIFY_COORDINATES
   },
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -247,6 +261,7 @@ export const HARAM_FACILITIES: FacilityInfo[] = [
     operatingHours: '08:00–00:00',
     notesAr: 'أدوية الأمراض المزمنة — مسكنات — واقي شمس — كمامات — رذاذ تبريد',
     notesEn: 'Chronic medications — pain relief — sunscreen — masks — cooling spray',
+    lat: 21.4251, lng: 39.8244, // VERIFY_COORDINATES
   },
   {
     id: 'haram_pharmacy_east',
@@ -262,6 +277,7 @@ export const HARAM_FACILITIES: FacilityInfo[] = [
     operatingHours: '08:00–23:00',
     notesAr: 'صيدلية تجارية — تتوفر معظم الأدوية الشائعة',
     notesEn: 'Commercial pharmacy — most common medications available',
+    lat: 21.4229, lng: 39.8288, // VERIFY_COORDINATES
   },
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -281,6 +297,7 @@ export const HARAM_FACILITIES: FacilityInfo[] = [
     operatingHours: '24/7',
     notesAr: 'استعارة كراسي متحركة يدوية وكهربائية — مرافق مدرّب للطواف والسعي',
     notesEn: 'Manual & electric wheelchair lending — trained escort for Tawaf and Sa\'i',
+    lat: 21.4249, lng: 39.8244, // VERIFY_COORDINATES
   },
   {
     id: 'haram_disability_east',
@@ -296,6 +313,7 @@ export const HARAM_FACILITIES: FacilityInfo[] = [
     operatingHours: '24/7',
     notesAr: 'مساعدة فورية — إحالة لمركز الخدمات الرئيسي إذا لزم',
     notesEn: 'Immediate assistance — referral to main services center if needed',
+    lat: 21.4228, lng: 39.8285, // VERIFY_COORDINATES
   },
   {
     id: 'haram_disability_mataf',
@@ -311,6 +329,7 @@ export const HARAM_FACILITIES: FacilityInfo[] = [
     operatingHours: '24/7',
     notesAr: 'ممر منظَّم بأفراد السلامة — أعطِ الأولوية لذوي الاحتياجات دائماً',
     notesEn: 'Lane managed by safety staff — always give priority to wheelchair users',
+    lat: 21.4225, lng: 39.8265, // VERIFY_COORDINATES
   },
   {
     id: 'haram_disability_sai',
@@ -326,6 +345,7 @@ export const HARAM_FACILITIES: FacilityInfo[] = [
     operatingHours: '24/7',
     notesAr: 'الكراسي الكهربائية متاحة من مكتب الخدمات — لا رمل على ذوي الإعاقة',
     notesEn: 'Electric wheelchairs available from services desk — Raml is not required for mobility-impaired',
+    lat: 21.4233, lng: 39.8278, // VERIFY_COORDINATES
   },
   {
     id: 'haram_disability_carts',
@@ -341,6 +361,7 @@ export const HARAM_FACILITIES: FacilityInfo[] = [
     operatingHours: '24/7',
     notesAr: 'للنقل بين المداخل الرئيسية والمناطق الداخلية — طلب من مكتب الخدمات',
     notesEn: 'Transport between main entrances and inner areas — request from services desk',
+    lat: 21.4249, lng: 39.8245, // VERIFY_COORDINATES
   },
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -360,6 +381,7 @@ export const HARAM_FACILITIES: FacilityInfo[] = [
     operatingHours: '24/7',
     notesAr: 'طاولات تغيير — غرفة رضاعة خاصة للأمهات — مياه نظيفة',
     notesEn: 'Changing tables — private nursing room for mothers — clean water supply',
+    lat: 21.4251, lng: 39.8244, // VERIFY_COORDINATES
   },
   {
     id: 'haram_baby_east',
@@ -375,6 +397,7 @@ export const HARAM_FACILITIES: FacilityInfo[] = [
     operatingHours: '24/7',
     notesAr: 'للنساء فقط — يدخل المحرم',
     notesEn: 'Women only — male mahram may accompany',
+    lat: 21.4222, lng: 39.8284, // VERIFY_COORDINATES
   },
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -394,6 +417,7 @@ export const HARAM_FACILITIES: FacilityInfo[] = [
     operatingHours: '24/7',
     notesAr: 'موزعات ساخنة وباردة — كوبات ورقية — تذكّر: اشرب واقفاً مستقبل القبلة وفق السنة النبوية',
     notesEn: 'Hot and cold dispensers — paper cups — reminder: drink standing, facing Qibla per Sunnah',
+    lat: 21.4225, lng: 39.8262, // VERIFY_COORDINATES
   },
   {
     id: 'haram_zamzam_ground',
@@ -409,6 +433,7 @@ export const HARAM_FACILITIES: FacilityInfo[] = [
     operatingHours: '24/7',
     notesAr: 'متوفرة في جميع الاتجاهات — كوبات ورقية عند كل موزع',
     notesEn: 'Available in all directions — paper cups at each dispenser',
+    lat: 21.4225, lng: 39.8260, // VERIFY_COORDINATES
   },
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -428,6 +453,7 @@ export const HARAM_FACILITIES: FacilityInfo[] = [
     operatingHours: '24/7',
     notesAr: 'خرائط المسجد — إرشاد للمناسك — ترجمة لعدة لغات — استفسارات عامة',
     notesEn: 'Mosque maps — ritual guidance — multilingual translation — general inquiries',
+    lat: 21.4252, lng: 39.8244, // VERIFY_COORDINATES
   },
   {
     id: 'haram_info_translation',
@@ -443,6 +469,7 @@ export const HARAM_FACILITIES: FacilityInfo[] = [
     operatingHours: '24/7',
     notesAr: 'موظفون يتحدثون العربية والإنجليزية والأردية والإندونيسية والفرنسية',
     notesEn: 'Staff speaking Arabic, English, Urdu, Indonesian and French',
+    lat: 21.4244, lng: 39.8278, // VERIFY_COORDINATES
   },
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -462,6 +489,7 @@ export const HARAM_FACILITIES: FacilityInfo[] = [
     operatingHours: '06:00–23:00',
     notesAr: 'احضر رقم هاتفك وبيانات إقامتك — وصف دقيق للغرض المفقود — رقم مرجعي يُعطى عند التبليغ',
     notesEn: 'Bring phone number and accommodation details — accurate description of lost item — reference number given upon report',
+    lat: 21.4195, lng: 39.8258, // VERIFY_COORDINATES
   },
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -481,6 +509,7 @@ export const HARAM_FACILITIES: FacilityInfo[] = [
     operatingHours: '08:00–22:00',
     notesAr: 'استفسارات المناسك — تصاريح المجموعات — خدمات كبار السن والمرضى',
     notesEn: 'Ritual inquiries — group permits — elderly and sick pilgrim assistance',
+    lat: 21.4252, lng: 39.8244, // VERIFY_COORDINATES
   },
   {
     id: 'haram_pilgrim_ihram',
@@ -496,5 +525,6 @@ export const HARAM_FACILITIES: FacilityInfo[] = [
     operatingHours: '24/7',
     notesAr: 'فتاوى ميدانية في الأسئلة العاجلة المتعلقة بالمناسك — يُحال للعالم في المسائل المعقدة',
     notesEn: 'Field guidance for urgent ritual questions — complex issues referred to scholars',
+    lat: 21.4225, lng: 39.8260, // VERIFY_COORDINATES
   },
 ];

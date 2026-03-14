@@ -30,6 +30,7 @@ export const NABAWI_FACILITIES: FacilityInfo[] = [
     operatingHours: '24/7',
     notesAr: 'مجهزة بكراسي المسنين ومداخل الكراسي المتحركة',
     notesEn: 'Equipped with elderly seating and wheelchair-accessible entrances',
+    lat: 24.4689, lng: 39.6112, // VERIFY_COORDINATES
   },
   {
     id: 'nabawi_restroom_basement',
@@ -45,6 +46,7 @@ export const NABAWI_FACILITIES: FacilityInfo[] = [
     operatingHours: '24/7',
     notesAr: 'أكبر دورات مياه في المسجد — مصاعد متاحة من الساحة الخارجية',
     notesEn: 'Largest restroom facilities in the mosque — elevators available from the outer plaza',
+    lat: 24.4692, lng: 39.6112, // VERIFY_COORDINATES
   },
   {
     id: 'nabawi_restroom_west',
@@ -58,6 +60,7 @@ export const NABAWI_FACILITIES: FacilityInfo[] = [
     floor: 'ground',
     accessible: false,
     operatingHours: '24/7',
+    lat: 24.4672, lng: 39.6093, // VERIFY_COORDINATES
   },
   {
     id: 'nabawi_restroom_women',
@@ -73,6 +76,7 @@ export const NABAWI_FACILITIES: FacilityInfo[] = [
     operatingHours: '24/7',
     notesAr: 'للنساء فقط — موظفات للمساعدة — مجهزة بغرف للرضاعة',
     notesEn: "Women only — female staff available — nursing rooms included",
+    lat: 24.4668, lng: 39.6131, // VERIFY_COORDINATES
   },
   {
     id: 'nabawi_restroom_south',
@@ -88,6 +92,7 @@ export const NABAWI_FACILITIES: FacilityInfo[] = [
     operatingHours: '24/7',
     notesAr: 'لا يوجد منحدر — يُنصح مستخدمو الكراسي المتحركة باستخدام الجناح الشمالي',
     notesEn: 'No ramp — wheelchair users advised to use the north wing',
+    lat: 24.4655, lng: 39.6112, // VERIFY_COORDINATES
   },
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -107,6 +112,7 @@ export const NABAWI_FACILITIES: FacilityInfo[] = [
     operatingHours: '24/7',
     notesAr: 'أكبر دار وضوء — مجهزة بمداخل الكراسي المتحركة ومقاعد للمسنين — منفصلة للرجال والنساء',
     notesEn: 'Largest ablution hall — wheelchair access and elderly seating — separated men / women',
+    lat: 24.4692, lng: 39.6112, // VERIFY_COORDINATES
   },
   {
     id: 'nabawi_wudu_west',
@@ -120,6 +126,7 @@ export const NABAWI_FACILITIES: FacilityInfo[] = [
     floor: 'ground',
     accessible: false,
     operatingHours: '24/7',
+    lat: 24.4672, lng: 39.6092, // VERIFY_COORDINATES
   },
   {
     id: 'nabawi_wudu_women',
@@ -135,6 +142,7 @@ export const NABAWI_FACILITIES: FacilityInfo[] = [
     operatingHours: '24/7',
     notesAr: 'طاقم نسائي مقيم لتقديم المساعدة',
     notesEn: 'Resident female staff for assistance',
+    lat: 24.4668, lng: 39.6130, // VERIFY_COORDINATES
   },
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -154,6 +162,7 @@ export const NABAWI_FACILITIES: FacilityInfo[] = [
     operatingHours: '24/7',
     notesAr: 'أطباء وممرضون مقيمون — سيارات إسعاف — طوارئ قلبية وإغماء وإجهاد حراري',
     notesEn: 'Resident doctors & nurses — ambulances — cardiac, fainting & heat emergencies',
+    lat: 24.4695, lng: 39.6100, // VERIFY_COORDINATES
   },
   {
     id: 'nabawi_medical_inside',
@@ -169,6 +178,7 @@ export const NABAWI_FACILITIES: FacilityInfo[] = [
     operatingHours: '24/7',
     notesAr: 'حالات الإغماء والإجهاد الحراري — طاقم إسعاف مدرّب دائماً داخل المسجد',
     notesEn: 'Fainting and heat exhaustion — trained first aid staff always inside the mosque',
+    lat: 24.4681, lng: 39.6124, // VERIFY_COORDINATES
   },
   {
     id: 'nabawi_medical_women',
@@ -184,6 +194,7 @@ export const NABAWI_FACILITIES: FacilityInfo[] = [
     operatingHours: '24/7',
     notesAr: 'طاقم طبي نسائي — رعاية الحوامل — إسعافات الولادة المبكرة',
     notesEn: 'All-female medical staff — maternity care — emergency obstetric support',
+    lat: 24.4667, lng: 39.6130, // VERIFY_COORDINATES
   },
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -203,6 +214,7 @@ export const NABAWI_FACILITIES: FacilityInfo[] = [
     operatingHours: '08:00–00:00',
     notesAr: 'أدوية الأمراض المزمنة — مسكنات — واقي شمس — كمامات — رذاذ تبريد',
     notesEn: 'Chronic medications — pain relief — sunscreen — masks — cooling spray',
+    lat: 24.4691, lng: 39.6115, // VERIFY_COORDINATES
   },
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -222,6 +234,7 @@ export const NABAWI_FACILITIES: FacilityInfo[] = [
     operatingHours: '24/7',
     notesAr: 'استعارة كراسي متحركة يدوية وكهربائية — مرافق للصلاة والزيارة',
     notesEn: 'Manual & electric wheelchair lending — escort for prayer and visit',
+    lat: 24.4689, lng: 39.6111, // VERIFY_COORDINATES
   },
   {
     id: 'nabawi_disability_women',
@@ -237,6 +250,7 @@ export const NABAWI_FACILITIES: FacilityInfo[] = [
     operatingHours: '24/7',
     notesAr: 'موظفات نساء — استعارة الكراسي المتحركة — مساعدة في الوصول لمنطقة الصلاة',
     notesEn: 'Female staff — wheelchair lending — assistance reaching the prayer area',
+    lat: 24.4668, lng: 39.6130, // VERIFY_COORDINATES
   },
   {
     id: 'nabawi_disability_rawdah',
@@ -252,6 +266,7 @@ export const NABAWI_FACILITIES: FacilityInfo[] = [
     operatingHours: '06:00–22:00',
     notesAr: 'يُنصح بالتنسيق مسبقاً مع إدارة المسجد للحصول على تصريح دخول خاص في أوقات أقل ازدحاماً',
     notesEn: 'Recommended to coordinate in advance with mosque administration for a dedicated permit during off-peak hours',
+    lat: 24.4681, lng: 39.6112, // VERIFY_COORDINATES
   },
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -271,6 +286,7 @@ export const NABAWI_FACILITIES: FacilityInfo[] = [
     operatingHours: '24/7',
     notesAr: 'طاولات تغيير — غرفة رضاعة خاصة — مياه نظيفة — للنساء فقط',
     notesEn: 'Changing tables — private nursing room — clean water — women only',
+    lat: 24.4668, lng: 39.6128, // VERIFY_COORDINATES
   },
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -290,6 +306,7 @@ export const NABAWI_FACILITIES: FacilityInfo[] = [
     operatingHours: '24/7',
     notesAr: 'ماء زمزم يُجلب من مكة المكرمة — موزعات ساخنة وباردة — كوبات متوفرة',
     notesEn: 'Zamzam brought from Makkah — hot and cold dispensers — cups available',
+    lat: 24.4692, lng: 39.6113, // VERIFY_COORDINATES
   },
   {
     id: 'nabawi_zamzam_inside',
@@ -305,6 +322,7 @@ export const NABAWI_FACILITIES: FacilityInfo[] = [
     operatingHours: '24/7',
     notesAr: 'كوبات ورقية عند كل موزع',
     notesEn: 'Paper cups at each dispenser',
+    lat: 24.4672, lng: 39.6112, // VERIFY_COORDINATES
   },
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -324,6 +342,7 @@ export const NABAWI_FACILITIES: FacilityInfo[] = [
     operatingHours: '08:00–22:00',
     notesAr: 'خرائط المسجد — مواقيت الصلاة — مواعيد الروضة — إرشاد للزوار — ترجمة',
     notesEn: 'Mosque maps — prayer times — Rawdah visit times — visitor guidance — translation',
+    lat: 24.4691, lng: 39.6113, // VERIFY_COORDINATES
   },
   {
     id: 'nabawi_info_inside',
@@ -339,6 +358,7 @@ export const NABAWI_FACILITIES: FacilityInfo[] = [
     operatingHours: '24/7',
     notesAr: 'أسئلة عاجلة متعلقة بالزيارة والصلاة — لغات متعددة',
     notesEn: 'Urgent questions about visit and prayer — multiple languages',
+    lat: 24.4680, lng: 39.6112, // VERIFY_COORDINATES
   },
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -358,6 +378,7 @@ export const NABAWI_FACILITIES: FacilityInfo[] = [
     operatingHours: '07:00–22:00',
     notesAr: 'احضر رقم هاتفك وبيانات إقامتك — وصف دقيق للغرض المفقود',
     notesEn: 'Bring phone number and accommodation details — accurate description of lost item',
+    lat: 24.4657, lng: 39.6098, // VERIFY_COORDINATES
   },
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -377,6 +398,7 @@ export const NABAWI_FACILITIES: FacilityInfo[] = [
     operatingHours: '08:00–22:00',
     notesAr: 'مواعيد الروضة — تصاريح المجموعات — خدمات كبار السن',
     notesEn: 'Rawdah visit times — group permits — elderly visitor assistance',
+    lat: 24.4691, lng: 39.6113, // VERIFY_COORDINATES
   },
   {
     id: 'nabawi_pilgrim_west',
@@ -392,5 +414,6 @@ export const NABAWI_FACILITIES: FacilityInfo[] = [
     operatingHours: '08:00–21:00',
     notesAr: 'استفسارات عامة — إرشاد ديني — تنسيق مجموعات',
     notesEn: 'General inquiries — religious guidance — group coordination',
+    lat: 24.4672, lng: 39.6092, // VERIFY_COORDINATES
   },
 ];

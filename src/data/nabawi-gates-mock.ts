@@ -1,5 +1,6 @@
 import type { GateInfo } from '../types/gate.types';
 
+// VERIFY_COORDINATES — all gate positions are approximate and must be verified before production
 export const NABAWI_GATES_MOCK: GateInfo[] = [
   {
     id: 'nabawi_gate_jibril',
@@ -11,6 +12,7 @@ export const NABAWI_GATES_MOCK: GateInfo[] = [
     accessible: false,
     mosque: 'nabawi',
     notes: 'Main eastern entrance — historic gate',
+    lat: 24.4672, lng: 39.6131, // VERIFY_COORDINATES
   },
   {
     id: 'nabawi_gate_salam',
@@ -22,6 +24,7 @@ export const NABAWI_GATES_MOCK: GateInfo[] = [
     accessible: true,
     mosque: 'nabawi',
     notes: 'Main northern entrance — ramp accessible',
+    lat: 24.4690, lng: 39.6112, // VERIFY_COORDINATES
   },
   {
     id: 'nabawi_gate_rahman',
@@ -32,28 +35,31 @@ export const NABAWI_GATES_MOCK: GateInfo[] = [
     status: 'crowded',
     accessible: false,
     mosque: 'nabawi',
+    lat: 24.4690, lng: 39.6103, // VERIFY_COORDINATES
   },
   {
     id: 'nabawi_gate_nisa',
-    nameAr: 'باب النساء',
-    nameEn: 'Bab al-Nisa',
+    nameAr: 'باب النساء (٢٥)',
+    nameEn: 'Bab al-Nisa (Gate 25)',
     number: 25,
     wing: 'east',
     status: 'open',
     accessible: true,
     mosque: 'nabawi',
-    notes: 'Women\'s entrance — Gates 25 and 29 area',
+    notes: "Women's entrance — Gates 25 and 29 area",
+    lat: 24.4665, lng: 39.6131, // VERIFY_COORDINATES
   },
   {
     id: 'nabawi_gate_nisa_29',
-    nameAr: 'باب النساء (29)',
+    nameAr: 'باب النساء (٢٩)',
     nameEn: 'Bab al-Nisa (Gate 29)',
     number: 29,
     wing: 'east',
     status: 'open',
     accessible: true,
     mosque: 'nabawi',
-    notes: 'Women\'s entrance — eastern prayer hall access',
+    notes: "Women's entrance — eastern prayer hall access",
+    lat: 24.4675, lng: 39.6133, // VERIFY_COORDINATES
   },
   {
     id: 'nabawi_gate_baqi',
@@ -65,6 +71,7 @@ export const NABAWI_GATES_MOCK: GateInfo[] = [
     accessible: false,
     mosque: 'nabawi',
     notes: 'Faces Al-Baqi cemetery',
+    lat: 24.4672, lng: 39.6093, // VERIFY_COORDINATES
   },
   {
     id: 'nabawi_gate_abu_bakr',
@@ -75,6 +82,7 @@ export const NABAWI_GATES_MOCK: GateInfo[] = [
     status: 'open',
     accessible: false,
     mosque: 'nabawi',
+    lat: 24.4655, lng: 39.6105, // VERIFY_COORDINATES
   },
   {
     id: 'nabawi_gate_umar',
@@ -85,6 +93,7 @@ export const NABAWI_GATES_MOCK: GateInfo[] = [
     status: 'crowded',
     accessible: false,
     mosque: 'nabawi',
+    lat: 24.4655, lng: 39.6112, // VERIFY_COORDINATES
   },
   {
     id: 'nabawi_gate_uthman',
@@ -95,6 +104,7 @@ export const NABAWI_GATES_MOCK: GateInfo[] = [
     status: 'open',
     accessible: false,
     mosque: 'nabawi',
+    lat: 24.4655, lng: 39.6120, // VERIFY_COORDINATES
   },
   {
     id: 'nabawi_gate_ali',
@@ -105,6 +115,7 @@ export const NABAWI_GATES_MOCK: GateInfo[] = [
     status: 'open',
     accessible: false,
     mosque: 'nabawi',
+    lat: 24.4657, lng: 39.6127, // VERIFY_COORDINATES
   },
   {
     id: 'nabawi_gate_siddiq',
@@ -116,6 +127,7 @@ export const NABAWI_GATES_MOCK: GateInfo[] = [
     accessible: false,
     mosque: 'nabawi',
     notes: 'Currently at capacity — use adjacent gates',
+    lat: 24.4657, lng: 39.6098, // VERIFY_COORDINATES
   },
   {
     id: 'nabawi_gate_malik',
@@ -126,6 +138,7 @@ export const NABAWI_GATES_MOCK: GateInfo[] = [
     status: 'open',
     accessible: false,
     mosque: 'nabawi',
+    lat: 24.4672, lng: 39.6090, // VERIFY_COORDINATES
   },
   {
     id: 'nabawi_gate_fahd',
@@ -137,6 +150,7 @@ export const NABAWI_GATES_MOCK: GateInfo[] = [
     accessible: false,
     mosque: 'nabawi',
     notes: 'Temporarily closed',
+    lat: 24.4685, lng: 39.6095, // VERIFY_COORDINATES
   },
   {
     id: 'nabawi_gate_majidi',
@@ -148,5 +162,6 @@ export const NABAWI_GATES_MOCK: GateInfo[] = [
     accessible: false,
     mosque: 'nabawi',
     notes: 'Historic gate from Ottoman expansion',
+    lat: 24.4677, lng: 39.6129, // VERIFY_COORDINATES
   },
 ];

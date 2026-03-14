@@ -45,4 +45,7 @@ export interface FacilityInfo {
   operatingHours: string;
   notesAr?: string;
   notesEn?: string;
+  /** Approximate coordinates — VERIFY_COORDINATES before production */
+  lat?: number;
+  lng?: number;
 }

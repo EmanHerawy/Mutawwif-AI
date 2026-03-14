@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
 import { Colors } from '../../theme/colors';
+import { openInMaps } from '../../utils/openInMaps';
 import type { GateInfo, GateDataSource } from '../../types/gate.types';
 
 const STATUS_COLORS: Record<string, string> = {
@@ -87,6 +88,19 @@ export function GateCard({ item, dataSource }: Props) {
 
         {item.notes !== undefined && (
           <Text style={styles.notes}>{item.notes}</Text>
+        )}
+
+        {item.lat !== undefined && item.lng !== undefined && (
+          <TouchableOpacity
+            style={styles.mapsBtn}
+            onPress={() => openInMaps(item.lat!, item.lng!, isAr ? item.nameAr : item.nameEn)}
+            activeOpacity={0.75}
+          >
+            <FontAwesome5 name="map-marker-alt" size={11} color={Colors.white} />
+            <Text style={styles.mapsBtnText}>
+              {isAr ? 'افتح في الخريطة' : 'Open in Maps'}
+            </Text>
+          </TouchableOpacity>
         )}
 
         <Text style={styles.dataSourceBadge}>{dataSourceBadge}</Text>
@@ -181,6 +195,23 @@ const styles = StyleSheet.create({
     opacity: 0.55,
     marginTop: 4,
     fontStyle: 'italic',
+  },
+  mapsBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 5,
+    backgroundColor: Colors.brandGreen,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    borderRadius: 6,
+    alignSelf: 'flex-start',
+    marginTop: 6,
+    marginBottom: 2,
+  },
+  mapsBtnText: {
+    fontSize: 11,
+    fontWeight: '700',
+    color: Colors.white,
   },
   dataSourceBadge: {
     marginTop: 6,
