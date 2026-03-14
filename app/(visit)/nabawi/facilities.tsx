@@ -1,5 +1,9 @@
 import { useState, useMemo } from 'react';
-import { View, Text, FlatList, TouchableOpacity, StyleSheet, SafeAreaView } from 'react-native';
+import { View, Text, FlatList, ScrollView, TouchableOpacity, StyleSheet, SafeAreaView } from 'react-native';
+
+function chunk<T>(arr: T[], size: number): T[][] {
+  return Array.from({ length: Math.ceil(arr.length / size) }, (_, i) => arr.slice(i * size, i * size + size));
+}
 import { Stack } from 'expo-router';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
@@ -81,45 +85,45 @@ export default function NabawiFacilitiesScreen() {
   return (
     <SafeAreaView style={styles.safe}>
       <Stack.Screen options={{ title: isAr ? 'الخدمات' : 'Facilities' }} />
-      <FlatList
-        data={CATEGORY_META}
-        keyExtractor={(item) => item.key}
-        numColumns={3}
-        columnWrapperStyle={styles.gridRow}
-        renderItem={({ item }) => {
-          const count = counts[item.key] ?? 0;
-          return (
-            <TouchableOpacity
-              style={[styles.gridCard, count === 0 && styles.gridCardDisabled]}
-              onPress={() => count > 0 && setFilter(item.key)}
-              activeOpacity={count > 0 ? 0.75 : 1}
-            >
-              <View style={styles.gridIconWrap}>
-                <Text style={styles.gridEmoji}>{item.emoji}</Text>
-              </View>
-              <Text style={styles.gridLabel} numberOfLines={2}>
-                {isAr ? item.labelAr : item.labelEn}
-              </Text>
-              <View style={[styles.gridCount, count === 0 && { backgroundColor: Colors.textPrimary + '10' }]}>
-                <Text style={[styles.gridCountText, count === 0 && { color: Colors.textPrimary, opacity: 0.3 }]}>
-                  {count}
-                </Text>
-              </View>
-            </TouchableOpacity>
-          );
-        }}
-        contentContainerStyle={styles.grid}
-        showsVerticalScrollIndicator={false}
-        ListHeaderComponent={
-          <View style={styles.headerCard}>
-            <FontAwesome5 name="map-marked-alt" size={28} color={Colors.goldAccent} />
-            <Text style={styles.headerTitle}>{isAr ? 'خدمات المسجد النبوي' : 'Masjid Al Nabawi Facilities'}</Text>
-            <Text style={styles.headerSub}>
-              {NABAWI_FACILITIES.length} {isAr ? 'خدمة' : 'facilities'}
-            </Text>
+      <ScrollView contentContainerStyle={styles.grid} showsVerticalScrollIndicator={false}>
+        <View style={styles.headerCard}>
+          <FontAwesome5 name="map-marked-alt" size={28} color={Colors.goldAccent} />
+          <Text style={styles.headerTitle}>{isAr ? 'خدمات المسجد النبوي' : 'Masjid Al Nabawi Facilities'}</Text>
+          <Text style={styles.headerSub}>
+            {NABAWI_FACILITIES.length} {isAr ? 'خدمة' : 'facilities'}
+          </Text>
+        </View>
+        {chunk(CATEGORY_META, 3).map((row, rowIdx) => (
+          <View key={rowIdx} style={styles.gridRow}>
+            {row.map((item) => {
+              const count = counts[item.key] ?? 0;
+              return (
+                <TouchableOpacity
+                  key={item.key}
+                  style={[styles.gridCard, count === 0 && styles.gridCardDisabled]}
+                  onPress={() => count > 0 && setFilter(item.key)}
+                  activeOpacity={count > 0 ? 0.75 : 1}
+                >
+                  <View style={styles.gridIconWrap}>
+                    <Text style={styles.gridEmoji}>{item.emoji}</Text>
+                  </View>
+                  <Text style={styles.gridLabel} numberOfLines={2}>
+                    {isAr ? item.labelAr : item.labelEn}
+                  </Text>
+                  <View style={[styles.gridCount, count === 0 && { backgroundColor: Colors.textPrimary + '10' }]}>
+                    <Text style={[styles.gridCountText, count === 0 && { color: Colors.textPrimary, opacity: 0.3 }]}>
+                      {count}
+                    </Text>
+                  </View>
+                </TouchableOpacity>
+              );
+            })}
+            {row.length < 3 && Array.from({ length: 3 - row.length }).map((_, i) => (
+              <View key={`pad-${i}`} style={styles.gridCardPad} />
+            ))}
           </View>
-        }
-      />
+        ))}
+      </ScrollView>
     </SafeAreaView>
   );
 }
@@ -133,7 +137,8 @@ const styles = StyleSheet.create({
   headerTitle: { fontSize: 16, fontWeight: '800', color: Colors.goldAccent },
   headerSub: { fontSize: 11, color: Colors.white, opacity: 0.65 },
   grid: { padding: 16, paddingBottom: 40 },
-  gridRow: { gap: 10, marginBottom: 10 },
+  gridRow: { flexDirection: 'row', gap: 10, marginBottom: 10 },
+  gridCardPad: { flex: 1 },
   gridCard: {
     flex: 1, backgroundColor: Colors.white, borderRadius: 14, padding: 12,
     alignItems: 'center', gap: 6,

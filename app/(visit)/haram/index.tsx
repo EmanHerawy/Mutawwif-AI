@@ -1,5 +1,9 @@
 import { useState, useMemo } from 'react';
 import { View, Text, TouchableOpacity, FlatList, StyleSheet, SafeAreaView, ScrollView } from 'react-native';
+
+function chunk<T>(arr: T[], size: number): T[][] {
+  return Array.from({ length: Math.ceil(arr.length / size) }, (_, i) => arr.slice(i * size, i * size + size));
+}
 import { Stack, useRouter } from 'expo-router';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
@@ -113,29 +117,34 @@ export default function HaramVisitScreen() {
 
         {/* Etiquette categories grid */}
         <Text style={styles.sectionLabel}>{isAr ? 'آداب الحرم' : 'Haram Etiquette'}</Text>
-        <View style={styles.grid}>
-          {categoryGridItems.map((item) => {
-            const label = ETIQUETTE_CATEGORY_LABELS[item.cat];
-            return (
-              <TouchableOpacity
-                key={item.cat}
-                style={styles.gridCard}
-                onPress={() => setSelectedCat(item.cat)}
-                activeOpacity={0.75}
-              >
-                <View style={styles.gridIconWrap}>
-                  <Text style={styles.gridEmoji}>{label?.emoji ?? '📋'}</Text>
-                </View>
-                <Text style={styles.gridLabel} numberOfLines={2}>
-                  {isAr ? label?.ar : label?.en}
-                </Text>
-                <View style={styles.gridCount}>
-                  <Text style={styles.gridCountText}>{item.count}</Text>
-                </View>
-              </TouchableOpacity>
-            );
-          })}
-        </View>
+        {chunk(categoryGridItems, 3).map((row, rowIdx) => (
+          <View key={rowIdx} style={styles.gridRow}>
+            {row.map((item) => {
+              const label = ETIQUETTE_CATEGORY_LABELS[item.cat];
+              return (
+                <TouchableOpacity
+                  key={item.cat}
+                  style={styles.gridCard}
+                  onPress={() => setSelectedCat(item.cat)}
+                  activeOpacity={0.75}
+                >
+                  <View style={styles.gridIconWrap}>
+                    <Text style={styles.gridEmoji}>{label?.emoji ?? '📋'}</Text>
+                  </View>
+                  <Text style={styles.gridLabel} numberOfLines={2}>
+                    {isAr ? label?.ar : label?.en}
+                  </Text>
+                  <View style={styles.gridCount}>
+                    <Text style={styles.gridCountText}>{item.count}</Text>
+                  </View>
+                </TouchableOpacity>
+              );
+            })}
+            {row.length < 3 && Array.from({ length: 3 - row.length }).map((_, i) => (
+              <View key={`pad-${i}`} style={styles.gridCardPad} />
+            ))}
+          </View>
+        ))}
 
       </ScrollView>
     </SafeAreaView>
@@ -190,10 +199,10 @@ const styles = StyleSheet.create({
   },
   navLabel: { flex: 1, fontSize: 14, fontWeight: '700', color: Colors.brandGreen },
   // Grid
-  grid: { flexDirection: 'row', flexWrap: 'wrap', gap: 10 },
+  gridRow: { flexDirection: 'row', gap: 10, marginBottom: 10 },
+  gridCardPad: { flex: 1 },
   gridCard: {
-    width: '30%',
-    flexGrow: 1,
+    flex: 1,
     backgroundColor: Colors.white,
     borderRadius: 14,
     padding: 12,

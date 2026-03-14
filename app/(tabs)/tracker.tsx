@@ -83,15 +83,15 @@ const SAI_FLOORS: FloorOption[] = [
   },
   {
     id: 'floor_2', nameAr: 'الطابق الثاني', nameEn: '2nd Floor',
-    notesAr: 'عربات كهربائية ذاتية القيادة — مسارات مخصصة — أقل ازدحاماً',
-    notesEn: 'Self-driving electric carts — dedicated lanes — less crowded',
+    notesAr: 'عربات كهربائية — مسارات مخصصة — أقل ازدحاماً',
+    notesEn: 'Electric carts — dedicated lanes — less crowded',
     accessible: true, defaultCrowd: 'light', icon: 'layer-group',
   },
   {
     id: 'floor_3', nameAr: 'الطابق الثالث', nameEn: '3rd Floor',
-    notesAr: 'مسقّف — الأقل ازدحاماً — الأبعد عن منصتي الصفا والمروة',
-    notesEn: 'Covered — least crowded — farthest from Safa/Marwa platforms',
-    accessible: false, defaultCrowd: 'light', icon: 'layer-group',
+    notesAr: 'عربات جولف — الأقل ازدحاماً — الأبعد عن منصتي الصفا والمروة',
+    notesEn: 'Golf carts — least crowded — farthest from Safa/Marwa platforms',
+    accessible: true, defaultCrowd: 'light', icon: 'layer-group',
   },
 ];
 
@@ -364,8 +364,8 @@ export default function TrackerScreen() {
               <View style={styles.cartInfoDivider} />
               <Text style={styles.cartInfoItem}>
                 {isAr
-                  ? '🛒 الأنواع: يدوية (دفع) — كهربائية مفردة أو مزدوجة — ذاتية القيادة (الطابقين الأول والثاني)'
-                  : '🛒 Types: Manual (push) — electric single/double — self-driving (floors 1 & 2)'}
+                  ? '🛒 الأنواع: يدوية مجانية (دفع) — كهربائية مدفوعة — عربات جولف (الطابق الثالث للسعي)'
+                  : '🛒 Types: Manual free (push) — electric paid — golf carts (Sa\'i 3rd floor)'}
               </Text>
               <Text style={styles.cartInfoItem}>
                 {isAr
@@ -382,8 +382,8 @@ export default function TrackerScreen() {
               {pendingRitual === 'sai' && (
                 <Text style={styles.cartInfoItem}>
                   {isAr
-                    ? '🚏 نقاط الاستلام والتسليم: الدور الأرضي — الطابق الأول (الميزانين) — الطابق الثاني'
-                    : '🚏 Pickup/return points: Ground floor — 1st floor (mezzanine) — 2nd floor'}
+                    ? '🚏 نقاط الاستلام: الدور الأرضي (باب ١٤) — الطابق الأول — الطابق الثاني — الطابق الثالث (باب السلام، باب ٦٤)'
+                    : '🚏 Pickup points: Ground (Gate 14) — 1st floor — 2nd floor — 3rd floor (Salam Gate, Gate 64)'}
                 </Text>
               )}
               <Text style={styles.cartInfoItem}>

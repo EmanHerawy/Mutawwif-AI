@@ -1,5 +1,9 @@
 import { useState, useMemo } from 'react';
-import { View, Text, TouchableOpacity, FlatList, SectionList, StyleSheet, SafeAreaView } from 'react-native';
+import { View, Text, TouchableOpacity, FlatList, SectionList, ScrollView, StyleSheet, SafeAreaView } from 'react-native';
+
+function chunk<T>(arr: T[], size: number): T[][] {
+  return Array.from({ length: Math.ceil(arr.length / size) }, (_, i) => arr.slice(i * size, i * size + size));
+}
 import { Stack } from 'expo-router';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
@@ -134,34 +138,36 @@ export default function EtiquetteIndexScreen() {
 
       {/* Categories grid */}
       {tab === 'categories' && (
-        <FlatList
-          data={categoryGridItems}
-          keyExtractor={(item) => item.cat}
-          numColumns={3}
-          columnWrapperStyle={styles.gridRow}
-          renderItem={({ item }) => {
-            const label = ETIQUETTE_CATEGORY_LABELS[item.cat];
-            return (
-              <TouchableOpacity
-                style={styles.gridCard}
-                onPress={() => setSelectedCat(item.cat)}
-                activeOpacity={0.75}
-              >
-                <View style={styles.gridIconWrap}>
-                  <Text style={styles.gridEmoji}>{label?.emoji ?? '📋'}</Text>
-                </View>
-                <Text style={styles.gridLabel} numberOfLines={2}>
-                  {isAr ? label?.ar : label?.en}
-                </Text>
-                <View style={styles.gridCount}>
-                  <Text style={styles.gridCountText}>{item.count}</Text>
-                </View>
-              </TouchableOpacity>
-            );
-          }}
-          contentContainerStyle={styles.grid}
-          showsVerticalScrollIndicator={false}
-        />
+        <ScrollView contentContainerStyle={styles.grid} showsVerticalScrollIndicator={false}>
+          {chunk(categoryGridItems, 3).map((row, rowIdx) => (
+            <View key={rowIdx} style={styles.gridRow}>
+              {row.map((item) => {
+                const label = ETIQUETTE_CATEGORY_LABELS[item.cat];
+                return (
+                  <TouchableOpacity
+                    key={item.cat}
+                    style={styles.gridCard}
+                    onPress={() => setSelectedCat(item.cat)}
+                    activeOpacity={0.75}
+                  >
+                    <View style={styles.gridIconWrap}>
+                      <Text style={styles.gridEmoji}>{label?.emoji ?? '📋'}</Text>
+                    </View>
+                    <Text style={styles.gridLabel} numberOfLines={2}>
+                      {isAr ? label?.ar : label?.en}
+                    </Text>
+                    <View style={styles.gridCount}>
+                      <Text style={styles.gridCountText}>{item.count}</Text>
+                    </View>
+                  </TouchableOpacity>
+                );
+              })}
+              {row.length < 3 && Array.from({ length: 3 - row.length }).map((_, i) => (
+                <View key={`pad-${i}`} style={styles.gridCardPad} />
+              ))}
+            </View>
+          ))}
+        </ScrollView>
       )}
 
       {/* Favorites */}
@@ -218,7 +224,8 @@ const styles = StyleSheet.create({
   favCount: { fontSize: 11, fontWeight: '700' },
   // Grid
   grid: { padding: 16, paddingBottom: 40 },
-  gridRow: { gap: 10, marginBottom: 10 },
+  gridRow: { flexDirection: 'row', gap: 10, marginBottom: 10 },
+  gridCardPad: { flex: 1 },
   gridCard: {
     flex: 1,
     backgroundColor: Colors.white,
