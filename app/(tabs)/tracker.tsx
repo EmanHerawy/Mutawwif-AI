@@ -44,27 +44,27 @@ interface FloorOption {
 const TAWAF_FLOORS: FloorOption[] = [
   {
     id: 'ground', nameAr: 'الدور الأرضي (المطاف)', nameEn: 'Ground Floor (Mataf)',
-    notesAr: 'الأقرب للكعبة — مكشوف — الأشد كثافة — الطواف المباشر',
-    notesEn: 'Closest to Kaaba — open-air — most crowded — direct Tawaf',
+    notesAr: 'الأقرب للكعبة — مكشوف — مسار مخصص للعربات — الأشد كثافة',
+    notesEn: 'Closest to Kaaba — open-air — dedicated wheelchair lane — most crowded',
     accessible: true, defaultCrowd: 'heavy', icon: 'kaaba',
   },
   {
     id: 'floor_1', nameAr: 'الطابق الأول', nameEn: '1st Floor',
-    notesAr: 'مسقّف — كثافة معتدلة — مناسب لكبار السن',
-    notesEn: 'Covered — moderate crowd — suitable for elderly',
-    accessible: false, defaultCrowd: 'moderate', icon: 'layer-group',
+    notesAr: 'مسقّف — مسارات أوسع للعربات — أقل ازدحاماً — المسافة ~٢ كم',
+    notesEn: 'Covered — wider wheelchair lanes — less crowded — ~2km per lap',
+    accessible: true, defaultCrowd: 'moderate', icon: 'layer-group',
   },
   {
     id: 'floor_2', nameAr: 'الطابق الثاني', nameEn: '2nd Floor',
-    notesAr: 'مسقّف — أقل ازدحاماً — مناسب للنساء وذوي الاحتياجات الخاصة',
-    notesEn: 'Covered — less crowded — good for women and special needs',
+    notesAr: 'مسقّف — أقل ازدحاماً — مناسب للنساء',
+    notesEn: 'Covered — less crowded — good for women',
     accessible: false, defaultCrowd: 'light', icon: 'layer-group',
   },
   {
     id: 'roof', nameAr: 'السطح (الدور الثالث)', nameEn: 'Roof (3rd Floor)',
-    notesAr: 'مكشوف — يُفتح في مواسم الذروة — أبرد في الليل',
-    notesEn: 'Open-air — opens during peak seasons — cooler at night',
-    accessible: false, defaultCrowd: 'light', icon: 'mountain',
+    notesAr: 'مكشوف — مسارات للعربات اليدوية والكهربائية — خيار ممتاز وقت الذروة',
+    notesEn: 'Open-air — manual & electric wheelchair lanes — excellent during peak',
+    accessible: true, defaultCrowd: 'light', icon: 'mountain',
   },
 ];
 
@@ -344,6 +344,44 @@ export default function TrackerScreen() {
               </Text>
             </View>
           </View>
+
+          {/* Wheelchair / Cart info — Tawaf only */}
+          {pendingRitual === 'tawaf' && (
+            <View style={styles.cartInfoBox}>
+              <View style={styles.cartInfoHeader}>
+                <FontAwesome5 name="wheelchair" size={13} color={Colors.brandGreen} />
+                <Text style={styles.cartInfoTitle}>
+                  {isAr ? 'الطواف بالكرسي المتحرك أو العربة' : 'Tawaf by Wheelchair / Cart'}
+                </Text>
+              </View>
+              <Text style={styles.cartInfoRule}>
+                {isAr
+                  ? '✅ الحكم الشرعي: جائز عند العذر (كبار السن، العجز، التعب الشديد)'
+                  : '✅ Islamic ruling: Permitted when there is a valid excuse (elderly, disability, extreme fatigue)'}
+              </Text>
+              <View style={styles.cartInfoDivider} />
+              <Text style={styles.cartInfoItem}>
+                {isAr
+                  ? '🛒 الأنواع: عربات يدوية (دفع) وكهربائية مفردة أو مزدوجة'
+                  : '🛒 Types: Manual (push) and electric — single or double-seat'}
+              </Text>
+              <Text style={styles.cartInfoItem}>
+                {isAr
+                  ? '📍 الحجز: داخل الحرم أو عبر تطبيق «تنمية»'
+                  : '📍 Rental: Available inside the Haram or via the "Tanmiya" app'}
+              </Text>
+              <Text style={styles.cartInfoItem}>
+                {isAr
+                  ? '🚏 نقاط الاستلام: باب الملك عبد العزيز — باب العمرة — باب الفتح'
+                  : '🚏 Pickup points: King Abdulaziz Gate — Umrah Gate — Fath Gate'}
+              </Text>
+              <Text style={styles.cartInfoItem}>
+                {isAr
+                  ? '⚠️ الزم مسار العربات المخصص — تجنب الاصطدام بالمشاة'
+                  : '⚠️ Stay in the designated wheelchair lane — avoid disturbing pedestrians'}
+              </Text>
+            </View>
+          )}
 
           {/* Start button */}
           <TouchableOpacity style={styles.startBtn} onPress={handleStartCounter}>
@@ -738,6 +776,24 @@ const styles = StyleSheet.create({
   estLabel: { fontSize: 12, fontWeight: '700', marginBottom: 2 },
   estValue: { fontSize: 22, fontWeight: '800', color: Colors.textPrimary },
   estTotal: { fontSize: 11, color: Colors.textPrimary, opacity: 0.5, marginTop: 2 },
+  cartInfoBox: {
+    backgroundColor: Colors.brandGreen + '08',
+    borderRadius: 14,
+    padding: 14,
+    marginBottom: 14,
+    borderWidth: 1.5,
+    borderColor: Colors.brandGreen + '22',
+    gap: 6,
+  },
+  cartInfoHeader: { flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 4 },
+  cartInfoTitle: { fontSize: 13, fontWeight: '800', color: Colors.brandGreen },
+  cartInfoRule: {
+    fontSize: 12, fontWeight: '700', color: Colors.brandGreen,
+    backgroundColor: Colors.brandGreen + '12', borderRadius: 8,
+    paddingHorizontal: 10, paddingVertical: 6, lineHeight: 18,
+  },
+  cartInfoDivider: { height: 1, backgroundColor: Colors.brandGreen + '15', marginVertical: 2 },
+  cartInfoItem: { fontSize: 11.5, color: Colors.textPrimary, lineHeight: 18, opacity: 0.8 },
   startBtn: {
     backgroundColor: Colors.brandGreen, borderRadius: 14, paddingVertical: 16,
     flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 10,
