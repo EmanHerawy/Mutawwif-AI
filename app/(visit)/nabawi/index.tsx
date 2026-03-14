@@ -43,6 +43,12 @@ export default function NabawiVisitScreen() {
           icon: 'star-of-life',
           onPress: () => router.push('/(visit)/nabawi/rawdah'),
         },
+        {
+          titleEn: 'Facilities',
+          titleAr: 'الخدمات',
+          icon: 'map-marked-alt',
+          onPress: () => router.push('/(visit)/nabawi/facilities'),
+        },
       ]}
     />
   );

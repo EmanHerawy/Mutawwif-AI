@@ -39,6 +39,12 @@ export default function HaramVisitScreen() {
           icon: 'door-open',
           onPress: () => router.push('/(visit)/haram/gates'),
         },
+        {
+          titleEn: 'Facilities',
+          titleAr: 'الخدمات',
+          icon: 'map-marked-alt',
+          onPress: () => router.push('/(visit)/haram/facilities'),
+        },
       ]}
     />
   );
