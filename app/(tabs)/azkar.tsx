@@ -75,6 +75,7 @@ export default function AzkarScreen() {
       <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
+        style={styles.pillsScroll}
         contentContainerStyle={styles.pills}
       >
         {ORDERED_CATS.map((cat) => {
@@ -222,14 +223,16 @@ export default function AzkarScreen() {
 
 const styles = StyleSheet.create({
   safe: { flex: 1, backgroundColor: Colors.parchmentBg },
-  pills: { paddingHorizontal: 16, paddingVertical: 12, gap: 8 },
+  pillsScroll: { flexGrow: 0, flexShrink: 0 },
+  pills: { paddingHorizontal: 16, paddingVertical: 14, gap: 10, alignItems: 'center' },
   pill: {
-    flexDirection: 'row', alignItems: 'center', gap: 6,
-    paddingHorizontal: 14, paddingVertical: 8, borderRadius: 20,
+    flexDirection: 'row', alignItems: 'center', gap: 8,
+    paddingHorizontal: 18, paddingVertical: 12, borderRadius: 24,
+    minHeight: 44,
     backgroundColor: Colors.white, borderWidth: 1.5, borderColor: Colors.brandGreen + '22',
   },
   pillActive: { backgroundColor: Colors.brandGreen, borderColor: Colors.brandGreen },
-  pillLabel: { fontSize: 13, fontWeight: '600', color: Colors.brandGreen },
+  pillLabel: { fontSize: 14, fontWeight: '600', color: Colors.brandGreen },
   pillLabelActive: { color: Colors.white },
 
   sessionBar: {
