@@ -11,14 +11,21 @@ import type { AzkarItem } from '../../src/types/azkar.types';
 type Category = string;
 
 const CATEGORY_META: Record<string, { en: string; ar: string; icon: string }> = {
-  talbiyah:       { en: 'Talbiyah',       ar: 'التلبية',      icon: 'microphone-alt' },
-  entering_haram: { en: 'Enter Haram',    ar: 'دخول الحرم',   icon: 'mosque' },
-  tawaf_general:  { en: 'Tawaf',          ar: 'الطواف',       icon: 'kaaba' },
-  sai:            { en: "Sa'i",           ar: 'السعي',        icon: 'running' },
-  general:        { en: 'General',        ar: 'عامة',          icon: 'hands' },
+  talbiyah:       { en: 'Talbiyah',       ar: 'التلبية',        icon: 'microphone-alt' },
+  entering_haram: { en: 'Enter Haram',    ar: 'دخول الحرم',     icon: 'mosque' },
+  tawaf_general:  { en: 'Tawaf',          ar: 'الطواف',          icon: 'kaaba' },
+  maqam_ibrahim:  { en: 'Maqam Ibrahim',  ar: 'مقام إبراهيم',   icon: 'pray' },
+  sai:            { en: "Sa'i",           ar: 'السعي',           icon: 'running' },
+  zamzam:         { en: 'Zamzam',         ar: 'زمزم',            icon: 'tint' },
+  hajj_rites:     { en: 'Hajj Rites',     ar: 'مناسك الحج',      icon: 'campground' },
+  nabawi:         { en: 'Al-Nabawi',      ar: 'المسجد النبوي',   icon: 'place-of-worship' },
+  general:        { en: 'General',        ar: 'عامة',            icon: 'hands' },
 };
 
-const ORDERED_CATS = ['talbiyah', 'entering_haram', 'tawaf_general', 'sai', 'general'];
+const ORDERED_CATS = [
+  'talbiyah', 'entering_haram', 'tawaf_general', 'maqam_ibrahim',
+  'sai', 'zamzam', 'hajj_rites', 'nabawi', 'general',
+];
 
 export default function AzkarScreen() {
   const { t, i18n } = useTranslation();
@@ -136,6 +143,15 @@ export default function AzkarScreen() {
                 {isDone && sessionActive && (
                   <View style={styles.doneBadge}>
                     <FontAwesome5 name="check" size={9} color={Colors.white} />
+                  </View>
+                )}
+
+                {/* Occasion — when/where to say this dhikr */}
+                {!!(isAr ? item.occasionAr : item.occasionEn) && (
+                  <View style={styles.occasionRow}>
+                    <Text style={styles.occasionText}>
+                      {isAr ? item.occasionAr : item.occasionEn}
+                    </Text>
                   </View>
                 )}
 
@@ -289,5 +305,20 @@ const styles = StyleSheet.create({
     width: 40, height: 40, borderRadius: 20,
     backgroundColor: Colors.brandGreen + '15',
     alignItems: 'center', justifyContent: 'center',
+  },
+  occasionRow: {
+    backgroundColor: Colors.goldAccent + '18',
+    borderRadius: 6,
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    marginBottom: 10,
+    alignSelf: 'flex-end',
+  },
+  occasionText: {
+    fontSize: 11,
+    color: Colors.goldAccent,
+    fontWeight: '600',
+    textAlign: 'right',
+    lineHeight: 17,
   },
 });
