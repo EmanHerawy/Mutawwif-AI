@@ -58,12 +58,10 @@ export default function AzkarScreen() {
   const showTranslation = useAzkarPrefsStore((s) => s.showTranslation);
   const showTransliteration = useAzkarPrefsStore((s) => s.showTransliteration);
   const showArabicText = useAzkarPrefsStore((s) => s.showArabicText);
-  const enableCounterVibration = useAzkarPrefsStore((s) => s.enableCounterVibration);
   const favoriteIds = useAzkarPrefsStore((s) => s.favoriteIds);
   const toggleTranslation = useAzkarPrefsStore((s) => s.toggleTranslation);
   const toggleTransliteration = useAzkarPrefsStore((s) => s.toggleTransliteration);
   const toggleArabicText = useAzkarPrefsStore((s) => s.toggleArabicText);
-  const toggleCounterVibration = useAzkarPrefsStore((s) => s.toggleCounterVibration);
   const toggleFavorite = useAzkarPrefsStore((s) => s.toggleFavorite);
 
   const favoriteItems = AZKAR_DATABASE.filter((z) => favoriteIds.includes(z.id));
@@ -364,12 +362,6 @@ export default function AzkarScreen() {
             value={showTransliteration}
             onToggle={toggleTransliteration}
           />
-          <SettingRow
-            label={isAr ? 'اهتزاز العداد' : 'Counter Vibration'}
-            value={enableCounterVibration}
-            onToggle={toggleCounterVibration}
-          />
-
           <TouchableOpacity style={styles.closePillBtn} onPress={() => setShowSettings(false)}>
             <Text style={styles.closePillText}>{isAr ? 'إغلاق' : 'Close'}</Text>
           </TouchableOpacity>

@@ -10,14 +10,12 @@ interface AzkarPrefsState {
   showTranslation: boolean;
   showTransliteration: boolean;
   showArabicText: boolean;
-  enableCounterVibration: boolean;
   favoriteIds: string[];
   etiquetteFavoriteIds: string[];
 
   toggleTranslation: () => void;
   toggleTransliteration: () => void;
   toggleArabicText: () => void;
-  toggleCounterVibration: () => void;
   toggleFavorite: (id: string) => void;
   isFavorite: (id: string) => boolean;
   toggleEtiquetteFavorite: (id: string) => void;
@@ -30,7 +28,6 @@ export const useAzkarPrefsStore = create<AzkarPrefsState>()(
       showTranslation: true,
       showTransliteration: true,
       showArabicText: true,
-      enableCounterVibration: true,
       favoriteIds: [],
       etiquetteFavoriteIds: [],
 
@@ -42,9 +39,6 @@ export const useAzkarPrefsStore = create<AzkarPrefsState>()(
 
       toggleArabicText: () =>
         set((state) => { state.showArabicText = !state.showArabicText; }),
-
-      toggleCounterVibration: () =>
-        set((state) => { state.enableCounterVibration = !state.enableCounterVibration; }),
 
       toggleFavorite: (id) =>
         set((state) => {
