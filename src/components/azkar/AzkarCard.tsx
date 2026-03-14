@@ -15,6 +15,14 @@ export function AzkarCard({ azkar, isHighVisibility = false }: Props) {
 
   return (
     <View style={[styles.card, isHighVisibility && styles.cardHV]}>
+      {azkar.occasionAr ? (
+        <View style={[styles.occasionBadge, isHighVisibility && styles.occasionBadgeHV]}>
+          <Text style={[styles.occasionText, isHighVisibility && styles.occasionTextHV]}>
+            🕐 {azkar.occasionAr}
+          </Text>
+        </View>
+      ) : null}
+
       <Text style={[styles.arabic, isHighVisibility && styles.arabicHV]}>
         {azkar.arabicText}
       </Text>
@@ -93,6 +101,23 @@ const styles = StyleSheet.create({
   transliterationHV: { color: Colors.hvLapNumber },
   translation: { fontSize: 15, color: '#555', lineHeight: 22, marginBottom: Spacing.sm },
   translationHV: { color: '#CCC' },
+  occasionBadge: {
+    backgroundColor: Colors.brandGreen + '12',
+    borderRadius: 8,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    marginBottom: Spacing.sm,
+    alignSelf: 'flex-start',
+  },
+  occasionBadgeHV: { backgroundColor: Colors.goldAccent + '22' },
+  occasionText: {
+    fontSize: 12,
+    color: Colors.brandGreen,
+    fontWeight: '600',
+    lineHeight: 18,
+    textAlign: 'right',
+  },
+  occasionTextHV: { color: Colors.goldAccent },
   source: { fontSize: 12, color: '#888', marginBottom: Spacing.sm },
   sourceHV: { color: '#666' },
   actions: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
