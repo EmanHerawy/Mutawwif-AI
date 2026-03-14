@@ -80,7 +80,7 @@ export default function GuideScreen() {
     return (
       <SafeAreaView style={styles.safe}>
         <ScrollView contentContainerStyle={styles.introScroll} showsVerticalScrollIndicator={false}>
-          <Text style={styles.introEmoji}>{isHajj ? '🕌' : '🕋'}</Text>
+          <Text style={styles.introEmoji}>{isHajj ? '⛺🕋⛰️' : '🕋'}</Text>
           <Text style={styles.introTitle}>{isHajj ? t('guide.hajj_title') : t('guide.umrah_title')}</Text>
           <Text style={styles.introSubtitle}>
             {t('guide.steps_count', { count: baseSteps.length })}

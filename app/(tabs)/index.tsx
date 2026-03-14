@@ -101,8 +101,8 @@ export default function DashboardScreen() {
             onPress={() => hajjAllowed && router.push('/(tabs)/guide')}
             activeOpacity={hajjAllowed ? 0.7 : 1}
           >
-            <View style={[styles.iconBox, !hajjAllowed && styles.iconBoxMuted]}>
-              <FontAwesome5 name="campground" size={26} color={hajjAllowed ? Colors.brandGreen : Colors.textPrimary} solid />
+            <View style={[styles.iconBox, !hajjAllowed && styles.iconBoxMuted]}>              
+              <FontAwesome5 name="kaaba" size={26} color={hajjAllowed ? Colors.brandGreen : Colors.textPrimary} solid />
             </View>
             <View style={styles.ritualCardContent}>
               <Text style={[styles.ritualCardTitle, !hajjAllowed && styles.textMuted]}>
