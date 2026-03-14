@@ -24,7 +24,8 @@ export interface AzkarItem {
   translationUr: string | null;
   occasionAr: string;           // when/where to say it — Arabic
   occasionEn: string;           // when/where to say it — English
-  source: string | null;        // hadith reference or [SOURCE_NEEDED]
+  source: string | null;        // hadith reference or [SOURCE_NEEDED] — English
+  sourceAr?: string | null;     // Arabic hadith reference (optional — auto-formatted if absent)
   audioFile: string | null;     // local asset path
   repeatCount: number;          // recommended repetitions
 }

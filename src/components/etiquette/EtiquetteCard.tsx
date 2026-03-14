@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { FontAwesome5 } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
 import type { EtiquetteItem, EtiquetteSeverity } from '../../types/etiquette.types';
 import { Colors } from '../../theme/colors';
+import { useAzkarPrefsStore } from '../../stores/azkarPrefsStore';
 
 interface Props {
   item: EtiquetteItem;
@@ -42,6 +44,10 @@ export function EtiquetteCard({ item }: Props) {
   const [expanded, setExpanded] = useState(false);
   const isAr = i18n.language?.startsWith('ar');
 
+  const etiquetteFavoriteIds = useAzkarPrefsStore((s) => s.etiquetteFavoriteIds);
+  const toggleEtiquetteFavorite = useAzkarPrefsStore((s) => s.toggleEtiquetteFavorite);
+  const isFav = etiquetteFavoriteIds.includes(item.id);
+
   const borderColor = SEVERITY_BORDER[item.severity];
   const severityLabel = SEVERITY_LABEL[item.severity];
 
@@ -62,7 +68,22 @@ export function EtiquetteCard({ item }: Props) {
             </Text>
           </View>
         </View>
-        <Text style={styles.chevron}>{expanded ? '▲' : '▼'}</Text>
+        <View style={styles.headerRight}>
+          <TouchableOpacity
+            onPress={() => toggleEtiquetteFavorite(item.id)}
+            hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
+            style={styles.favBtn}
+          >
+            <FontAwesome5
+              name="heart"
+              solid={isFav}
+              size={13}
+              color={isFav ? '#E53E3E' : Colors.textPrimary}
+              style={{ opacity: isFav ? 1 : 0.2 }}
+            />
+          </TouchableOpacity>
+          <Text style={styles.chevron}>{expanded ? '▲' : '▼'}</Text>
+        </View>
       </View>
 
       {expanded && (
@@ -113,6 +134,12 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'flex-start',
   },
+  headerRight: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+  },
+  favBtn: { padding: 2 },
   titleRow: {
     flex: 1,
     flexDirection: 'row',

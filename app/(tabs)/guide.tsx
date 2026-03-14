@@ -8,6 +8,8 @@ import { Colors } from '../../src/theme/colors';
 import { UMRAH_STEPS } from '../../src/data/manasik-umrah';
 import { HAJJ_STEPS } from '../../src/data/manasik-hajj';
 import type { RitualStep, RitualStepStatus } from '../../src/types/ritual.types';
+import { KaabaLayoutDiagram } from '../../src/components/guide/KaabaLayoutDiagram';
+import { SaiLayoutDiagram } from '../../src/components/guide/SaiLayoutDiagram';
 
 import { isHajjSeason } from '../../src/utils/hajjSeason';
 
@@ -135,6 +137,12 @@ export default function GuideScreen() {
           <Text style={styles.stepTitle}>{isAr ? step.titleAr : step.titleEn}</Text>
           <View style={styles.divider} />
           <Text style={styles.stepDesc}>{isAr ? step.descriptionAr : step.descriptionEn}</Text>
+
+          {/* Kaaba diagram for Tawaf steps */}
+          {step.id === 'tawaf' && <KaabaLayoutDiagram />}
+
+          {/* Sa'i diagram for Sa'i steps */}
+          {step.id === 'sai' && <SaiLayoutDiagram />}
 
           {step.hasCounter && (
             <TouchableOpacity style={styles.counterLinkBtn} onPress={() => router.push('/(tabs)/tracker')}>

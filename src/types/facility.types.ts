@@ -15,7 +15,8 @@ export type FacilityFloor =
   | 'basement_1'
   | 'ground'
   | 'floor_1'
-  | 'floor_2';
+  | 'floor_2'
+  | 'roof';
 
 export type FacilityWing =
   | 'north'
