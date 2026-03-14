@@ -256,6 +256,7 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: Colors.white, borderRadius: 16, padding: 18,
     marginBottom: 12, borderWidth: 1.5, borderColor: Colors.brandGreen + '22',
+    overflow: 'hidden',
   },
   cardOpen: { borderColor: Colors.brandGreen },
   cardDone: { borderColor: Colors.brandGreen + '88', backgroundColor: Colors.brandGreen + '08' },
@@ -268,6 +269,7 @@ const styles = StyleSheet.create({
   arabicText: {
     fontSize: 22, color: Colors.brandGreen, fontWeight: '700',
     textAlign: 'right', lineHeight: 38, marginBottom: 4,
+    flexShrink: 1, flexWrap: 'wrap',
   },
   repeatBadge: {
     alignSelf: 'flex-end', backgroundColor: Colors.goldAccent + '25',
@@ -312,7 +314,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
     paddingVertical: 4,
     marginBottom: 10,
-    alignSelf: 'flex-end',
   },
   occasionText: {
     fontSize: 11,
@@ -320,5 +321,6 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     textAlign: 'right',
     lineHeight: 17,
+    flexShrink: 1,
   },
 });
