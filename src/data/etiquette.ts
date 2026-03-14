@@ -419,7 +419,7 @@ export const ETIQUETTE_DATA: EtiquetteItem[] = [
     source: 'لا ضرر ولا ضرار | Sahih Muslim 285',
     applicableTo: 'all',
     mosque: 'both',
-    severity: 'obligatory',
+    severity: 'recommended',
     tags: ['cleanliness', 'wudu', 'shoes'],
   },
   {
