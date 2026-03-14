@@ -80,7 +80,7 @@
     "ritual_tamattu_hint": "Umrah first, then Hajj — recommended for pilgrims outside Saudi Arabia",
     "ritual_qiran_hint": "Umrah and Hajj in one Ihram — combined intention",
     "ritual_ifrad_hint": "Hajj only — mainly for Saudi residents",
-    "ritual_unsure": "Not sure? Tamattu\u2019 is the right choice for most pilgrims",
+    "ritual_unsure": "Not sure? Tamattu’ is the right choice for most pilgrims",
     "identity_optional": "Optional",
     "identity_recommended": "Recommended for your safety",
     "validation_phone_invalid": "Enter a valid phone number (e.g. +1-555-000-0000)",
@@ -280,84 +280,318 @@
     "greeting": "Welcome",
     "active_ritual": "In progress"
   },
- 
   "etiquette": {
-    "IH-01": { "title": "Cutting or Removing Hair", "content": "A person in Ihram should not shave or intentionally remove hair until exiting Ihram." },
-    "IH-02": { "title": "Removing Body Hair", "content": "Removing body hair intentionally is not permitted while in Ihram." },
-    "IH-03": { "title": "Cutting Nails", "content": "Cutting fingernails or toenails intentionally is not permitted during Ihram." },
-    "IH-04": { "title": "Using Perfume", "content": "Applying perfume to the body or clothing after entering Ihram is not allowed." },
-    "IH-05": { "title": "Sexual Intercourse", "content": "Sexual intercourse before the first release from Ihram invalidates the Hajj." },
-    "IH-06": { "title": "Sexual Intimacy", "content": "Acts of intimacy involving sexual desire should be avoided during Ihram." },
-    "IH-07": { "title": "Marriage Contract", "content": "A person in Ihram should not conduct or participate in a marriage contract." },
-    "IH-08": { "title": "Hunting Land Animals", "content": "Hunting or assisting in hunting land animals is not permitted during Ihram." },
-    "IH-M1": { "title": "Wearing Tailored Clothing", "content": "Men in Ihram should not wear garments tailored to fit the body such as shirts, trousers, or similar clothing." },
-    "IH-M2": { "title": "Covering the Head", "content": "Men in Ihram should not cover the head with hats, caps, turbans, or similar items." },
-    "IH-M3": { "title": "Footwear Covering the Ankles", "content": "Men in Ihram should normally avoid footwear that covers the ankles. If open sandals are unavailable, some scholars permit wearing shoes out of necessity." },
-    "IH-F1": { "title": "Wearing Niqab", "content": "A woman in Ihram should not wear a niqab." },
-    "IH-F2": { "title": "Wearing Gloves", "content": "A woman in Ihram should not wear gloves." },
-    "IH-P1": { "title": "Medical Treatment", "content": "Medical treatment such as bandaging wounds or taking medicine is permitted during Ihram." },
-    "IH-P2": { "title": "Using Shade", "content": "Using an umbrella, tent, or shade for protection from the sun is permitted." },
-    "IH-P3": { "title": "Removing Harmful Insects", "content": "Removing harmful insects such as lice is permitted." },
-    "CM-06": { "title": "Starting Tawaf Incorrectly", "content": "Tawaf should begin in line with the Black Stone." },
-    "CM-07": { "title": "Walking Clockwise", "content": "Tawaf must be performed counterclockwise around the Kaaba." },
-    "CM-13": { "title": "Tawaf Without Wudu", "content": "Many scholars state that Tawaf should be performed while in a state of ritual purity." },
-    "CM-14": { "title": "Starting Sa'i from Marwah", "content": "Sa'i should start from Safa and end at Marwah." },
-    "CM-18": { "title": "Leaving Arafat Early", "content": "Pilgrims should remain in Arafat until sunset." },
-    "CM-20": { "title": "Incorrect Time for Stoning", "content": "Jamarat al-Aqaba is normally stoned on the Day of Nahr after sunrise. The remaining Jamarat during the Days of Tashriq are stoned after midday." },
-    "MH-OBEY": { "title": "Follow Crowd Management Instructions", "content": "Pilgrim movement is regulated to maintain safety and reduce crowding. Following official instructions helps prevent harm." },
-    "MA-ENTER-01": { "title": "Enter with the Right Foot", "content": "Enter the Masjid with your right foot and say: 'Bismillah, was-salatu was-salamu ala Rasulillah. Allahumma aftah li abwaba rahmatik' (In the name of Allah, and peace and blessings upon the Messenger of Allah. O Allah, open for me the gates of Your mercy)." },
-    "MA-TAHIYYA-01": { "title": "Pray Tahiyyat Al-Masjid", "content": "Pray two rak'ah (Tahiyyat al-Masjid) upon entering the Masjid before sitting, unless it is a time when prayer is prohibited." },
-    "MA-CLEAN-01": { "title": "Maintain Cleanliness", "content": "Keep the Masjid clean. Dispose of all waste in bins, avoid eating inside prayer areas, and arrange your shoes neatly." },
-    "MA-VOICE-01": { "title": "Raising Your Voice", "content": "Lower your voice inside the Masjid. Loud talking, laughter, and phone calls disturb worshippers and disrespect the sanctity of the place." },
-    "MM-SIN-01": { "title": "Sins Carry Greater Weight in Makkah", "content": "Guard yourself against all sins with extra care in Makkah. While rewards are multiplied in number, wrongdoing carries a greater weight of sin — not in number but in gravity. Allah says: 'Whoever intends to commit wrongdoing therein — We will make him taste a painful punishment.' (Quran 22:25)" },
-    "MM-GOOD-01": { "title": "Good Deeds Are Multiplied", "content": "Prayer in Al-Masjid Al-Haram equals 100,000 prayers elsewhere. Make the most of every moment in worship, dhikr, and supplication." },
-    "MM-RESPECT-01": { "title": "Venerate the Symbols of Allah", "content": "Respect and venerate the sacred symbols of Allah. He says: 'Whoever venerates the symbols of Allah — it is from the piety of hearts.' (Quran 22:32)" },
-    "RA-VIRTUE-01": { "title": "Virtue of the Rawdah", "content": "The Prophet ﷺ said: 'The area between my house and my minbar is a garden from the gardens of Paradise, and my minbar is above my Pool.' (Sahih Al-Bukhari 1196) Pray and supplicate there when you have the opportunity." },
-    "RA-NO-PUSH-01": { "title": "Do Not Push or Crowd", "content": "Do not push or shove others to reach the Rawdah. The Prophet ﷺ would not want his visitors to harm one another. Full reward is attainable by praying anywhere nearby." },
-    "RA-SALAM-01": { "title": "Greeting the Prophet ﷺ", "content": "When near the Prophetic Chamber, send salutations in a low, reverent voice: 'As-salamu alayka ya Rasulallah.' Then turn to face the Qibla to make your personal supplication — direct your dua to Allah, not the chamber." },
-    "SI-CIRCLE-01": { "title": "Circles of Knowledge and Remembrance", "content": "Sitting in circles of dhikr and knowledge in the Masjid is among the best of deeds. Do not interrupt or break up a gathering already in progress." },
-    "SI-MAKE-SPACE": { "title": "Make Space — A Quranic Command", "content": "When asked to make room in a gathering, do so willingly. Allah promises to expand for you in return: your provision, your grave, and your place in Paradise. (Quran 58:11)" },
-    "SI-NO-RESERVE": { "title": "Do Not Displace Others", "content": "Do not ask someone to vacate their place so you can sit in it. The Prophet ﷺ forbade this. Whoever leaves their place and returns is still the most deserving of it." },
-    "IT-STAY-01": { "title": "I'tikaf — Sunnah of the Prophet ﷺ", "content": "I'tikaf (seclusion in the Masjid for worship) is a confirmed Sunnah, especially in the last ten nights of Ramadan. The Prophet ﷺ observed it every year without exception." },
-    "IT-NO-INTIMACY": { "title": "No Intimacy During I'tikaf", "content": "Sexual intimacy invalidates I'tikaf. Allah says: 'Do not approach your wives while you are in seclusion in the mosques.' (Quran 2:187)" },
-    "IT-WORSHIP": { "title": "Fill Your I'tikaf with Worship", "content": "During I'tikaf, fill your time with Quran recitation, dhikr, supplication, and learning. Minimise worldly conversation and all distractions." },
-    "GA-NO-PUSH": { "title": "No Pushing or Crowding", "content": "Pushing, shoving, and crowding that harms others is forbidden under the foundational principle: 'No harm and no reciprocation of harm.' (Ibn Majah 2341)" },
-    "GA-MODESTY": { "title": "Modesty in Sacred Spaces", "content": "Lower your gaze and observe modesty in sacred spaces. Allah commands both men and women to guard their modesty. (Quran 24:30-31)" },
-    "GA-REMEMBER": { "title": "Remember Allah Abundantly", "content": "Fill your visit with the remembrance of Allah. He says: 'Remember Me and I will remember you.' (Quran 2:152) Every moment in the Haram remembered in dhikr is a moment of divine attention." },
-   "MM-01": { "title": "Sanctity of Makkah", "content": "One must respect the sanctity of Makkah and avoid sins within it, as Allah promises a painful punishment for those who intend evil therein." },
-    "MM-02": { "title": "Prayer in the Holy Mosque", "content": "It is highly recommended to pray frequently in the Haram; one prayer there is better than 100,000 prayers elsewhere." },
-    "MM-03": { "title": "Visiting the Prophet's Mosque", "content": "It is Sunnah to visit the Prophet's ﷺ Mosque. Prayer there is better than a thousand prayers in any other mosque except the Holy Mosque." },
-    "MM-04": { "title": "Lowering the Voice in the Nabawi Mosque", "content": "It is obligatory to lower one's voice out of respect for the Prophet ﷺ, as commanded in the Quran." },
-    "HU-01": { "title": "Entering Ihram from the Miqat", "content": "Anyone intending Hajj or Umrah must enter the state of Ihram at the designated Miqat and should not cross it without doing so." },
-    "HU-02": { "title": "Standing at Arafat", "content": "The greatest pillar of Hajj. One must stand at Arafat during the specified time; missing it invalidates the entire Hajj." },
-    "HU-03": { "title": "Tawaf al-Ifadah", "content": "A fundamental pillar of Hajj that must be performed after standing at Arafat and Muzdalifah." },
-    "HU-04": { "title": "Farewell Tawaf (Wada')", "content": "Obligatory for the pilgrim before leaving Makkah, making the Kaaba the last thing they visit." },
-    "IP-01": { "title": "Using an Umbrella", "content": "It is permissible for a person in Ihram to use an umbrella for shade, as the Prophet ﷺ did." },
-    "IP-02": { "title": "Bathing in Ihram", "content": "It is permissible to take a bath for cleanliness or to cool down while in Ihram." },
-    "IP-03": { "title": "Stitched Clothing for Women", "content": "Women are permitted to wear regular stitched clothing in Ihram, but must avoid the Niqab and gloves." },
-    "MA-01": { "title": "Cleanliness of the Mosques", "content": "It is obligatory to keep the Two Holy Mosques clean and avoid littering; mosques are built for worship, not harm." },
-    "MA-02": { "title": "Trading in the Mosque", "content": "Buying and selling inside the mosque is discouraged as it is built for prayer and remembrance, not commerce." },
-    "MA-04": { "title": "Arriving Early for Prayer", "content": "It is recommended to arrive early to the Haram to secure a place in the front rows and engage in Dhikr." },
-    "MA-05": { "title": "Raising the Voice in Dhikr", "content": "It is discouraged to raise one's voice in recitation or supplication if it disturbs other worshippers." },
-    "RA-01": { "title": "Prayer in the Rawdah", "content": "It is recommended to pray in the Rawdah; the Prophet ﷺ called it one of the gardens of Paradise." },
-    "RA-02": { "title": "Avoiding Harm in the Rawdah", "content": "Pushing or harming others to reach the Rawdah is forbidden. Avoiding harm is a priority over optional prayers." },
-    "SI-01": { "title": "Tahiyyat al-Masjid", "content": "A confirmed Sunnah; do not sit upon entering the mosque until you have performed two units of prayer." },
-    "SI-02": { "title": "Stepping Over People", "content": "It is forbidden to step over the shoulders of worshippers as it causes harm and discomfort." },
-    "SI-03": { "title": "Making Room for Others", "content": "It is recommended to make space for others in gatherings as commanded in the Quran." },
-    "SI-04": { "title": "Reserving Places", "content": "It is discouraged to reserve a spot with a prayer mat and leave it unattended for a long period." },
-    "IT-01": { "title": "Staying in the Mosque for I'tikaf", "content": "A person in I'tikaf must stay within the mosque and only leave for absolute necessities." },
-    "GA-01": { "title": "Lowering the Gaze", "content": "A religious obligation in all places, especially emphasized in the Two Holy Mosques." },
-    "GA-02": { "title": "Avoiding Disputes", "content": "Arguing and disputing is forbidden during Hajj, as stated in the Quran." },
-    "GA-03": { "title": "Modesty for Women", "content": "Women must adhere to modest Islamic dress and avoid revealing or attracting clothing." },
-    "GA-04": { "title": "Refraining from Harm", "content": "A Muslim is one from whose tongue and hand others are safe. Avoid harming pilgrims in word or deed." }
-  ,
+    "IH-01": {
+      "title": "Cutting or Removing Hair",
+      "content": "A person in Ihram should not shave or intentionally remove hair until exiting Ihram."
+    },
+    "IH-02": {
+      "title": "Removing Body Hair",
+      "content": "Removing body hair intentionally is not permitted while in Ihram."
+    },
+    "IH-03": {
+      "title": "Cutting Nails",
+      "content": "Cutting fingernails or toenails intentionally is not permitted during Ihram."
+    },
+    "IH-04": {
+      "title": "Using Perfume",
+      "content": "Applying perfume to the body or clothing after entering Ihram is not allowed."
+    },
+    "IH-05": {
+      "title": "Sexual Intercourse",
+      "content": "Sexual intercourse before the first release from Ihram invalidates the Hajj."
+    },
+    "IH-06": {
+      "title": "Sexual Intimacy",
+      "content": "Acts of intimacy involving sexual desire should be avoided during Ihram."
+    },
+    "IH-07": {
+      "title": "Marriage Contract",
+      "content": "A person in Ihram should not conduct or participate in a marriage contract."
+    },
+    "IH-08": {
+      "title": "Hunting Land Animals",
+      "content": "Hunting or assisting in hunting land animals is not permitted during Ihram."
+    },
+    "IH-M1": {
+      "title": "Wearing Tailored Clothing",
+      "content": "Men in Ihram should not wear garments tailored to fit the body such as shirts, trousers, or similar clothing."
+    },
+    "IH-M2": {
+      "title": "Covering the Head",
+      "content": "Men in Ihram should not cover the head with hats, caps, turbans, or similar items."
+    },
+    "IH-M3": {
+      "title": "Footwear Covering the Ankles",
+      "content": "Men in Ihram should normally avoid footwear that covers the ankles. If open sandals are unavailable, some scholars permit wearing shoes out of necessity."
+    },
+    "IH-F1": {
+      "title": "Wearing Niqab",
+      "content": "A woman in Ihram should not wear a niqab."
+    },
+    "IH-F2": {
+      "title": "Wearing Gloves",
+      "content": "A woman in Ihram should not wear gloves."
+    },
+    "IH-P1": {
+      "title": "Medical Treatment",
+      "content": "Medical treatment such as bandaging wounds or taking medicine is permitted during Ihram."
+    },
+    "IH-P2": {
+      "title": "Using Shade",
+      "content": "Using an umbrella, tent, or shade for protection from the sun is permitted."
+    },
+    "IH-P3": {
+      "title": "Removing Harmful Insects",
+      "content": "Removing harmful insects such as lice is permitted."
+    },
+    "CM-06": {
+      "title": "Starting Tawaf Incorrectly",
+      "content": "Tawaf should begin in line with the Black Stone."
+    },
+    "CM-07": {
+      "title": "Walking Clockwise",
+      "content": "Tawaf must be performed counterclockwise around the Kaaba."
+    },
+    "CM-13": {
+      "title": "Tawaf Without Wudu",
+      "content": "Many scholars state that Tawaf should be performed while in a state of ritual purity."
+    },
+    "CM-14": {
+      "title": "Starting Sa'i from Marwah",
+      "content": "Sa'i should start from Safa and end at Marwah."
+    },
+    "CM-18": {
+      "title": "Leaving Arafat Early",
+      "content": "Pilgrims should remain in Arafat until sunset."
+    },
+    "CM-20": {
+      "title": "Incorrect Time for Stoning",
+      "content": "Jamarat al-Aqaba is normally stoned on the Day of Nahr after sunrise. The remaining Jamarat during the Days of Tashriq are stoned after midday."
+    },
+    "MH-OBEY": {
+      "title": "Follow Crowd Management Instructions",
+      "content": "Pilgrim movement is regulated to maintain safety and reduce crowding. Following official instructions helps prevent harm."
+    },
+    "MA-ENTER-01": {
+      "title": "Enter with the Right Foot",
+      "content": "Enter the Masjid with your right foot and say: 'Bismillah, was-salatu was-salamu ala Rasulillah. Allahumma aftah li abwaba rahmatik' (In the name of Allah, and peace and blessings upon the Messenger of Allah. O Allah, open for me the gates of Your mercy)."
+    },
+    "MA-TAHIYYA-01": {
+      "title": "Pray Tahiyyat Al-Masjid",
+      "content": "Pray two rak'ah (Tahiyyat al-Masjid) upon entering the Masjid before sitting, unless it is a time when prayer is prohibited."
+    },
+    "MA-CLEAN-01": {
+      "title": "Maintain Cleanliness",
+      "content": "Keep the Masjid clean. Dispose of all waste in bins, avoid eating inside prayer areas, and arrange your shoes neatly."
+    },
+    "MA-VOICE-01": {
+      "title": "Raising Your Voice",
+      "content": "Lower your voice inside the Masjid. Loud talking, laughter, and phone calls disturb worshippers and disrespect the sanctity of the place."
+    },
+    "MM-SIN-01": {
+      "title": "Sins Carry Greater Weight in Makkah",
+      "content": "Guard yourself against all sins with extra care in Makkah. While rewards are multiplied in number, wrongdoing carries a greater weight of sin — not in number but in gravity. Allah says: 'Whoever intends to commit wrongdoing therein — We will make him taste a painful punishment.' (Quran 22:25)"
+    },
+    "MM-GOOD-01": {
+      "title": "Good Deeds Are Multiplied",
+      "content": "Prayer in Al-Masjid Al-Haram equals 100,000 prayers elsewhere. Make the most of every moment in worship, dhikr, and supplication."
+    },
+    "MM-RESPECT-01": {
+      "title": "Venerate the Symbols of Allah",
+      "content": "Respect and venerate the sacred symbols of Allah. He says: 'Whoever venerates the symbols of Allah — it is from the piety of hearts.' (Quran 22:32)"
+    },
+    "RA-VIRTUE-01": {
+      "title": "Virtue of the Rawdah",
+      "content": "The Prophet ﷺ said: 'The area between my house and my minbar is a garden from the gardens of Paradise, and my minbar is above my Pool.' (Sahih Al-Bukhari 1196) Pray and supplicate there when you have the opportunity."
+    },
+    "RA-NO-PUSH-01": {
+      "title": "Do Not Push or Crowd",
+      "content": "Do not push or shove others to reach the Rawdah. The Prophet ﷺ would not want his visitors to harm one another. Full reward is attainable by praying anywhere nearby."
+    },
+    "RA-SALAM-01": {
+      "title": "Greeting the Prophet ﷺ",
+      "content": "When near the Prophetic Chamber, send salutations in a low, reverent voice: 'As-salamu alayka ya Rasulallah.' Then turn to face the Qibla to make your personal supplication — direct your dua to Allah, not the chamber."
+    },
+    "SI-CIRCLE-01": {
+      "title": "Circles of Knowledge and Remembrance",
+      "content": "Sitting in circles of dhikr and knowledge in the Masjid is among the best of deeds. Do not interrupt or break up a gathering already in progress."
+    },
+    "SI-MAKE-SPACE": {
+      "title": "Make Space — A Quranic Command",
+      "content": "When asked to make room in a gathering, do so willingly. Allah promises to expand for you in return: your provision, your grave, and your place in Paradise. (Quran 58:11)"
+    },
+    "SI-NO-RESERVE": {
+      "title": "Do Not Displace Others",
+      "content": "Do not ask someone to vacate their place so you can sit in it. The Prophet ﷺ forbade this. Whoever leaves their place and returns is still the most deserving of it."
+    },
+    "IT-STAY-01": {
+      "title": "I'tikaf — Sunnah of the Prophet ﷺ",
+      "content": "I'tikaf (seclusion in the Masjid for worship) is a confirmed Sunnah, especially in the last ten nights of Ramadan. The Prophet ﷺ observed it every year without exception."
+    },
+    "IT-NO-INTIMACY": {
+      "title": "No Intimacy During I'tikaf",
+      "content": "Sexual intimacy invalidates I'tikaf. Allah says: 'Do not approach your wives while you are in seclusion in the mosques.' (Quran 2:187)"
+    },
+    "IT-WORSHIP": {
+      "title": "Fill Your I'tikaf with Worship",
+      "content": "During I'tikaf, fill your time with Quran recitation, dhikr, supplication, and learning. Minimise worldly conversation and all distractions."
+    },
+    "GA-NO-PUSH": {
+      "title": "No Pushing or Crowding",
+      "content": "Pushing, shoving, and crowding that harms others is forbidden under the foundational principle: 'No harm and no reciprocation of harm.' (Ibn Majah 2341)"
+    },
+    "GA-MODESTY": {
+      "title": "Modesty in Sacred Spaces",
+      "content": "Lower your gaze and observe modesty in sacred spaces. Allah commands both men and women to guard their modesty. (Quran 24:30-31)"
+    },
+    "GA-REMEMBER": {
+      "title": "Remember Allah Abundantly",
+      "content": "Fill your visit with the remembrance of Allah. He says: 'Remember Me and I will remember you.' (Quran 2:152) Every moment in the Haram remembered in dhikr is a moment of divine attention."
+    },
+    "MM-01": {
+      "title": "Sanctity of Makkah",
+      "content": "One must respect the sanctity of Makkah and avoid sins within it, as Allah promises a painful punishment for those who intend evil therein."
+    },
+    "MM-02": {
+      "title": "Prayer in the Holy Mosque",
+      "content": "It is highly recommended to pray frequently in the Haram; one prayer there is better than 100,000 prayers elsewhere."
+    },
+    "MM-03": {
+      "title": "Visiting the Prophet's Mosque",
+      "content": "It is Sunnah to visit the Prophet's ﷺ Mosque. Prayer there is better than a thousand prayers in any other mosque except the Holy Mosque."
+    },
+    "MM-04": {
+      "title": "Lowering the Voice in the Nabawi Mosque",
+      "content": "It is obligatory to lower one's voice out of respect for the Prophet ﷺ, as commanded in the Quran."
+    },
+    "HU-01": {
+      "title": "Entering Ihram from the Miqat",
+      "content": "Anyone intending Hajj or Umrah must enter the state of Ihram at the designated Miqat and should not cross it without doing so."
+    },
+    "HU-02": {
+      "title": "Standing at Arafat",
+      "content": "The greatest pillar of Hajj. One must stand at Arafat during the specified time; missing it invalidates the entire Hajj."
+    },
+    "HU-03": {
+      "title": "Tawaf al-Ifadah",
+      "content": "A fundamental pillar of Hajj that must be performed after standing at Arafat and Muzdalifah."
+    },
+    "HU-04": {
+      "title": "Farewell Tawaf (Wada')",
+      "content": "Obligatory for the pilgrim before leaving Makkah, making the Kaaba the last thing they visit."
+    },
+    "IP-01": {
+      "title": "Using an Umbrella",
+      "content": "It is permissible for a person in Ihram to use an umbrella for shade, as the Prophet ﷺ did."
+    },
+    "IP-02": {
+      "title": "Bathing in Ihram",
+      "content": "It is permissible to take a bath for cleanliness or to cool down while in Ihram."
+    },
+    "IP-03": {
+      "title": "Stitched Clothing for Women",
+      "content": "Women are permitted to wear regular stitched clothing in Ihram, but must avoid the Niqab and gloves."
+    },
+    "MA-01": {
+      "title": "Cleanliness of the Mosques",
+      "content": "It is obligatory to keep the Two Holy Mosques clean and avoid littering; mosques are built for worship, not harm."
+    },
+    "MA-02": {
+      "title": "Trading in the Mosque",
+      "content": "Buying and selling inside the mosque is discouraged as it is built for prayer and remembrance, not commerce."
+    },
+    "MA-04": {
+      "title": "Arriving Early for Prayer",
+      "content": "It is recommended to arrive early to the Haram to secure a place in the front rows and engage in Dhikr."
+    },
+    "MA-05": {
+      "title": "Raising the Voice in Dhikr",
+      "content": "It is discouraged to raise one's voice in recitation or supplication if it disturbs other worshippers."
+    },
+    "RA-01": {
+      "title": "Prayer in the Rawdah",
+      "content": "It is recommended to pray in the Rawdah; the Prophet ﷺ called it one of the gardens of Paradise."
+    },
+    "RA-02": {
+      "title": "Avoiding Harm in the Rawdah",
+      "content": "Pushing or harming others to reach the Rawdah is forbidden. Avoiding harm is a priority over optional prayers."
+    },
+    "SI-01": {
+      "title": "Tahiyyat al-Masjid",
+      "content": "A confirmed Sunnah; do not sit upon entering the mosque until you have performed two units of prayer."
+    },
+    "SI-02": {
+      "title": "Stepping Over People",
+      "content": "It is forbidden to step over the shoulders of worshippers as it causes harm and discomfort."
+    },
+    "SI-03": {
+      "title": "Making Room for Others",
+      "content": "It is recommended to make space for others in gatherings as commanded in the Quran."
+    },
+    "SI-04": {
+      "title": "Reserving Places",
+      "content": "It is discouraged to reserve a spot with a prayer mat and leave it unattended for a long period."
+    },
+    "IT-01": {
+      "title": "Staying in the Mosque for I'tikaf",
+      "content": "A person in I'tikaf must stay within the mosque and only leave for absolute necessities."
+    },
+    "GA-01": {
+      "title": "Lowering the Gaze",
+      "content": "A religious obligation in all places, especially emphasized in the Two Holy Mosques."
+    },
+    "GA-02": {
+      "title": "Avoiding Disputes",
+      "content": "Arguing and disputing is forbidden during Hajj, as stated in the Quran."
+    },
+    "GA-03": {
+      "title": "Modesty for Women",
+      "content": "Women must adhere to modest Islamic dress and avoid revealing or attracting clothing."
+    },
+    "GA-04": {
+      "title": "Refraining from Harm",
+      "content": "A Muslim is one from whose tongue and hand others are safe. Avoid harming pilgrims in word or deed."
+    },
     "title": "Etiquette Guide",
     "subtitle": "Ihram rules · Masjid adab · Common mistakes",
     "screen_title": "Etiquette of the Two Holy Mosques",
     "screen_subtitle": "Rulings · Adab · Common mistakes",
     "consequence_label": "Consequence:",
     "permits_mistake": "If done by ignorance or forgetfulness: no sin or fidya",
-    "all_filter": "All"
+    "all_filter": "All",
+    "MA-NABAWI-01": {
+      "title": "Enter in a State of Purity",
+      "content": "Enter Masjid Al-Nabawi in a state of wudu. Complete purification before arriving — not at the mosque gates or corridors. Maintaining cleanliness around the mosque of the Prophet is an act of reverence."
+    },
+    "MA-NABAWI-02": {
+      "title": "Come Free of Offensive Smells",
+      "content": "The Prophet forbade those who ate garlic or onion from approaching the mosque, saying: Let him not come near our mosque, for the angels are harmed by what harms the children of Adam. (Bukhari 854, Muslim 564) Ensure body and clothing are clean and free of strong odors before entering."
+    },
+    "MA-NABAWI-03": {
+      "title": "Dress with Dignity and Modesty",
+      "content": "Wear clean, modest clothing when visiting Masjid Al-Nabawi. Avoid tight or revealing dress. You are visiting the mosque of the Prophet — let your appearance reflect the sanctity of the place."
+    },
+    "MM-VISIT-SUNNAH": {
+      "title": "Visiting Al-Madinah Is Sunnah — Not a Condition of Hajj",
+      "content": "Visiting Masjid Al-Nabawi is a confirmed Sunnah and a great blessing, but it is NOT a condition or pillar of Hajj or Umrah. Many pilgrims mistakenly believe their pilgrimage is incomplete without it. Make your intention to visit the Masjid — not to visit the grave (per Ibn Uthaymin and the majority of scholars). Prayer here equals 1,000 prayers elsewhere, except Al-Masjid Al-Haram."
+    },
+    "MM-DAJJAL": {
+      "title": "Al-Madinah Is Protected from the Dajjal",
+      "content": "The Prophet said: Neither the plague nor the Dajjal shall enter Al-Madinah. At its every gate stand angels in rows guarding it. (Bukhari 1880) Al-Madinah also purifies itself — expelling the insincere as a fire removes impurities from iron. This is among the greatest virtues of Al-Madinah Al-Munawwarah."
+    },
+    "MM-QUBA": {
+      "title": "Two Rak'ahs at Masjid Quba Equal One Umrah",
+      "content": "The Prophet said: Whoever purifies himself in his house then comes to Masjid Quba and prays two rak'ahs therein will have a reward like that of Umrah. (Tirmidhi 324) The Prophet used to visit Masjid Quba every Saturday, walking or riding. Do not miss this during your stay in Al-Madinah."
+    },
+    "MM-FIRST-HOUSE": {
+      "title": "The First House of Worship on Earth",
+      "content": "Allah says: Indeed, the first house established for people is that at Bakkah — blessed and a guidance for the worlds. (Quran 3:96) The Kaaba was consecrated by Allah before the creation of the heavens and earth. Standing before it, you are in the most ancient place of worship on earth."
+    },
+    "MM-ZAMZAM-VIRTUE": {
+      "title": "The Virtue and Etiquette of Zamzam",
+      "content": "The Prophet said: The water of Zamzam is for whatever it is drunk for. (Ibn Majah 3062) Drink facing the Qibla, in three breaths, saying Bismillah each time. Make your intention before drinking — for healing, knowledge, sustenance, or any good you seek. Drink your fill; it is a blessing millions cannot access."
+    }
   },
   "visit": {
     "haram_title": "Masjid Al Haram",

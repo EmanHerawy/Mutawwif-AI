@@ -8,6 +8,8 @@ export type AzkarCategory =
   | 'sai_lap_specific'
   | 'zamzam'
   | 'maqam_ibrahim'
+  | 'hajj_rites'
+  | 'nabawi'
   | 'morning'
   | 'evening'
   | 'general';
